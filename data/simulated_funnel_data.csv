@@ -1,0 +1,2501 @@
+cand_id,rec_id,job_role,location,source,app_date,score,application,screening,interview,offer,hired
+C0001,R1,Software Engineer,London,LinkedIn,2024-10-02,68,1,1,0,0,0
+C0002,R5,HR Specialist,Bristol,Job board,2024-07-19,55,1,1,0,0,0
+C0003,R4,Software Engineer,Edinburgh,Careers page,2024-02-05,60,1,1,0,0,0
+C0004,R2,Data Analyst,Edinburgh,Job board,2024-02-15,47,1,0,0,0,0
+C0005,R2,HR Specialist,London,Job board,2024-11-01,42,1,0,0,0,0
+C0006,R1,HR Specialist,London,Job board,2024-03-07,69,1,1,1,1,1
+C0007,R4,HR Specialist,London,LinkedIn,2024-01-12,67,1,0,0,0,0
+C0008,R2,Software Engineer,Manchester,LinkedIn,2024-06-16,69,1,0,0,0,0
+C0009,R3,Marketing Associate,Edinburgh,LinkedIn,2024-08-18,72,1,1,1,1,1
+C0010,R4,HR Specialist,London,LinkedIn,2024-06-25,65,1,1,0,0,0
+C0011,R2,Data Analyst,London,Job board,2024-04-17,78,1,0,0,0,0
+C0012,R4,Data Analyst,Bristol,Careers page,2024-06-29,64,1,1,1,0,0
+C0013,R3,Data Analyst,Manchester,Job board,2024-06-01,66,1,1,0,0,0
+C0014,R3,Data Analyst,Bristol,LinkedIn,2024-08-22,70,1,1,0,0,0
+C0015,R1,Software Engineer,Edinburgh,LinkedIn,2024-09-10,69,1,1,0,0,0
+C0016,R2,HR Specialist,Bristol,Job board,2024-06-05,57,1,0,0,0,0
+C0017,R1,HR Specialist,London,Careers page,2024-11-12,48,1,0,0,0,0
+C0018,R1,HR Specialist,London,Careers page,2024-01-31,67,1,1,1,0,0
+C0019,R1,HR Specialist,Bristol,LinkedIn,2024-02-21,71,1,1,0,0,0
+C0020,R2,Data Analyst,Manchester,LinkedIn,2024-02-24,73,1,1,1,0,0
+C0021,R2,Software Engineer,Bristol,LinkedIn,2024-07-29,69,1,1,1,1,1
+C0022,R3,HR Specialist,Bristol,Careers page,2024-05-04,61,1,1,1,0,0
+C0023,R3,Software Engineer,Edinburgh,Careers page,2024-01-16,63,1,1,1,0,0
+C0024,R2,Data Analyst,London,LinkedIn,2024-06-26,69,1,1,0,0,0
+C0025,R3,Data Analyst,Edinburgh,LinkedIn,2024-07-13,70,1,1,0,0,0
+C0026,R5,Marketing Associate,London,LinkedIn,2024-07-31,67,1,1,0,0,0
+C0027,R4,Data Analyst,London,LinkedIn,2024-03-14,72,1,1,0,0,0
+C0028,R3,Data Analyst,Edinburgh,Careers page,2024-12-30,73,1,1,1,1,1
+C0029,R1,HR Specialist,Edinburgh,LinkedIn,2024-10-28,76,1,1,1,0,0
+C0030,R1,Marketing Associate,Edinburgh,Job board,2024-05-26,61,1,0,0,0,0
+C0031,R2,Software Engineer,London,LinkedIn,2024-05-21,73,1,1,0,0,0
+C0032,R2,HR Specialist,Manchester,Job board,2024-12-05,36,1,0,0,0,0
+C0033,R3,HR Specialist,Manchester,LinkedIn,2024-11-19,69,1,1,0,0,0
+C0034,R5,HR Specialist,London,Careers page,2024-08-28,42,1,1,0,0,0
+C0035,R1,Marketing Associate,London,Job board,2024-03-18,46,1,1,1,1,1
+C0036,R4,Data Analyst,Bristol,Job board,2024-01-12,44,1,0,0,0,0
+C0037,R5,HR Specialist,Edinburgh,Job board,2024-09-20,72,1,0,0,0,0
+C0038,R1,Software Engineer,London,Job board,2024-05-29,69,1,1,1,1,0
+C0039,R1,Software Engineer,Edinburgh,LinkedIn,2024-09-14,70,1,1,0,0,0
+C0040,R1,Marketing Associate,Bristol,LinkedIn,2024-04-29,67,1,0,0,0,0
+C0041,R1,Software Engineer,Bristol,LinkedIn,2024-11-14,66,1,1,0,0,0
+C0042,R4,Data Analyst,London,Careers page,2024-05-14,42,1,1,0,0,0
+C0043,R4,Software Engineer,Bristol,LinkedIn,2024-10-20,66,1,1,1,0,0
+C0044,R4,Software Engineer,Bristol,Job board,2024-10-02,67,1,1,0,0,0
+C0045,R1,HR Specialist,London,LinkedIn,2024-04-22,73,1,1,1,0,0
+C0046,R1,Marketing Associate,Bristol,LinkedIn,2024-01-02,72,1,1,1,1,1
+C0047,R1,Data Analyst,Edinburgh,LinkedIn,2024-06-21,71,1,1,0,0,0
+C0048,R4,Marketing Associate,Manchester,LinkedIn,2024-07-26,73,1,1,0,0,0
+C0049,R1,HR Specialist,London,Job board,2024-05-15,52,1,0,0,0,0
+C0050,R2,Data Analyst,Bristol,Job board,2024-01-26,77,1,1,1,0,0
+C0051,R1,HR Specialist,London,LinkedIn,2024-07-05,73,1,1,1,1,1
+C0052,R4,Data Analyst,London,LinkedIn,2024-01-16,73,1,1,0,0,0
+C0053,R5,HR Specialist,Edinburgh,Job board,2024-08-08,70,1,0,0,0,0
+C0054,R1,HR Specialist,Bristol,Job board,2024-09-23,84,1,1,1,0,0
+C0055,R3,Software Engineer,London,LinkedIn,2024-12-03,73,1,1,1,0,0
+C0056,R1,HR Specialist,London,LinkedIn,2024-06-06,70,1,0,0,0,0
+C0057,R1,HR Specialist,Manchester,LinkedIn,2024-06-23,70,1,1,0,0,0
+C0058,R5,Data Analyst,Bristol,Careers page,2024-11-18,58,1,1,0,0,0
+C0059,R2,HR Specialist,London,Job board,2024-10-04,44,1,1,0,0,0
+C0060,R4,Data Analyst,Manchester,LinkedIn,2024-07-09,70,1,1,0,0,0
+C0061,R3,Data Analyst,London,LinkedIn,2024-08-24,73,1,1,1,0,0
+C0062,R1,Software Engineer,Edinburgh,LinkedIn,2024-08-25,75,1,1,1,0,0
+C0063,R4,HR Specialist,Manchester,LinkedIn,2024-04-21,66,1,1,1,1,1
+C0064,R1,HR Specialist,London,Careers page,2024-05-05,57,1,0,0,0,0
+C0065,R5,HR Specialist,London,LinkedIn,2024-05-31,66,1,1,0,0,0
+C0066,R4,Software Engineer,Edinburgh,LinkedIn,2024-01-30,70,1,0,0,0,0
+C0067,R5,Data Analyst,London,Job board,2024-12-30,39,1,0,0,0,0
+C0068,R5,Data Analyst,Manchester,LinkedIn,2024-10-10,69,1,0,0,0,0
+C0069,R5,Data Analyst,Manchester,LinkedIn,2024-03-23,71,1,1,1,0,0
+C0070,R4,Software Engineer,Manchester,Careers page,2024-11-02,65,1,0,0,0,0
+C0071,R5,HR Specialist,Edinburgh,LinkedIn,2024-08-30,71,1,1,1,0,0
+C0072,R3,HR Specialist,Manchester,LinkedIn,2024-10-29,68,1,1,1,0,0
+C0073,R5,Data Analyst,Manchester,Job board,2024-02-16,43,1,1,0,0,0
+C0074,R1,HR Specialist,Edinburgh,LinkedIn,2024-03-20,70,1,1,0,0,0
+C0075,R4,Data Analyst,London,LinkedIn,2024-03-08,68,1,1,0,0,0
+C0076,R1,Data Analyst,London,Careers page,2024-02-24,60,1,1,0,0,0
+C0077,R4,Data Analyst,Edinburgh,Job board,2024-06-07,37,1,0,0,0,0
+C0078,R3,Data Analyst,Edinburgh,LinkedIn,2024-10-21,69,1,1,0,0,0
+C0079,R4,Data Analyst,Bristol,Job board,2024-05-27,4,1,0,0,0,0
+C0080,R1,Software Engineer,London,LinkedIn,2024-12-26,70,1,1,0,0,0
+C0081,R1,Software Engineer,London,LinkedIn,2024-07-13,69,1,1,0,0,0
+C0082,R3,Data Analyst,Manchester,Job board,2024-06-19,69,1,1,0,0,0
+C0083,R4,Marketing Associate,Bristol,LinkedIn,2024-11-30,69,1,1,1,0,0
+C0084,R5,Data Analyst,Manchester,LinkedIn,2024-05-18,70,1,0,0,0,0
+C0085,R1,HR Specialist,London,Careers page,2024-01-02,57,1,1,0,0,0
+C0086,R4,HR Specialist,Manchester,LinkedIn,2024-04-21,66,1,1,0,0,0
+C0087,R2,Marketing Associate,London,LinkedIn,2024-10-25,69,1,1,0,0,0
+C0088,R2,Software Engineer,Manchester,Job board,2024-06-22,66,1,1,0,0,0
+C0089,R2,HR Specialist,London,LinkedIn,2024-03-15,69,1,0,0,0,0
+C0090,R1,Data Analyst,Manchester,Job board,2024-01-21,57,1,1,0,0,0
+C0091,R1,HR Specialist,London,LinkedIn,2024-09-19,68,1,0,0,0,0
+C0092,R3,Software Engineer,Manchester,Job board,2024-08-07,84,1,1,0,0,0
+C0093,R1,HR Specialist,Bristol,LinkedIn,2024-05-29,74,1,1,1,0,0
+C0094,R3,Data Analyst,Manchester,Job board,2024-07-04,63,1,1,0,0,0
+C0095,R1,Data Analyst,Edinburgh,Job board,2024-10-28,54,1,1,0,0,0
+C0096,R1,Software Engineer,London,LinkedIn,2024-09-13,70,1,1,1,0,0
+C0097,R5,HR Specialist,Edinburgh,LinkedIn,2024-12-11,68,1,1,1,0,0
+C0098,R1,Software Engineer,Edinburgh,Careers page,2024-03-09,52,1,0,0,0,0
+C0099,R4,Software Engineer,London,Job board,2024-07-16,56,1,1,1,0,0
+C0100,R4,Data Analyst,London,LinkedIn,2024-01-26,71,1,1,1,1,1
+C0101,R3,Data Analyst,Manchester,Job board,2024-05-11,66,1,1,0,0,0
+C0102,R1,HR Specialist,Edinburgh,LinkedIn,2024-04-28,70,1,1,0,0,0
+C0103,R4,Data Analyst,Edinburgh,Job board,2024-02-12,64,1,1,1,0,0
+C0104,R2,Software Engineer,London,Job board,2024-11-11,97,1,1,0,0,0
+C0105,R4,Data Analyst,Edinburgh,Job board,2024-01-31,65,1,0,0,0,0
+C0106,R2,Data Analyst,Manchester,LinkedIn,2024-11-05,70,1,1,0,0,0
+C0107,R2,HR Specialist,London,LinkedIn,2024-07-25,73,1,1,1,0,0
+C0108,R3,Data Analyst,Manchester,Job board,2024-08-26,72,1,1,1,0,0
+C0109,R4,HR Specialist,Edinburgh,LinkedIn,2024-06-25,69,1,0,0,0,0
+C0110,R1,HR Specialist,Edinburgh,Job board,2024-09-19,40,1,1,1,1,1
+C0111,R2,Software Engineer,London,Job board,2024-05-29,44,1,1,0,0,0
+C0112,R1,Data Analyst,London,LinkedIn,2024-03-23,70,1,1,1,0,0
+C0113,R1,Data Analyst,Bristol,Job board,2024-12-09,45,1,1,1,1,1
+C0114,R2,HR Specialist,London,LinkedIn,2024-11-26,72,1,1,1,0,0
+C0115,R5,HR Specialist,London,Job board,2024-03-03,43,1,1,0,0,0
+C0116,R1,Software Engineer,Manchester,LinkedIn,2024-03-16,66,1,1,0,0,0
+C0117,R4,Data Analyst,Edinburgh,Job board,2024-09-25,30,1,0,0,0,0
+C0118,R2,HR Specialist,Bristol,Careers page,2024-07-19,43,1,0,0,0,0
+C0119,R3,HR Specialist,Manchester,Job board,2024-05-23,68,1,0,0,0,0
+C0120,R4,Marketing Associate,London,Job board,2024-06-12,34,1,0,0,0,0
+C0121,R3,Marketing Associate,London,LinkedIn,2024-04-14,69,1,1,0,0,0
+C0122,R1,Data Analyst,Bristol,Careers page,2024-06-10,43,1,1,1,0,0
+C0123,R1,Data Analyst,Bristol,LinkedIn,2024-04-30,74,1,1,1,1,1
+C0124,R1,HR Specialist,London,LinkedIn,2024-11-05,67,1,1,1,0,0
+C0125,R4,Software Engineer,Manchester,Job board,2024-06-23,40,1,0,0,0,0
+C0126,R2,HR Specialist,Manchester,Job board,2024-12-11,81,1,1,0,0,0
+C0127,R1,Data Analyst,Edinburgh,LinkedIn,2024-02-05,73,1,1,1,0,0
+C0128,R1,Data Analyst,Bristol,Careers page,2024-01-06,58,1,1,1,1,1
+C0129,R1,Data Analyst,Manchester,Careers page,2024-06-08,69,1,1,0,0,0
+C0130,R3,Data Analyst,Edinburgh,Careers page,2024-04-27,66,1,1,0,0,0
+C0131,R3,HR Specialist,Edinburgh,LinkedIn,2024-05-29,71,1,1,0,0,0
+C0132,R2,Software Engineer,London,Job board,2024-06-10,42,1,0,0,0,0
+C0133,R3,Data Analyst,Manchester,Job board,2024-02-20,64,1,1,0,0,0
+C0134,R5,HR Specialist,London,Careers page,2024-02-20,36,1,0,0,0,0
+C0135,R4,Data Analyst,Bristol,LinkedIn,2024-06-09,70,1,0,0,0,0
+C0136,R3,Data Analyst,Edinburgh,Job board,2024-07-11,74,1,1,1,0,0
+C0137,R5,Software Engineer,London,LinkedIn,2024-10-26,69,1,1,0,0,0
+C0138,R5,HR Specialist,Bristol,Job board,2024-11-27,25,1,0,0,0,0
+C0139,R2,HR Specialist,Edinburgh,LinkedIn,2024-10-16,69,1,1,0,0,0
+C0140,R4,HR Specialist,London,LinkedIn,2024-11-14,67,1,1,1,0,0
+C0141,R1,Data Analyst,Manchester,Careers page,2024-03-02,56,1,1,1,1,1
+C0142,R4,Marketing Associate,London,LinkedIn,2024-04-21,71,1,1,0,0,0
+C0143,R1,Data Analyst,Edinburgh,LinkedIn,2024-12-27,74,1,1,0,0,0
+C0144,R1,Data Analyst,London,Job board,2024-12-13,48,1,0,0,0,0
+C0145,R5,Marketing Associate,London,Job board,2024-04-27,37,1,0,0,0,0
+C0146,R1,Software Engineer,London,Job board,2024-04-22,71,1,1,0,0,0
+C0147,R1,Marketing Associate,Manchester,Job board,2024-01-10,53,1,0,0,0,0
+C0148,R1,Data Analyst,London,LinkedIn,2024-01-27,72,1,1,1,0,0
+C0149,R1,HR Specialist,London,LinkedIn,2024-11-14,72,1,1,0,0,0
+C0150,R5,Data Analyst,London,Job board,2024-05-26,43,1,1,1,0,0
+C0151,R5,Software Engineer,Edinburgh,Job board,2024-02-14,37,1,0,0,0,0
+C0152,R4,Software Engineer,London,Job board,2024-06-16,64,1,1,0,0,0
+C0153,R4,Software Engineer,London,Careers page,2024-07-04,60,1,0,0,0,0
+C0154,R1,Data Analyst,Manchester,Job board,2024-10-10,25,1,0,0,0,0
+C0155,R1,Data Analyst,Bristol,Job board,2024-06-29,69,1,0,0,0,0
+C0156,R4,HR Specialist,London,LinkedIn,2024-03-25,72,1,1,1,0,0
+C0157,R3,Data Analyst,Edinburgh,Job board,2024-08-04,69,1,1,0,0,0
+C0158,R1,Software Engineer,London,Job board,2024-11-24,69,1,1,1,0,0
+C0159,R4,Data Analyst,Manchester,LinkedIn,2024-03-25,70,1,1,1,1,1
+C0160,R1,HR Specialist,Manchester,LinkedIn,2024-03-02,69,1,1,0,0,0
+C0161,R4,Data Analyst,Bristol,Job board,2024-09-04,50,1,1,0,0,0
+C0162,R4,Data Analyst,London,LinkedIn,2024-08-11,74,1,1,1,1,1
+C0163,R3,Software Engineer,Manchester,Job board,2024-04-29,53,1,0,0,0,0
+C0164,R4,Data Analyst,Manchester,LinkedIn,2024-01-28,71,1,1,1,0,0
+C0165,R4,Data Analyst,Edinburgh,LinkedIn,2024-02-08,71,1,1,1,0,0
+C0166,R4,HR Specialist,London,Job board,2024-07-13,69,1,0,0,0,0
+C0167,R5,HR Specialist,Edinburgh,Job board,2024-06-04,80,1,1,1,1,1
+C0168,R1,HR Specialist,Edinburgh,LinkedIn,2024-01-11,73,1,1,0,0,0
+C0169,R4,HR Specialist,Edinburgh,Careers page,2024-09-09,67,1,1,0,0,0
+C0170,R1,Data Analyst,Manchester,LinkedIn,2024-06-04,71,1,1,1,1,1
+C0171,R3,Data Analyst,London,LinkedIn,2024-08-12,73,1,1,1,1,1
+C0172,R1,Data Analyst,London,LinkedIn,2024-08-09,70,1,0,0,0,0
+C0173,R2,Software Engineer,London,Job board,2024-04-20,56,1,0,0,0,0
+C0174,R5,Data Analyst,London,LinkedIn,2024-11-16,73,1,1,1,1,1
+C0175,R3,Data Analyst,London,LinkedIn,2024-06-08,73,1,1,1,1,0
+C0176,R3,Data Analyst,Manchester,LinkedIn,2024-09-14,72,1,1,1,0,0
+C0177,R4,HR Specialist,London,Job board,2024-03-20,50,1,1,0,0,0
+C0178,R4,Software Engineer,London,LinkedIn,2024-01-24,73,1,1,1,1,1
+C0179,R2,Data Analyst,Edinburgh,LinkedIn,2024-10-18,72,1,1,1,1,0
+C0180,R3,HR Specialist,London,LinkedIn,2024-05-16,68,1,1,0,0,0
+C0181,R5,HR Specialist,Manchester,Job board,2024-05-04,61,1,1,1,0,0
+C0182,R1,Data Analyst,Edinburgh,LinkedIn,2024-08-10,74,1,1,1,0,0
+C0183,R5,Marketing Associate,London,LinkedIn,2024-08-03,68,1,1,1,0,0
+C0184,R1,Marketing Associate,London,LinkedIn,2024-02-25,73,1,1,0,0,0
+C0185,R3,Data Analyst,Bristol,Job board,2024-03-11,42,1,1,1,0,0
+C0186,R4,Software Engineer,Bristol,Job board,2024-08-28,45,1,1,1,0,0
+C0187,R1,Data Analyst,Edinburgh,Careers page,2024-03-01,44,1,1,0,0,0
+C0188,R3,Marketing Associate,London,LinkedIn,2024-01-10,71,1,1,1,0,0
+C0189,R2,Data Analyst,Bristol,LinkedIn,2024-10-18,74,1,1,0,0,0
+C0190,R2,Marketing Associate,Edinburgh,LinkedIn,2024-04-01,70,1,1,1,0,0
+C0191,R1,Data Analyst,Bristol,LinkedIn,2024-03-10,72,1,1,1,0,0
+C0192,R1,Data Analyst,London,LinkedIn,2024-08-06,72,1,1,1,0,0
+C0193,R2,Data Analyst,London,Careers page,2024-04-12,63,1,0,0,0,0
+C0194,R3,HR Specialist,Manchester,Job board,2024-02-04,52,1,0,0,0,0
+C0195,R2,HR Specialist,London,Careers page,2024-02-16,77,1,1,0,0,0
+C0196,R4,Marketing Associate,Edinburgh,Careers page,2024-04-27,68,1,1,0,0,0
+C0197,R4,Data Analyst,London,Careers page,2024-11-07,65,1,0,0,0,0
+C0198,R3,Software Engineer,Bristol,LinkedIn,2024-03-23,75,1,1,1,0,0
+C0199,R1,HR Specialist,Edinburgh,LinkedIn,2024-06-08,70,1,0,0,0,0
+C0200,R3,Marketing Associate,Bristol,Job board,2024-10-09,28,1,0,0,0,0
+C0201,R1,HR Specialist,Bristol,LinkedIn,2024-07-30,69,1,0,0,0,0
+C0202,R2,Software Engineer,London,Job board,2024-08-22,49,1,0,0,0,0
+C0203,R3,Data Analyst,London,Job board,2024-03-08,42,1,0,0,0,0
+C0204,R4,HR Specialist,London,LinkedIn,2024-09-19,69,1,1,1,0,0
+C0205,R4,Data Analyst,London,Job board,2024-05-19,45,1,1,0,0,0
+C0206,R2,Marketing Associate,Manchester,LinkedIn,2024-05-16,70,1,1,1,0,0
+C0207,R4,Software Engineer,Edinburgh,Careers page,2024-07-29,58,1,1,1,0,0
+C0208,R1,Software Engineer,Bristol,LinkedIn,2024-10-15,68,1,1,0,0,0
+C0209,R1,Software Engineer,London,Job board,2024-05-24,46,1,1,1,0,0
+C0210,R1,HR Specialist,Edinburgh,LinkedIn,2024-10-01,75,1,1,1,1,1
+C0211,R4,Marketing Associate,Bristol,Job board,2024-04-01,32,1,0,0,0,0
+C0212,R1,HR Specialist,London,Job board,2024-10-09,60,1,0,0,0,0
+C0213,R1,HR Specialist,Edinburgh,Careers page,2024-08-14,49,1,1,0,0,0
+C0214,R3,Data Analyst,Manchester,Job board,2024-10-03,67,1,1,0,0,0
+C0215,R1,Data Analyst,London,Job board,2024-06-11,84,1,1,0,0,0
+C0216,R5,Marketing Associate,Manchester,LinkedIn,2024-07-15,74,1,1,1,1,0
+C0217,R4,Data Analyst,Manchester,Job board,2024-08-31,37,1,0,0,0,0
+C0218,R4,Data Analyst,Edinburgh,LinkedIn,2024-01-01,75,1,1,1,1,1
+C0219,R5,HR Specialist,Manchester,Job board,2024-01-13,69,1,0,0,0,0
+C0220,R2,HR Specialist,Bristol,LinkedIn,2024-05-02,70,1,1,1,0,0
+C0221,R1,Marketing Associate,London,LinkedIn,2024-02-21,70,1,0,0,0,0
+C0222,R2,Data Analyst,Manchester,LinkedIn,2024-11-18,71,1,1,1,0,0
+C0223,R5,HR Specialist,Manchester,LinkedIn,2024-04-16,69,1,0,0,0,0
+C0224,R3,Marketing Associate,Edinburgh,LinkedIn,2024-10-20,70,1,1,0,0,0
+C0225,R1,Software Engineer,London,LinkedIn,2024-07-17,71,1,1,1,1,1
+C0226,R4,Marketing Associate,Manchester,LinkedIn,2024-11-06,70,1,1,1,0,0
+C0227,R4,Software Engineer,London,LinkedIn,2024-11-07,70,1,1,1,1,1
+C0228,R3,Data Analyst,Edinburgh,LinkedIn,2024-06-26,68,1,0,0,0,0
+C0229,R3,Data Analyst,Manchester,Careers page,2024-07-20,59,1,1,0,0,0
+C0230,R2,Data Analyst,London,LinkedIn,2024-01-14,71,1,1,1,1,1
+C0231,R3,HR Specialist,Edinburgh,LinkedIn,2024-10-03,68,1,0,0,0,0
+C0232,R4,Software Engineer,Manchester,LinkedIn,2024-02-02,69,1,1,1,0,0
+C0233,R4,Marketing Associate,Bristol,LinkedIn,2024-01-10,69,1,1,1,1,1
+C0234,R1,HR Specialist,London,LinkedIn,2024-09-28,72,1,1,1,1,1
+C0235,R1,Software Engineer,London,LinkedIn,2024-07-19,74,1,1,1,0,0
+C0236,R4,HR Specialist,London,Job board,2024-01-30,78,1,1,1,0,0
+C0237,R1,HR Specialist,Edinburgh,Careers page,2024-08-29,94,1,1,1,1,1
+C0238,R5,Software Engineer,Manchester,LinkedIn,2024-05-14,68,1,1,0,0,0
+C0239,R1,HR Specialist,London,Job board,2024-08-29,72,1,1,1,1,0
+C0240,R5,Software Engineer,London,LinkedIn,2024-04-26,70,1,1,1,1,0
+C0241,R4,Data Analyst,Bristol,Careers page,2024-01-29,50,1,0,0,0,0
+C0242,R3,Data Analyst,London,LinkedIn,2024-04-19,65,1,0,0,0,0
+C0243,R1,Data Analyst,Manchester,LinkedIn,2024-12-15,66,1,1,0,0,0
+C0244,R3,Data Analyst,Manchester,Job board,2024-10-24,51,1,1,0,0,0
+C0245,R1,Marketing Associate,Bristol,Careers page,2024-11-19,60,1,0,0,0,0
+C0246,R5,Software Engineer,Manchester,LinkedIn,2024-11-20,73,1,1,1,0,0
+C0247,R4,Data Analyst,London,Job board,2024-04-12,52,1,1,0,0,0
+C0248,R2,Data Analyst,Manchester,LinkedIn,2024-03-23,71,1,1,1,1,0
+C0249,R2,Data Analyst,Edinburgh,Job board,2024-07-08,50,1,1,0,0,0
+C0250,R5,HR Specialist,Manchester,Careers page,2024-01-21,64,1,1,0,0,0
+C0251,R1,Software Engineer,Manchester,Careers page,2024-05-27,74,1,1,1,0,0
+C0252,R1,Data Analyst,Manchester,LinkedIn,2024-02-28,70,1,1,0,0,0
+C0253,R3,Data Analyst,Bristol,LinkedIn,2024-01-24,69,1,1,0,0,0
+C0254,R1,HR Specialist,London,Job board,2024-09-23,41,1,0,0,0,0
+C0255,R4,Data Analyst,Manchester,LinkedIn,2024-03-06,70,1,0,0,0,0
+C0256,R5,HR Specialist,Edinburgh,Careers page,2024-05-12,47,1,1,0,0,0
+C0257,R1,Data Analyst,Bristol,Job board,2024-02-15,69,1,1,0,0,0
+C0258,R4,Marketing Associate,Manchester,Job board,2024-01-07,60,1,1,1,0,0
+C0259,R4,Software Engineer,London,LinkedIn,2024-11-10,69,1,1,0,0,0
+C0260,R2,HR Specialist,Manchester,LinkedIn,2024-10-30,67,1,1,1,0,0
+C0261,R2,HR Specialist,London,Job board,2024-01-20,34,1,0,0,0,0
+C0262,R2,Data Analyst,London,Careers page,2024-06-16,42,1,1,0,0,0
+C0263,R3,HR Specialist,Manchester,LinkedIn,2024-07-03,66,1,1,1,0,0
+C0264,R2,Data Analyst,London,LinkedIn,2024-09-16,69,1,1,0,0,0
+C0265,R4,HR Specialist,London,Job board,2024-01-20,53,1,0,0,0,0
+C0266,R3,HR Specialist,London,LinkedIn,2024-10-04,69,1,0,0,0,0
+C0267,R1,Software Engineer,London,LinkedIn,2024-02-08,72,1,1,1,0,0
+C0268,R1,Data Analyst,London,Job board,2024-08-26,75,1,1,0,0,0
+C0269,R1,Software Engineer,Bristol,Job board,2024-05-13,53,1,0,0,0,0
+C0270,R4,HR Specialist,London,Job board,2024-10-26,75,1,1,1,0,0
+C0271,R2,Data Analyst,Bristol,LinkedIn,2024-07-04,74,1,1,1,0,0
+C0272,R1,Data Analyst,Manchester,Careers page,2024-08-29,44,1,1,1,0,0
+C0273,R1,HR Specialist,Bristol,Careers page,2024-08-22,50,1,1,0,0,0
+C0274,R1,HR Specialist,London,LinkedIn,2024-06-12,73,1,1,0,0,0
+C0275,R5,HR Specialist,London,LinkedIn,2024-09-22,69,1,1,1,0,0
+C0276,R5,Software Engineer,London,LinkedIn,2024-09-03,69,1,1,1,0,0
+C0277,R2,Software Engineer,Manchester,Job board,2024-06-17,69,1,1,0,0,0
+C0278,R4,Data Analyst,London,Careers page,2024-01-16,53,1,1,1,0,0
+C0279,R1,Data Analyst,Manchester,LinkedIn,2024-06-27,70,1,0,0,0,0
+C0280,R3,Data Analyst,London,LinkedIn,2024-10-21,68,1,0,0,0,0
+C0281,R5,Data Analyst,London,Careers page,2024-04-21,64,1,1,1,0,0
+C0282,R1,Software Engineer,London,Careers page,2024-09-16,60,1,1,1,0,0
+C0283,R4,Data Analyst,Manchester,LinkedIn,2024-08-08,71,1,1,1,0,0
+C0284,R1,Marketing Associate,Edinburgh,LinkedIn,2024-01-08,69,1,1,0,0,0
+C0285,R1,Software Engineer,London,LinkedIn,2024-09-07,70,1,1,1,0,0
+C0286,R4,HR Specialist,Manchester,LinkedIn,2024-10-05,67,1,1,0,0,0
+C0287,R1,Software Engineer,London,Job board,2024-04-03,77,1,1,1,0,0
+C0288,R1,Data Analyst,London,LinkedIn,2024-09-19,74,1,1,1,1,1
+C0289,R1,Software Engineer,Edinburgh,Job board,2024-07-13,26,1,0,0,0,0
+C0290,R3,Marketing Associate,Manchester,LinkedIn,2024-09-05,72,1,1,1,0,0
+C0291,R1,Data Analyst,London,Job board,2024-09-06,27,1,0,0,0,0
+C0292,R1,HR Specialist,Edinburgh,LinkedIn,2024-03-25,71,1,1,0,0,0
+C0293,R1,HR Specialist,Manchester,Job board,2024-07-03,45,1,1,0,0,0
+C0294,R2,HR Specialist,London,LinkedIn,2024-02-11,72,1,1,1,1,0
+C0295,R5,Software Engineer,London,LinkedIn,2024-07-08,71,1,1,0,0,0
+C0296,R5,HR Specialist,Bristol,Job board,2024-05-26,35,1,0,0,0,0
+C0297,R2,HR Specialist,Manchester,Careers page,2024-12-16,47,1,1,1,0,0
+C0298,R1,HR Specialist,Manchester,Job board,2024-01-15,67,1,1,0,0,0
+C0299,R1,Data Analyst,Edinburgh,Job board,2024-10-23,65,1,0,0,0,0
+C0300,R5,Software Engineer,Edinburgh,LinkedIn,2024-10-01,70,1,1,1,1,1
+C0301,R5,Data Analyst,Edinburgh,LinkedIn,2024-06-09,72,1,1,0,0,0
+C0302,R1,HR Specialist,Bristol,LinkedIn,2024-08-30,67,1,1,0,0,0
+C0303,R5,Data Analyst,London,LinkedIn,2024-03-30,71,1,1,0,0,0
+C0304,R5,Data Analyst,London,Job board,2024-01-11,38,1,0,0,0,0
+C0305,R3,Software Engineer,Bristol,Careers page,2024-11-05,56,1,1,0,0,0
+C0306,R4,HR Specialist,London,LinkedIn,2024-07-18,68,1,1,0,0,0
+C0307,R1,Data Analyst,Bristol,Job board,2024-12-03,57,1,1,1,1,1
+C0308,R1,Marketing Associate,London,LinkedIn,2024-07-24,73,1,1,1,1,1
+C0309,R4,HR Specialist,Manchester,LinkedIn,2024-02-21,65,1,1,1,0,0
+C0310,R4,Marketing Associate,Manchester,LinkedIn,2024-02-09,67,1,1,1,0,0
+C0311,R4,Marketing Associate,Manchester,Careers page,2024-12-08,59,1,1,1,0,0
+C0312,R4,Data Analyst,Manchester,Careers page,2024-11-08,78,1,1,0,0,0
+C0313,R5,Software Engineer,Manchester,LinkedIn,2024-02-09,69,1,0,0,0,0
+C0314,R1,Software Engineer,London,Careers page,2024-03-17,62,1,0,0,0,0
+C0315,R4,Marketing Associate,Manchester,Job board,2024-07-05,24,1,0,0,0,0
+C0316,R5,Data Analyst,London,LinkedIn,2024-11-12,70,1,1,0,0,0
+C0317,R5,Data Analyst,Manchester,Careers page,2024-06-08,81,1,0,0,0,0
+C0318,R1,Marketing Associate,Edinburgh,Job board,2024-04-26,67,1,1,1,0,0
+C0319,R4,Data Analyst,Manchester,Job board,2024-07-02,72,1,1,0,0,0
+C0320,R2,Software Engineer,London,LinkedIn,2024-01-02,69,1,1,1,0,0
+C0321,R2,HR Specialist,Edinburgh,LinkedIn,2024-04-20,72,1,1,1,1,0
+C0322,R1,Data Analyst,Edinburgh,LinkedIn,2024-03-08,68,1,1,1,0,0
+C0323,R1,Software Engineer,London,Job board,2024-06-06,91,1,1,1,0,0
+C0324,R5,Software Engineer,Manchester,Job board,2024-11-12,64,1,1,0,0,0
+C0325,R1,Data Analyst,Bristol,Careers page,2024-08-28,40,1,0,0,0,0
+C0326,R1,Data Analyst,Manchester,LinkedIn,2024-06-06,68,1,0,0,0,0
+C0327,R2,Software Engineer,Manchester,LinkedIn,2024-01-18,71,1,1,1,0,0
+C0328,R1,Data Analyst,Manchester,Job board,2024-03-04,58,1,1,1,0,0
+C0329,R1,HR Specialist,London,LinkedIn,2024-10-14,72,1,1,0,0,0
+C0330,R2,Data Analyst,London,LinkedIn,2024-11-08,69,1,1,1,0,0
+C0331,R3,HR Specialist,Manchester,Careers page,2024-06-03,53,1,1,0,0,0
+C0332,R1,HR Specialist,Manchester,LinkedIn,2024-08-02,70,1,1,0,0,0
+C0333,R5,HR Specialist,Edinburgh,LinkedIn,2024-04-03,70,1,1,1,0,0
+C0334,R5,Software Engineer,Edinburgh,LinkedIn,2024-10-02,71,1,1,1,0,0
+C0335,R1,HR Specialist,Bristol,LinkedIn,2024-03-20,67,1,1,0,0,0
+C0336,R4,Data Analyst,Edinburgh,Job board,2024-04-13,50,1,0,0,0,0
+C0337,R3,Software Engineer,Manchester,LinkedIn,2024-09-18,68,1,0,0,0,0
+C0338,R3,HR Specialist,London,LinkedIn,2024-12-27,67,1,1,1,0,0
+C0339,R3,Software Engineer,London,Careers page,2024-07-30,71,1,0,0,0,0
+C0340,R2,Software Engineer,London,Careers page,2024-04-16,41,1,1,1,0,0
+C0341,R4,HR Specialist,Manchester,LinkedIn,2024-03-09,72,1,1,0,0,0
+C0342,R1,HR Specialist,Manchester,Job board,2024-11-16,84,1,1,1,0,0
+C0343,R4,Software Engineer,London,LinkedIn,2024-09-22,65,1,1,0,0,0
+C0344,R1,Software Engineer,London,LinkedIn,2024-08-07,69,1,1,0,0,0
+C0345,R4,HR Specialist,London,Careers page,2024-07-21,61,1,1,0,0,0
+C0346,R4,Software Engineer,London,Job board,2024-04-24,71,1,1,0,0,0
+C0347,R2,Software Engineer,London,Job board,2024-10-26,49,1,1,1,0,0
+C0348,R4,Data Analyst,Manchester,Job board,2024-07-31,82,1,1,1,1,1
+C0349,R1,Data Analyst,London,Job board,2024-05-25,60,1,1,0,0,0
+C0350,R3,Data Analyst,London,Careers page,2024-01-02,62,1,1,0,0,0
+C0351,R1,Marketing Associate,Bristol,Careers page,2024-12-10,60,1,0,0,0,0
+C0352,R2,Data Analyst,London,Careers page,2024-03-05,57,1,1,0,0,0
+C0353,R4,HR Specialist,London,Careers page,2024-10-04,69,1,1,1,0,0
+C0354,R1,Data Analyst,London,LinkedIn,2024-06-12,70,1,1,0,0,0
+C0355,R3,Software Engineer,London,Job board,2024-04-02,71,1,1,1,0,0
+C0356,R2,HR Specialist,Edinburgh,Job board,2024-01-05,71,1,1,1,0,0
+C0357,R3,HR Specialist,Manchester,Job board,2024-08-02,53,1,0,0,0,0
+C0358,R4,Marketing Associate,London,LinkedIn,2024-06-28,70,1,1,1,0,0
+C0359,R1,Data Analyst,Edinburgh,LinkedIn,2024-06-21,70,1,1,0,0,0
+C0360,R5,Software Engineer,Bristol,Job board,2024-03-02,42,1,0,0,0,0
+C0361,R1,Software Engineer,London,Job board,2024-07-31,51,1,0,0,0,0
+C0362,R1,Data Analyst,Edinburgh,Careers page,2024-01-26,61,1,0,0,0,0
+C0363,R2,Data Analyst,London,Job board,2024-11-05,25,1,0,0,0,0
+C0364,R1,Data Analyst,Edinburgh,Careers page,2024-12-25,85,1,0,0,0,0
+C0365,R4,HR Specialist,London,Job board,2024-01-13,39,1,0,0,0,0
+C0366,R5,Software Engineer,Edinburgh,LinkedIn,2024-02-02,69,1,1,0,0,0
+C0367,R1,HR Specialist,London,Job board,2024-09-19,45,1,1,0,0,0
+C0368,R1,Marketing Associate,Edinburgh,LinkedIn,2024-05-08,70,1,1,0,0,0
+C0369,R4,Data Analyst,Edinburgh,LinkedIn,2024-02-01,71,1,0,0,0,0
+C0370,R4,Data Analyst,Bristol,LinkedIn,2024-10-06,70,1,0,0,0,0
+C0371,R4,HR Specialist,London,Job board,2024-12-28,54,1,1,1,1,1
+C0372,R1,Data Analyst,London,Job board,2024-11-20,69,1,1,0,0,0
+C0373,R2,Data Analyst,London,Careers page,2024-08-27,36,1,0,0,0,0
+C0374,R4,Data Analyst,London,Job board,2024-10-13,55,1,1,1,0,0
+C0375,R4,Software Engineer,London,LinkedIn,2024-03-07,68,1,0,0,0,0
+C0376,R2,Software Engineer,Edinburgh,Job board,2024-10-16,72,1,0,0,0,0
+C0377,R5,Data Analyst,London,LinkedIn,2024-04-25,75,1,1,1,0,0
+C0378,R1,Data Analyst,Edinburgh,Job board,2024-02-20,54,1,1,0,0,0
+C0379,R1,Data Analyst,Manchester,Careers page,2024-09-29,53,1,1,1,1,1
+C0380,R2,Marketing Associate,Edinburgh,Job board,2024-02-26,29,1,0,0,0,0
+C0381,R3,HR Specialist,Bristol,LinkedIn,2024-03-16,68,1,1,0,0,0
+C0382,R5,HR Specialist,Manchester,LinkedIn,2024-08-01,72,1,1,1,0,0
+C0383,R4,Marketing Associate,Bristol,Careers page,2024-11-04,57,1,1,0,0,0
+C0384,R5,HR Specialist,London,LinkedIn,2024-07-29,70,1,1,1,0,0
+C0385,R4,Data Analyst,London,Job board,2024-02-13,64,1,1,0,0,0
+C0386,R2,Marketing Associate,Bristol,LinkedIn,2024-10-03,68,1,1,0,0,0
+C0387,R1,Software Engineer,London,Careers page,2024-08-14,68,1,0,0,0,0
+C0388,R1,Data Analyst,Edinburgh,Careers page,2024-07-26,51,1,1,1,0,0
+C0389,R1,HR Specialist,London,LinkedIn,2024-04-22,70,1,1,1,0,0
+C0390,R1,Software Engineer,Edinburgh,Job board,2024-12-24,59,1,0,0,0,0
+C0391,R2,Data Analyst,Edinburgh,LinkedIn,2024-01-18,66,1,1,1,0,0
+C0392,R1,Marketing Associate,London,LinkedIn,2024-02-26,68,1,1,0,0,0
+C0393,R5,Data Analyst,London,Careers page,2024-08-03,48,1,0,0,0,0
+C0394,R5,Data Analyst,Manchester,Job board,2024-09-22,72,1,0,0,0,0
+C0395,R1,Data Analyst,Manchester,Careers page,2024-08-06,51,1,0,0,0,0
+C0396,R1,Data Analyst,Manchester,LinkedIn,2024-01-20,70,1,0,0,0,0
+C0397,R1,Software Engineer,London,Job board,2024-01-20,11,1,0,0,0,0
+C0398,R1,HR Specialist,Manchester,Careers page,2024-10-21,53,1,1,0,0,0
+C0399,R1,HR Specialist,London,Job board,2024-01-15,53,1,1,0,0,0
+C0400,R2,Data Analyst,London,Careers page,2024-05-16,47,1,1,1,0,0
+C0401,R2,Marketing Associate,London,Job board,2024-07-30,23,1,0,0,0,0
+C0402,R1,HR Specialist,Manchester,LinkedIn,2024-11-15,70,1,0,0,0,0
+C0403,R2,Software Engineer,Manchester,LinkedIn,2024-01-10,69,1,1,1,1,0
+C0404,R3,Data Analyst,Bristol,LinkedIn,2024-04-21,68,1,1,0,0,0
+C0405,R4,Software Engineer,London,Job board,2024-02-02,26,1,0,0,0,0
+C0406,R4,HR Specialist,Manchester,LinkedIn,2024-07-21,73,1,1,1,1,1
+C0407,R5,Marketing Associate,Manchester,LinkedIn,2024-02-07,72,1,1,1,1,1
+C0408,R1,Data Analyst,London,Job board,2024-03-13,67,1,0,0,0,0
+C0409,R1,Data Analyst,London,LinkedIn,2024-09-03,71,1,1,1,1,1
+C0410,R3,Software Engineer,Manchester,LinkedIn,2024-05-18,69,1,1,0,0,0
+C0411,R1,HR Specialist,Manchester,Job board,2024-11-16,70,1,1,1,0,0
+C0412,R5,HR Specialist,Bristol,Job board,2024-08-16,48,1,1,1,0,0
+C0413,R1,Software Engineer,Edinburgh,LinkedIn,2024-09-05,73,1,1,1,1,0
+C0414,R4,Data Analyst,Manchester,LinkedIn,2024-02-02,68,1,1,0,0,0
+C0415,R1,Marketing Associate,London,Careers page,2024-08-29,73,1,1,0,0,0
+C0416,R1,HR Specialist,London,LinkedIn,2024-06-02,71,1,1,1,1,0
+C0417,R2,Software Engineer,London,Job board,2024-03-28,40,1,1,0,0,0
+C0418,R1,Software Engineer,London,LinkedIn,2024-04-23,66,1,1,1,0,0
+C0419,R4,HR Specialist,London,Careers page,2024-05-02,44,1,0,0,0,0
+C0420,R1,Software Engineer,Bristol,LinkedIn,2024-09-08,70,1,1,1,0,0
+C0421,R4,Data Analyst,London,Careers page,2024-10-14,60,1,0,0,0,0
+C0422,R3,HR Specialist,Edinburgh,Careers page,2024-05-02,38,1,0,0,0,0
+C0423,R3,Software Engineer,London,LinkedIn,2024-05-06,69,1,0,0,0,0
+C0424,R1,Data Analyst,London,LinkedIn,2024-01-13,67,1,0,0,0,0
+C0425,R2,HR Specialist,London,Job board,2024-06-29,82,1,1,1,0,0
+C0426,R3,Data Analyst,Bristol,LinkedIn,2024-12-07,71,1,0,0,0,0
+C0427,R1,Software Engineer,Manchester,Careers page,2024-05-31,71,1,1,1,0,0
+C0428,R4,Marketing Associate,London,LinkedIn,2024-08-08,68,1,1,1,0,0
+C0429,R1,HR Specialist,Manchester,Job board,2024-08-12,81,1,1,0,0,0
+C0430,R2,HR Specialist,London,Job board,2024-12-25,28,1,0,0,0,0
+C0431,R2,HR Specialist,Manchester,LinkedIn,2024-11-23,72,1,1,1,1,1
+C0432,R3,Data Analyst,Edinburgh,Careers page,2024-08-29,78,1,1,0,0,0
+C0433,R1,HR Specialist,Bristol,LinkedIn,2024-11-02,70,1,0,0,0,0
+C0434,R2,Data Analyst,Manchester,Careers page,2024-01-09,54,1,1,0,0,0
+C0435,R1,Software Engineer,Manchester,Careers page,2024-08-05,49,1,1,1,1,1
+C0436,R3,Data Analyst,Edinburgh,Job board,2024-10-26,58,1,1,1,1,1
+C0437,R1,HR Specialist,Bristol,Careers page,2024-07-23,60,1,0,0,0,0
+C0438,R4,Data Analyst,Bristol,Job board,2024-04-06,72,1,1,1,0,0
+C0439,R1,Data Analyst,London,LinkedIn,2024-07-03,68,1,1,1,1,1
+C0440,R1,HR Specialist,London,Job board,2024-07-05,82,1,1,1,0,0
+C0441,R1,Data Analyst,Bristol,Job board,2024-10-01,40,1,0,0,0,0
+C0442,R3,Software Engineer,London,Careers page,2024-11-01,66,1,0,0,0,0
+C0443,R5,Data Analyst,Edinburgh,LinkedIn,2024-07-18,71,1,1,0,0,0
+C0444,R1,Data Analyst,Edinburgh,LinkedIn,2024-07-28,70,1,0,0,0,0
+C0445,R2,Data Analyst,London,Job board,2024-10-22,43,1,0,0,0,0
+C0446,R5,Marketing Associate,Edinburgh,Job board,2024-01-22,65,1,0,0,0,0
+C0447,R5,HR Specialist,Edinburgh,LinkedIn,2024-07-18,73,1,1,1,0,0
+C0448,R1,HR Specialist,London,LinkedIn,2024-01-27,68,1,1,1,1,0
+C0449,R4,Data Analyst,London,LinkedIn,2024-04-26,71,1,1,1,0,0
+C0450,R3,HR Specialist,Manchester,Careers page,2024-02-11,76,1,0,0,0,0
+C0451,R4,Data Analyst,Edinburgh,Careers page,2024-05-05,63,1,0,0,0,0
+C0452,R1,HR Specialist,London,Careers page,2024-01-20,51,1,1,1,1,1
+C0453,R1,Software Engineer,London,LinkedIn,2024-07-16,71,1,1,1,0,0
+C0454,R1,Data Analyst,Bristol,LinkedIn,2024-04-04,73,1,1,0,0,0
+C0455,R1,Data Analyst,Manchester,Job board,2024-07-22,46,1,0,0,0,0
+C0456,R2,Software Engineer,Manchester,LinkedIn,2024-06-13,69,1,1,1,0,0
+C0457,R5,Data Analyst,London,Careers page,2024-02-21,55,1,1,0,0,0
+C0458,R5,Software Engineer,London,LinkedIn,2024-05-04,72,1,1,0,0,0
+C0459,R1,HR Specialist,London,LinkedIn,2024-07-12,70,1,1,0,0,0
+C0460,R1,Data Analyst,Manchester,LinkedIn,2024-11-30,69,1,1,0,0,0
+C0461,R2,Marketing Associate,Bristol,LinkedIn,2024-05-14,68,1,1,0,0,0
+C0462,R4,Data Analyst,Manchester,LinkedIn,2024-09-27,68,1,1,1,0,0
+C0463,R4,Software Engineer,Edinburgh,Job board,2024-05-22,38,1,0,0,0,0
+C0464,R1,HR Specialist,London,LinkedIn,2024-04-22,71,1,1,1,0,0
+C0465,R3,HR Specialist,Edinburgh,Careers page,2024-02-16,71,1,1,1,0,0
+C0466,R1,Data Analyst,London,LinkedIn,2024-11-17,72,1,1,0,0,0
+C0467,R1,Software Engineer,Manchester,LinkedIn,2024-09-14,69,1,0,0,0,0
+C0468,R3,Data Analyst,London,Careers page,2024-06-15,52,1,1,1,1,0
+C0469,R1,Data Analyst,Edinburgh,LinkedIn,2024-08-08,70,1,1,0,0,0
+C0470,R5,Data Analyst,Bristol,LinkedIn,2024-06-11,67,1,0,0,0,0
+C0471,R1,Software Engineer,Edinburgh,Job board,2024-10-29,71,1,1,1,1,1
+C0472,R5,Data Analyst,London,LinkedIn,2024-02-24,68,1,1,0,0,0
+C0473,R4,Data Analyst,Bristol,LinkedIn,2024-10-06,71,1,0,0,0,0
+C0474,R5,Data Analyst,London,LinkedIn,2024-03-31,71,1,1,1,1,1
+C0475,R3,HR Specialist,Edinburgh,LinkedIn,2024-01-17,64,1,1,0,0,0
+C0476,R4,HR Specialist,Edinburgh,Careers page,2024-06-30,100,1,1,0,0,0
+C0477,R3,Marketing Associate,Manchester,Careers page,2024-12-23,55,1,1,1,1,1
+C0478,R1,Data Analyst,Edinburgh,LinkedIn,2024-07-20,69,1,1,1,0,0
+C0479,R1,Software Engineer,Manchester,Job board,2024-10-13,48,1,0,0,0,0
+C0480,R5,Data Analyst,Manchester,LinkedIn,2024-03-27,69,1,1,0,0,0
+C0481,R1,Software Engineer,London,LinkedIn,2024-06-21,66,1,1,0,0,0
+C0482,R5,Data Analyst,Manchester,Careers page,2024-11-07,62,1,1,0,0,0
+C0483,R1,Data Analyst,London,Job board,2024-12-25,69,1,1,1,0,0
+C0484,R3,Data Analyst,Bristol,Careers page,2024-02-22,57,1,1,1,0,0
+C0485,R2,Data Analyst,Manchester,LinkedIn,2024-10-24,71,1,1,0,0,0
+C0486,R1,Marketing Associate,Manchester,LinkedIn,2024-08-04,68,1,1,1,1,0
+C0487,R1,Marketing Associate,Bristol,LinkedIn,2024-05-08,70,1,1,1,1,1
+C0488,R3,Data Analyst,Edinburgh,LinkedIn,2024-05-08,72,1,1,1,0,0
+C0489,R4,Data Analyst,London,Job board,2024-06-19,63,1,1,0,0,0
+C0490,R5,HR Specialist,Edinburgh,LinkedIn,2024-08-23,72,1,1,1,1,0
+C0491,R2,HR Specialist,London,LinkedIn,2024-10-28,71,1,1,1,0,0
+C0492,R1,Data Analyst,Bristol,LinkedIn,2024-01-26,67,1,1,0,0,0
+C0493,R4,Software Engineer,Manchester,Careers page,2024-07-16,60,1,1,0,0,0
+C0494,R5,Data Analyst,Edinburgh,LinkedIn,2024-03-04,67,1,0,0,0,0
+C0495,R1,Software Engineer,London,Careers page,2024-10-09,56,1,0,0,0,0
+C0496,R2,Data Analyst,London,LinkedIn,2024-11-20,69,1,1,1,0,0
+C0497,R1,Software Engineer,Bristol,LinkedIn,2024-05-26,73,1,1,0,0,0
+C0498,R1,Data Analyst,Manchester,Careers page,2024-01-07,55,1,1,0,0,0
+C0499,R3,HR Specialist,Manchester,Careers page,2024-06-12,56,1,1,1,1,1
+C0500,R5,HR Specialist,Manchester,LinkedIn,2024-12-16,67,1,0,0,0,0
+C0501,R4,Data Analyst,London,Job board,2024-08-24,48,1,0,0,0,0
+C0502,R4,Marketing Associate,Manchester,LinkedIn,2024-03-10,75,1,1,1,1,1
+C0503,R1,Data Analyst,London,Job board,2024-06-16,66,1,0,0,0,0
+C0504,R1,HR Specialist,London,LinkedIn,2024-03-28,73,1,1,1,0,0
+C0505,R4,Data Analyst,Edinburgh,Job board,2024-08-12,37,1,0,0,0,0
+C0506,R1,HR Specialist,Edinburgh,Careers page,2024-08-25,72,1,1,1,0,0
+C0507,R4,Software Engineer,Bristol,LinkedIn,2024-09-16,71,1,1,1,1,1
+C0508,R4,HR Specialist,London,LinkedIn,2024-02-15,69,1,1,1,1,1
+C0509,R2,Software Engineer,Manchester,LinkedIn,2024-05-05,71,1,1,1,0,0
+C0510,R1,Software Engineer,Manchester,Job board,2024-04-10,72,1,0,0,0,0
+C0511,R4,Marketing Associate,Manchester,Careers page,2024-07-13,55,1,1,0,0,0
+C0512,R1,HR Specialist,Manchester,Careers page,2024-01-16,80,1,1,0,0,0
+C0513,R2,HR Specialist,London,Job board,2024-08-09,59,1,1,0,0,0
+C0514,R4,Data Analyst,Edinburgh,LinkedIn,2024-12-25,71,1,1,0,0,0
+C0515,R5,Data Analyst,Bristol,Job board,2024-11-26,61,1,1,0,0,0
+C0516,R1,Data Analyst,London,LinkedIn,2024-06-27,69,1,1,1,0,0
+C0517,R4,Software Engineer,Edinburgh,LinkedIn,2024-10-31,71,1,1,1,1,1
+C0518,R5,HR Specialist,Bristol,Job board,2024-12-30,86,1,1,1,0,0
+C0519,R1,Software Engineer,London,Careers page,2024-08-29,73,1,1,1,0,0
+C0520,R5,Data Analyst,Manchester,LinkedIn,2024-10-01,72,1,1,1,1,1
+C0521,R1,HR Specialist,London,Careers page,2024-11-19,62,1,0,0,0,0
+C0522,R4,Software Engineer,Manchester,Careers page,2024-02-25,46,1,1,0,0,0
+C0523,R1,Data Analyst,Manchester,Careers page,2024-09-27,66,1,1,1,0,0
+C0524,R1,Data Analyst,Edinburgh,Job board,2024-12-23,73,1,1,0,0,0
+C0525,R4,Software Engineer,London,LinkedIn,2024-04-06,70,1,1,1,0,0
+C0526,R3,Software Engineer,Bristol,LinkedIn,2024-03-21,72,1,1,1,0,0
+C0527,R2,Software Engineer,London,LinkedIn,2024-09-11,75,1,1,1,0,0
+C0528,R1,Marketing Associate,Manchester,LinkedIn,2024-05-01,67,1,0,0,0,0
+C0529,R2,Data Analyst,London,Job board,2024-01-21,62,1,0,0,0,0
+C0530,R1,Marketing Associate,Bristol,Job board,2024-06-22,74,1,1,1,1,1
+C0531,R2,Software Engineer,Manchester,Job board,2024-05-26,73,1,1,1,0,0
+C0532,R3,HR Specialist,Manchester,Careers page,2024-05-22,67,1,1,0,0,0
+C0533,R4,Data Analyst,Manchester,LinkedIn,2024-04-27,71,1,1,1,0,0
+C0534,R5,Data Analyst,Bristol,Job board,2024-03-03,44,1,1,1,0,0
+C0535,R1,Software Engineer,Edinburgh,LinkedIn,2024-09-04,73,1,1,1,1,1
+C0536,R5,HR Specialist,Bristol,Job board,2024-08-17,53,1,0,0,0,0
+C0537,R1,HR Specialist,Edinburgh,Job board,2024-09-09,32,1,0,0,0,0
+C0538,R5,Data Analyst,Manchester,Job board,2024-02-12,77,1,1,0,0,0
+C0539,R4,Data Analyst,Bristol,LinkedIn,2024-03-21,68,1,0,0,0,0
+C0540,R1,Software Engineer,Edinburgh,Careers page,2024-08-07,59,1,1,0,0,0
+C0541,R5,HR Specialist,London,Careers page,2024-02-04,59,1,1,1,1,1
+C0542,R1,Data Analyst,London,Careers page,2024-12-27,51,1,1,0,0,0
+C0543,R5,Data Analyst,London,LinkedIn,2024-10-28,68,1,1,1,1,1
+C0544,R1,Data Analyst,Manchester,LinkedIn,2024-08-24,71,1,1,1,0,0
+C0545,R5,Data Analyst,Manchester,Job board,2024-03-19,65,1,1,1,0,0
+C0546,R2,Software Engineer,London,LinkedIn,2024-08-19,75,1,1,1,1,1
+C0547,R1,Data Analyst,Edinburgh,LinkedIn,2024-06-09,71,1,1,1,0,0
+C0548,R2,HR Specialist,London,LinkedIn,2024-03-09,66,1,1,0,0,0
+C0549,R5,HR Specialist,London,LinkedIn,2024-08-21,72,1,1,1,1,0
+C0550,R4,Software Engineer,London,Job board,2024-03-17,60,1,1,1,0,0
+C0551,R1,HR Specialist,Bristol,Careers page,2024-01-08,61,1,1,0,0,0
+C0552,R1,Data Analyst,Manchester,LinkedIn,2024-04-08,67,1,1,1,0,0
+C0553,R3,Marketing Associate,Bristol,Careers page,2024-07-17,88,1,1,0,0,0
+C0554,R2,Data Analyst,Manchester,Careers page,2024-08-24,66,1,1,1,1,1
+C0555,R4,Data Analyst,Edinburgh,LinkedIn,2024-07-28,72,1,1,1,1,1
+C0556,R3,Software Engineer,London,LinkedIn,2024-03-18,70,1,1,0,0,0
+C0557,R3,HR Specialist,Manchester,LinkedIn,2024-12-22,72,1,1,1,0,0
+C0558,R4,Software Engineer,Bristol,Job board,2024-09-20,63,1,1,0,0,0
+C0559,R4,Software Engineer,London,Job board,2024-01-18,36,1,0,0,0,0
+C0560,R1,Marketing Associate,London,Job board,2024-06-23,34,1,0,0,0,0
+C0561,R1,Marketing Associate,Manchester,LinkedIn,2024-09-09,65,1,1,0,0,0
+C0562,R2,Data Analyst,Bristol,LinkedIn,2024-06-24,68,1,1,0,0,0
+C0563,R5,HR Specialist,Edinburgh,Job board,2024-07-12,53,1,1,0,0,0
+C0564,R1,Data Analyst,Manchester,LinkedIn,2024-04-01,75,1,1,1,0,0
+C0565,R3,HR Specialist,Edinburgh,LinkedIn,2024-05-30,73,1,0,0,0,0
+C0566,R3,Software Engineer,London,Job board,2024-12-12,32,1,0,0,0,0
+C0567,R4,Data Analyst,London,LinkedIn,2024-01-27,74,1,1,1,0,0
+C0568,R5,Marketing Associate,London,LinkedIn,2024-08-31,73,1,1,1,0,0
+C0569,R4,HR Specialist,London,LinkedIn,2024-09-17,74,1,1,1,1,1
+C0570,R2,HR Specialist,Edinburgh,LinkedIn,2024-08-19,69,1,1,1,1,1
+C0571,R3,Software Engineer,Bristol,LinkedIn,2024-02-01,69,1,1,0,0,0
+C0572,R2,Software Engineer,Edinburgh,LinkedIn,2024-09-02,70,1,0,0,0,0
+C0573,R3,HR Specialist,Edinburgh,Careers page,2024-09-21,64,1,1,0,0,0
+C0574,R4,Data Analyst,Manchester,Job board,2024-07-07,45,1,1,1,1,1
+C0575,R2,HR Specialist,London,LinkedIn,2024-07-28,71,1,1,1,0,0
+C0576,R5,Software Engineer,Bristol,LinkedIn,2024-02-16,70,1,1,0,0,0
+C0577,R4,HR Specialist,Edinburgh,LinkedIn,2024-04-03,75,1,1,0,0,0
+C0578,R1,HR Specialist,Bristol,LinkedIn,2024-11-24,70,1,1,0,0,0
+C0579,R3,Software Engineer,Manchester,Careers page,2024-04-19,56,1,1,0,0,0
+C0580,R4,HR Specialist,Edinburgh,LinkedIn,2024-04-22,69,1,0,0,0,0
+C0581,R2,Software Engineer,Edinburgh,Careers page,2024-09-22,44,1,1,0,0,0
+C0582,R5,Data Analyst,Manchester,LinkedIn,2024-04-19,68,1,1,1,0,0
+C0583,R2,HR Specialist,Manchester,LinkedIn,2024-01-15,68,1,1,0,0,0
+C0584,R4,Data Analyst,Edinburgh,LinkedIn,2024-12-30,70,1,0,0,0,0
+C0585,R2,HR Specialist,Manchester,Job board,2024-04-22,64,1,0,0,0,0
+C0586,R1,Data Analyst,London,Careers page,2024-03-25,70,1,1,1,0,0
+C0587,R1,Marketing Associate,Manchester,Careers page,2024-10-05,59,1,1,1,1,1
+C0588,R3,Data Analyst,Manchester,Job board,2024-10-03,85,1,1,1,1,1
+C0589,R2,HR Specialist,Edinburgh,LinkedIn,2024-07-07,69,1,1,0,0,0
+C0590,R3,Data Analyst,Bristol,Careers page,2024-02-11,57,1,1,1,0,0
+C0591,R4,Marketing Associate,London,LinkedIn,2024-08-04,72,1,1,1,1,1
+C0592,R1,Software Engineer,London,LinkedIn,2024-04-19,70,1,0,0,0,0
+C0593,R2,HR Specialist,London,Careers page,2024-07-31,60,1,1,0,0,0
+C0594,R1,Data Analyst,Manchester,Job board,2024-08-24,63,1,0,0,0,0
+C0595,R1,Software Engineer,Manchester,LinkedIn,2024-05-23,72,1,1,0,0,0
+C0596,R2,HR Specialist,London,LinkedIn,2024-07-28,67,1,0,0,0,0
+C0597,R4,Data Analyst,Manchester,LinkedIn,2024-11-18,71,1,1,1,1,1
+C0598,R1,Data Analyst,London,LinkedIn,2024-02-29,72,1,1,1,0,0
+C0599,R2,HR Specialist,London,LinkedIn,2024-06-06,75,1,1,0,0,0
+C0600,R1,Data Analyst,London,Careers page,2024-04-08,53,1,0,0,0,0
+C0601,R1,HR Specialist,Manchester,LinkedIn,2024-12-27,65,1,1,1,0,0
+C0602,R3,Marketing Associate,London,Careers page,2024-05-14,18,1,0,0,0,0
+C0603,R1,Data Analyst,London,LinkedIn,2024-02-23,70,1,0,0,0,0
+C0604,R1,Software Engineer,London,LinkedIn,2024-02-10,71,1,1,0,0,0
+C0605,R1,Data Analyst,London,LinkedIn,2024-11-10,68,1,1,1,1,1
+C0606,R5,HR Specialist,Edinburgh,LinkedIn,2024-09-02,73,1,1,0,0,0
+C0607,R1,Software Engineer,Bristol,Careers page,2024-08-29,68,1,0,0,0,0
+C0608,R5,Data Analyst,Edinburgh,Job board,2024-09-02,72,1,0,0,0,0
+C0609,R1,Software Engineer,Edinburgh,LinkedIn,2024-08-09,70,1,1,1,0,0
+C0610,R4,Data Analyst,Edinburgh,Careers page,2024-10-15,69,1,1,0,0,0
+C0611,R3,Data Analyst,London,LinkedIn,2024-06-27,69,1,1,0,0,0
+C0612,R1,Data Analyst,Manchester,Careers page,2024-04-02,62,1,0,0,0,0
+C0613,R1,HR Specialist,London,LinkedIn,2024-06-28,68,1,1,1,0,0
+C0614,R2,HR Specialist,London,LinkedIn,2024-08-13,70,1,1,1,0,0
+C0615,R3,Data Analyst,Edinburgh,LinkedIn,2024-12-10,73,1,1,1,0,0
+C0616,R5,Marketing Associate,Bristol,LinkedIn,2024-03-30,70,1,0,0,0,0
+C0617,R2,Data Analyst,Manchester,Job board,2024-05-24,81,1,1,1,0,0
+C0618,R5,Marketing Associate,Manchester,Job board,2024-07-26,48,1,1,0,0,0
+C0619,R2,Software Engineer,Manchester,Job board,2024-12-02,81,1,1,1,1,0
+C0620,R1,HR Specialist,Bristol,Careers page,2024-12-03,35,1,0,0,0,0
+C0621,R2,Data Analyst,London,Careers page,2024-06-01,66,1,1,0,0,0
+C0622,R2,Data Analyst,London,LinkedIn,2024-12-29,71,1,1,1,0,0
+C0623,R5,Software Engineer,London,LinkedIn,2024-08-05,67,1,1,0,0,0
+C0624,R4,Marketing Associate,London,LinkedIn,2024-05-24,70,1,1,0,0,0
+C0625,R1,HR Specialist,Edinburgh,Job board,2024-01-23,82,1,1,1,1,1
+C0626,R4,Software Engineer,Bristol,Careers page,2024-06-05,48,1,1,1,0,0
+C0627,R1,Software Engineer,Manchester,LinkedIn,2024-08-03,68,1,1,0,0,0
+C0628,R2,HR Specialist,London,Careers page,2024-09-06,51,1,1,0,0,0
+C0629,R4,Data Analyst,Bristol,Job board,2024-02-12,57,1,1,0,0,0
+C0630,R1,Marketing Associate,London,Job board,2024-06-24,54,1,1,0,0,0
+C0631,R5,Data Analyst,London,LinkedIn,2024-07-18,68,1,1,1,0,0
+C0632,R5,HR Specialist,Bristol,LinkedIn,2024-07-09,71,1,1,1,1,1
+C0633,R4,Software Engineer,Manchester,Job board,2024-02-02,52,1,1,0,0,0
+C0634,R5,Data Analyst,Manchester,Job board,2024-08-02,66,1,0,0,0,0
+C0635,R1,HR Specialist,Manchester,LinkedIn,2024-01-26,66,1,1,1,0,0
+C0636,R1,Data Analyst,London,LinkedIn,2024-07-08,67,1,1,0,0,0
+C0637,R2,HR Specialist,London,Job board,2024-09-14,45,1,0,0,0,0
+C0638,R5,Data Analyst,Edinburgh,LinkedIn,2024-09-23,67,1,0,0,0,0
+C0639,R5,HR Specialist,Edinburgh,LinkedIn,2024-04-24,74,1,1,1,0,0
+C0640,R4,HR Specialist,London,LinkedIn,2024-12-16,71,1,1,1,1,1
+C0641,R3,Marketing Associate,Manchester,Job board,2024-02-23,86,1,1,1,0,0
+C0642,R5,Data Analyst,London,LinkedIn,2024-01-08,67,1,1,0,0,0
+C0643,R2,Data Analyst,London,LinkedIn,2024-07-15,74,1,1,1,0,0
+C0644,R4,Data Analyst,Edinburgh,Job board,2024-05-23,49,1,1,1,0,0
+C0645,R1,Data Analyst,London,Job board,2024-06-13,39,1,0,0,0,0
+C0646,R3,Data Analyst,Manchester,Careers page,2024-01-10,56,1,1,0,0,0
+C0647,R5,Data Analyst,London,Careers page,2024-03-11,64,1,1,0,0,0
+C0648,R1,Marketing Associate,Manchester,LinkedIn,2024-10-24,69,1,1,0,0,0
+C0649,R1,Data Analyst,Bristol,Job board,2024-09-24,62,1,1,0,0,0
+C0650,R3,HR Specialist,London,Job board,2024-02-24,53,1,0,0,0,0
+C0651,R5,Software Engineer,Bristol,Careers page,2024-09-28,56,1,0,0,0,0
+C0652,R2,Software Engineer,Edinburgh,Job board,2024-02-27,38,1,0,0,0,0
+C0653,R4,HR Specialist,London,LinkedIn,2024-06-19,71,1,1,1,0,0
+C0654,R3,Data Analyst,Edinburgh,Job board,2024-10-02,37,1,0,0,0,0
+C0655,R5,HR Specialist,Manchester,LinkedIn,2024-04-29,71,1,1,1,0,0
+C0656,R2,Data Analyst,London,Job board,2024-01-05,41,1,1,1,0,0
+C0657,R2,HR Specialist,Manchester,LinkedIn,2024-07-25,68,1,1,0,0,0
+C0658,R1,Data Analyst,Manchester,Job board,2024-06-17,44,1,1,1,0,0
+C0659,R4,Data Analyst,Bristol,Job board,2024-11-17,35,1,0,0,0,0
+C0660,R4,HR Specialist,Manchester,Job board,2024-07-03,59,1,0,0,0,0
+C0661,R5,Data Analyst,London,LinkedIn,2024-12-21,70,1,0,0,0,0
+C0662,R5,Data Analyst,London,LinkedIn,2024-04-16,75,1,1,0,0,0
+C0663,R1,Software Engineer,London,LinkedIn,2024-07-27,70,1,1,1,1,1
+C0664,R5,Data Analyst,London,LinkedIn,2024-10-16,69,1,1,0,0,0
+C0665,R1,Data Analyst,London,Careers page,2024-10-16,78,1,1,0,0,0
+C0666,R1,Software Engineer,Manchester,LinkedIn,2024-12-23,72,1,1,1,0,0
+C0667,R2,HR Specialist,Manchester,Careers page,2024-01-25,33,1,0,0,0,0
+C0668,R1,HR Specialist,London,Careers page,2024-01-29,45,1,1,1,1,0
+C0669,R3,Data Analyst,London,LinkedIn,2024-06-23,64,1,1,0,0,0
+C0670,R1,Data Analyst,Manchester,LinkedIn,2024-09-07,70,1,1,1,1,0
+C0671,R1,HR Specialist,London,LinkedIn,2024-11-24,68,1,1,0,0,0
+C0672,R4,Data Analyst,London,LinkedIn,2024-11-14,71,1,1,1,1,1
+C0673,R1,Data Analyst,Bristol,LinkedIn,2024-09-17,72,1,1,0,0,0
+C0674,R1,Software Engineer,London,Careers page,2024-11-23,46,1,0,0,0,0
+C0675,R4,Data Analyst,Manchester,Careers page,2024-06-28,47,1,1,0,0,0
+C0676,R3,Data Analyst,Bristol,Job board,2024-04-26,32,1,0,0,0,0
+C0677,R5,Marketing Associate,Bristol,LinkedIn,2024-08-03,72,1,1,1,0,0
+C0678,R1,Data Analyst,Manchester,LinkedIn,2024-12-20,70,1,1,0,0,0
+C0679,R4,Software Engineer,Edinburgh,Careers page,2024-05-09,53,1,1,1,0,0
+C0680,R4,Software Engineer,London,Careers page,2024-05-26,61,1,1,1,1,1
+C0681,R5,Data Analyst,London,Job board,2024-07-20,38,1,0,0,0,0
+C0682,R5,Software Engineer,London,Job board,2024-04-22,83,1,1,1,1,1
+C0683,R5,HR Specialist,London,Job board,2024-04-28,74,1,0,0,0,0
+C0684,R2,Data Analyst,London,Job board,2024-05-18,71,1,1,0,0,0
+C0685,R2,Data Analyst,Manchester,Job board,2024-12-31,59,1,0,0,0,0
+C0686,R3,HR Specialist,London,Job board,2024-09-15,54,1,1,0,0,0
+C0687,R4,Data Analyst,London,LinkedIn,2024-07-04,69,1,0,0,0,0
+C0688,R1,Data Analyst,London,LinkedIn,2024-10-07,70,1,1,0,0,0
+C0689,R4,HR Specialist,Manchester,Job board,2024-08-15,53,1,0,0,0,0
+C0690,R1,Software Engineer,Bristol,LinkedIn,2024-11-16,69,1,0,0,0,0
+C0691,R1,HR Specialist,Edinburgh,Job board,2024-05-17,77,1,1,1,0,0
+C0692,R3,HR Specialist,Manchester,Job board,2024-08-03,87,1,1,0,0,0
+C0693,R4,Data Analyst,Edinburgh,LinkedIn,2024-07-02,69,1,1,0,0,0
+C0694,R1,Marketing Associate,Edinburgh,LinkedIn,2024-04-03,71,1,1,1,0,0
+C0695,R1,Marketing Associate,Manchester,LinkedIn,2024-02-20,73,1,1,0,0,0
+C0696,R3,Software Engineer,London,LinkedIn,2024-04-06,69,1,1,0,0,0
+C0697,R1,Data Analyst,London,LinkedIn,2024-11-25,72,1,1,0,0,0
+C0698,R1,HR Specialist,Manchester,Careers page,2024-04-02,48,1,1,0,0,0
+C0699,R4,Software Engineer,London,LinkedIn,2024-10-09,69,1,1,1,0,0
+C0700,R4,Data Analyst,London,Job board,2024-05-17,46,1,1,0,0,0
+C0701,R5,Data Analyst,Manchester,Careers page,2024-05-18,67,1,1,0,0,0
+C0702,R1,HR Specialist,Manchester,Job board,2024-01-13,66,1,0,0,0,0
+C0703,R1,Software Engineer,Edinburgh,Careers page,2024-03-22,49,1,0,0,0,0
+C0704,R2,Data Analyst,Edinburgh,Careers page,2024-07-07,69,1,1,0,0,0
+C0705,R1,Data Analyst,Manchester,LinkedIn,2024-08-22,69,1,1,0,0,0
+C0706,R3,HR Specialist,Bristol,LinkedIn,2024-12-26,70,1,0,0,0,0
+C0707,R4,Data Analyst,Edinburgh,Job board,2024-08-12,58,1,0,0,0,0
+C0708,R4,HR Specialist,London,LinkedIn,2024-06-27,70,1,0,0,0,0
+C0709,R1,Data Analyst,Bristol,LinkedIn,2024-11-08,71,1,1,1,0,0
+C0710,R4,HR Specialist,London,LinkedIn,2024-12-02,70,1,1,1,0,0
+C0711,R3,HR Specialist,Bristol,LinkedIn,2024-04-01,76,1,1,1,0,0
+C0712,R4,Data Analyst,Manchester,LinkedIn,2024-05-31,69,1,1,1,0,0
+C0713,R3,Marketing Associate,London,Job board,2024-11-14,98,1,1,0,0,0
+C0714,R5,HR Specialist,Bristol,Careers page,2024-05-12,51,1,0,0,0,0
+C0715,R4,Software Engineer,Edinburgh,LinkedIn,2024-09-13,73,1,1,1,1,1
+C0716,R4,Data Analyst,Manchester,LinkedIn,2024-09-01,69,1,1,1,0,0
+C0717,R1,Marketing Associate,London,LinkedIn,2024-10-22,74,1,1,1,1,0
+C0718,R1,Data Analyst,Manchester,LinkedIn,2024-10-19,69,1,1,0,0,0
+C0719,R2,Software Engineer,Edinburgh,LinkedIn,2024-11-29,71,1,1,0,0,0
+C0720,R1,Data Analyst,Manchester,Job board,2024-09-30,79,1,1,1,0,0
+C0721,R4,Software Engineer,Manchester,LinkedIn,2024-08-15,74,1,1,1,0,0
+C0722,R5,Data Analyst,Manchester,LinkedIn,2024-04-18,69,1,1,0,0,0
+C0723,R5,Software Engineer,Manchester,Job board,2024-01-20,75,1,0,0,0,0
+C0724,R2,HR Specialist,Manchester,Careers page,2024-10-16,53,1,0,0,0,0
+C0725,R3,HR Specialist,London,Job board,2024-06-15,64,1,1,0,0,0
+C0726,R5,Software Engineer,Manchester,LinkedIn,2024-06-26,66,1,1,1,0,0
+C0727,R5,Data Analyst,Bristol,LinkedIn,2024-11-18,68,1,1,0,0,0
+C0728,R3,HR Specialist,London,LinkedIn,2024-12-21,72,1,1,1,0,0
+C0729,R5,Data Analyst,Manchester,Job board,2024-10-11,56,1,1,1,0,0
+C0730,R1,HR Specialist,Bristol,LinkedIn,2024-05-22,73,1,1,0,0,0
+C0731,R4,Data Analyst,London,LinkedIn,2024-08-28,67,1,1,0,0,0
+C0732,R2,Data Analyst,Manchester,LinkedIn,2024-09-12,68,1,1,0,0,0
+C0733,R3,HR Specialist,Manchester,LinkedIn,2024-08-12,71,1,1,1,1,0
+C0734,R2,HR Specialist,Edinburgh,Careers page,2024-04-04,40,1,0,0,0,0
+C0735,R1,Software Engineer,Manchester,Job board,2024-12-28,85,1,1,1,1,1
+C0736,R1,HR Specialist,Bristol,LinkedIn,2024-02-11,70,1,0,0,0,0
+C0737,R5,Software Engineer,Bristol,LinkedIn,2024-01-03,72,1,1,1,0,0
+C0738,R2,HR Specialist,Manchester,LinkedIn,2024-10-29,69,1,1,0,0,0
+C0739,R1,HR Specialist,London,LinkedIn,2024-07-05,70,1,1,0,0,0
+C0740,R1,HR Specialist,London,Job board,2024-08-28,62,1,1,0,0,0
+C0741,R2,Data Analyst,Bristol,LinkedIn,2024-06-05,71,1,0,0,0,0
+C0742,R1,HR Specialist,Manchester,Job board,2024-09-23,21,1,0,0,0,0
+C0743,R1,Marketing Associate,London,Job board,2024-03-24,43,1,0,0,0,0
+C0744,R3,Marketing Associate,London,LinkedIn,2024-11-09,67,1,0,0,0,0
+C0745,R1,Software Engineer,Manchester,Careers page,2024-11-30,80,1,1,0,0,0
+C0746,R4,Software Engineer,London,Careers page,2024-04-29,73,1,1,0,0,0
+C0747,R5,Marketing Associate,London,LinkedIn,2024-02-16,66,1,1,0,0,0
+C0748,R1,HR Specialist,London,LinkedIn,2024-11-08,68,1,1,0,0,0
+C0749,R3,Data Analyst,London,LinkedIn,2024-11-20,65,1,1,0,0,0
+C0750,R2,Software Engineer,London,Careers page,2024-03-13,31,1,1,0,0,0
+C0751,R1,HR Specialist,Edinburgh,LinkedIn,2024-03-04,69,1,1,1,0,0
+C0752,R1,Data Analyst,Edinburgh,Job board,2024-03-09,85,1,0,0,0,0
+C0753,R1,HR Specialist,Edinburgh,LinkedIn,2024-11-03,70,1,1,1,0,0
+C0754,R1,HR Specialist,London,LinkedIn,2024-01-29,70,1,0,0,0,0
+C0755,R3,Marketing Associate,Edinburgh,LinkedIn,2024-07-09,67,1,1,0,0,0
+C0756,R4,Data Analyst,Edinburgh,LinkedIn,2024-02-02,70,1,1,0,0,0
+C0757,R4,Data Analyst,London,Job board,2024-01-29,56,1,0,0,0,0
+C0758,R2,Software Engineer,Manchester,Careers page,2024-01-14,53,1,1,0,0,0
+C0759,R1,Software Engineer,London,Careers page,2024-03-01,93,1,1,1,0,0
+C0760,R1,HR Specialist,Manchester,LinkedIn,2024-01-31,68,1,1,1,0,0
+C0761,R4,Data Analyst,London,Job board,2024-04-12,60,1,1,1,0,0
+C0762,R1,Data Analyst,Edinburgh,LinkedIn,2024-03-15,71,1,1,1,0,0
+C0763,R3,Data Analyst,Manchester,LinkedIn,2024-11-08,71,1,1,0,0,0
+C0764,R4,HR Specialist,Bristol,Careers page,2024-12-12,67,1,0,0,0,0
+C0765,R3,Data Analyst,Edinburgh,Job board,2024-03-30,62,1,0,0,0,0
+C0766,R1,Marketing Associate,Manchester,LinkedIn,2024-06-26,72,1,1,1,1,1
+C0767,R1,Software Engineer,Edinburgh,Careers page,2024-08-11,76,1,1,1,0,0
+C0768,R4,Data Analyst,London,LinkedIn,2024-06-13,69,1,1,1,0,0
+C0769,R3,HR Specialist,London,LinkedIn,2024-12-31,69,1,1,0,0,0
+C0770,R3,Data Analyst,Edinburgh,Careers page,2024-03-01,70,1,0,0,0,0
+C0771,R2,Data Analyst,Manchester,Job board,2024-06-09,41,1,1,1,0,0
+C0772,R5,Data Analyst,Edinburgh,Job board,2024-07-28,58,1,1,1,0,0
+C0773,R3,Marketing Associate,Manchester,Job board,2024-02-21,54,1,1,1,0,0
+C0774,R5,Data Analyst,Edinburgh,LinkedIn,2024-03-11,71,1,1,1,1,1
+C0775,R1,Software Engineer,Manchester,LinkedIn,2024-10-21,67,1,1,0,0,0
+C0776,R1,Software Engineer,Bristol,Careers page,2024-11-16,54,1,1,1,0,0
+C0777,R1,Data Analyst,Bristol,Job board,2024-03-19,44,1,0,0,0,0
+C0778,R4,Data Analyst,Bristol,LinkedIn,2024-12-01,71,1,1,1,0,0
+C0779,R3,HR Specialist,London,Job board,2024-10-20,60,1,1,1,1,1
+C0780,R5,HR Specialist,Manchester,Job board,2024-04-29,56,1,1,1,0,0
+C0781,R1,Data Analyst,Manchester,LinkedIn,2024-05-02,68,1,1,0,0,0
+C0782,R5,Data Analyst,London,Job board,2024-05-17,56,1,1,0,0,0
+C0783,R1,Data Analyst,Manchester,LinkedIn,2024-11-11,70,1,1,0,0,0
+C0784,R3,HR Specialist,Bristol,LinkedIn,2024-08-13,67,1,0,0,0,0
+C0785,R5,Marketing Associate,London,LinkedIn,2024-05-01,70,1,1,0,0,0
+C0786,R4,HR Specialist,Edinburgh,Careers page,2024-10-02,46,1,1,0,0,0
+C0787,R1,Marketing Associate,London,Job board,2024-02-20,50,1,1,0,0,0
+C0788,R1,Data Analyst,London,LinkedIn,2024-07-11,75,1,1,1,0,0
+C0789,R1,Software Engineer,Manchester,LinkedIn,2024-02-10,69,1,1,1,0,0
+C0790,R2,Data Analyst,London,LinkedIn,2024-05-04,66,1,0,0,0,0
+C0791,R2,Data Analyst,Edinburgh,LinkedIn,2024-12-30,68,1,0,0,0,0
+C0792,R4,Data Analyst,Manchester,LinkedIn,2024-01-27,72,1,0,0,0,0
+C0793,R1,Data Analyst,Bristol,Job board,2024-07-22,60,1,1,1,0,0
+C0794,R4,Data Analyst,London,Job board,2024-04-04,45,1,1,1,0,0
+C0795,R5,Data Analyst,London,LinkedIn,2024-10-10,73,1,1,1,0,0
+C0796,R4,Data Analyst,Manchester,Careers page,2024-08-13,54,1,1,0,0,0
+C0797,R1,Software Engineer,Bristol,LinkedIn,2024-08-30,71,1,1,1,1,1
+C0798,R1,Data Analyst,London,Job board,2024-11-01,43,1,1,0,0,0
+C0799,R4,Data Analyst,London,Careers page,2024-12-04,57,1,0,0,0,0
+C0800,R1,Marketing Associate,Edinburgh,LinkedIn,2024-03-29,69,1,1,1,0,0
+C0801,R4,Data Analyst,London,LinkedIn,2024-08-05,76,1,1,1,0,0
+C0802,R4,Data Analyst,Bristol,Careers page,2024-09-18,41,1,1,0,0,0
+C0803,R1,HR Specialist,London,Job board,2024-01-29,58,1,1,0,0,0
+C0804,R1,HR Specialist,Manchester,Careers page,2024-06-24,66,1,1,0,0,0
+C0805,R1,Marketing Associate,Bristol,LinkedIn,2024-04-01,69,1,1,0,0,0
+C0806,R2,HR Specialist,London,LinkedIn,2024-08-26,66,1,1,1,0,0
+C0807,R4,Software Engineer,Manchester,LinkedIn,2024-07-27,67,1,1,0,0,0
+C0808,R4,HR Specialist,Manchester,LinkedIn,2024-12-19,75,1,1,0,0,0
+C0809,R5,Data Analyst,Manchester,Job board,2024-09-05,83,1,1,0,0,0
+C0810,R3,HR Specialist,Bristol,LinkedIn,2024-11-22,66,1,0,0,0,0
+C0811,R1,Data Analyst,London,LinkedIn,2024-02-12,70,1,1,0,0,0
+C0812,R3,Software Engineer,London,Job board,2024-07-02,55,1,1,1,1,0
+C0813,R4,Data Analyst,Bristol,Job board,2024-10-04,53,1,1,1,0,0
+C0814,R2,Software Engineer,London,LinkedIn,2024-05-09,70,1,1,0,0,0
+C0815,R5,HR Specialist,Bristol,Job board,2024-02-19,43,1,1,0,0,0
+C0816,R1,Data Analyst,London,Job board,2024-11-09,72,1,1,1,0,0
+C0817,R1,Software Engineer,London,LinkedIn,2024-12-10,70,1,0,0,0,0
+C0818,R1,Data Analyst,London,LinkedIn,2024-05-15,68,1,1,1,0,0
+C0819,R3,Data Analyst,London,Job board,2024-09-03,41,1,0,0,0,0
+C0820,R3,HR Specialist,London,LinkedIn,2024-11-29,72,1,1,0,0,0
+C0821,R3,Software Engineer,Bristol,Job board,2024-10-08,32,1,0,0,0,0
+C0822,R1,HR Specialist,Manchester,Job board,2024-09-29,71,1,1,0,0,0
+C0823,R3,HR Specialist,Edinburgh,LinkedIn,2024-10-04,69,1,1,0,0,0
+C0824,R2,Data Analyst,Bristol,Job board,2024-05-06,52,1,1,0,0,0
+C0825,R5,Software Engineer,London,LinkedIn,2024-09-01,69,1,1,1,1,1
+C0826,R1,HR Specialist,Edinburgh,LinkedIn,2024-09-06,76,1,1,1,1,1
+C0827,R4,Data Analyst,Edinburgh,Job board,2024-03-16,77,1,1,1,0,0
+C0828,R1,Software Engineer,London,LinkedIn,2024-09-17,70,1,0,0,0,0
+C0829,R1,Data Analyst,London,LinkedIn,2024-10-05,68,1,1,0,0,0
+C0830,R5,HR Specialist,London,LinkedIn,2024-04-19,73,1,1,1,0,0
+C0831,R1,Data Analyst,London,LinkedIn,2024-11-05,65,1,1,1,0,0
+C0832,R5,Data Analyst,Manchester,LinkedIn,2024-08-02,70,1,1,1,1,1
+C0833,R4,Software Engineer,Edinburgh,LinkedIn,2024-04-04,68,1,1,0,0,0
+C0834,R5,HR Specialist,London,LinkedIn,2024-06-20,70,1,1,1,1,1
+C0835,R3,Software Engineer,Manchester,LinkedIn,2024-06-09,72,1,1,1,0,0
+C0836,R3,Data Analyst,London,Job board,2024-10-21,60,1,1,0,0,0
+C0837,R5,HR Specialist,London,Job board,2024-04-09,33,1,0,0,0,0
+C0838,R3,HR Specialist,London,Job board,2024-01-28,63,1,1,1,0,0
+C0839,R1,Marketing Associate,Edinburgh,Careers page,2024-02-08,38,1,1,0,0,0
+C0840,R1,HR Specialist,Manchester,Careers page,2024-06-01,44,1,1,0,0,0
+C0841,R2,Data Analyst,Bristol,Job board,2024-12-05,49,1,1,1,0,0
+C0842,R5,Marketing Associate,Edinburgh,LinkedIn,2024-04-22,73,1,1,1,0,0
+C0843,R3,Software Engineer,London,LinkedIn,2024-09-25,70,1,0,0,0,0
+C0844,R1,HR Specialist,Edinburgh,LinkedIn,2024-02-23,71,1,1,0,0,0
+C0845,R3,HR Specialist,Manchester,LinkedIn,2024-07-22,71,1,1,1,0,0
+C0846,R1,Software Engineer,Manchester,LinkedIn,2024-09-25,68,1,0,0,0,0
+C0847,R2,Data Analyst,Edinburgh,Careers page,2024-12-25,50,1,0,0,0,0
+C0848,R1,Software Engineer,Bristol,Job board,2024-02-11,60,1,0,0,0,0
+C0849,R1,Software Engineer,Edinburgh,Job board,2024-08-06,64,1,1,0,0,0
+C0850,R1,HR Specialist,Bristol,LinkedIn,2024-03-02,71,1,1,1,1,1
+C0851,R1,Marketing Associate,London,Job board,2024-01-25,45,1,1,1,0,0
+C0852,R5,Data Analyst,London,Job board,2024-06-11,29,1,0,0,0,0
+C0853,R2,Software Engineer,London,Careers page,2024-04-11,72,1,1,1,0,0
+C0854,R5,HR Specialist,Edinburgh,LinkedIn,2024-11-14,69,1,0,0,0,0
+C0855,R4,Data Analyst,Manchester,Job board,2024-08-18,67,1,1,0,0,0
+C0856,R4,HR Specialist,Manchester,Job board,2024-05-25,49,1,1,1,0,0
+C0857,R2,Data Analyst,London,Careers page,2024-04-24,43,1,0,0,0,0
+C0858,R1,HR Specialist,London,LinkedIn,2024-03-03,67,1,1,0,0,0
+C0859,R1,Marketing Associate,London,LinkedIn,2024-09-29,72,1,1,1,1,1
+C0860,R2,HR Specialist,Bristol,LinkedIn,2024-07-15,68,1,1,1,0,0
+C0861,R4,HR Specialist,Edinburgh,Job board,2024-03-12,41,1,0,0,0,0
+C0862,R1,HR Specialist,Manchester,LinkedIn,2024-08-03,67,1,0,0,0,0
+C0863,R3,Software Engineer,London,LinkedIn,2024-03-04,71,1,1,1,0,0
+C0864,R4,Software Engineer,London,Job board,2024-06-21,54,1,1,0,0,0
+C0865,R3,Data Analyst,London,Job board,2024-12-02,52,1,0,0,0,0
+C0866,R1,HR Specialist,Edinburgh,Careers page,2024-05-10,60,1,1,1,0,0
+C0867,R1,Software Engineer,Manchester,Careers page,2024-07-25,74,1,1,1,0,0
+C0868,R1,HR Specialist,Bristol,LinkedIn,2024-08-25,70,1,0,0,0,0
+C0869,R4,Data Analyst,London,Job board,2024-06-09,83,1,1,1,1,1
+C0870,R4,HR Specialist,Manchester,LinkedIn,2024-06-17,69,1,0,0,0,0
+C0871,R1,Software Engineer,London,LinkedIn,2024-10-02,69,1,1,1,0,0
+C0872,R1,HR Specialist,Manchester,LinkedIn,2024-08-21,72,1,1,1,0,0
+C0873,R5,Data Analyst,Edinburgh,LinkedIn,2024-01-10,71,1,1,1,0,0
+C0874,R4,Marketing Associate,Edinburgh,LinkedIn,2024-10-10,73,1,1,1,0,0
+C0875,R2,Data Analyst,London,LinkedIn,2024-11-26,68,1,1,0,0,0
+C0876,R3,Marketing Associate,Manchester,Job board,2024-01-12,44,1,1,1,0,0
+C0877,R1,Data Analyst,Manchester,LinkedIn,2024-09-04,68,1,1,0,0,0
+C0878,R3,Software Engineer,Edinburgh,LinkedIn,2024-12-13,65,1,1,0,0,0
+C0879,R2,HR Specialist,Manchester,LinkedIn,2024-01-20,68,1,1,0,0,0
+C0880,R3,HR Specialist,Manchester,LinkedIn,2024-11-18,69,1,1,1,0,0
+C0881,R1,Software Engineer,Edinburgh,Job board,2024-12-16,62,1,1,1,0,0
+C0882,R2,Data Analyst,London,LinkedIn,2024-07-07,68,1,1,1,0,0
+C0883,R3,Data Analyst,Manchester,LinkedIn,2024-04-03,72,1,1,1,0,0
+C0884,R1,Data Analyst,London,LinkedIn,2024-08-14,72,1,1,0,0,0
+C0885,R5,Data Analyst,Manchester,Job board,2024-01-23,52,1,1,1,0,0
+C0886,R2,Data Analyst,Bristol,Job board,2024-09-22,45,1,1,0,0,0
+C0887,R4,Marketing Associate,Bristol,Job board,2024-04-08,50,1,0,0,0,0
+C0888,R1,Data Analyst,Manchester,Job board,2024-11-17,63,1,1,0,0,0
+C0889,R1,Data Analyst,Manchester,LinkedIn,2024-07-31,69,1,1,1,0,0
+C0890,R1,HR Specialist,Bristol,Job board,2024-03-27,61,1,1,0,0,0
+C0891,R3,HR Specialist,Edinburgh,Careers page,2024-08-19,62,1,1,0,0,0
+C0892,R5,Data Analyst,Bristol,Job board,2024-07-08,50,1,0,0,0,0
+C0893,R3,Data Analyst,Edinburgh,Job board,2024-12-29,56,1,0,0,0,0
+C0894,R4,HR Specialist,London,LinkedIn,2024-11-19,71,1,1,0,0,0
+C0895,R5,Data Analyst,Edinburgh,LinkedIn,2024-09-09,71,1,1,0,0,0
+C0896,R5,Marketing Associate,Manchester,LinkedIn,2024-02-22,66,1,1,1,0,0
+C0897,R1,HR Specialist,Bristol,Job board,2024-01-13,40,1,0,0,0,0
+C0898,R4,HR Specialist,Bristol,Job board,2024-03-25,66,1,1,1,1,1
+C0899,R1,HR Specialist,Manchester,LinkedIn,2024-03-18,75,1,1,1,0,0
+C0900,R5,HR Specialist,Manchester,LinkedIn,2024-02-04,69,1,1,1,1,0
+C0901,R2,HR Specialist,Manchester,Job board,2024-04-17,52,1,0,0,0,0
+C0902,R4,Data Analyst,Edinburgh,LinkedIn,2024-06-20,75,1,1,0,0,0
+C0903,R2,Data Analyst,Bristol,LinkedIn,2024-03-27,69,1,1,0,0,0
+C0904,R3,Data Analyst,Manchester,LinkedIn,2024-10-25,71,1,1,1,0,0
+C0905,R3,Data Analyst,London,Careers page,2024-03-27,77,1,1,1,1,1
+C0906,R4,Data Analyst,Edinburgh,Job board,2024-04-05,67,1,1,0,0,0
+C0907,R5,Marketing Associate,Bristol,LinkedIn,2024-12-15,76,1,1,1,0,0
+C0908,R2,HR Specialist,Manchester,LinkedIn,2024-08-30,66,1,0,0,0,0
+C0909,R5,Marketing Associate,London,LinkedIn,2024-09-04,70,1,0,0,0,0
+C0910,R1,Data Analyst,Manchester,Careers page,2024-08-04,75,1,0,0,0,0
+C0911,R1,Data Analyst,Bristol,LinkedIn,2024-04-24,72,1,1,1,0,0
+C0912,R1,HR Specialist,Manchester,Job board,2024-03-06,82,1,0,0,0,0
+C0913,R2,HR Specialist,London,LinkedIn,2024-07-15,69,1,1,0,0,0
+C0914,R3,Software Engineer,Manchester,Job board,2024-09-19,64,1,0,0,0,0
+C0915,R1,Marketing Associate,London,Careers page,2024-10-08,57,1,1,0,0,0
+C0916,R2,HR Specialist,Manchester,Job board,2024-09-25,39,1,0,0,0,0
+C0917,R3,Software Engineer,Edinburgh,LinkedIn,2024-03-17,69,1,0,0,0,0
+C0918,R4,Data Analyst,London,Job board,2024-04-22,44,1,0,0,0,0
+C0919,R4,Software Engineer,Edinburgh,Job board,2024-09-26,64,1,1,1,0,0
+C0920,R1,Data Analyst,London,LinkedIn,2024-04-16,71,1,0,0,0,0
+C0921,R5,Data Analyst,Edinburgh,Job board,2024-01-22,70,1,1,0,0,0
+C0922,R1,HR Specialist,Edinburgh,Job board,2024-12-22,57,1,1,0,0,0
+C0923,R4,Marketing Associate,Manchester,Job board,2024-09-20,36,1,0,0,0,0
+C0924,R2,HR Specialist,Manchester,LinkedIn,2024-08-03,65,1,1,1,0,0
+C0925,R3,Data Analyst,Manchester,Careers page,2024-06-22,52,1,1,1,1,0
+C0926,R3,Data Analyst,Edinburgh,LinkedIn,2024-03-14,69,1,1,0,0,0
+C0927,R1,Software Engineer,Bristol,Job board,2024-05-08,46,1,1,1,1,1
+C0928,R3,HR Specialist,Edinburgh,Job board,2024-12-21,48,1,1,1,1,1
+C0929,R1,HR Specialist,London,Job board,2024-10-11,69,1,1,1,0,0
+C0930,R5,Software Engineer,Manchester,LinkedIn,2024-04-03,74,1,1,0,0,0
+C0931,R2,Data Analyst,London,LinkedIn,2024-03-12,70,1,0,0,0,0
+C0932,R1,Data Analyst,Manchester,LinkedIn,2024-04-03,75,1,1,1,0,0
+C0933,R5,Data Analyst,London,LinkedIn,2024-04-15,72,1,1,1,0,0
+C0934,R3,HR Specialist,London,LinkedIn,2024-03-31,73,1,1,0,0,0
+C0935,R2,Data Analyst,Edinburgh,LinkedIn,2024-09-07,68,1,1,0,0,0
+C0936,R1,Data Analyst,Bristol,LinkedIn,2024-08-28,69,1,1,0,0,0
+C0937,R4,Marketing Associate,Manchester,LinkedIn,2024-05-07,68,1,0,0,0,0
+C0938,R2,Marketing Associate,London,Careers page,2024-01-11,51,1,0,0,0,0
+C0939,R2,HR Specialist,Manchester,Careers page,2024-01-29,81,1,1,0,0,0
+C0940,R1,Data Analyst,Manchester,LinkedIn,2024-09-01,70,1,1,0,0,0
+C0941,R2,HR Specialist,Bristol,LinkedIn,2024-04-02,75,1,1,1,1,1
+C0942,R4,Software Engineer,Edinburgh,LinkedIn,2024-12-09,70,1,1,1,0,0
+C0943,R4,HR Specialist,London,Job board,2024-05-08,47,1,1,1,0,0
+C0944,R4,HR Specialist,Manchester,Careers page,2024-04-11,80,1,0,0,0,0
+C0945,R1,Data Analyst,Bristol,Job board,2024-11-20,50,1,0,0,0,0
+C0946,R1,Data Analyst,Manchester,Careers page,2024-12-19,43,1,0,0,0,0
+C0947,R4,Data Analyst,London,Job board,2024-09-05,52,1,1,0,0,0
+C0948,R1,Data Analyst,London,LinkedIn,2024-04-02,69,1,1,0,0,0
+C0949,R4,HR Specialist,Bristol,LinkedIn,2024-06-18,72,1,1,0,0,0
+C0950,R1,Data Analyst,Edinburgh,LinkedIn,2024-02-27,66,1,1,0,0,0
+C0951,R3,Data Analyst,Manchester,LinkedIn,2024-02-06,69,1,1,0,0,0
+C0952,R1,Data Analyst,London,Job board,2024-03-16,69,1,0,0,0,0
+C0953,R2,Data Analyst,London,LinkedIn,2024-11-16,70,1,1,1,0,0
+C0954,R1,Data Analyst,London,Job board,2024-05-02,35,1,0,0,0,0
+C0955,R4,Data Analyst,Manchester,Job board,2024-12-21,26,1,0,0,0,0
+C0956,R2,Data Analyst,Edinburgh,Careers page,2024-11-24,68,1,1,0,0,0
+C0957,R3,Data Analyst,Bristol,Careers page,2024-08-25,53,1,1,1,1,1
+C0958,R1,HR Specialist,Edinburgh,LinkedIn,2024-09-02,67,1,0,0,0,0
+C0959,R4,HR Specialist,Bristol,LinkedIn,2024-12-07,66,1,1,1,1,1
+C0960,R4,Data Analyst,London,LinkedIn,2024-12-06,70,1,1,0,0,0
+C0961,R4,Marketing Associate,London,LinkedIn,2024-05-07,72,1,1,1,1,1
+C0962,R4,HR Specialist,London,Job board,2024-06-02,75,1,1,1,0,0
+C0963,R3,Data Analyst,Bristol,Job board,2024-06-22,39,1,0,0,0,0
+C0964,R1,Data Analyst,Manchester,LinkedIn,2024-11-19,73,1,1,1,0,0
+C0965,R2,HR Specialist,Bristol,Job board,2024-08-04,52,1,1,0,0,0
+C0966,R3,Marketing Associate,Edinburgh,LinkedIn,2024-06-20,70,1,1,0,0,0
+C0967,R4,Software Engineer,London,LinkedIn,2024-05-17,68,1,0,0,0,0
+C0968,R1,HR Specialist,Bristol,LinkedIn,2024-11-25,69,1,1,0,0,0
+C0969,R5,Data Analyst,Manchester,Job board,2024-08-12,66,1,1,0,0,0
+C0970,R4,Data Analyst,Edinburgh,LinkedIn,2024-04-08,75,1,1,1,1,0
+C0971,R5,HR Specialist,London,LinkedIn,2024-12-25,69,1,1,0,0,0
+C0972,R1,Data Analyst,Bristol,LinkedIn,2024-10-05,67,1,1,0,0,0
+C0973,R5,Software Engineer,Manchester,Job board,2024-10-17,66,1,1,1,0,0
+C0974,R1,Software Engineer,London,LinkedIn,2024-10-05,72,1,1,0,0,0
+C0975,R1,Data Analyst,Edinburgh,Job board,2024-10-28,51,1,1,0,0,0
+C0976,R3,HR Specialist,London,LinkedIn,2024-03-14,72,1,1,1,1,1
+C0977,R2,HR Specialist,Manchester,LinkedIn,2024-03-08,78,1,1,0,0,0
+C0978,R1,Data Analyst,Edinburgh,LinkedIn,2024-02-06,70,1,1,0,0,0
+C0979,R4,HR Specialist,Manchester,LinkedIn,2024-12-30,70,1,1,0,0,0
+C0980,R4,Marketing Associate,Manchester,Job board,2024-04-21,51,1,0,0,0,0
+C0981,R4,HR Specialist,Bristol,LinkedIn,2024-12-29,69,1,0,0,0,0
+C0982,R5,HR Specialist,London,Job board,2024-08-11,74,1,1,0,0,0
+C0983,R2,Data Analyst,London,Job board,2024-11-05,60,1,1,0,0,0
+C0984,R3,HR Specialist,London,LinkedIn,2024-06-21,66,1,1,0,0,0
+C0985,R2,HR Specialist,London,Job board,2024-05-02,80,1,1,1,0,0
+C0986,R5,Data Analyst,Bristol,LinkedIn,2024-10-28,70,1,1,1,0,0
+C0987,R1,Marketing Associate,Manchester,LinkedIn,2024-06-20,67,1,1,0,0,0
+C0988,R1,Software Engineer,London,Job board,2024-03-18,50,1,0,0,0,0
+C0989,R1,Software Engineer,London,Job board,2024-08-19,57,1,1,0,0,0
+C0990,R4,Software Engineer,London,LinkedIn,2024-01-31,72,1,1,1,0,0
+C0991,R1,Data Analyst,Bristol,Job board,2024-06-27,48,1,1,1,1,1
+C0992,R1,Data Analyst,London,Careers page,2024-05-26,72,1,0,0,0,0
+C0993,R3,Data Analyst,London,LinkedIn,2024-01-22,68,1,1,0,0,0
+C0994,R4,Software Engineer,Manchester,Careers page,2024-03-28,56,1,1,0,0,0
+C0995,R3,Data Analyst,London,Job board,2024-02-22,33,1,0,0,0,0
+C0996,R5,Software Engineer,Bristol,LinkedIn,2024-02-20,71,1,1,1,0,0
+C0997,R3,Marketing Associate,Bristol,Job board,2024-07-04,45,1,0,0,0,0
+C0998,R4,HR Specialist,Bristol,LinkedIn,2024-01-13,69,1,1,0,0,0
+C0999,R5,HR Specialist,Edinburgh,LinkedIn,2024-08-30,67,1,1,0,0,0
+C1000,R1,Data Analyst,Bristol,Job board,2024-01-18,55,1,1,0,0,0
+C1001,R1,Data Analyst,Manchester,Job board,2024-11-24,60,1,0,0,0,0
+C1002,R3,HR Specialist,London,LinkedIn,2024-02-27,70,1,0,0,0,0
+C1003,R1,Software Engineer,London,Job board,2024-01-10,81,1,1,1,1,1
+C1004,R2,Data Analyst,Manchester,Job board,2024-08-01,42,1,1,0,0,0
+C1005,R5,HR Specialist,London,Job board,2024-06-24,22,1,0,0,0,0
+C1006,R4,HR Specialist,Edinburgh,LinkedIn,2024-01-16,69,1,1,1,1,1
+C1007,R5,Data Analyst,London,Job board,2024-05-08,59,1,1,1,0,0
+C1008,R1,Data Analyst,Edinburgh,Job board,2024-06-09,50,1,1,0,0,0
+C1009,R1,HR Specialist,Bristol,Job board,2024-02-27,69,1,0,0,0,0
+C1010,R4,Software Engineer,London,LinkedIn,2024-09-03,70,1,1,0,0,0
+C1011,R4,Marketing Associate,Manchester,Job board,2024-06-12,27,1,0,0,0,0
+C1012,R1,Data Analyst,Edinburgh,Careers page,2024-04-26,59,1,0,0,0,0
+C1013,R1,HR Specialist,Edinburgh,LinkedIn,2024-10-14,73,1,1,1,0,0
+C1014,R4,Data Analyst,Edinburgh,Job board,2024-12-31,38,1,0,0,0,0
+C1015,R1,HR Specialist,Manchester,Job board,2024-10-20,58,1,1,0,0,0
+C1016,R5,Data Analyst,Bristol,LinkedIn,2024-03-29,68,1,1,0,0,0
+C1017,R3,Data Analyst,Edinburgh,LinkedIn,2024-02-10,69,1,1,1,0,0
+C1018,R3,Data Analyst,London,LinkedIn,2024-04-17,72,1,1,0,0,0
+C1019,R4,Software Engineer,Manchester,Job board,2024-12-21,51,1,1,1,1,1
+C1020,R1,Data Analyst,Bristol,Job board,2024-04-15,65,1,0,0,0,0
+C1021,R4,Data Analyst,Bristol,LinkedIn,2024-08-18,72,1,1,0,0,0
+C1022,R5,HR Specialist,London,LinkedIn,2024-10-06,69,1,1,1,0,0
+C1023,R3,Data Analyst,London,Careers page,2024-08-11,83,1,1,0,0,0
+C1024,R4,HR Specialist,London,Job board,2024-04-01,37,1,0,0,0,0
+C1025,R5,HR Specialist,London,LinkedIn,2024-08-15,75,1,1,0,0,0
+C1026,R1,HR Specialist,Bristol,LinkedIn,2024-06-03,69,1,1,1,0,0
+C1027,R3,HR Specialist,Edinburgh,LinkedIn,2024-02-02,69,1,1,0,0,0
+C1028,R4,Software Engineer,Edinburgh,LinkedIn,2024-10-09,70,1,0,0,0,0
+C1029,R1,Marketing Associate,Manchester,Careers page,2024-05-21,43,1,1,0,0,0
+C1030,R3,Software Engineer,London,Careers page,2024-08-30,84,1,1,1,1,1
+C1031,R1,Data Analyst,Bristol,LinkedIn,2024-11-09,68,1,1,0,0,0
+C1032,R4,Software Engineer,London,LinkedIn,2024-05-15,73,1,1,0,0,0
+C1033,R4,HR Specialist,Manchester,Job board,2024-06-16,25,1,0,0,0,0
+C1034,R1,HR Specialist,Manchester,Careers page,2024-01-27,62,1,0,0,0,0
+C1035,R3,Software Engineer,Bristol,Job board,2024-08-27,45,1,1,1,0,0
+C1036,R4,HR Specialist,Manchester,Job board,2024-02-23,35,1,0,0,0,0
+C1037,R1,Software Engineer,Manchester,Careers page,2024-08-24,44,1,0,0,0,0
+C1038,R3,Data Analyst,London,Careers page,2024-10-27,67,1,1,1,0,0
+C1039,R4,HR Specialist,London,LinkedIn,2024-11-29,69,1,1,0,0,0
+C1040,R4,Data Analyst,Bristol,Job board,2024-02-24,91,1,1,1,0,0
+C1041,R5,Data Analyst,Edinburgh,LinkedIn,2024-10-07,71,1,1,1,0,0
+C1042,R5,Marketing Associate,Edinburgh,LinkedIn,2024-01-02,68,1,1,0,0,0
+C1043,R4,HR Specialist,London,Careers page,2024-07-04,58,1,0,0,0,0
+C1044,R4,HR Specialist,London,Careers page,2024-01-03,54,1,0,0,0,0
+C1045,R1,Marketing Associate,Bristol,LinkedIn,2024-01-24,70,1,1,1,0,0
+C1046,R1,Marketing Associate,Manchester,Careers page,2024-07-08,75,1,1,0,0,0
+C1047,R4,HR Specialist,Manchester,LinkedIn,2024-08-27,70,1,1,1,1,1
+C1048,R1,Software Engineer,London,LinkedIn,2024-05-11,69,1,1,0,0,0
+C1049,R2,Data Analyst,London,Job board,2024-04-10,56,1,1,0,0,0
+C1050,R2,Software Engineer,London,Job board,2024-01-15,68,1,1,0,0,0
+C1051,R5,Marketing Associate,London,LinkedIn,2024-08-10,68,1,0,0,0,0
+C1052,R5,HR Specialist,Manchester,Careers page,2024-04-04,70,1,1,0,0,0
+C1053,R2,Software Engineer,London,Careers page,2024-08-23,56,1,1,1,0,0
+C1054,R4,Software Engineer,London,Job board,2024-10-03,61,1,1,1,1,1
+C1055,R3,HR Specialist,London,Job board,2024-10-06,43,1,0,0,0,0
+C1056,R1,Software Engineer,London,Job board,2024-02-02,71,1,1,1,1,1
+C1057,R3,HR Specialist,Manchester,LinkedIn,2024-12-22,70,1,1,1,1,1
+C1058,R1,Data Analyst,London,Careers page,2024-10-23,72,1,1,0,0,0
+C1059,R1,HR Specialist,Edinburgh,LinkedIn,2024-03-05,68,1,1,0,0,0
+C1060,R5,HR Specialist,Bristol,Job board,2024-03-25,64,1,1,1,0,0
+C1061,R5,HR Specialist,London,Careers page,2024-03-13,59,1,1,1,0,0
+C1062,R1,HR Specialist,Bristol,LinkedIn,2024-03-23,70,1,1,1,1,1
+C1063,R1,Data Analyst,London,LinkedIn,2024-07-30,68,1,1,1,0,0
+C1064,R4,HR Specialist,Edinburgh,LinkedIn,2024-09-23,70,1,1,1,0,0
+C1065,R1,HR Specialist,London,Job board,2024-10-28,77,1,1,0,0,0
+C1066,R5,Marketing Associate,London,Job board,2024-07-14,48,1,1,1,1,0
+C1067,R3,Data Analyst,London,Job board,2024-08-10,80,1,1,0,0,0
+C1068,R1,Marketing Associate,London,LinkedIn,2024-04-16,69,1,0,0,0,0
+C1069,R2,HR Specialist,Edinburgh,LinkedIn,2024-10-24,72,1,1,1,1,1
+C1070,R3,Software Engineer,London,LinkedIn,2024-03-04,68,1,1,0,0,0
+C1071,R5,Software Engineer,Edinburgh,Careers page,2024-02-20,59,1,0,0,0,0
+C1072,R5,HR Specialist,London,LinkedIn,2024-06-27,69,1,1,0,0,0
+C1073,R2,HR Specialist,London,LinkedIn,2024-05-01,70,1,0,0,0,0
+C1074,R5,Marketing Associate,Edinburgh,LinkedIn,2024-02-14,69,1,1,1,0,0
+C1075,R3,Software Engineer,London,LinkedIn,2024-09-25,69,1,0,0,0,0
+C1076,R3,Software Engineer,London,Job board,2024-09-21,63,1,1,0,0,0
+C1077,R1,Data Analyst,Bristol,Job board,2024-03-24,41,1,0,0,0,0
+C1078,R1,Data Analyst,London,LinkedIn,2024-12-20,72,1,1,1,0,0
+C1079,R4,HR Specialist,Manchester,Careers page,2024-03-14,61,1,0,0,0,0
+C1080,R4,Data Analyst,London,LinkedIn,2024-03-07,70,1,1,1,0,0
+C1081,R4,Software Engineer,Manchester,Job board,2024-12-05,74,1,1,0,0,0
+C1082,R1,HR Specialist,Bristol,LinkedIn,2024-08-22,66,1,0,0,0,0
+C1083,R1,Data Analyst,Edinburgh,Careers page,2024-10-13,60,1,1,1,0,0
+C1084,R4,Software Engineer,Bristol,LinkedIn,2024-04-06,71,1,1,1,0,0
+C1085,R5,Marketing Associate,Edinburgh,LinkedIn,2024-05-28,65,1,1,0,0,0
+C1086,R1,Data Analyst,Manchester,Job board,2024-05-06,47,1,1,1,0,0
+C1087,R1,Data Analyst,Bristol,LinkedIn,2024-12-07,67,1,1,1,0,0
+C1088,R1,Software Engineer,Manchester,LinkedIn,2024-02-17,72,1,1,0,0,0
+C1089,R5,HR Specialist,Edinburgh,Careers page,2024-11-21,53,1,0,0,0,0
+C1090,R4,Data Analyst,Manchester,LinkedIn,2024-02-15,67,1,1,0,0,0
+C1091,R5,HR Specialist,London,LinkedIn,2024-02-06,73,1,1,0,0,0
+C1092,R1,HR Specialist,Manchester,LinkedIn,2024-11-01,70,1,1,1,0,0
+C1093,R1,HR Specialist,London,LinkedIn,2024-11-30,71,1,1,1,0,0
+C1094,R1,Data Analyst,Manchester,Job board,2024-08-19,31,1,0,0,0,0
+C1095,R5,HR Specialist,Manchester,Job board,2024-12-30,55,1,0,0,0,0
+C1096,R5,Marketing Associate,London,Careers page,2024-11-08,69,1,1,1,0,0
+C1097,R2,HR Specialist,Manchester,LinkedIn,2024-10-07,70,1,0,0,0,0
+C1098,R3,Marketing Associate,London,LinkedIn,2024-11-22,68,1,1,1,0,0
+C1099,R1,Data Analyst,London,Careers page,2024-03-15,73,1,0,0,0,0
+C1100,R1,HR Specialist,London,Job board,2024-02-09,49,1,0,0,0,0
+C1101,R5,Data Analyst,London,Careers page,2024-06-21,63,1,0,0,0,0
+C1102,R5,HR Specialist,London,Careers page,2024-09-08,96,1,1,1,0,0
+C1103,R1,Data Analyst,Edinburgh,Careers page,2024-12-05,54,1,1,1,0,0
+C1104,R5,HR Specialist,Manchester,LinkedIn,2024-01-15,74,1,1,1,0,0
+C1105,R2,HR Specialist,Manchester,Job board,2024-10-02,47,1,1,0,0,0
+C1106,R4,Software Engineer,Manchester,LinkedIn,2024-11-11,73,1,1,1,0,0
+C1107,R3,Software Engineer,London,Job board,2024-07-12,67,1,0,0,0,0
+C1108,R2,HR Specialist,Edinburgh,Job board,2024-06-20,75,1,1,1,0,0
+C1109,R2,Marketing Associate,Manchester,Job board,2024-08-20,59,1,1,0,0,0
+C1110,R3,Data Analyst,Edinburgh,LinkedIn,2024-03-14,71,1,1,1,1,0
+C1111,R1,HR Specialist,Manchester,Careers page,2024-02-04,53,1,0,0,0,0
+C1112,R5,HR Specialist,Manchester,Job board,2024-04-01,77,1,1,1,0,0
+C1113,R4,HR Specialist,Edinburgh,Job board,2024-11-15,47,1,1,0,0,0
+C1114,R4,Data Analyst,Edinburgh,LinkedIn,2024-09-08,69,1,1,1,0,0
+C1115,R1,HR Specialist,Bristol,Job board,2024-07-15,68,1,1,0,0,0
+C1116,R1,Data Analyst,London,Careers page,2024-06-18,71,1,1,1,1,1
+C1117,R4,HR Specialist,London,LinkedIn,2024-03-01,75,1,1,1,0,0
+C1118,R2,HR Specialist,Manchester,Job board,2024-07-06,36,1,0,0,0,0
+C1119,R1,Data Analyst,London,Job board,2024-11-07,49,1,1,1,0,0
+C1120,R3,Software Engineer,Manchester,LinkedIn,2024-01-24,72,1,1,1,0,0
+C1121,R1,HR Specialist,Manchester,LinkedIn,2024-02-28,70,1,1,1,0,0
+C1122,R1,HR Specialist,Manchester,Job board,2024-01-03,51,1,0,0,0,0
+C1123,R5,Data Analyst,London,Job board,2024-10-22,56,1,1,1,1,1
+C1124,R1,Data Analyst,London,LinkedIn,2024-07-29,71,1,1,1,0,0
+C1125,R1,HR Specialist,Manchester,LinkedIn,2024-02-16,70,1,0,0,0,0
+C1126,R1,Marketing Associate,Bristol,Careers page,2024-01-06,51,1,1,0,0,0
+C1127,R2,Data Analyst,London,LinkedIn,2024-06-26,71,1,1,0,0,0
+C1128,R3,Data Analyst,London,Careers page,2024-09-13,72,1,1,0,0,0
+C1129,R1,Data Analyst,Bristol,LinkedIn,2024-08-21,70,1,1,1,1,1
+C1130,R3,HR Specialist,Manchester,Job board,2024-02-04,48,1,1,1,0,0
+C1131,R4,HR Specialist,London,Careers page,2024-07-29,33,1,0,0,0,0
+C1132,R5,Data Analyst,London,LinkedIn,2024-06-07,69,1,1,0,0,0
+C1133,R5,Data Analyst,Bristol,LinkedIn,2024-12-14,69,1,1,1,0,0
+C1134,R3,HR Specialist,Manchester,LinkedIn,2024-04-08,68,1,1,0,0,0
+C1135,R5,Software Engineer,Edinburgh,LinkedIn,2024-12-01,70,1,1,0,0,0
+C1136,R5,HR Specialist,Edinburgh,LinkedIn,2024-07-02,69,1,1,0,0,0
+C1137,R4,HR Specialist,Edinburgh,LinkedIn,2024-05-01,71,1,1,1,1,1
+C1138,R1,HR Specialist,Manchester,LinkedIn,2024-02-16,68,1,1,0,0,0
+C1139,R4,HR Specialist,Manchester,Job board,2024-07-27,63,1,1,0,0,0
+C1140,R1,HR Specialist,Manchester,LinkedIn,2024-06-05,69,1,1,0,0,0
+C1141,R5,Data Analyst,London,Careers page,2024-09-07,61,1,0,0,0,0
+C1142,R4,Data Analyst,Manchester,Job board,2024-03-04,67,1,1,0,0,0
+C1143,R1,Marketing Associate,Bristol,LinkedIn,2024-08-18,71,1,1,0,0,0
+C1144,R2,HR Specialist,Edinburgh,Careers page,2024-06-16,66,1,1,1,1,1
+C1145,R1,HR Specialist,London,Careers page,2024-10-04,58,1,1,1,0,0
+C1146,R4,Marketing Associate,London,Job board,2024-05-17,62,1,1,0,0,0
+C1147,R3,Data Analyst,Edinburgh,LinkedIn,2024-12-13,71,1,1,1,0,0
+C1148,R3,Data Analyst,London,LinkedIn,2024-02-15,73,1,1,1,0,0
+C1149,R1,HR Specialist,Edinburgh,LinkedIn,2024-02-08,69,1,0,0,0,0
+C1150,R1,Software Engineer,Edinburgh,Careers page,2024-10-12,84,1,1,1,0,0
+C1151,R2,Software Engineer,Bristol,Job board,2024-11-28,53,1,1,0,0,0
+C1152,R3,Data Analyst,London,LinkedIn,2024-03-23,67,1,0,0,0,0
+C1153,R5,Data Analyst,London,Job board,2024-02-15,42,1,0,0,0,0
+C1154,R2,Software Engineer,Edinburgh,LinkedIn,2024-01-27,67,1,1,0,0,0
+C1155,R4,Marketing Associate,London,LinkedIn,2024-08-18,69,1,1,1,0,0
+C1156,R4,HR Specialist,Edinburgh,LinkedIn,2024-01-29,71,1,0,0,0,0
+C1157,R1,HR Specialist,Manchester,LinkedIn,2024-06-03,71,1,1,1,0,0
+C1158,R2,HR Specialist,London,LinkedIn,2024-05-20,70,1,1,1,0,0
+C1159,R4,Software Engineer,Manchester,Job board,2024-08-09,57,1,0,0,0,0
+C1160,R1,HR Specialist,London,LinkedIn,2024-09-13,70,1,0,0,0,0
+C1161,R4,HR Specialist,Bristol,Job board,2024-06-22,49,1,1,0,0,0
+C1162,R1,Software Engineer,Bristol,Careers page,2024-09-21,63,1,0,0,0,0
+C1163,R4,Data Analyst,Edinburgh,LinkedIn,2024-03-30,71,1,1,1,1,1
+C1164,R1,Marketing Associate,Bristol,Job board,2024-09-02,61,1,0,0,0,0
+C1165,R1,Data Analyst,Manchester,LinkedIn,2024-01-24,76,1,1,1,1,1
+C1166,R1,Data Analyst,Edinburgh,Careers page,2024-08-07,59,1,1,0,0,0
+C1167,R3,Data Analyst,Edinburgh,Job board,2024-11-18,43,1,0,0,0,0
+C1168,R1,Data Analyst,London,LinkedIn,2024-05-29,68,1,0,0,0,0
+C1169,R1,HR Specialist,London,Careers page,2024-11-08,60,1,0,0,0,0
+C1170,R2,Software Engineer,London,Careers page,2024-07-19,62,1,0,0,0,0
+C1171,R4,Software Engineer,Bristol,LinkedIn,2024-07-27,72,1,1,0,0,0
+C1172,R4,HR Specialist,Edinburgh,Job board,2024-02-28,52,1,1,0,0,0
+C1173,R3,Data Analyst,London,Careers page,2024-01-12,60,1,1,1,0,0
+C1174,R2,Marketing Associate,Bristol,Careers page,2024-12-03,70,1,1,0,0,0
+C1175,R1,Marketing Associate,Manchester,LinkedIn,2024-01-03,68,1,1,0,0,0
+C1176,R4,HR Specialist,Manchester,LinkedIn,2024-01-21,72,1,1,0,0,0
+C1177,R5,Marketing Associate,London,LinkedIn,2024-11-08,70,1,1,1,1,1
+C1178,R4,HR Specialist,London,LinkedIn,2024-07-14,74,1,1,0,0,0
+C1179,R1,Data Analyst,Manchester,Careers page,2024-06-03,60,1,1,1,0,0
+C1180,R3,Data Analyst,Bristol,Job board,2024-12-20,54,1,1,0,0,0
+C1181,R1,HR Specialist,London,LinkedIn,2024-06-24,71,1,1,0,0,0
+C1182,R1,Marketing Associate,Manchester,LinkedIn,2024-03-18,72,1,1,1,0,0
+C1183,R3,Data Analyst,Manchester,Job board,2024-08-24,52,1,0,0,0,0
+C1184,R2,Software Engineer,Manchester,Careers page,2024-02-26,57,1,1,0,0,0
+C1185,R5,HR Specialist,London,LinkedIn,2024-11-01,63,1,0,0,0,0
+C1186,R1,Data Analyst,Bristol,Job board,2024-02-01,38,1,0,0,0,0
+C1187,R4,Software Engineer,London,Job board,2024-08-09,55,1,0,0,0,0
+C1188,R5,Marketing Associate,Manchester,Job board,2024-11-30,52,1,1,1,0,0
+C1189,R3,Software Engineer,London,LinkedIn,2024-01-02,68,1,1,0,0,0
+C1190,R3,Data Analyst,Bristol,Job board,2024-11-19,75,1,1,1,0,0
+C1191,R1,Data Analyst,Edinburgh,LinkedIn,2024-10-25,72,1,1,1,0,0
+C1192,R3,Data Analyst,London,Careers page,2024-08-07,80,1,0,0,0,0
+C1193,R4,Data Analyst,London,LinkedIn,2024-11-07,67,1,0,0,0,0
+C1194,R5,Data Analyst,Edinburgh,LinkedIn,2024-05-08,72,1,1,0,0,0
+C1195,R1,Data Analyst,London,LinkedIn,2024-07-20,73,1,1,0,0,0
+C1196,R1,Data Analyst,London,LinkedIn,2024-03-19,73,1,1,0,0,0
+C1197,R2,HR Specialist,Bristol,Job board,2024-12-20,24,1,0,0,0,0
+C1198,R1,Software Engineer,Manchester,Job board,2024-02-27,64,1,1,1,1,0
+C1199,R2,Data Analyst,Bristol,Careers page,2024-09-13,38,1,0,0,0,0
+C1200,R4,Data Analyst,Edinburgh,LinkedIn,2024-01-13,71,1,1,0,0,0
+C1201,R2,Data Analyst,Bristol,Job board,2024-03-15,54,1,1,1,0,0
+C1202,R2,Data Analyst,Manchester,Job board,2024-06-11,66,1,1,1,0,0
+C1203,R4,Marketing Associate,London,LinkedIn,2024-06-07,67,1,1,0,0,0
+C1204,R5,Data Analyst,Manchester,LinkedIn,2024-04-11,71,1,1,1,1,1
+C1205,R4,Marketing Associate,Bristol,Careers page,2024-11-14,66,1,1,1,0,0
+C1206,R2,Software Engineer,London,Careers page,2024-09-10,62,1,1,1,1,0
+C1207,R1,Data Analyst,London,Careers page,2024-01-08,46,1,1,0,0,0
+C1208,R1,Data Analyst,Manchester,LinkedIn,2024-11-15,68,1,1,1,0,0
+C1209,R5,Software Engineer,Manchester,LinkedIn,2024-02-20,75,1,1,0,0,0
+C1210,R4,HR Specialist,Bristol,LinkedIn,2024-03-04,72,1,1,0,0,0
+C1211,R4,HR Specialist,Edinburgh,Careers page,2024-07-02,64,1,0,0,0,0
+C1212,R2,Data Analyst,Edinburgh,Job board,2024-03-16,91,1,1,0,0,0
+C1213,R1,Marketing Associate,Manchester,Job board,2024-01-09,37,1,0,0,0,0
+C1214,R4,HR Specialist,Bristol,LinkedIn,2024-10-06,72,1,0,0,0,0
+C1215,R1,Software Engineer,Manchester,LinkedIn,2024-10-15,68,1,1,0,0,0
+C1216,R5,Data Analyst,Bristol,Job board,2024-04-05,55,1,1,0,0,0
+C1217,R4,HR Specialist,Manchester,LinkedIn,2024-04-14,69,1,1,0,0,0
+C1218,R5,Marketing Associate,Edinburgh,LinkedIn,2024-12-09,70,1,1,1,0,0
+C1219,R1,Data Analyst,Edinburgh,LinkedIn,2024-07-20,75,1,1,1,0,0
+C1220,R2,HR Specialist,Edinburgh,Job board,2024-10-03,43,1,1,0,0,0
+C1221,R1,Software Engineer,Edinburgh,LinkedIn,2024-09-06,68,1,1,1,0,0
+C1222,R4,Data Analyst,London,Job board,2024-11-04,51,1,0,0,0,0
+C1223,R1,Data Analyst,London,LinkedIn,2024-12-22,62,1,1,1,0,0
+C1224,R2,Marketing Associate,Bristol,Job board,2024-10-19,51,1,1,0,0,0
+C1225,R2,Data Analyst,Manchester,LinkedIn,2024-09-03,72,1,1,0,0,0
+C1226,R1,HR Specialist,Manchester,Job board,2024-03-10,58,1,1,1,0,0
+C1227,R4,HR Specialist,Manchester,LinkedIn,2024-07-04,69,1,1,0,0,0
+C1228,R1,Data Analyst,Bristol,Job board,2024-03-07,75,1,1,1,0,0
+C1229,R2,HR Specialist,Edinburgh,Careers page,2024-10-01,68,1,1,0,0,0
+C1230,R4,Data Analyst,London,Job board,2024-04-25,36,1,0,0,0,0
+C1231,R1,Software Engineer,London,LinkedIn,2024-06-02,69,1,1,1,0,0
+C1232,R1,HR Specialist,Edinburgh,LinkedIn,2024-02-07,70,1,0,0,0,0
+C1233,R1,Data Analyst,London,Job board,2024-02-26,53,1,0,0,0,0
+C1234,R3,Data Analyst,Manchester,LinkedIn,2024-06-19,73,1,1,1,1,0
+C1235,R1,Data Analyst,London,LinkedIn,2024-08-10,73,1,0,0,0,0
+C1236,R1,Marketing Associate,Bristol,Job board,2024-06-14,60,1,0,0,0,0
+C1237,R1,Marketing Associate,London,Job board,2024-12-08,30,1,0,0,0,0
+C1238,R5,Data Analyst,London,LinkedIn,2024-03-23,72,1,1,1,1,1
+C1239,R2,Marketing Associate,Manchester,Job board,2024-01-12,63,1,1,1,0,0
+C1240,R1,Data Analyst,Manchester,Careers page,2024-11-10,64,1,1,1,0,0
+C1241,R1,Software Engineer,London,LinkedIn,2024-10-06,67,1,1,1,0,0
+C1242,R1,Data Analyst,London,LinkedIn,2024-11-06,65,1,1,0,0,0
+C1243,R3,Marketing Associate,Edinburgh,LinkedIn,2024-04-03,75,1,1,1,1,1
+C1244,R4,Data Analyst,Manchester,LinkedIn,2024-07-24,69,1,1,1,0,0
+C1245,R5,HR Specialist,Manchester,Careers page,2024-12-03,61,1,1,1,0,0
+C1246,R1,Software Engineer,Manchester,LinkedIn,2024-02-09,70,1,1,0,0,0
+C1247,R3,Data Analyst,London,Careers page,2024-03-12,79,1,1,0,0,0
+C1248,R1,Data Analyst,Manchester,Careers page,2024-07-06,52,1,1,0,0,0
+C1249,R1,Software Engineer,Manchester,Job board,2024-12-18,27,1,0,0,0,0
+C1250,R5,Data Analyst,London,Job board,2024-08-17,38,1,0,0,0,0
+C1251,R5,Software Engineer,Edinburgh,Careers page,2024-08-20,41,1,1,1,0,0
+C1252,R4,HR Specialist,Bristol,Job board,2024-12-14,46,1,1,1,0,0
+C1253,R3,Marketing Associate,London,LinkedIn,2024-11-04,69,1,1,0,0,0
+C1254,R1,Data Analyst,London,LinkedIn,2024-06-14,68,1,0,0,0,0
+C1255,R1,Data Analyst,Manchester,Careers page,2024-07-08,61,1,1,0,0,0
+C1256,R2,HR Specialist,London,LinkedIn,2024-02-03,72,1,1,0,0,0
+C1257,R1,HR Specialist,London,LinkedIn,2024-11-24,69,1,1,0,0,0
+C1258,R1,Data Analyst,London,LinkedIn,2024-07-22,67,1,1,1,0,0
+C1259,R2,Software Engineer,London,LinkedIn,2024-03-02,71,1,1,0,0,0
+C1260,R3,Data Analyst,Manchester,Careers page,2024-11-29,60,1,1,0,0,0
+C1261,R1,HR Specialist,London,LinkedIn,2024-05-13,68,1,0,0,0,0
+C1262,R3,Marketing Associate,London,LinkedIn,2024-04-07,70,1,1,0,0,0
+C1263,R1,Data Analyst,Edinburgh,LinkedIn,2024-02-09,66,1,1,1,0,0
+C1264,R1,Marketing Associate,Manchester,Careers page,2024-12-08,69,1,1,1,0,0
+C1265,R5,Software Engineer,London,Careers page,2024-03-17,51,1,1,0,0,0
+C1266,R1,Software Engineer,Manchester,Job board,2024-01-09,75,1,1,1,0,0
+C1267,R3,Data Analyst,London,Careers page,2024-07-19,43,1,1,0,0,0
+C1268,R2,Marketing Associate,London,Job board,2024-06-07,80,1,1,1,0,0
+C1269,R1,HR Specialist,London,Job board,2024-11-20,55,1,0,0,0,0
+C1270,R2,Data Analyst,Manchester,LinkedIn,2024-10-13,72,1,1,1,1,0
+C1271,R1,Software Engineer,London,Job board,2024-03-31,54,1,0,0,0,0
+C1272,R5,Marketing Associate,Manchester,Careers page,2024-12-22,48,1,1,1,0,0
+C1273,R4,Marketing Associate,London,LinkedIn,2024-05-02,69,1,1,0,0,0
+C1274,R3,Data Analyst,Edinburgh,LinkedIn,2024-01-05,71,1,1,1,0,0
+C1275,R2,Data Analyst,London,LinkedIn,2024-05-24,75,1,1,0,0,0
+C1276,R3,Software Engineer,Manchester,Job board,2024-05-14,58,1,0,0,0,0
+C1277,R5,Software Engineer,London,LinkedIn,2024-08-03,66,1,1,1,1,1
+C1278,R3,Data Analyst,London,LinkedIn,2024-03-14,73,1,1,1,1,1
+C1279,R1,Data Analyst,London,LinkedIn,2024-06-08,65,1,1,1,0,0
+C1280,R4,Software Engineer,Edinburgh,Job board,2024-06-03,71,1,1,1,0,0
+C1281,R1,Data Analyst,London,LinkedIn,2024-08-16,72,1,1,0,0,0
+C1282,R2,Data Analyst,Edinburgh,Job board,2024-04-21,51,1,1,0,0,0
+C1283,R3,Marketing Associate,Manchester,LinkedIn,2024-08-16,75,1,1,1,1,1
+C1284,R5,Data Analyst,London,LinkedIn,2024-01-04,67,1,0,0,0,0
+C1285,R3,Software Engineer,Edinburgh,Job board,2024-01-25,84,1,1,1,0,0
+C1286,R1,Data Analyst,London,LinkedIn,2024-12-26,71,1,1,1,0,0
+C1287,R5,HR Specialist,London,Job board,2024-11-08,46,1,0,0,0,0
+C1288,R4,Data Analyst,London,LinkedIn,2024-12-25,72,1,1,0,0,0
+C1289,R1,Software Engineer,London,Careers page,2024-10-09,51,1,0,0,0,0
+C1290,R4,HR Specialist,London,Careers page,2024-01-17,63,1,1,0,0,0
+C1291,R5,Data Analyst,Bristol,LinkedIn,2024-10-15,70,1,1,0,0,0
+C1292,R4,HR Specialist,London,Job board,2024-11-09,56,1,0,0,0,0
+C1293,R1,HR Specialist,Manchester,Job board,2024-07-19,34,1,0,0,0,0
+C1294,R5,Marketing Associate,Edinburgh,LinkedIn,2024-10-09,69,1,1,0,0,0
+C1295,R4,HR Specialist,Manchester,LinkedIn,2024-07-30,76,1,1,1,1,1
+C1296,R1,Marketing Associate,Manchester,LinkedIn,2024-06-25,71,1,1,1,0,0
+C1297,R5,Data Analyst,Manchester,LinkedIn,2024-04-16,71,1,1,0,0,0
+C1298,R5,Software Engineer,Manchester,Job board,2024-10-11,64,1,0,0,0,0
+C1299,R5,Software Engineer,Edinburgh,LinkedIn,2024-03-22,66,1,0,0,0,0
+C1300,R3,Data Analyst,Bristol,LinkedIn,2024-05-13,72,1,1,0,0,0
+C1301,R1,Marketing Associate,Manchester,LinkedIn,2024-06-30,73,1,1,1,1,1
+C1302,R4,HR Specialist,Manchester,Job board,2024-09-26,70,1,0,0,0,0
+C1303,R4,Data Analyst,London,LinkedIn,2024-06-11,72,1,1,1,0,0
+C1304,R5,HR Specialist,London,Job board,2024-06-23,41,1,0,0,0,0
+C1305,R5,HR Specialist,London,Job board,2024-10-14,33,1,0,0,0,0
+C1306,R3,Software Engineer,London,Job board,2024-12-20,67,1,0,0,0,0
+C1307,R1,Marketing Associate,London,LinkedIn,2024-09-19,69,1,1,1,1,1
+C1308,R1,HR Specialist,Manchester,LinkedIn,2024-02-20,72,1,1,0,0,0
+C1309,R3,Data Analyst,London,Careers page,2024-02-15,63,1,1,1,0,0
+C1310,R1,Data Analyst,Manchester,LinkedIn,2024-01-26,68,1,0,0,0,0
+C1311,R1,Data Analyst,London,LinkedIn,2024-04-29,70,1,1,0,0,0
+C1312,R4,Software Engineer,London,Job board,2024-08-24,39,1,0,0,0,0
+C1313,R5,HR Specialist,Bristol,LinkedIn,2024-12-15,72,1,1,1,0,0
+C1314,R1,Data Analyst,Manchester,Job board,2024-06-26,59,1,1,0,0,0
+C1315,R5,Data Analyst,Manchester,LinkedIn,2024-04-05,67,1,1,1,0,0
+C1316,R1,HR Specialist,Manchester,Job board,2024-03-10,44,1,1,0,0,0
+C1317,R5,Data Analyst,London,LinkedIn,2024-01-06,69,1,1,1,0,0
+C1318,R1,Data Analyst,Manchester,Careers page,2024-11-04,66,1,0,0,0,0
+C1319,R4,Marketing Associate,Edinburgh,Careers page,2024-11-21,61,1,0,0,0,0
+C1320,R1,Data Analyst,London,Job board,2024-09-12,47,1,1,1,1,1
+C1321,R5,Marketing Associate,Manchester,LinkedIn,2024-11-21,72,1,1,0,0,0
+C1322,R1,Software Engineer,Edinburgh,Careers page,2024-10-04,37,1,0,0,0,0
+C1323,R2,Data Analyst,Manchester,Job board,2024-12-22,52,1,1,0,0,0
+C1324,R4,HR Specialist,Edinburgh,Job board,2024-12-15,30,1,0,0,0,0
+C1325,R2,Software Engineer,Edinburgh,LinkedIn,2024-04-07,74,1,1,1,1,1
+C1326,R4,Software Engineer,Manchester,Job board,2024-09-27,66,1,1,0,0,0
+C1327,R4,HR Specialist,London,Careers page,2024-02-13,57,1,1,1,0,0
+C1328,R4,HR Specialist,Edinburgh,Job board,2024-07-18,49,1,0,0,0,0
+C1329,R1,HR Specialist,Manchester,Job board,2024-05-21,76,1,1,1,1,0
+C1330,R3,Data Analyst,London,LinkedIn,2024-11-05,67,1,1,0,0,0
+C1331,R4,Software Engineer,London,LinkedIn,2024-11-23,74,1,1,1,1,1
+C1332,R1,Data Analyst,Edinburgh,Job board,2024-07-29,46,1,1,0,0,0
+C1333,R3,HR Specialist,London,Job board,2024-01-26,27,1,0,0,0,0
+C1334,R3,HR Specialist,Manchester,LinkedIn,2024-03-27,72,1,1,1,1,1
+C1335,R4,Data Analyst,London,LinkedIn,2024-10-30,66,1,1,1,1,1
+C1336,R1,Marketing Associate,Manchester,Job board,2024-12-24,48,1,0,0,0,0
+C1337,R5,Data Analyst,Manchester,Job board,2024-04-07,49,1,0,0,0,0
+C1338,R5,Data Analyst,Bristol,LinkedIn,2024-09-22,73,1,1,0,0,0
+C1339,R5,Software Engineer,London,LinkedIn,2024-03-03,69,1,1,0,0,0
+C1340,R4,HR Specialist,London,LinkedIn,2024-05-08,74,1,1,0,0,0
+C1341,R1,Data Analyst,Manchester,Job board,2024-01-16,74,1,0,0,0,0
+C1342,R4,Data Analyst,Edinburgh,LinkedIn,2024-10-15,67,1,1,0,0,0
+C1343,R4,Software Engineer,London,Careers page,2024-12-15,50,1,1,1,0,0
+C1344,R1,Data Analyst,London,LinkedIn,2024-11-08,70,1,1,0,0,0
+C1345,R3,Data Analyst,London,Careers page,2024-07-25,56,1,1,0,0,0
+C1346,R2,Software Engineer,London,LinkedIn,2024-10-19,72,1,1,0,0,0
+C1347,R1,HR Specialist,Bristol,Job board,2024-12-10,88,1,1,0,0,0
+C1348,R3,HR Specialist,Manchester,Job board,2024-12-24,45,1,1,0,0,0
+C1349,R4,HR Specialist,London,Job board,2024-10-04,63,1,1,0,0,0
+C1350,R3,Marketing Associate,London,LinkedIn,2024-05-23,69,1,0,0,0,0
+C1351,R1,Marketing Associate,London,Job board,2024-02-28,43,1,0,0,0,0
+C1352,R1,Data Analyst,Edinburgh,Job board,2024-08-27,38,1,0,0,0,0
+C1353,R1,HR Specialist,Manchester,Careers page,2024-07-01,50,1,0,0,0,0
+C1354,R1,Data Analyst,Bristol,Job board,2024-01-07,61,1,0,0,0,0
+C1355,R1,HR Specialist,Edinburgh,Job board,2024-11-18,51,1,0,0,0,0
+C1356,R4,Data Analyst,London,LinkedIn,2024-08-05,74,1,1,0,0,0
+C1357,R1,Software Engineer,Bristol,Job board,2024-03-10,53,1,1,0,0,0
+C1358,R5,Data Analyst,Manchester,LinkedIn,2024-08-05,68,1,1,1,0,0
+C1359,R1,Data Analyst,Bristol,Job board,2024-04-07,70,1,1,1,1,1
+C1360,R4,Software Engineer,London,LinkedIn,2024-09-09,72,1,1,0,0,0
+C1361,R3,HR Specialist,Edinburgh,Job board,2024-02-08,29,1,0,0,0,0
+C1362,R1,HR Specialist,Bristol,LinkedIn,2024-05-04,68,1,0,0,0,0
+C1363,R5,Software Engineer,Edinburgh,Job board,2024-12-20,37,1,0,0,0,0
+C1364,R4,Software Engineer,Edinburgh,Careers page,2024-10-05,49,1,1,1,0,0
+C1365,R1,Software Engineer,Bristol,Job board,2024-11-21,48,1,0,0,0,0
+C1366,R1,HR Specialist,London,Job board,2024-04-10,81,1,1,1,1,1
+C1367,R1,Data Analyst,London,Careers page,2024-11-20,84,1,1,0,0,0
+C1368,R3,Software Engineer,London,LinkedIn,2024-04-30,70,1,1,0,0,0
+C1369,R1,Software Engineer,Manchester,LinkedIn,2024-12-30,66,1,1,0,0,0
+C1370,R1,Software Engineer,Manchester,LinkedIn,2024-06-02,64,1,1,0,0,0
+C1371,R1,Data Analyst,Manchester,Job board,2024-12-18,68,1,0,0,0,0
+C1372,R1,Software Engineer,Manchester,LinkedIn,2024-01-19,73,1,0,0,0,0
+C1373,R4,Data Analyst,London,Job board,2024-11-27,74,1,1,0,0,0
+C1374,R3,Data Analyst,Edinburgh,Job board,2024-06-30,65,1,1,0,0,0
+C1375,R3,Software Engineer,London,LinkedIn,2024-01-21,72,1,1,1,0,0
+C1376,R5,Data Analyst,London,Job board,2024-03-12,67,1,0,0,0,0
+C1377,R4,Data Analyst,Bristol,Careers page,2024-10-16,70,1,1,0,0,0
+C1378,R2,Software Engineer,Manchester,LinkedIn,2024-07-27,67,1,1,1,1,1
+C1379,R1,Data Analyst,London,LinkedIn,2024-08-29,70,1,0,0,0,0
+C1380,R3,Software Engineer,London,LinkedIn,2024-05-06,70,1,1,0,0,0
+C1381,R4,Marketing Associate,London,Careers page,2024-05-16,53,1,0,0,0,0
+C1382,R4,Data Analyst,Bristol,Job board,2024-09-11,54,1,1,1,0,0
+C1383,R2,Data Analyst,London,LinkedIn,2024-10-07,67,1,1,0,0,0
+C1384,R1,Software Engineer,London,Job board,2024-09-17,54,1,1,0,0,0
+C1385,R2,Software Engineer,Manchester,LinkedIn,2024-08-20,66,1,0,0,0,0
+C1386,R1,Data Analyst,Manchester,Careers page,2024-06-03,55,1,1,1,0,0
+C1387,R1,HR Specialist,Edinburgh,Careers page,2024-05-31,65,1,1,1,0,0
+C1388,R2,Data Analyst,Edinburgh,LinkedIn,2024-01-29,71,1,1,0,0,0
+C1389,R1,HR Specialist,Manchester,LinkedIn,2024-12-31,70,1,1,0,0,0
+C1390,R1,Data Analyst,London,LinkedIn,2024-11-24,73,1,1,1,1,1
+C1391,R2,Software Engineer,Manchester,LinkedIn,2024-07-19,72,1,1,1,1,1
+C1392,R3,Data Analyst,London,Job board,2024-03-18,62,1,1,0,0,0
+C1393,R4,Data Analyst,Edinburgh,Careers page,2024-06-04,74,1,1,0,0,0
+C1394,R4,Data Analyst,London,LinkedIn,2024-07-21,70,1,1,0,0,0
+C1395,R4,Data Analyst,Manchester,LinkedIn,2024-09-29,69,1,0,0,0,0
+C1396,R5,HR Specialist,London,Careers page,2024-08-09,60,1,1,1,0,0
+C1397,R3,Data Analyst,London,LinkedIn,2024-02-13,64,1,0,0,0,0
+C1398,R4,Data Analyst,Edinburgh,LinkedIn,2024-10-29,76,1,1,0,0,0
+C1399,R1,Marketing Associate,Manchester,LinkedIn,2024-02-10,68,1,1,0,0,0
+C1400,R1,Data Analyst,Manchester,Job board,2024-01-10,52,1,0,0,0,0
+C1401,R1,HR Specialist,London,LinkedIn,2024-11-05,69,1,0,0,0,0
+C1402,R1,Data Analyst,London,LinkedIn,2024-11-26,72,1,1,0,0,0
+C1403,R1,HR Specialist,Manchester,Job board,2024-03-17,50,1,0,0,0,0
+C1404,R4,HR Specialist,Edinburgh,Job board,2024-11-26,21,1,0,0,0,0
+C1405,R1,Data Analyst,London,LinkedIn,2024-07-18,68,1,0,0,0,0
+C1406,R5,Data Analyst,London,LinkedIn,2024-07-31,69,1,1,0,0,0
+C1407,R4,HR Specialist,Bristol,LinkedIn,2024-11-16,73,1,1,1,1,1
+C1408,R2,Software Engineer,London,Careers page,2024-03-30,57,1,1,0,0,0
+C1409,R1,Marketing Associate,London,LinkedIn,2024-05-03,74,1,1,1,0,0
+C1410,R2,Software Engineer,London,LinkedIn,2024-04-14,70,1,0,0,0,0
+C1411,R5,Data Analyst,Edinburgh,Job board,2024-08-08,74,1,1,1,1,1
+C1412,R2,HR Specialist,Manchester,LinkedIn,2024-07-09,68,1,0,0,0,0
+C1413,R3,HR Specialist,London,LinkedIn,2024-10-02,70,1,1,1,1,1
+C1414,R1,Data Analyst,London,Careers page,2024-01-16,60,1,1,1,0,0
+C1415,R1,HR Specialist,Bristol,LinkedIn,2024-02-07,70,1,1,0,0,0
+C1416,R5,HR Specialist,Edinburgh,Job board,2024-11-14,56,1,1,1,0,0
+C1417,R3,Data Analyst,Manchester,LinkedIn,2024-01-20,63,1,0,0,0,0
+C1418,R1,Data Analyst,London,LinkedIn,2024-07-07,69,1,1,0,0,0
+C1419,R5,Marketing Associate,Edinburgh,LinkedIn,2024-06-18,69,1,0,0,0,0
+C1420,R1,Marketing Associate,Manchester,Job board,2024-09-30,73,1,1,0,0,0
+C1421,R2,Data Analyst,Edinburgh,Job board,2024-09-28,57,1,0,0,0,0
+C1422,R3,HR Specialist,Edinburgh,LinkedIn,2024-09-20,72,1,1,1,1,0
+C1423,R4,Marketing Associate,Manchester,Careers page,2024-02-08,48,1,1,1,0,0
+C1424,R2,Data Analyst,London,Job board,2024-12-06,68,1,1,0,0,0
+C1425,R4,Data Analyst,Edinburgh,LinkedIn,2024-11-15,71,1,1,1,0,0
+C1426,R1,HR Specialist,London,Careers page,2024-01-03,63,1,1,0,0,0
+C1427,R4,Marketing Associate,Bristol,LinkedIn,2024-01-25,72,1,1,1,1,1
+C1428,R2,HR Specialist,Bristol,LinkedIn,2024-03-10,66,1,0,0,0,0
+C1429,R2,Data Analyst,Edinburgh,LinkedIn,2024-02-01,70,1,0,0,0,0
+C1430,R4,Software Engineer,London,Job board,2024-01-02,55,1,1,0,0,0
+C1431,R2,Software Engineer,Manchester,Job board,2024-12-23,64,1,1,0,0,0
+C1432,R1,Software Engineer,London,Careers page,2024-08-28,59,1,0,0,0,0
+C1433,R5,Software Engineer,Bristol,Job board,2024-10-09,62,1,0,0,0,0
+C1434,R5,Data Analyst,Bristol,LinkedIn,2024-07-29,68,1,0,0,0,0
+C1435,R4,Data Analyst,Edinburgh,Job board,2024-01-02,51,1,0,0,0,0
+C1436,R4,Software Engineer,Edinburgh,LinkedIn,2024-08-15,69,1,0,0,0,0
+C1437,R3,Data Analyst,Edinburgh,Job board,2024-10-24,94,1,0,0,0,0
+C1438,R2,Data Analyst,London,Job board,2024-05-14,74,1,0,0,0,0
+C1439,R3,HR Specialist,Bristol,Job board,2024-10-29,42,1,0,0,0,0
+C1440,R4,Software Engineer,London,Job board,2024-01-31,54,1,0,0,0,0
+C1441,R1,Software Engineer,Manchester,Job board,2024-09-06,29,1,0,0,0,0
+C1442,R3,Data Analyst,London,Job board,2024-02-06,63,1,0,0,0,0
+C1443,R1,Data Analyst,Edinburgh,LinkedIn,2024-06-17,69,1,1,0,0,0
+C1444,R4,HR Specialist,Manchester,Job board,2024-12-07,48,1,0,0,0,0
+C1445,R5,HR Specialist,London,LinkedIn,2024-07-01,69,1,1,0,0,0
+C1446,R5,HR Specialist,Bristol,Job board,2024-03-15,35,1,0,0,0,0
+C1447,R1,Marketing Associate,Manchester,LinkedIn,2024-09-22,71,1,1,1,1,1
+C1448,R4,Marketing Associate,Bristol,Job board,2024-08-13,48,1,0,0,0,0
+C1449,R4,Data Analyst,Manchester,LinkedIn,2024-12-21,73,1,1,0,0,0
+C1450,R1,Data Analyst,Manchester,LinkedIn,2024-09-10,69,1,1,0,0,0
+C1451,R3,Software Engineer,London,LinkedIn,2024-08-22,68,1,1,0,0,0
+C1452,R5,Marketing Associate,London,Job board,2024-10-22,60,1,0,0,0,0
+C1453,R5,HR Specialist,Bristol,Careers page,2024-03-06,66,1,1,1,0,0
+C1454,R1,Data Analyst,Bristol,Careers page,2024-02-28,73,1,1,1,0,0
+C1455,R3,Data Analyst,London,LinkedIn,2024-01-01,69,1,1,0,0,0
+C1456,R5,Data Analyst,Manchester,LinkedIn,2024-09-06,72,1,1,1,0,0
+C1457,R1,Data Analyst,London,LinkedIn,2024-12-10,74,1,1,1,0,0
+C1458,R5,Data Analyst,Bristol,LinkedIn,2024-05-24,69,1,1,1,0,0
+C1459,R5,Software Engineer,Bristol,Careers page,2024-01-18,53,1,1,1,1,1
+C1460,R1,Data Analyst,Manchester,Job board,2024-01-07,68,1,1,0,0,0
+C1461,R2,HR Specialist,Manchester,Job board,2024-02-22,48,1,1,1,0,0
+C1462,R5,HR Specialist,London,Careers page,2024-10-23,64,1,1,0,0,0
+C1463,R5,Marketing Associate,Bristol,Job board,2024-03-30,60,1,1,0,0,0
+C1464,R1,HR Specialist,Bristol,LinkedIn,2024-01-13,72,1,1,0,0,0
+C1465,R1,Data Analyst,London,Job board,2024-06-11,48,1,1,0,0,0
+C1466,R2,Data Analyst,Edinburgh,Job board,2024-05-22,43,1,1,1,0,0
+C1467,R2,Data Analyst,Manchester,LinkedIn,2024-04-23,68,1,0,0,0,0
+C1468,R1,Data Analyst,Manchester,LinkedIn,2024-01-11,66,1,1,0,0,0
+C1469,R4,Software Engineer,Manchester,LinkedIn,2024-10-17,69,1,1,1,1,1
+C1470,R4,Data Analyst,London,LinkedIn,2024-12-14,71,1,1,1,1,1
+C1471,R5,Data Analyst,London,LinkedIn,2024-12-12,66,1,0,0,0,0
+C1472,R1,Software Engineer,London,LinkedIn,2024-03-05,72,1,1,1,0,0
+C1473,R5,HR Specialist,London,LinkedIn,2024-12-23,69,1,1,0,0,0
+C1474,R4,Software Engineer,Edinburgh,Careers page,2024-03-27,74,1,0,0,0,0
+C1475,R4,Marketing Associate,London,LinkedIn,2024-05-27,70,1,1,1,0,0
+C1476,R5,HR Specialist,Manchester,Careers page,2024-02-12,64,1,1,1,0,0
+C1477,R4,HR Specialist,Edinburgh,Careers page,2024-03-16,74,1,1,0,0,0
+C1478,R2,Marketing Associate,Edinburgh,LinkedIn,2024-07-27,70,1,1,0,0,0
+C1479,R5,Marketing Associate,London,Job board,2024-04-14,32,1,0,0,0,0
+C1480,R5,HR Specialist,Edinburgh,Job board,2024-08-27,47,1,1,1,1,1
+C1481,R5,Data Analyst,Manchester,LinkedIn,2024-03-13,71,1,1,1,0,0
+C1482,R1,HR Specialist,London,Job board,2024-06-15,40,1,1,0,0,0
+C1483,R5,Software Engineer,London,Careers page,2024-05-04,64,1,1,0,0,0
+C1484,R5,Data Analyst,London,LinkedIn,2024-02-09,64,1,1,1,0,0
+C1485,R2,HR Specialist,Manchester,Job board,2024-07-02,59,1,0,0,0,0
+C1486,R1,Marketing Associate,Bristol,Job board,2024-01-06,55,1,0,0,0,0
+C1487,R5,Data Analyst,London,LinkedIn,2024-04-30,68,1,0,0,0,0
+C1488,R4,HR Specialist,Edinburgh,LinkedIn,2024-10-24,73,1,1,1,1,1
+C1489,R3,Data Analyst,London,LinkedIn,2024-12-07,65,1,1,0,0,0
+C1490,R5,Data Analyst,Bristol,LinkedIn,2024-10-01,68,1,1,0,0,0
+C1491,R1,HR Specialist,Bristol,LinkedIn,2024-02-14,73,1,1,0,0,0
+C1492,R1,Data Analyst,Edinburgh,Job board,2024-08-27,56,1,1,0,0,0
+C1493,R2,HR Specialist,Edinburgh,LinkedIn,2024-07-09,73,1,1,1,1,0
+C1494,R5,Marketing Associate,Manchester,LinkedIn,2024-02-21,72,1,1,1,1,1
+C1495,R1,HR Specialist,Edinburgh,Job board,2024-10-23,56,1,1,0,0,0
+C1496,R5,Data Analyst,Edinburgh,LinkedIn,2024-11-02,71,1,1,1,1,1
+C1497,R2,Software Engineer,London,Job board,2024-06-13,38,1,0,0,0,0
+C1498,R1,HR Specialist,Manchester,Careers page,2024-09-25,68,1,1,0,0,0
+C1499,R3,Data Analyst,Edinburgh,LinkedIn,2024-06-10,70,1,1,0,0,0
+C1500,R4,HR Specialist,London,Job board,2024-12-01,50,1,0,0,0,0
+C1501,R2,Data Analyst,Edinburgh,Job board,2024-08-31,84,1,1,1,0,0
+C1502,R2,Software Engineer,Bristol,Careers page,2024-10-08,73,1,1,0,0,0
+C1503,R4,HR Specialist,Manchester,LinkedIn,2024-02-04,70,1,1,1,0,0
+C1504,R1,Software Engineer,London,Job board,2024-04-21,48,1,1,0,0,0
+C1505,R3,Data Analyst,Edinburgh,Careers page,2024-11-25,54,1,0,0,0,0
+C1506,R3,Data Analyst,Manchester,LinkedIn,2024-06-29,70,1,1,1,0,0
+C1507,R3,Software Engineer,Bristol,LinkedIn,2024-03-02,73,1,1,1,0,0
+C1508,R4,Data Analyst,Manchester,LinkedIn,2024-06-02,71,1,1,1,0,0
+C1509,R4,HR Specialist,Manchester,Job board,2024-07-23,70,1,0,0,0,0
+C1510,R3,Marketing Associate,Manchester,LinkedIn,2024-10-26,68,1,1,1,0,0
+C1511,R4,Data Analyst,Bristol,Careers page,2024-04-30,67,1,1,0,0,0
+C1512,R2,Marketing Associate,Edinburgh,LinkedIn,2024-06-18,70,1,1,0,0,0
+C1513,R5,Data Analyst,Edinburgh,Careers page,2024-04-30,57,1,1,0,0,0
+C1514,R1,Data Analyst,London,Job board,2024-06-16,68,1,0,0,0,0
+C1515,R4,Data Analyst,Bristol,LinkedIn,2024-05-21,70,1,1,1,0,0
+C1516,R4,Marketing Associate,London,Job board,2024-07-01,70,1,0,0,0,0
+C1517,R1,Marketing Associate,London,Job board,2024-07-14,53,1,1,0,0,0
+C1518,R4,Software Engineer,Edinburgh,Job board,2024-12-17,81,1,1,1,1,1
+C1519,R4,Data Analyst,Manchester,LinkedIn,2024-06-14,71,1,1,0,0,0
+C1520,R1,HR Specialist,London,LinkedIn,2024-01-02,71,1,1,1,0,0
+C1521,R5,Data Analyst,London,Job board,2024-03-06,63,1,1,1,0,0
+C1522,R1,Software Engineer,Edinburgh,Job board,2024-01-07,77,1,1,1,0,0
+C1523,R5,Software Engineer,Edinburgh,LinkedIn,2024-06-20,73,1,1,0,0,0
+C1524,R4,HR Specialist,Manchester,LinkedIn,2024-09-22,70,1,1,1,0,0
+C1525,R5,HR Specialist,Manchester,Job board,2024-01-21,42,1,0,0,0,0
+C1526,R1,Software Engineer,Manchester,LinkedIn,2024-10-17,69,1,1,1,0,0
+C1527,R1,Software Engineer,Manchester,Job board,2024-06-11,55,1,1,1,1,1
+C1528,R4,HR Specialist,Edinburgh,LinkedIn,2024-10-09,72,1,1,1,1,1
+C1529,R3,Data Analyst,London,Careers page,2024-01-05,53,1,1,0,0,0
+C1530,R1,HR Specialist,Edinburgh,Job board,2024-11-04,65,1,0,0,0,0
+C1531,R5,Software Engineer,Manchester,LinkedIn,2024-07-31,68,1,1,0,0,0
+C1532,R3,HR Specialist,Manchester,Job board,2024-08-19,47,1,1,1,1,0
+C1533,R2,Data Analyst,Bristol,Job board,2024-10-17,83,1,1,1,1,0
+C1534,R4,HR Specialist,Manchester,LinkedIn,2024-01-27,70,1,1,1,0,0
+C1535,R4,HR Specialist,London,LinkedIn,2024-12-09,68,1,1,0,0,0
+C1536,R1,Marketing Associate,Bristol,LinkedIn,2024-09-16,68,1,1,0,0,0
+C1537,R4,Data Analyst,London,Job board,2024-07-22,69,1,0,0,0,0
+C1538,R1,Software Engineer,Edinburgh,Job board,2024-08-14,43,1,0,0,0,0
+C1539,R2,Software Engineer,London,LinkedIn,2024-10-19,68,1,1,0,0,0
+C1540,R4,HR Specialist,London,Job board,2024-06-08,26,1,0,0,0,0
+C1541,R1,HR Specialist,London,Job board,2024-05-15,47,1,0,0,0,0
+C1542,R5,HR Specialist,Bristol,LinkedIn,2024-06-25,69,1,1,0,0,0
+C1543,R1,Software Engineer,London,LinkedIn,2024-07-21,72,1,1,1,0,0
+C1544,R3,HR Specialist,Bristol,LinkedIn,2024-09-03,73,1,1,1,0,0
+C1545,R3,Marketing Associate,London,Job board,2024-10-03,57,1,1,1,1,1
+C1546,R1,Data Analyst,London,LinkedIn,2024-10-23,70,1,0,0,0,0
+C1547,R1,HR Specialist,London,LinkedIn,2024-08-20,72,1,1,1,0,0
+C1548,R4,Data Analyst,Manchester,LinkedIn,2024-10-23,72,1,1,1,0,0
+C1549,R3,Data Analyst,London,Job board,2024-03-16,47,1,1,0,0,0
+C1550,R2,Software Engineer,Edinburgh,LinkedIn,2024-09-25,72,1,1,1,1,1
+C1551,R2,Data Analyst,Manchester,Careers page,2024-08-11,62,1,0,0,0,0
+C1552,R1,HR Specialist,Edinburgh,LinkedIn,2024-10-17,70,1,1,0,0,0
+C1553,R4,Data Analyst,Bristol,Careers page,2024-07-12,52,1,0,0,0,0
+C1554,R4,Data Analyst,Bristol,LinkedIn,2024-04-06,72,1,1,0,0,0
+C1555,R4,HR Specialist,London,Careers page,2024-07-09,76,1,0,0,0,0
+C1556,R1,Software Engineer,Manchester,Careers page,2024-10-23,67,1,1,1,1,0
+C1557,R3,Marketing Associate,London,LinkedIn,2024-09-17,69,1,1,1,0,0
+C1558,R1,Data Analyst,London,LinkedIn,2024-08-07,69,1,1,0,0,0
+C1559,R4,Data Analyst,London,Job board,2024-06-26,56,1,0,0,0,0
+C1560,R2,HR Specialist,London,Job board,2024-02-18,51,1,1,0,0,0
+C1561,R5,Data Analyst,London,LinkedIn,2024-09-26,72,1,1,1,0,0
+C1562,R1,Data Analyst,London,Job board,2024-03-01,60,1,0,0,0,0
+C1563,R5,Data Analyst,London,LinkedIn,2024-12-26,71,1,1,1,1,1
+C1564,R1,Data Analyst,London,Job board,2024-12-26,51,1,0,0,0,0
+C1565,R4,Software Engineer,London,LinkedIn,2024-11-27,74,1,1,0,0,0
+C1566,R1,HR Specialist,London,LinkedIn,2024-06-09,70,1,1,0,0,0
+C1567,R1,Software Engineer,London,LinkedIn,2024-12-31,66,1,1,1,0,0
+C1568,R2,Data Analyst,Manchester,Job board,2024-03-04,84,1,1,1,0,0
+C1569,R1,Data Analyst,London,LinkedIn,2024-03-11,69,1,1,0,0,0
+C1570,R2,HR Specialist,Edinburgh,Job board,2024-10-03,51,1,1,0,0,0
+C1571,R1,HR Specialist,Bristol,LinkedIn,2024-01-11,75,1,1,1,0,0
+C1572,R1,HR Specialist,Edinburgh,Careers page,2024-10-28,50,1,1,0,0,0
+C1573,R5,HR Specialist,Bristol,Job board,2024-08-21,60,1,1,1,0,0
+C1574,R4,Data Analyst,Bristol,Job board,2024-01-30,57,1,0,0,0,0
+C1575,R1,Software Engineer,Bristol,Careers page,2024-02-26,65,1,1,0,0,0
+C1576,R5,Marketing Associate,London,LinkedIn,2024-07-24,68,1,1,1,0,0
+C1577,R1,Software Engineer,Edinburgh,Careers page,2024-04-10,69,1,0,0,0,0
+C1578,R4,Software Engineer,Edinburgh,Careers page,2024-05-16,71,1,1,0,0,0
+C1579,R1,Data Analyst,Manchester,Job board,2024-11-20,78,1,0,0,0,0
+C1580,R4,HR Specialist,Edinburgh,LinkedIn,2024-02-21,66,1,1,1,0,0
+C1581,R3,HR Specialist,London,Job board,2024-05-07,45,1,1,1,0,0
+C1582,R1,Data Analyst,London,Job board,2024-11-06,42,1,0,0,0,0
+C1583,R1,Software Engineer,London,Job board,2024-09-10,40,1,0,0,0,0
+C1584,R1,Software Engineer,Edinburgh,Careers page,2024-12-03,76,1,1,1,0,0
+C1585,R5,Data Analyst,London,Careers page,2024-03-15,57,1,0,0,0,0
+C1586,R3,Software Engineer,London,Job board,2024-08-16,39,1,0,0,0,0
+C1587,R3,Data Analyst,Bristol,Careers page,2024-02-20,43,1,1,1,0,0
+C1588,R4,HR Specialist,Manchester,Job board,2024-08-04,29,1,0,0,0,0
+C1589,R4,Software Engineer,Edinburgh,LinkedIn,2024-06-21,72,1,1,1,0,0
+C1590,R1,HR Specialist,Manchester,LinkedIn,2024-12-11,66,1,1,0,0,0
+C1591,R5,Data Analyst,Edinburgh,Careers page,2024-09-25,53,1,0,0,0,0
+C1592,R2,Data Analyst,Manchester,LinkedIn,2024-04-05,70,1,1,1,1,0
+C1593,R3,HR Specialist,Manchester,LinkedIn,2024-01-11,68,1,1,1,1,1
+C1594,R3,Data Analyst,Manchester,LinkedIn,2024-05-01,70,1,1,0,0,0
+C1595,R1,HR Specialist,London,LinkedIn,2024-07-19,74,1,1,0,0,0
+C1596,R1,HR Specialist,Manchester,Job board,2024-09-28,75,1,1,1,1,1
+C1597,R3,Data Analyst,Manchester,Careers page,2024-10-24,55,1,1,0,0,0
+C1598,R1,Marketing Associate,London,Job board,2024-05-25,65,1,0,0,0,0
+C1599,R5,Data Analyst,Manchester,Job board,2024-04-24,69,1,1,0,0,0
+C1600,R1,HR Specialist,London,LinkedIn,2024-03-18,67,1,1,1,1,1
+C1601,R3,HR Specialist,London,Job board,2024-09-25,46,1,1,0,0,0
+C1602,R1,Data Analyst,Edinburgh,Job board,2024-10-16,69,1,0,0,0,0
+C1603,R1,Data Analyst,Bristol,Careers page,2024-10-13,68,1,1,1,0,0
+C1604,R5,Marketing Associate,Manchester,Careers page,2024-09-21,92,1,1,0,0,0
+C1605,R5,Software Engineer,Edinburgh,LinkedIn,2024-06-18,70,1,1,1,0,0
+C1606,R1,Data Analyst,Bristol,Careers page,2024-11-26,49,1,0,0,0,0
+C1607,R2,Marketing Associate,Manchester,LinkedIn,2024-12-18,65,1,1,1,0,0
+C1608,R1,Software Engineer,Bristol,LinkedIn,2024-12-26,69,1,1,0,0,0
+C1609,R3,HR Specialist,London,Job board,2024-02-17,71,1,1,1,0,0
+C1610,R4,Software Engineer,Edinburgh,LinkedIn,2024-04-19,69,1,1,1,0,0
+C1611,R3,HR Specialist,London,LinkedIn,2024-07-06,71,1,1,1,1,0
+C1612,R5,Data Analyst,London,LinkedIn,2024-07-02,74,1,1,0,0,0
+C1613,R4,HR Specialist,Edinburgh,LinkedIn,2024-07-25,70,1,1,1,0,0
+C1614,R2,HR Specialist,Manchester,Careers page,2024-11-23,59,1,1,1,0,0
+C1615,R2,Software Engineer,Manchester,LinkedIn,2024-06-03,69,1,1,1,0,0
+C1616,R4,Data Analyst,London,LinkedIn,2024-02-09,68,1,0,0,0,0
+C1617,R3,HR Specialist,Manchester,LinkedIn,2024-08-09,71,1,1,1,0,0
+C1618,R1,HR Specialist,Bristol,LinkedIn,2024-07-23,71,1,1,0,0,0
+C1619,R4,HR Specialist,Bristol,Job board,2024-06-12,39,1,0,0,0,0
+C1620,R1,Software Engineer,Bristol,Careers page,2024-09-30,66,1,0,0,0,0
+C1621,R1,Software Engineer,Manchester,LinkedIn,2024-07-12,68,1,1,1,1,1
+C1622,R1,Software Engineer,Bristol,Careers page,2024-10-12,68,1,0,0,0,0
+C1623,R1,Data Analyst,London,Careers page,2024-10-14,65,1,1,1,0,0
+C1624,R5,Data Analyst,London,LinkedIn,2024-07-20,66,1,1,1,0,0
+C1625,R4,Marketing Associate,London,LinkedIn,2024-07-23,72,1,1,0,0,0
+C1626,R2,Marketing Associate,Manchester,Job board,2024-03-15,66,1,0,0,0,0
+C1627,R3,HR Specialist,Edinburgh,LinkedIn,2024-11-06,72,1,1,1,0,0
+C1628,R1,Software Engineer,London,LinkedIn,2024-04-08,67,1,1,0,0,0
+C1629,R3,HR Specialist,London,Job board,2024-08-21,68,1,1,1,0,0
+C1630,R2,Data Analyst,Manchester,LinkedIn,2024-06-17,71,1,1,1,0,0
+C1631,R5,Data Analyst,Edinburgh,LinkedIn,2024-08-03,68,1,1,1,1,1
+C1632,R4,HR Specialist,Manchester,Careers page,2024-10-27,52,1,1,0,0,0
+C1633,R4,HR Specialist,London,Job board,2024-11-16,57,1,0,0,0,0
+C1634,R3,Marketing Associate,Manchester,LinkedIn,2024-02-29,71,1,1,1,1,0
+C1635,R2,HR Specialist,London,Job board,2024-05-09,43,1,0,0,0,0
+C1636,R2,Data Analyst,Bristol,Job board,2024-04-23,73,1,1,0,0,0
+C1637,R1,Data Analyst,Manchester,LinkedIn,2024-03-07,70,1,1,1,0,0
+C1638,R1,Data Analyst,Bristol,LinkedIn,2024-09-07,70,1,1,1,1,1
+C1639,R1,Data Analyst,Edinburgh,LinkedIn,2024-11-03,72,1,1,1,1,1
+C1640,R5,Software Engineer,Manchester,Job board,2024-03-23,47,1,1,0,0,0
+C1641,R1,Software Engineer,London,Job board,2024-04-16,66,1,0,0,0,0
+C1642,R5,HR Specialist,Edinburgh,LinkedIn,2024-10-19,69,1,1,0,0,0
+C1643,R5,Data Analyst,London,Careers page,2024-01-16,63,1,0,0,0,0
+C1644,R2,Data Analyst,London,LinkedIn,2024-11-06,72,1,1,1,1,1
+C1645,R4,Data Analyst,London,LinkedIn,2024-01-03,68,1,1,0,0,0
+C1646,R2,Software Engineer,London,Careers page,2024-05-18,39,1,0,0,0,0
+C1647,R5,Data Analyst,Manchester,LinkedIn,2024-04-30,67,1,1,0,0,0
+C1648,R2,Data Analyst,Edinburgh,LinkedIn,2024-08-13,71,1,1,1,0,0
+C1649,R4,HR Specialist,London,Careers page,2024-02-22,54,1,1,1,0,0
+C1650,R1,Data Analyst,Bristol,LinkedIn,2024-09-22,69,1,1,1,0,0
+C1651,R1,Data Analyst,Edinburgh,LinkedIn,2024-04-04,69,1,0,0,0,0
+C1652,R5,Data Analyst,Edinburgh,LinkedIn,2024-07-16,71,1,1,1,0,0
+C1653,R4,Software Engineer,Bristol,Careers page,2024-10-02,47,1,1,0,0,0
+C1654,R4,Software Engineer,Manchester,LinkedIn,2024-04-18,68,1,0,0,0,0
+C1655,R1,Data Analyst,London,LinkedIn,2024-11-24,67,1,0,0,0,0
+C1656,R4,HR Specialist,Edinburgh,LinkedIn,2024-02-07,69,1,0,0,0,0
+C1657,R1,Data Analyst,Edinburgh,Job board,2024-02-24,56,1,0,0,0,0
+C1658,R2,HR Specialist,Bristol,Job board,2024-03-12,32,1,0,0,0,0
+C1659,R1,Data Analyst,Manchester,Careers page,2024-12-30,58,1,1,0,0,0
+C1660,R5,Marketing Associate,Edinburgh,LinkedIn,2024-08-11,67,1,1,0,0,0
+C1661,R2,Data Analyst,Manchester,Careers page,2024-03-10,52,1,1,0,0,0
+C1662,R1,Data Analyst,London,Job board,2024-09-11,46,1,1,0,0,0
+C1663,R1,Data Analyst,London,Careers page,2024-01-15,44,1,1,1,1,1
+C1664,R3,Data Analyst,Manchester,Careers page,2024-06-08,68,1,1,1,0,0
+C1665,R5,HR Specialist,Edinburgh,LinkedIn,2024-04-27,68,1,1,0,0,0
+C1666,R4,Data Analyst,London,LinkedIn,2024-02-04,68,1,1,0,0,0
+C1667,R2,HR Specialist,Bristol,LinkedIn,2024-12-25,71,1,1,0,0,0
+C1668,R4,HR Specialist,London,LinkedIn,2024-11-03,68,1,1,1,1,1
+C1669,R4,Data Analyst,Bristol,Job board,2024-07-31,52,1,1,0,0,0
+C1670,R1,Marketing Associate,London,LinkedIn,2024-07-10,68,1,1,1,1,0
+C1671,R3,Data Analyst,London,LinkedIn,2024-11-08,67,1,1,0,0,0
+C1672,R3,Software Engineer,Manchester,Job board,2024-08-18,52,1,1,1,0,0
+C1673,R1,Data Analyst,Edinburgh,LinkedIn,2024-03-14,70,1,1,1,1,1
+C1674,R5,Data Analyst,London,Job board,2024-11-19,20,1,0,0,0,0
+C1675,R1,HR Specialist,London,Careers page,2024-02-02,41,1,0,0,0,0
+C1676,R3,Software Engineer,Edinburgh,LinkedIn,2024-12-14,70,1,1,1,0,0
+C1677,R4,Data Analyst,Edinburgh,Job board,2024-09-17,56,1,0,0,0,0
+C1678,R3,Data Analyst,Edinburgh,Job board,2024-08-25,80,1,1,1,0,0
+C1679,R3,Data Analyst,Manchester,Job board,2024-09-06,69,1,1,1,0,0
+C1680,R1,Data Analyst,London,LinkedIn,2024-03-02,73,1,1,0,0,0
+C1681,R1,Software Engineer,Manchester,LinkedIn,2024-06-06,69,1,0,0,0,0
+C1682,R4,Software Engineer,London,Job board,2024-06-02,57,1,1,0,0,0
+C1683,R2,HR Specialist,Edinburgh,LinkedIn,2024-02-24,72,1,1,1,1,1
+C1684,R1,Software Engineer,Manchester,Job board,2024-02-08,41,1,0,0,0,0
+C1685,R1,Data Analyst,Edinburgh,LinkedIn,2024-04-14,72,1,1,1,0,0
+C1686,R1,Data Analyst,Manchester,LinkedIn,2024-01-09,70,1,1,0,0,0
+C1687,R4,Data Analyst,Manchester,LinkedIn,2024-08-19,73,1,0,0,0,0
+C1688,R3,Data Analyst,Edinburgh,Job board,2024-11-25,57,1,1,0,0,0
+C1689,R5,Data Analyst,Edinburgh,Job board,2024-01-05,32,1,0,0,0,0
+C1690,R2,Software Engineer,London,Job board,2024-05-29,61,1,1,0,0,0
+C1691,R4,Data Analyst,Manchester,LinkedIn,2024-06-04,74,1,1,0,0,0
+C1692,R1,HR Specialist,London,LinkedIn,2024-09-29,67,1,1,1,1,1
+C1693,R1,Data Analyst,Manchester,LinkedIn,2024-05-29,70,1,1,1,1,0
+C1694,R2,Software Engineer,Edinburgh,LinkedIn,2024-12-13,69,1,1,0,0,0
+C1695,R2,HR Specialist,Manchester,Careers page,2024-07-24,47,1,1,1,0,0
+C1696,R5,Data Analyst,Edinburgh,LinkedIn,2024-01-01,70,1,1,0,0,0
+C1697,R2,Software Engineer,Edinburgh,Job board,2024-09-22,31,1,0,0,0,0
+C1698,R3,Software Engineer,Manchester,Careers page,2024-03-19,61,1,1,0,0,0
+C1699,R4,HR Specialist,Edinburgh,Job board,2024-01-17,57,1,0,0,0,0
+C1700,R1,HR Specialist,Bristol,LinkedIn,2024-12-22,73,1,1,1,0,0
+C1701,R5,HR Specialist,Edinburgh,Careers page,2024-12-01,70,1,0,0,0,0
+C1702,R1,Data Analyst,Bristol,Job board,2024-05-17,66,1,0,0,0,0
+C1703,R4,HR Specialist,Bristol,Job board,2024-03-24,74,1,1,0,0,0
+C1704,R2,HR Specialist,London,LinkedIn,2024-02-12,65,1,1,1,1,0
+C1705,R5,Software Engineer,Edinburgh,LinkedIn,2024-05-09,73,1,1,1,0,0
+C1706,R5,HR Specialist,Edinburgh,LinkedIn,2024-03-27,73,1,1,1,0,0
+C1707,R1,HR Specialist,Manchester,Careers page,2024-04-26,68,1,1,0,0,0
+C1708,R3,Software Engineer,Edinburgh,LinkedIn,2024-08-21,71,1,1,0,0,0
+C1709,R2,HR Specialist,London,LinkedIn,2024-11-26,69,1,0,0,0,0
+C1710,R3,Data Analyst,Manchester,LinkedIn,2024-03-11,71,1,1,0,0,0
+C1711,R1,Data Analyst,London,LinkedIn,2024-07-29,70,1,1,0,0,0
+C1712,R1,Software Engineer,Manchester,Job board,2024-06-18,53,1,0,0,0,0
+C1713,R1,HR Specialist,London,Job board,2024-09-15,40,1,1,0,0,0
+C1714,R2,HR Specialist,Bristol,LinkedIn,2024-04-16,72,1,1,0,0,0
+C1715,R4,Data Analyst,London,Job board,2024-10-05,66,1,1,1,0,0
+C1716,R2,HR Specialist,Edinburgh,Careers page,2024-10-12,59,1,0,0,0,0
+C1717,R3,HR Specialist,London,Job board,2024-01-11,41,1,1,1,0,0
+C1718,R4,Data Analyst,Manchester,LinkedIn,2024-11-09,69,1,1,1,0,0
+C1719,R2,HR Specialist,Manchester,Careers page,2024-01-26,77,1,1,1,0,0
+C1720,R1,Data Analyst,Edinburgh,LinkedIn,2024-05-27,71,1,1,0,0,0
+C1721,R5,HR Specialist,London,LinkedIn,2024-05-21,63,1,1,1,0,0
+C1722,R4,HR Specialist,London,LinkedIn,2024-07-01,71,1,1,0,0,0
+C1723,R3,Data Analyst,London,LinkedIn,2024-04-07,70,1,1,0,0,0
+C1724,R1,Data Analyst,Edinburgh,LinkedIn,2024-03-18,74,1,1,0,0,0
+C1725,R1,Data Analyst,Manchester,LinkedIn,2024-02-01,65,1,1,1,0,0
+C1726,R5,HR Specialist,Edinburgh,LinkedIn,2024-12-18,72,1,1,1,0,0
+C1727,R1,HR Specialist,Manchester,Job board,2024-05-13,48,1,1,0,0,0
+C1728,R3,HR Specialist,Bristol,LinkedIn,2024-08-30,72,1,1,0,0,0
+C1729,R4,Marketing Associate,London,LinkedIn,2024-01-25,72,1,0,0,0,0
+C1730,R1,Data Analyst,London,LinkedIn,2024-10-06,70,1,0,0,0,0
+C1731,R2,Data Analyst,Edinburgh,Job board,2024-03-05,37,1,0,0,0,0
+C1732,R4,HR Specialist,London,Job board,2024-08-08,48,1,1,0,0,0
+C1733,R1,Data Analyst,London,Careers page,2024-12-11,50,1,0,0,0,0
+C1734,R2,Marketing Associate,London,LinkedIn,2024-10-01,71,1,1,1,1,0
+C1735,R2,HR Specialist,Edinburgh,LinkedIn,2024-05-12,71,1,1,1,0,0
+C1736,R3,HR Specialist,Edinburgh,LinkedIn,2024-12-13,69,1,1,0,0,0
+C1737,R1,Data Analyst,Bristol,Careers page,2024-12-15,46,1,1,1,1,1
+C1738,R5,Data Analyst,Manchester,Job board,2024-09-15,79,1,1,1,1,1
+C1739,R2,HR Specialist,London,LinkedIn,2024-11-10,67,1,1,0,0,0
+C1740,R2,Data Analyst,London,LinkedIn,2024-06-15,73,1,1,1,0,0
+C1741,R1,HR Specialist,Edinburgh,Job board,2024-03-08,96,1,1,1,0,0
+C1742,R2,Software Engineer,London,LinkedIn,2024-01-09,68,1,1,0,0,0
+C1743,R3,Data Analyst,London,Job board,2024-06-15,58,1,0,0,0,0
+C1744,R1,Data Analyst,Manchester,Job board,2024-05-10,66,1,1,1,1,1
+C1745,R1,Software Engineer,Manchester,LinkedIn,2024-09-29,71,1,1,1,0,0
+C1746,R1,Data Analyst,London,LinkedIn,2024-12-27,71,1,1,1,1,1
+C1747,R5,Software Engineer,Edinburgh,Careers page,2024-10-31,63,1,0,0,0,0
+C1748,R5,Data Analyst,London,Careers page,2024-02-09,60,1,0,0,0,0
+C1749,R2,Software Engineer,London,Job board,2024-03-19,76,1,1,1,0,0
+C1750,R4,Software Engineer,London,Job board,2024-02-24,73,1,1,0,0,0
+C1751,R2,Software Engineer,London,LinkedIn,2024-09-05,73,1,1,1,0,0
+C1752,R5,Data Analyst,London,LinkedIn,2024-12-28,72,1,1,0,0,0
+C1753,R5,Data Analyst,Edinburgh,Job board,2024-10-12,62,1,1,0,0,0
+C1754,R3,Marketing Associate,Manchester,Job board,2024-05-26,76,1,1,0,0,0
+C1755,R2,Data Analyst,Edinburgh,Careers page,2024-12-21,66,1,1,1,0,0
+C1756,R4,Marketing Associate,London,LinkedIn,2024-12-24,72,1,1,1,1,1
+C1757,R2,HR Specialist,Edinburgh,LinkedIn,2024-03-09,70,1,0,0,0,0
+C1758,R4,HR Specialist,London,Job board,2024-01-06,53,1,0,0,0,0
+C1759,R4,Software Engineer,Bristol,LinkedIn,2024-02-14,67,1,1,0,0,0
+C1760,R2,Data Analyst,London,Careers page,2024-01-02,67,1,1,0,0,0
+C1761,R3,Data Analyst,Edinburgh,Careers page,2024-08-09,61,1,1,0,0,0
+C1762,R1,HR Specialist,London,LinkedIn,2024-02-11,69,1,1,0,0,0
+C1763,R1,Data Analyst,London,LinkedIn,2024-04-06,70,1,1,0,0,0
+C1764,R4,HR Specialist,London,Job board,2024-04-27,40,1,1,0,0,0
+C1765,R4,Data Analyst,Manchester,Careers page,2024-07-01,73,1,1,1,0,0
+C1766,R2,Software Engineer,Edinburgh,LinkedIn,2024-11-10,69,1,1,1,1,0
+C1767,R2,Marketing Associate,London,LinkedIn,2024-07-06,73,1,1,0,0,0
+C1768,R1,HR Specialist,Manchester,LinkedIn,2024-08-12,67,1,1,0,0,0
+C1769,R5,Data Analyst,Manchester,LinkedIn,2024-06-16,69,1,0,0,0,0
+C1770,R2,Marketing Associate,London,LinkedIn,2024-04-22,67,1,0,0,0,0
+C1771,R3,HR Specialist,Edinburgh,LinkedIn,2024-05-12,69,1,1,1,1,1
+C1772,R3,Software Engineer,Bristol,Job board,2024-10-07,63,1,1,1,0,0
+C1773,R1,HR Specialist,Manchester,Careers page,2024-09-12,53,1,0,0,0,0
+C1774,R3,HR Specialist,London,LinkedIn,2024-09-19,68,1,0,0,0,0
+C1775,R1,Data Analyst,Manchester,Careers page,2024-01-07,42,1,1,0,0,0
+C1776,R4,Data Analyst,Edinburgh,LinkedIn,2024-09-01,75,1,1,1,1,1
+C1777,R1,HR Specialist,Manchester,Job board,2024-11-01,40,1,0,0,0,0
+C1778,R1,Data Analyst,Manchester,Careers page,2024-01-11,45,1,1,0,0,0
+C1779,R3,Data Analyst,Edinburgh,Job board,2024-07-29,44,1,0,0,0,0
+C1780,R4,Data Analyst,Bristol,Job board,2024-10-31,55,1,0,0,0,0
+C1781,R1,Software Engineer,London,LinkedIn,2024-03-14,64,1,1,1,0,0
+C1782,R1,Software Engineer,Bristol,Job board,2024-01-08,59,1,1,0,0,0
+C1783,R5,Data Analyst,London,Job board,2024-12-15,77,1,1,1,0,0
+C1784,R3,Software Engineer,Edinburgh,LinkedIn,2024-06-21,72,1,1,0,0,0
+C1785,R1,Data Analyst,Bristol,LinkedIn,2024-11-30,69,1,1,0,0,0
+C1786,R1,HR Specialist,London,Careers page,2024-12-03,69,1,1,1,0,0
+C1787,R2,Data Analyst,Edinburgh,LinkedIn,2024-05-20,69,1,1,0,0,0
+C1788,R4,HR Specialist,Manchester,LinkedIn,2024-03-12,66,1,1,1,0,0
+C1789,R3,HR Specialist,London,Careers page,2024-06-22,61,1,1,0,0,0
+C1790,R5,HR Specialist,London,Job board,2024-09-01,34,1,0,0,0,0
+C1791,R1,Data Analyst,London,LinkedIn,2024-04-12,72,1,1,1,0,0
+C1792,R1,Data Analyst,London,Job board,2024-06-01,53,1,0,0,0,0
+C1793,R3,Data Analyst,London,LinkedIn,2024-11-22,75,1,1,0,0,0
+C1794,R5,Data Analyst,Manchester,LinkedIn,2024-07-21,71,1,1,1,1,0
+C1795,R4,HR Specialist,Edinburgh,Job board,2024-09-10,64,1,0,0,0,0
+C1796,R1,Data Analyst,Manchester,LinkedIn,2024-06-21,73,1,1,1,0,0
+C1797,R3,Data Analyst,Edinburgh,LinkedIn,2024-12-28,67,1,0,0,0,0
+C1798,R2,HR Specialist,London,LinkedIn,2024-03-04,75,1,1,1,0,0
+C1799,R3,HR Specialist,London,Job board,2024-07-20,70,1,1,1,1,1
+C1800,R4,HR Specialist,Bristol,LinkedIn,2024-06-22,70,1,1,0,0,0
+C1801,R1,HR Specialist,London,LinkedIn,2024-03-05,69,1,1,0,0,0
+C1802,R5,Marketing Associate,London,LinkedIn,2024-03-26,72,1,1,0,0,0
+C1803,R1,Marketing Associate,Edinburgh,LinkedIn,2024-07-31,69,1,1,0,0,0
+C1804,R3,Marketing Associate,Edinburgh,LinkedIn,2024-12-26,69,1,0,0,0,0
+C1805,R3,HR Specialist,London,LinkedIn,2024-03-19,71,1,0,0,0,0
+C1806,R1,Software Engineer,Edinburgh,LinkedIn,2024-10-04,67,1,1,1,0,0
+C1807,R2,Marketing Associate,Manchester,Job board,2024-05-14,33,1,0,0,0,0
+C1808,R3,Data Analyst,London,Job board,2024-05-31,43,1,0,0,0,0
+C1809,R2,HR Specialist,Manchester,Job board,2024-10-04,59,1,1,1,0,0
+C1810,R4,Data Analyst,Edinburgh,Careers page,2024-06-09,50,1,1,0,0,0
+C1811,R1,HR Specialist,Manchester,LinkedIn,2024-12-26,68,1,0,0,0,0
+C1812,R3,Software Engineer,Manchester,Careers page,2024-09-04,43,1,1,1,0,0
+C1813,R5,Data Analyst,London,Careers page,2024-02-14,61,1,1,1,1,1
+C1814,R3,Data Analyst,London,LinkedIn,2024-02-13,67,1,1,1,0,0
+C1815,R4,Data Analyst,London,Careers page,2024-04-21,30,1,0,0,0,0
+C1816,R4,Software Engineer,London,LinkedIn,2024-05-15,68,1,1,1,0,0
+C1817,R3,Data Analyst,London,LinkedIn,2024-02-29,69,1,1,0,0,0
+C1818,R4,HR Specialist,Manchester,LinkedIn,2024-02-12,71,1,1,1,1,1
+C1819,R3,Software Engineer,Edinburgh,Job board,2024-11-07,71,1,1,1,0,0
+C1820,R1,Data Analyst,London,LinkedIn,2024-08-13,69,1,1,0,0,0
+C1821,R2,Data Analyst,Bristol,LinkedIn,2024-01-25,69,1,1,1,0,0
+C1822,R4,Data Analyst,London,LinkedIn,2024-11-03,69,1,1,0,0,0
+C1823,R1,Software Engineer,Manchester,LinkedIn,2024-12-11,68,1,0,0,0,0
+C1824,R2,HR Specialist,Edinburgh,Job board,2024-01-27,78,1,0,0,0,0
+C1825,R4,Data Analyst,Edinburgh,Job board,2024-09-06,98,1,1,1,0,0
+C1826,R2,Data Analyst,Manchester,LinkedIn,2024-11-23,71,1,1,1,1,1
+C1827,R1,Data Analyst,London,Careers page,2024-04-04,45,1,1,0,0,0
+C1828,R2,HR Specialist,Manchester,Careers page,2024-05-07,55,1,0,0,0,0
+C1829,R5,HR Specialist,Manchester,Job board,2024-02-24,55,1,0,0,0,0
+C1830,R5,Data Analyst,Manchester,Job board,2024-05-03,69,1,0,0,0,0
+C1831,R2,Data Analyst,Manchester,LinkedIn,2024-01-26,71,1,1,0,0,0
+C1832,R4,Marketing Associate,Bristol,Careers page,2024-07-03,95,1,1,1,0,0
+C1833,R2,HR Specialist,London,Careers page,2024-02-13,73,1,0,0,0,0
+C1834,R1,HR Specialist,London,LinkedIn,2024-06-17,68,1,1,1,1,1
+C1835,R1,Data Analyst,Manchester,Careers page,2024-05-03,53,1,0,0,0,0
+C1836,R1,Data Analyst,Edinburgh,LinkedIn,2024-07-24,69,1,1,1,0,0
+C1837,R3,HR Specialist,Edinburgh,LinkedIn,2024-03-23,75,1,1,1,0,0
+C1838,R1,Data Analyst,London,Job board,2024-10-06,51,1,1,1,0,0
+C1839,R2,HR Specialist,Edinburgh,Job board,2024-07-08,61,1,1,1,0,0
+C1840,R5,Data Analyst,London,Job board,2024-07-07,60,1,1,0,0,0
+C1841,R1,HR Specialist,Bristol,LinkedIn,2024-09-06,69,1,1,1,0,0
+C1842,R4,Marketing Associate,Manchester,LinkedIn,2024-03-22,67,1,1,0,0,0
+C1843,R4,Data Analyst,London,Careers page,2024-02-24,48,1,1,0,0,0
+C1844,R5,Data Analyst,London,LinkedIn,2024-07-04,69,1,1,1,1,1
+C1845,R4,Data Analyst,Edinburgh,Job board,2024-07-29,66,1,1,0,0,0
+C1846,R1,HR Specialist,Manchester,LinkedIn,2024-03-27,64,1,1,0,0,0
+C1847,R3,Data Analyst,Edinburgh,Careers page,2024-05-29,51,1,1,0,0,0
+C1848,R1,HR Specialist,London,LinkedIn,2024-09-01,63,1,1,1,0,0
+C1849,R5,Data Analyst,Manchester,Job board,2024-12-05,59,1,1,0,0,0
+C1850,R1,Data Analyst,Edinburgh,LinkedIn,2024-09-27,71,1,1,1,0,0
+C1851,R2,Data Analyst,Edinburgh,LinkedIn,2024-10-23,67,1,1,0,0,0
+C1852,R2,HR Specialist,London,LinkedIn,2024-10-12,71,1,1,0,0,0
+C1853,R4,HR Specialist,London,Job board,2024-01-14,49,1,1,0,0,0
+C1854,R1,Marketing Associate,Manchester,Careers page,2024-07-22,58,1,0,0,0,0
+C1855,R3,HR Specialist,Manchester,LinkedIn,2024-01-21,70,1,0,0,0,0
+C1856,R3,Data Analyst,London,Job board,2024-08-21,45,1,1,0,0,0
+C1857,R2,Software Engineer,London,LinkedIn,2024-06-16,68,1,0,0,0,0
+C1858,R1,Data Analyst,London,Careers page,2024-04-13,87,1,0,0,0,0
+C1859,R3,HR Specialist,Manchester,LinkedIn,2024-09-28,68,1,1,0,0,0
+C1860,R2,Software Engineer,Edinburgh,Job board,2024-12-20,45,1,0,0,0,0
+C1861,R3,Software Engineer,Bristol,Job board,2024-11-16,61,1,0,0,0,0
+C1862,R3,Data Analyst,Manchester,Careers page,2024-09-09,74,1,0,0,0,0
+C1863,R1,Data Analyst,Bristol,LinkedIn,2024-02-19,69,1,0,0,0,0
+C1864,R2,HR Specialist,London,Job board,2024-04-30,67,1,1,0,0,0
+C1865,R4,Data Analyst,London,LinkedIn,2024-04-14,73,1,1,0,0,0
+C1866,R1,Software Engineer,London,LinkedIn,2024-12-20,67,1,1,1,0,0
+C1867,R4,Software Engineer,Edinburgh,Careers page,2024-08-16,79,1,1,1,1,1
+C1868,R2,HR Specialist,Bristol,LinkedIn,2024-04-06,66,1,1,0,0,0
+C1869,R4,HR Specialist,London,LinkedIn,2024-06-18,71,1,1,1,0,0
+C1870,R3,Software Engineer,London,LinkedIn,2024-05-13,70,1,1,1,1,1
+C1871,R1,Data Analyst,Manchester,Careers page,2024-09-15,49,1,1,1,0,0
+C1872,R5,Data Analyst,Bristol,Job board,2024-12-06,72,1,1,1,1,1
+C1873,R1,Data Analyst,London,LinkedIn,2024-10-31,67,1,1,0,0,0
+C1874,R4,Software Engineer,London,Careers page,2024-01-13,62,1,1,0,0,0
+C1875,R1,Software Engineer,Manchester,LinkedIn,2024-06-24,67,1,1,0,0,0
+C1876,R2,Software Engineer,London,LinkedIn,2024-08-08,74,1,1,1,1,1
+C1877,R4,Data Analyst,London,LinkedIn,2024-08-04,69,1,1,1,1,1
+C1878,R1,Data Analyst,Bristol,LinkedIn,2024-09-10,68,1,1,0,0,0
+C1879,R2,HR Specialist,Manchester,LinkedIn,2024-03-15,71,1,1,0,0,0
+C1880,R1,Software Engineer,London,Job board,2024-06-26,49,1,1,1,0,0
+C1881,R2,HR Specialist,Manchester,LinkedIn,2024-11-07,69,1,1,1,0,0
+C1882,R1,Data Analyst,Manchester,LinkedIn,2024-01-13,75,1,1,1,0,0
+C1883,R4,Data Analyst,London,Job board,2024-12-21,48,1,0,0,0,0
+C1884,R1,Data Analyst,Manchester,LinkedIn,2024-03-28,67,1,0,0,0,0
+C1885,R1,Data Analyst,Manchester,Careers page,2024-05-25,69,1,0,0,0,0
+C1886,R5,HR Specialist,Manchester,LinkedIn,2024-07-09,66,1,0,0,0,0
+C1887,R1,HR Specialist,Edinburgh,Job board,2024-05-05,44,1,1,0,0,0
+C1888,R4,HR Specialist,Bristol,Careers page,2024-09-13,53,1,1,0,0,0
+C1889,R1,HR Specialist,Manchester,Careers page,2024-12-22,53,1,0,0,0,0
+C1890,R3,HR Specialist,Manchester,LinkedIn,2024-12-01,68,1,1,1,1,1
+C1891,R4,Software Engineer,Edinburgh,LinkedIn,2024-04-11,72,1,1,1,0,0
+C1892,R2,Marketing Associate,London,Job board,2024-10-28,52,1,1,1,1,1
+C1893,R1,HR Specialist,London,LinkedIn,2024-07-16,68,1,1,0,0,0
+C1894,R5,HR Specialist,London,LinkedIn,2024-10-19,72,1,1,1,1,1
+C1895,R2,Data Analyst,Bristol,Job board,2024-01-03,83,1,1,1,0,0
+C1896,R3,Data Analyst,Bristol,LinkedIn,2024-04-03,71,1,1,1,0,0
+C1897,R4,HR Specialist,London,Job board,2024-12-30,70,1,0,0,0,0
+C1898,R5,Software Engineer,Manchester,Job board,2024-03-10,49,1,1,0,0,0
+C1899,R1,Software Engineer,London,Job board,2024-03-01,41,1,0,0,0,0
+C1900,R4,HR Specialist,London,LinkedIn,2024-11-10,72,1,1,1,0,0
+C1901,R4,Marketing Associate,Bristol,Careers page,2024-07-27,68,1,1,1,0,0
+C1902,R1,Marketing Associate,Manchester,LinkedIn,2024-12-14,71,1,1,1,0,0
+C1903,R1,Data Analyst,Bristol,Careers page,2024-10-15,79,1,1,0,0,0
+C1904,R2,Data Analyst,Manchester,LinkedIn,2024-02-23,71,1,1,1,0,0
+C1905,R3,Data Analyst,Edinburgh,LinkedIn,2024-07-09,68,1,0,0,0,0
+C1906,R3,HR Specialist,London,Job board,2024-10-15,31,1,0,0,0,0
+C1907,R3,Software Engineer,Manchester,LinkedIn,2024-08-28,72,1,1,1,0,0
+C1908,R5,HR Specialist,London,Job board,2024-10-13,59,1,1,0,0,0
+C1909,R3,Software Engineer,Bristol,LinkedIn,2024-12-31,70,1,1,1,0,0
+C1910,R3,Software Engineer,Manchester,LinkedIn,2024-03-14,71,1,1,0,0,0
+C1911,R1,Data Analyst,London,LinkedIn,2024-07-18,75,1,1,1,1,0
+C1912,R3,Data Analyst,Manchester,Job board,2024-03-31,66,1,0,0,0,0
+C1913,R3,Software Engineer,Bristol,Job board,2024-06-13,40,1,0,0,0,0
+C1914,R3,Data Analyst,London,Careers page,2024-05-01,52,1,1,0,0,0
+C1915,R3,Data Analyst,Bristol,Job board,2024-05-02,38,1,0,0,0,0
+C1916,R1,Software Engineer,Bristol,Job board,2024-02-26,48,1,0,0,0,0
+C1917,R1,Data Analyst,Manchester,LinkedIn,2024-06-29,72,1,1,1,0,0
+C1918,R3,Data Analyst,Edinburgh,Job board,2024-09-11,25,1,0,0,0,0
+C1919,R5,Software Engineer,Edinburgh,Job board,2024-04-10,21,1,0,0,0,0
+C1920,R1,HR Specialist,Bristol,Job board,2024-06-01,50,1,1,0,0,0
+C1921,R5,HR Specialist,Edinburgh,LinkedIn,2024-02-21,67,1,1,1,0,0
+C1922,R4,Software Engineer,Manchester,Job board,2024-09-17,47,1,1,0,0,0
+C1923,R2,HR Specialist,Bristol,Job board,2024-05-11,42,1,0,0,0,0
+C1924,R4,Software Engineer,London,Job board,2024-06-10,91,1,1,1,0,0
+C1925,R3,Data Analyst,London,Job board,2024-11-05,78,1,0,0,0,0
+C1926,R4,Marketing Associate,London,LinkedIn,2024-11-24,67,1,1,1,0,0
+C1927,R4,Marketing Associate,Edinburgh,LinkedIn,2024-01-28,67,1,1,0,0,0
+C1928,R1,Data Analyst,Edinburgh,Job board,2024-11-24,61,1,1,0,0,0
+C1929,R4,Software Engineer,London,LinkedIn,2024-03-27,74,1,0,0,0,0
+C1930,R2,Data Analyst,Bristol,Job board,2024-01-02,33,1,0,0,0,0
+C1931,R4,Data Analyst,Bristol,LinkedIn,2024-08-14,67,1,1,0,0,0
+C1932,R4,Data Analyst,Edinburgh,LinkedIn,2024-02-06,71,1,1,1,0,0
+C1933,R1,Software Engineer,London,Job board,2024-08-21,53,1,0,0,0,0
+C1934,R1,Data Analyst,Manchester,Job board,2024-09-08,57,1,1,1,0,0
+C1935,R1,Data Analyst,London,LinkedIn,2024-04-10,66,1,1,0,0,0
+C1936,R1,Software Engineer,London,Careers page,2024-11-05,63,1,1,0,0,0
+C1937,R4,HR Specialist,Manchester,LinkedIn,2024-10-28,76,1,0,0,0,0
+C1938,R5,Data Analyst,London,LinkedIn,2024-07-06,68,1,1,0,0,0
+C1939,R1,Marketing Associate,London,LinkedIn,2024-05-10,69,1,1,0,0,0
+C1940,R5,Software Engineer,London,LinkedIn,2024-07-21,67,1,1,0,0,0
+C1941,R4,HR Specialist,London,LinkedIn,2024-10-11,72,1,0,0,0,0
+C1942,R1,Data Analyst,London,LinkedIn,2024-08-20,68,1,1,0,0,0
+C1943,R1,Software Engineer,Manchester,LinkedIn,2024-04-30,70,1,1,0,0,0
+C1944,R3,Software Engineer,London,Careers page,2024-10-13,92,1,1,0,0,0
+C1945,R1,HR Specialist,London,LinkedIn,2024-06-05,68,1,1,1,0,0
+C1946,R5,Data Analyst,London,LinkedIn,2024-01-16,71,1,1,0,0,0
+C1947,R1,Data Analyst,Bristol,LinkedIn,2024-11-30,71,1,1,1,0,0
+C1948,R3,Data Analyst,Manchester,Job board,2024-10-15,47,1,1,0,0,0
+C1949,R5,Data Analyst,London,LinkedIn,2024-12-13,74,1,1,1,1,1
+C1950,R1,HR Specialist,Manchester,LinkedIn,2024-02-02,72,1,1,1,1,1
+C1951,R1,HR Specialist,Manchester,Job board,2024-02-14,44,1,1,0,0,0
+C1952,R5,Data Analyst,Manchester,LinkedIn,2024-03-07,68,1,1,1,1,1
+C1953,R1,Marketing Associate,Bristol,Careers page,2024-06-01,47,1,1,0,0,0
+C1954,R1,Software Engineer,London,Careers page,2024-06-10,60,1,1,0,0,0
+C1955,R4,Data Analyst,London,LinkedIn,2024-01-08,66,1,1,1,0,0
+C1956,R4,Software Engineer,London,Job board,2024-08-26,65,1,1,0,0,0
+C1957,R4,HR Specialist,Manchester,Job board,2024-08-09,65,1,0,0,0,0
+C1958,R5,HR Specialist,London,Careers page,2024-07-20,55,1,1,1,0,0
+C1959,R3,Data Analyst,Bristol,Careers page,2024-08-04,59,1,1,0,0,0
+C1960,R1,Data Analyst,London,Job board,2024-03-29,34,1,0,0,0,0
+C1961,R2,Data Analyst,London,LinkedIn,2024-03-08,71,1,1,0,0,0
+C1962,R1,HR Specialist,Manchester,Careers page,2024-04-06,40,1,0,0,0,0
+C1963,R1,Data Analyst,London,LinkedIn,2024-08-25,70,1,1,1,0,0
+C1964,R1,Data Analyst,Manchester,Careers page,2024-07-24,66,1,1,1,0,0
+C1965,R4,Marketing Associate,London,Job board,2024-12-17,83,1,1,1,0,0
+C1966,R4,Software Engineer,London,Job board,2024-11-30,17,1,0,0,0,0
+C1967,R1,Software Engineer,Edinburgh,LinkedIn,2024-02-20,69,1,1,1,1,1
+C1968,R1,HR Specialist,London,Careers page,2024-07-12,48,1,1,0,0,0
+C1969,R2,Software Engineer,London,LinkedIn,2024-09-22,73,1,1,1,0,0
+C1970,R3,Software Engineer,London,Careers page,2024-05-26,43,1,1,0,0,0
+C1971,R1,Software Engineer,Edinburgh,LinkedIn,2024-05-03,73,1,1,0,0,0
+C1972,R2,Software Engineer,London,Careers page,2024-08-01,58,1,1,0,0,0
+C1973,R4,Data Analyst,London,LinkedIn,2024-10-04,70,1,1,1,1,1
+C1974,R4,HR Specialist,London,Careers page,2024-10-30,65,1,1,0,0,0
+C1975,R5,Software Engineer,Manchester,Job board,2024-09-08,72,1,1,1,1,0
+C1976,R3,HR Specialist,Edinburgh,Job board,2024-10-14,51,1,0,0,0,0
+C1977,R1,HR Specialist,Edinburgh,LinkedIn,2024-04-17,69,1,0,0,0,0
+C1978,R1,Data Analyst,Bristol,Job board,2024-10-22,29,1,0,0,0,0
+C1979,R2,Data Analyst,Manchester,Careers page,2024-02-11,51,1,1,1,0,0
+C1980,R1,Data Analyst,Edinburgh,Job board,2024-03-21,69,1,1,1,0,0
+C1981,R5,Data Analyst,London,LinkedIn,2024-09-17,70,1,1,1,0,0
+C1982,R4,Data Analyst,Bristol,Careers page,2024-12-27,69,1,0,0,0,0
+C1983,R1,HR Specialist,London,Job board,2024-10-26,63,1,1,0,0,0
+C1984,R1,Marketing Associate,London,Careers page,2024-09-06,52,1,0,0,0,0
+C1985,R3,HR Specialist,Edinburgh,LinkedIn,2024-11-05,70,1,0,0,0,0
+C1986,R1,Data Analyst,London,Job board,2024-01-09,47,1,1,1,0,0
+C1987,R4,Data Analyst,Bristol,LinkedIn,2024-03-24,71,1,1,0,0,0
+C1988,R4,HR Specialist,Edinburgh,Job board,2024-02-21,57,1,1,1,0,0
+C1989,R3,Data Analyst,London,LinkedIn,2024-02-25,66,1,0,0,0,0
+C1990,R1,HR Specialist,London,Careers page,2024-01-18,72,1,1,0,0,0
+C1991,R4,Data Analyst,Manchester,Job board,2024-09-17,34,1,0,0,0,0
+C1992,R1,Data Analyst,London,LinkedIn,2024-07-27,74,1,1,1,1,1
+C1993,R2,HR Specialist,Manchester,Careers page,2024-02-24,78,1,1,1,0,0
+C1994,R1,Data Analyst,Edinburgh,Careers page,2024-09-17,76,1,1,0,0,0
+C1995,R1,Data Analyst,London,Job board,2024-05-14,54,1,0,0,0,0
+C1996,R2,Data Analyst,London,LinkedIn,2024-08-17,68,1,1,1,0,0
+C1997,R1,Software Engineer,London,LinkedIn,2024-09-24,71,1,1,0,0,0
+C1998,R5,HR Specialist,London,Job board,2024-11-08,74,1,1,1,0,0
+C1999,R4,Data Analyst,Bristol,Careers page,2024-09-26,64,1,1,0,0,0
+C2000,R4,HR Specialist,Edinburgh,Careers page,2024-03-07,63,1,1,1,0,0
+C2001,R1,Data Analyst,Bristol,LinkedIn,2024-10-07,66,1,0,0,0,0
+C2002,R1,HR Specialist,Manchester,Job board,2024-03-17,58,1,1,1,0,0
+C2003,R1,HR Specialist,London,Job board,2024-04-19,77,1,1,0,0,0
+C2004,R4,HR Specialist,Edinburgh,LinkedIn,2024-01-23,73,1,1,1,1,1
+C2005,R4,Data Analyst,London,LinkedIn,2024-02-19,67,1,0,0,0,0
+C2006,R3,Data Analyst,Edinburgh,LinkedIn,2024-11-05,71,1,1,0,0,0
+C2007,R4,Data Analyst,London,LinkedIn,2024-08-20,70,1,1,1,0,0
+C2008,R1,Data Analyst,London,LinkedIn,2024-03-17,69,1,0,0,0,0
+C2009,R1,Software Engineer,Edinburgh,Job board,2024-08-20,61,1,0,0,0,0
+C2010,R1,Software Engineer,Manchester,LinkedIn,2024-01-24,73,1,1,0,0,0
+C2011,R2,Software Engineer,Manchester,LinkedIn,2024-10-06,73,1,1,1,1,1
+C2012,R1,Data Analyst,Edinburgh,LinkedIn,2024-06-15,69,1,0,0,0,0
+C2013,R3,Data Analyst,Bristol,Careers page,2024-04-10,67,1,1,0,0,0
+C2014,R3,HR Specialist,Bristol,LinkedIn,2024-01-24,71,1,1,1,0,0
+C2015,R2,Data Analyst,Manchester,Job board,2024-03-21,41,1,1,0,0,0
+C2016,R1,Data Analyst,London,LinkedIn,2024-12-08,75,1,1,0,0,0
+C2017,R5,Data Analyst,London,Job board,2024-12-06,51,1,0,0,0,0
+C2018,R1,Data Analyst,Bristol,Job board,2024-09-19,65,1,1,1,0,0
+C2019,R1,HR Specialist,Bristol,Careers page,2024-12-04,66,1,1,0,0,0
+C2020,R1,HR Specialist,Bristol,LinkedIn,2024-08-04,70,1,0,0,0,0
+C2021,R2,HR Specialist,Manchester,LinkedIn,2024-02-12,69,1,1,0,0,0
+C2022,R4,Software Engineer,Edinburgh,LinkedIn,2024-12-17,74,1,1,0,0,0
+C2023,R2,Data Analyst,London,Careers page,2024-10-25,44,1,1,1,1,0
+C2024,R1,Software Engineer,London,LinkedIn,2024-04-11,73,1,1,0,0,0
+C2025,R1,Data Analyst,London,Job board,2024-05-04,59,1,1,0,0,0
+C2026,R1,Data Analyst,Bristol,LinkedIn,2024-05-08,66,1,1,0,0,0
+C2027,R3,Data Analyst,Manchester,Job board,2024-03-15,59,1,0,0,0,0
+C2028,R3,Software Engineer,Edinburgh,LinkedIn,2024-09-11,66,1,0,0,0,0
+C2029,R4,HR Specialist,London,LinkedIn,2024-09-29,68,1,0,0,0,0
+C2030,R5,HR Specialist,Manchester,LinkedIn,2024-08-05,68,1,0,0,0,0
+C2031,R3,Software Engineer,Edinburgh,LinkedIn,2024-01-29,67,1,1,0,0,0
+C2032,R3,Software Engineer,Manchester,LinkedIn,2024-03-15,70,1,1,1,0,0
+C2033,R3,HR Specialist,Edinburgh,LinkedIn,2024-02-12,70,1,0,0,0,0
+C2034,R1,Marketing Associate,Manchester,LinkedIn,2024-07-10,73,1,1,1,1,1
+C2035,R1,Data Analyst,Edinburgh,Careers page,2024-05-26,66,1,1,1,0,0
+C2036,R5,HR Specialist,Edinburgh,Job board,2024-07-30,38,1,0,0,0,0
+C2037,R3,Data Analyst,London,Careers page,2024-10-02,64,1,0,0,0,0
+C2038,R2,Data Analyst,Edinburgh,Job board,2024-01-07,41,1,0,0,0,0
+C2039,R2,Software Engineer,Manchester,Careers page,2024-03-14,56,1,0,0,0,0
+C2040,R5,Software Engineer,Bristol,Careers page,2024-08-20,35,1,0,0,0,0
+C2041,R4,HR Specialist,London,LinkedIn,2024-11-06,70,1,1,0,0,0
+C2042,R1,Data Analyst,London,LinkedIn,2024-04-13,70,1,1,1,0,0
+C2043,R4,HR Specialist,Manchester,LinkedIn,2024-04-20,70,1,1,0,0,0
+C2044,R5,Data Analyst,London,Job board,2024-10-05,50,1,0,0,0,0
+C2045,R2,Software Engineer,London,Careers page,2024-06-06,66,1,0,0,0,0
+C2046,R2,HR Specialist,Manchester,LinkedIn,2024-09-21,71,1,1,1,1,1
+C2047,R5,Data Analyst,Bristol,LinkedIn,2024-12-29,70,1,0,0,0,0
+C2048,R1,HR Specialist,Manchester,Job board,2024-03-27,48,1,1,0,0,0
+C2049,R1,Software Engineer,London,LinkedIn,2024-01-31,69,1,1,1,0,0
+C2050,R4,Data Analyst,Edinburgh,LinkedIn,2024-09-17,69,1,1,0,0,0
+C2051,R3,Data Analyst,London,Job board,2024-01-21,27,1,0,0,0,0
+C2052,R1,Software Engineer,Manchester,LinkedIn,2024-11-15,64,1,1,0,0,0
+C2053,R2,Data Analyst,Manchester,LinkedIn,2024-12-11,69,1,1,0,0,0
+C2054,R1,Data Analyst,London,Careers page,2024-02-11,57,1,1,0,0,0
+C2055,R2,HR Specialist,London,LinkedIn,2024-12-22,67,1,1,1,0,0
+C2056,R1,Data Analyst,London,Careers page,2024-04-22,66,1,1,0,0,0
+C2057,R3,HR Specialist,London,Job board,2024-11-13,58,1,0,0,0,0
+C2058,R5,HR Specialist,London,Job board,2024-01-11,51,1,0,0,0,0
+C2059,R5,HR Specialist,Edinburgh,Careers page,2024-12-23,56,1,1,0,0,0
+C2060,R3,Data Analyst,London,LinkedIn,2024-07-14,72,1,1,1,0,0
+C2061,R1,Data Analyst,Bristol,LinkedIn,2024-07-13,68,1,1,0,0,0
+C2062,R2,HR Specialist,Manchester,LinkedIn,2024-09-07,72,1,1,1,0,0
+C2063,R3,Data Analyst,London,LinkedIn,2024-06-10,70,1,0,0,0,0
+C2064,R5,Data Analyst,Manchester,LinkedIn,2024-12-23,69,1,1,0,0,0
+C2065,R1,Data Analyst,Edinburgh,LinkedIn,2024-07-18,72,1,1,1,0,0
+C2066,R1,Software Engineer,London,LinkedIn,2024-07-12,73,1,1,1,0,0
+C2067,R1,Data Analyst,London,Careers page,2024-10-31,80,1,1,0,0,0
+C2068,R1,Marketing Associate,Bristol,LinkedIn,2024-06-21,68,1,1,0,0,0
+C2069,R5,HR Specialist,Bristol,LinkedIn,2024-03-29,73,1,1,1,0,0
+C2070,R2,Software Engineer,London,Careers page,2024-03-30,74,1,1,0,0,0
+C2071,R1,HR Specialist,Manchester,LinkedIn,2024-12-10,71,1,0,0,0,0
+C2072,R2,Marketing Associate,Manchester,Job board,2024-11-15,17,1,0,0,0,0
+C2073,R3,Software Engineer,London,LinkedIn,2024-04-08,66,1,1,1,0,0
+C2074,R4,Data Analyst,Edinburgh,Careers page,2024-07-09,49,1,1,1,0,0
+C2075,R3,HR Specialist,Edinburgh,LinkedIn,2024-06-12,71,1,1,0,0,0
+C2076,R5,Marketing Associate,Manchester,Careers page,2024-11-06,57,1,0,0,0,0
+C2077,R4,Software Engineer,London,LinkedIn,2024-02-27,67,1,1,0,0,0
+C2078,R4,HR Specialist,Edinburgh,LinkedIn,2024-01-04,69,1,1,0,0,0
+C2079,R2,Software Engineer,Manchester,Job board,2024-02-09,51,1,1,0,0,0
+C2080,R1,Data Analyst,London,Job board,2024-12-26,56,1,1,1,0,0
+C2081,R1,Data Analyst,Manchester,Job board,2024-04-23,54,1,0,0,0,0
+C2082,R3,Data Analyst,London,Job board,2024-05-21,28,1,0,0,0,0
+C2083,R5,HR Specialist,Bristol,Job board,2024-03-08,61,1,1,0,0,0
+C2084,R1,Marketing Associate,Bristol,Careers page,2024-05-29,62,1,0,0,0,0
+C2085,R4,Marketing Associate,London,LinkedIn,2024-07-23,68,1,1,0,0,0
+C2086,R3,HR Specialist,London,LinkedIn,2024-04-16,74,1,1,0,0,0
+C2087,R4,Data Analyst,London,Job board,2024-07-01,68,1,1,0,0,0
+C2088,R2,HR Specialist,Manchester,Careers page,2024-11-11,64,1,1,0,0,0
+C2089,R3,HR Specialist,Manchester,LinkedIn,2024-05-30,67,1,1,0,0,0
+C2090,R1,Software Engineer,Manchester,LinkedIn,2024-09-09,70,1,1,0,0,0
+C2091,R1,HR Specialist,Edinburgh,Careers page,2024-12-19,43,1,0,0,0,0
+C2092,R1,Data Analyst,London,LinkedIn,2024-04-26,66,1,0,0,0,0
+C2093,R1,Software Engineer,Bristol,Job board,2024-12-14,78,1,1,0,0,0
+C2094,R1,Software Engineer,Manchester,LinkedIn,2024-05-30,68,1,0,0,0,0
+C2095,R1,Data Analyst,Bristol,LinkedIn,2024-05-13,73,1,1,1,0,0
+C2096,R5,Data Analyst,Manchester,LinkedIn,2024-04-23,71,1,1,1,0,0
+C2097,R2,Data Analyst,Edinburgh,Job board,2024-08-30,63,1,0,0,0,0
+C2098,R4,Data Analyst,Bristol,Careers page,2024-06-05,60,1,1,0,0,0
+C2099,R4,HR Specialist,London,LinkedIn,2024-07-31,69,1,1,1,1,1
+C2100,R1,HR Specialist,London,LinkedIn,2024-02-06,67,1,1,1,0,0
+C2101,R3,HR Specialist,Edinburgh,LinkedIn,2024-10-14,63,1,1,1,1,1
+C2102,R4,Software Engineer,Manchester,Job board,2024-04-28,60,1,1,0,0,0
+C2103,R4,HR Specialist,Edinburgh,Job board,2024-05-04,52,1,0,0,0,0
+C2104,R2,Data Analyst,Edinburgh,LinkedIn,2024-11-09,72,1,1,1,0,0
+C2105,R3,HR Specialist,London,LinkedIn,2024-12-08,76,1,1,1,0,0
+C2106,R5,Data Analyst,London,LinkedIn,2024-12-26,71,1,1,0,0,0
+C2107,R1,HR Specialist,London,LinkedIn,2024-09-23,74,1,1,1,0,0
+C2108,R1,Software Engineer,London,Job board,2024-01-18,51,1,0,0,0,0
+C2109,R2,Data Analyst,London,LinkedIn,2024-04-24,69,1,0,0,0,0
+C2110,R5,Data Analyst,Manchester,LinkedIn,2024-09-13,72,1,1,1,0,0
+C2111,R5,Software Engineer,Manchester,LinkedIn,2024-12-01,70,1,1,1,0,0
+C2112,R1,Data Analyst,London,Job board,2024-10-20,32,1,0,0,0,0
+C2113,R1,Marketing Associate,Manchester,LinkedIn,2024-11-24,71,1,1,1,0,0
+C2114,R4,Software Engineer,Manchester,LinkedIn,2024-07-01,71,1,1,1,0,0
+C2115,R4,Marketing Associate,London,Careers page,2024-03-26,77,1,1,0,0,0
+C2116,R1,Software Engineer,Manchester,LinkedIn,2024-02-04,73,1,1,0,0,0
+C2117,R5,Data Analyst,London,LinkedIn,2024-09-01,68,1,0,0,0,0
+C2118,R1,Data Analyst,London,LinkedIn,2024-01-11,72,1,1,1,0,0
+C2119,R5,Data Analyst,Manchester,LinkedIn,2024-11-21,68,1,1,1,1,1
+C2120,R5,Software Engineer,London,LinkedIn,2024-10-04,73,1,1,0,0,0
+C2121,R2,HR Specialist,London,LinkedIn,2024-11-07,68,1,0,0,0,0
+C2122,R3,Data Analyst,London,Job board,2024-01-05,80,1,0,0,0,0
+C2123,R1,Software Engineer,London,Careers page,2024-01-01,59,1,0,0,0,0
+C2124,R1,Software Engineer,London,LinkedIn,2024-04-19,73,1,1,0,0,0
+C2125,R2,Software Engineer,Edinburgh,Job board,2024-09-13,55,1,1,0,0,0
+C2126,R1,HR Specialist,London,LinkedIn,2024-03-16,70,1,1,0,0,0
+C2127,R2,Data Analyst,London,Job board,2024-01-17,73,1,1,1,0,0
+C2128,R4,Software Engineer,Edinburgh,LinkedIn,2024-11-20,68,1,1,0,0,0
+C2129,R4,Data Analyst,Manchester,LinkedIn,2024-04-22,71,1,1,0,0,0
+C2130,R2,Software Engineer,London,LinkedIn,2024-12-29,74,1,1,1,1,1
+C2131,R1,HR Specialist,Edinburgh,Job board,2024-12-11,33,1,0,0,0,0
+C2132,R4,HR Specialist,Manchester,LinkedIn,2024-11-06,70,1,1,0,0,0
+C2133,R1,Software Engineer,London,Job board,2024-04-21,54,1,0,0,0,0
+C2134,R1,Data Analyst,Edinburgh,Job board,2024-02-16,63,1,0,0,0,0
+C2135,R3,Software Engineer,Bristol,Job board,2024-02-29,57,1,1,0,0,0
+C2136,R3,Software Engineer,Bristol,LinkedIn,2024-12-23,73,1,1,0,0,0
+C2137,R4,Software Engineer,Edinburgh,Careers page,2024-09-18,54,1,1,0,0,0
+C2138,R5,HR Specialist,Manchester,LinkedIn,2024-05-27,69,1,1,1,0,0
+C2139,R2,Data Analyst,Bristol,LinkedIn,2024-04-19,71,1,1,1,1,1
+C2140,R4,Software Engineer,London,Job board,2024-08-03,67,1,1,1,0,0
+C2141,R5,Data Analyst,London,LinkedIn,2024-01-04,71,1,1,0,0,0
+C2142,R1,Data Analyst,Edinburgh,LinkedIn,2024-06-23,67,1,1,1,1,1
+C2143,R4,Data Analyst,London,Job board,2024-12-17,76,1,1,1,0,0
+C2144,R1,HR Specialist,Manchester,LinkedIn,2024-09-22,69,1,1,1,0,0
+C2145,R1,HR Specialist,Edinburgh,Job board,2024-03-29,64,1,0,0,0,0
+C2146,R1,Data Analyst,Edinburgh,Job board,2024-03-18,70,1,0,0,0,0
+C2147,R1,Software Engineer,Edinburgh,LinkedIn,2024-09-04,66,1,1,1,0,0
+C2148,R4,Software Engineer,Bristol,LinkedIn,2024-07-24,67,1,1,0,0,0
+C2149,R3,HR Specialist,Bristol,Job board,2024-06-21,61,1,1,0,0,0
+C2150,R5,Marketing Associate,London,Job board,2024-06-10,51,1,0,0,0,0
+C2151,R1,Data Analyst,Bristol,LinkedIn,2024-09-12,72,1,1,1,1,1
+C2152,R2,Data Analyst,Manchester,Job board,2024-05-18,48,1,1,0,0,0
+C2153,R3,Marketing Associate,London,LinkedIn,2024-12-31,68,1,1,0,0,0
+C2154,R1,Software Engineer,London,Job board,2024-05-29,45,1,1,0,0,0
+C2155,R4,Data Analyst,London,Careers page,2024-12-08,48,1,1,0,0,0
+C2156,R1,HR Specialist,London,Careers page,2024-08-31,66,1,1,0,0,0
+C2157,R4,Marketing Associate,Edinburgh,LinkedIn,2024-06-10,71,1,1,1,1,1
+C2158,R5,Data Analyst,London,LinkedIn,2024-10-24,72,1,1,1,1,0
+C2159,R1,Software Engineer,Bristol,Job board,2024-01-08,33,1,0,0,0,0
+C2160,R4,HR Specialist,London,LinkedIn,2024-04-27,71,1,1,1,1,1
+C2161,R2,Software Engineer,London,Careers page,2024-10-23,40,1,1,0,0,0
+C2162,R1,Software Engineer,London,LinkedIn,2024-07-11,69,1,1,0,0,0
+C2163,R3,HR Specialist,London,LinkedIn,2024-05-22,70,1,1,0,0,0
+C2164,R5,Data Analyst,Bristol,Careers page,2024-08-14,33,1,0,0,0,0
+C2165,R3,HR Specialist,Bristol,Job board,2024-08-04,43,1,1,0,0,0
+C2166,R2,HR Specialist,London,Careers page,2024-07-31,77,1,0,0,0,0
+C2167,R1,Data Analyst,Bristol,LinkedIn,2024-05-04,69,1,0,0,0,0
+C2168,R2,Software Engineer,London,Careers page,2024-06-18,71,1,1,1,0,0
+C2169,R5,Data Analyst,Manchester,Job board,2024-02-27,64,1,1,1,0,0
+C2170,R4,HR Specialist,London,LinkedIn,2024-07-30,67,1,1,0,0,0
+C2171,R1,HR Specialist,London,Job board,2024-09-29,49,1,0,0,0,0
+C2172,R4,HR Specialist,Manchester,LinkedIn,2024-08-29,77,1,1,0,0,0
+C2173,R1,HR Specialist,London,LinkedIn,2024-02-29,70,1,1,1,0,0
+C2174,R4,Data Analyst,London,LinkedIn,2024-01-02,72,1,0,0,0,0
+C2175,R5,HR Specialist,Bristol,LinkedIn,2024-03-28,72,1,1,1,1,1
+C2176,R1,Data Analyst,Edinburgh,Careers page,2024-10-22,36,1,0,0,0,0
+C2177,R1,HR Specialist,Bristol,LinkedIn,2024-08-30,72,1,1,0,0,0
+C2178,R5,HR Specialist,London,LinkedIn,2024-01-07,69,1,1,1,0,0
+C2179,R1,HR Specialist,Manchester,LinkedIn,2024-06-10,70,1,1,0,0,0
+C2180,R5,Data Analyst,London,LinkedIn,2024-07-11,73,1,1,1,0,0
+C2181,R2,Data Analyst,London,LinkedIn,2024-09-03,67,1,1,1,0,0
+C2182,R3,Data Analyst,London,Job board,2024-05-04,36,1,0,0,0,0
+C2183,R1,Data Analyst,Manchester,Careers page,2024-01-14,65,1,1,1,1,1
+C2184,R4,Software Engineer,Bristol,LinkedIn,2024-12-09,73,1,1,1,1,1
+C2185,R5,Data Analyst,Manchester,LinkedIn,2024-05-11,73,1,1,1,1,0
+C2186,R1,Marketing Associate,London,LinkedIn,2024-02-15,72,1,1,1,1,1
+C2187,R5,Software Engineer,London,LinkedIn,2024-04-22,72,1,1,1,0,0
+C2188,R5,Software Engineer,London,Job board,2024-10-31,83,1,1,1,0,0
+C2189,R1,HR Specialist,Edinburgh,Job board,2024-05-28,45,1,1,0,0,0
+C2190,R5,Data Analyst,Bristol,Careers page,2024-06-15,53,1,1,0,0,0
+C2191,R3,HR Specialist,Bristol,LinkedIn,2024-10-27,66,1,1,0,0,0
+C2192,R1,Data Analyst,Manchester,LinkedIn,2024-07-18,68,1,1,0,0,0
+C2193,R3,Data Analyst,Manchester,Job board,2024-10-15,80,1,1,1,1,1
+C2194,R2,Data Analyst,Edinburgh,LinkedIn,2024-02-19,66,1,1,1,0,0
+C2195,R2,HR Specialist,Edinburgh,LinkedIn,2024-08-18,69,1,1,1,1,1
+C2196,R5,HR Specialist,Manchester,LinkedIn,2024-02-12,72,1,1,1,0,0
+C2197,R3,Data Analyst,Manchester,Job board,2024-12-29,45,1,1,0,0,0
+C2198,R3,HR Specialist,Bristol,Careers page,2024-09-27,54,1,0,0,0,0
+C2199,R4,Data Analyst,Edinburgh,LinkedIn,2024-02-12,70,1,1,0,0,0
+C2200,R1,HR Specialist,Manchester,Job board,2024-11-01,69,1,1,0,0,0
+C2201,R5,Data Analyst,Manchester,LinkedIn,2024-04-02,69,1,0,0,0,0
+C2202,R5,Software Engineer,London,Job board,2024-05-11,58,1,0,0,0,0
+C2203,R5,Software Engineer,Bristol,LinkedIn,2024-12-15,74,1,1,1,0,0
+C2204,R1,Data Analyst,Bristol,LinkedIn,2024-02-17,68,1,1,0,0,0
+C2205,R1,HR Specialist,Manchester,Job board,2024-11-30,62,1,0,0,0,0
+C2206,R3,HR Specialist,Bristol,LinkedIn,2024-09-04,68,1,0,0,0,0
+C2207,R1,Data Analyst,London,Careers page,2024-12-24,61,1,1,0,0,0
+C2208,R5,HR Specialist,Edinburgh,Job board,2024-07-26,34,1,0,0,0,0
+C2209,R3,Software Engineer,Edinburgh,LinkedIn,2024-09-15,71,1,1,0,0,0
+C2210,R1,Marketing Associate,Manchester,Careers page,2024-02-21,56,1,0,0,0,0
+C2211,R4,Software Engineer,Edinburgh,LinkedIn,2024-12-05,68,1,1,0,0,0
+C2212,R3,Data Analyst,Manchester,LinkedIn,2024-11-05,71,1,1,0,0,0
+C2213,R1,Software Engineer,Manchester,LinkedIn,2024-07-09,69,1,0,0,0,0
+C2214,R1,Data Analyst,London,LinkedIn,2024-01-05,67,1,1,1,0,0
+C2215,R4,HR Specialist,London,LinkedIn,2024-03-16,70,1,0,0,0,0
+C2216,R1,Data Analyst,Bristol,Careers page,2024-07-04,49,1,0,0,0,0
+C2217,R1,Data Analyst,Bristol,Careers page,2024-06-09,63,1,1,1,0,0
+C2218,R3,Data Analyst,Manchester,Careers page,2024-03-08,72,1,1,0,0,0
+C2219,R3,HR Specialist,London,Job board,2024-04-17,45,1,1,1,0,0
+C2220,R1,Software Engineer,Bristol,LinkedIn,2024-01-06,75,1,1,1,0,0
+C2221,R1,HR Specialist,London,Careers page,2024-02-12,65,1,1,1,0,0
+C2222,R3,Data Analyst,Manchester,Job board,2024-11-06,78,1,1,1,1,1
+C2223,R5,Software Engineer,Bristol,Job board,2024-01-13,54,1,0,0,0,0
+C2224,R1,Data Analyst,Manchester,Job board,2024-03-21,40,1,0,0,0,0
+C2225,R2,Marketing Associate,London,LinkedIn,2024-08-25,66,1,1,0,0,0
+C2226,R1,Software Engineer,Bristol,Job board,2024-12-14,55,1,0,0,0,0
+C2227,R1,Data Analyst,London,Job board,2024-02-02,45,1,1,1,1,1
+C2228,R1,Data Analyst,London,Job board,2024-09-15,64,1,1,1,1,1
+C2229,R2,Data Analyst,London,LinkedIn,2024-03-21,68,1,0,0,0,0
+C2230,R1,Software Engineer,London,LinkedIn,2024-08-25,69,1,0,0,0,0
+C2231,R5,HR Specialist,London,Job board,2024-03-03,55,1,1,0,0,0
+C2232,R2,Marketing Associate,Manchester,Careers page,2024-05-03,52,1,1,1,0,0
+C2233,R4,Marketing Associate,Bristol,LinkedIn,2024-06-28,66,1,1,1,0,0
+C2234,R3,HR Specialist,London,LinkedIn,2024-11-02,71,1,1,0,0,0
+C2235,R1,Data Analyst,Bristol,LinkedIn,2024-12-10,67,1,1,0,0,0
+C2236,R4,HR Specialist,Edinburgh,LinkedIn,2024-01-08,68,1,1,0,0,0
+C2237,R2,Software Engineer,Edinburgh,LinkedIn,2024-11-05,68,1,1,1,1,0
+C2238,R1,Marketing Associate,Edinburgh,LinkedIn,2024-05-30,68,1,1,0,0,0
+C2239,R1,HR Specialist,London,Careers page,2024-10-03,55,1,1,0,0,0
+C2240,R2,Software Engineer,London,LinkedIn,2024-05-14,71,1,1,1,1,1
+C2241,R1,Data Analyst,London,Careers page,2024-01-21,77,1,1,0,0,0
+C2242,R3,HR Specialist,Manchester,Careers page,2024-04-06,60,1,1,0,0,0
+C2243,R1,Data Analyst,London,LinkedIn,2024-06-10,67,1,1,0,0,0
+C2244,R2,HR Specialist,Manchester,Careers page,2024-02-02,55,1,1,1,0,0
+C2245,R2,HR Specialist,London,Job board,2024-05-23,41,1,1,0,0,0
+C2246,R2,HR Specialist,Manchester,Careers page,2024-12-17,64,1,0,0,0,0
+C2247,R4,Marketing Associate,Edinburgh,Careers page,2024-05-04,61,1,1,0,0,0
+C2248,R5,Data Analyst,London,Job board,2024-06-17,82,1,1,1,0,0
+C2249,R1,HR Specialist,Edinburgh,Careers page,2024-09-29,71,1,1,0,0,0
+C2250,R1,Software Engineer,London,Job board,2024-11-08,53,1,0,0,0,0
+C2251,R2,HR Specialist,London,LinkedIn,2024-06-01,71,1,1,1,0,0
+C2252,R2,Software Engineer,Edinburgh,LinkedIn,2024-01-30,75,1,1,1,0,0
+C2253,R4,Software Engineer,Manchester,Careers page,2024-08-13,69,1,0,0,0,0
+C2254,R5,Software Engineer,Edinburgh,LinkedIn,2024-11-23,72,1,1,0,0,0
+C2255,R1,Marketing Associate,London,LinkedIn,2024-06-14,75,1,1,1,1,0
+C2256,R1,HR Specialist,Bristol,Careers page,2024-09-11,42,1,1,0,0,0
+C2257,R3,Software Engineer,Manchester,Job board,2024-02-15,49,1,1,1,0,0
+C2258,R1,HR Specialist,London,Job board,2024-11-14,38,1,0,0,0,0
+C2259,R1,Data Analyst,London,Job board,2024-07-08,66,1,1,0,0,0
+C2260,R2,HR Specialist,Manchester,Job board,2024-06-12,49,1,1,0,0,0
+C2261,R3,Data Analyst,Bristol,LinkedIn,2024-05-14,72,1,1,1,1,0
+C2262,R2,HR Specialist,Edinburgh,Job board,2024-11-05,50,1,1,1,0,0
+C2263,R4,Data Analyst,Bristol,LinkedIn,2024-06-28,72,1,1,1,0,0
+C2264,R1,Software Engineer,London,LinkedIn,2024-10-12,69,1,1,0,0,0
+C2265,R3,Data Analyst,London,LinkedIn,2024-03-20,71,1,1,0,0,0
+C2266,R1,Data Analyst,London,Job board,2024-03-30,62,1,1,0,0,0
+C2267,R1,Marketing Associate,Edinburgh,LinkedIn,2024-06-04,65,1,0,0,0,0
+C2268,R2,Marketing Associate,London,Job board,2024-06-27,57,1,0,0,0,0
+C2269,R1,Data Analyst,London,Job board,2024-10-16,41,1,0,0,0,0
+C2270,R1,HR Specialist,London,LinkedIn,2024-04-21,69,1,0,0,0,0
+C2271,R1,HR Specialist,Manchester,Job board,2024-11-28,52,1,0,0,0,0
+C2272,R1,HR Specialist,Bristol,Job board,2024-09-18,84,1,1,0,0,0
+C2273,R1,Software Engineer,Edinburgh,Careers page,2024-02-18,59,1,1,0,0,0
+C2274,R1,Software Engineer,Manchester,LinkedIn,2024-10-24,71,1,1,1,0,0
+C2275,R2,Data Analyst,Edinburgh,Job board,2024-04-08,58,1,1,0,0,0
+C2276,R2,Data Analyst,Edinburgh,Job board,2024-08-26,49,1,1,0,0,0
+C2277,R2,HR Specialist,London,LinkedIn,2024-12-25,72,1,1,1,0,0
+C2278,R4,HR Specialist,London,Job board,2024-09-09,56,1,0,0,0,0
+C2279,R4,HR Specialist,Manchester,LinkedIn,2024-03-09,69,1,1,1,1,1
+C2280,R1,Software Engineer,London,Job board,2024-03-16,78,1,1,1,1,1
+C2281,R4,HR Specialist,London,Job board,2024-03-07,26,1,0,0,0,0
+C2282,R2,HR Specialist,London,LinkedIn,2024-10-06,69,1,1,0,0,0
+C2283,R4,Data Analyst,Bristol,Careers page,2024-01-18,64,1,1,1,0,0
+C2284,R4,HR Specialist,Edinburgh,LinkedIn,2024-10-04,65,1,1,0,0,0
+C2285,R4,Software Engineer,London,Job board,2024-01-24,55,1,1,1,1,1
+C2286,R1,Data Analyst,Manchester,LinkedIn,2024-09-17,72,1,1,0,0,0
+C2287,R4,Software Engineer,Edinburgh,Job board,2024-03-09,54,1,1,0,0,0
+C2288,R1,Software Engineer,Manchester,LinkedIn,2024-02-10,70,1,1,1,1,0
+C2289,R3,Data Analyst,Bristol,LinkedIn,2024-08-02,62,1,1,1,0,0
+C2290,R4,Data Analyst,Manchester,Job board,2024-08-10,57,1,0,0,0,0
+C2291,R1,Data Analyst,London,Careers page,2024-10-30,60,1,0,0,0,0
+C2292,R2,HR Specialist,Edinburgh,Job board,2024-06-18,56,1,1,0,0,0
+C2293,R1,Software Engineer,Edinburgh,LinkedIn,2024-05-18,72,1,1,1,1,1
+C2294,R4,HR Specialist,Manchester,Careers page,2024-03-30,71,1,1,0,0,0
+C2295,R2,Marketing Associate,London,Careers page,2024-08-28,65,1,0,0,0,0
+C2296,R1,Data Analyst,London,LinkedIn,2024-09-15,65,1,1,1,0,0
+C2297,R1,Marketing Associate,Manchester,LinkedIn,2024-04-21,72,1,1,1,1,1
+C2298,R2,HR Specialist,London,LinkedIn,2024-06-08,71,1,1,1,0,0
+C2299,R3,Software Engineer,London,LinkedIn,2024-12-26,74,1,1,1,0,0
+C2300,R2,HR Specialist,London,LinkedIn,2024-07-13,69,1,0,0,0,0
+C2301,R4,Data Analyst,Edinburgh,Job board,2024-08-15,37,1,0,0,0,0
+C2302,R2,HR Specialist,London,Careers page,2024-04-01,72,1,1,0,0,0
+C2303,R1,Data Analyst,Edinburgh,LinkedIn,2024-04-14,70,1,0,0,0,0
+C2304,R3,Data Analyst,Bristol,Job board,2024-01-04,30,1,0,0,0,0
+C2305,R5,Data Analyst,Edinburgh,Job board,2024-03-18,22,1,0,0,0,0
+C2306,R1,Data Analyst,London,LinkedIn,2024-04-15,71,1,1,1,0,0
+C2307,R3,Data Analyst,Manchester,Job board,2024-10-05,51,1,0,0,0,0
+C2308,R3,Data Analyst,London,Job board,2024-04-04,57,1,0,0,0,0
+C2309,R2,Software Engineer,London,Job board,2024-06-27,68,1,0,0,0,0
+C2310,R1,HR Specialist,London,LinkedIn,2024-09-13,73,1,1,0,0,0
+C2311,R4,HR Specialist,Manchester,LinkedIn,2024-10-24,68,1,1,1,1,1
+C2312,R1,Data Analyst,Edinburgh,Job board,2024-01-27,64,1,0,0,0,0
+C2313,R4,Data Analyst,Manchester,Job board,2024-07-28,83,1,1,1,1,1
+C2314,R3,Data Analyst,Manchester,Careers page,2024-06-07,53,1,1,1,0,0
+C2315,R3,Data Analyst,Manchester,LinkedIn,2024-03-26,70,1,1,1,0,0
+C2316,R5,Marketing Associate,Edinburgh,LinkedIn,2024-09-09,71,1,1,0,0,0
+C2317,R1,HR Specialist,London,LinkedIn,2024-06-08,69,1,1,0,0,0
+C2318,R3,Software Engineer,Edinburgh,Careers page,2024-02-09,77,1,1,0,0,0
+C2319,R1,HR Specialist,Edinburgh,LinkedIn,2024-11-18,71,1,1,1,0,0
+C2320,R3,Data Analyst,London,LinkedIn,2024-04-15,67,1,1,1,1,1
+C2321,R3,Data Analyst,London,LinkedIn,2024-05-05,74,1,1,1,0,0
+C2322,R4,HR Specialist,Manchester,Careers page,2024-09-18,59,1,0,0,0,0
+C2323,R4,Data Analyst,London,LinkedIn,2024-03-15,65,1,1,0,0,0
+C2324,R3,Software Engineer,London,Job board,2024-07-07,46,1,0,0,0,0
+C2325,R4,HR Specialist,Manchester,Careers page,2024-12-01,80,1,1,1,0,0
+C2326,R1,HR Specialist,London,LinkedIn,2024-07-01,69,1,1,0,0,0
+C2327,R4,Marketing Associate,Edinburgh,Job board,2024-09-10,64,1,1,1,0,0
+C2328,R1,Data Analyst,Manchester,LinkedIn,2024-09-07,72,1,1,1,0,0
+C2329,R1,Data Analyst,Edinburgh,Job board,2024-01-18,58,1,1,0,0,0
+C2330,R3,HR Specialist,London,Careers page,2024-02-19,60,1,1,1,0,0
+C2331,R1,Data Analyst,Edinburgh,Careers page,2024-10-24,71,1,1,1,0,0
+C2332,R1,Data Analyst,Bristol,LinkedIn,2024-03-05,70,1,1,0,0,0
+C2333,R3,Data Analyst,Manchester,Careers page,2024-07-08,43,1,1,0,0,0
+C2334,R5,Data Analyst,Bristol,LinkedIn,2024-01-13,69,1,0,0,0,0
+C2335,R5,HR Specialist,Edinburgh,Careers page,2024-07-25,65,1,1,0,0,0
+C2336,R1,Data Analyst,Bristol,LinkedIn,2024-08-02,69,1,1,0,0,0
+C2337,R1,HR Specialist,London,LinkedIn,2024-12-26,71,1,1,1,0,0
+C2338,R2,Software Engineer,Edinburgh,Job board,2024-07-16,45,1,1,1,1,1
+C2339,R2,Data Analyst,London,Careers page,2024-12-09,62,1,0,0,0,0
+C2340,R2,Software Engineer,London,Job board,2024-04-22,37,1,0,0,0,0
+C2341,R3,Data Analyst,London,LinkedIn,2024-12-17,69,1,0,0,0,0
+C2342,R1,HR Specialist,Edinburgh,Job board,2024-06-27,33,1,0,0,0,0
+C2343,R2,Data Analyst,Manchester,LinkedIn,2024-12-26,68,1,1,0,0,0
+C2344,R2,Data Analyst,Edinburgh,LinkedIn,2024-12-23,70,1,1,1,0,0
+C2345,R1,Data Analyst,Edinburgh,Job board,2024-10-22,39,1,0,0,0,0
+C2346,R1,HR Specialist,Bristol,LinkedIn,2024-03-07,74,1,1,1,0,0
+C2347,R3,HR Specialist,Edinburgh,Job board,2024-08-23,69,1,0,0,0,0
+C2348,R4,HR Specialist,Edinburgh,LinkedIn,2024-01-05,70,1,1,0,0,0
+C2349,R4,Marketing Associate,Bristol,LinkedIn,2024-06-06,68,1,1,1,0,0
+C2350,R4,HR Specialist,Manchester,Careers page,2024-09-09,58,1,1,0,0,0
+C2351,R5,Data Analyst,Manchester,Job board,2024-02-07,71,1,1,1,1,1
+C2352,R5,Software Engineer,London,LinkedIn,2024-04-03,68,1,1,0,0,0
+C2353,R1,HR Specialist,Manchester,LinkedIn,2024-11-24,68,1,1,0,0,0
+C2354,R5,Data Analyst,Bristol,Careers page,2024-03-30,61,1,1,0,0,0
+C2355,R4,Data Analyst,London,LinkedIn,2024-12-03,73,1,1,1,0,0
+C2356,R1,Data Analyst,Edinburgh,Job board,2024-09-26,48,1,0,0,0,0
+C2357,R1,Data Analyst,Manchester,LinkedIn,2024-03-17,73,1,1,1,0,0
+C2358,R1,HR Specialist,London,LinkedIn,2024-11-26,68,1,0,0,0,0
+C2359,R1,Software Engineer,Manchester,LinkedIn,2024-10-20,71,1,0,0,0,0
+C2360,R4,HR Specialist,Edinburgh,Careers page,2024-01-27,43,1,1,0,0,0
+C2361,R4,Data Analyst,London,Job board,2024-12-06,64,1,1,0,0,0
+C2362,R5,Software Engineer,London,Careers page,2024-11-07,27,1,0,0,0,0
+C2363,R1,Marketing Associate,London,LinkedIn,2024-09-28,74,1,1,1,1,1
+C2364,R2,Data Analyst,London,LinkedIn,2024-01-22,71,1,1,0,0,0
+C2365,R4,HR Specialist,London,LinkedIn,2024-02-05,68,1,1,0,0,0
+C2366,R1,Software Engineer,London,Job board,2024-05-26,43,1,0,0,0,0
+C2367,R1,HR Specialist,London,Job board,2024-07-19,52,1,1,1,1,1
+C2368,R3,Data Analyst,Bristol,Careers page,2024-01-19,73,1,1,1,0,0
+C2369,R5,HR Specialist,Bristol,LinkedIn,2024-08-26,68,1,1,1,0,0
+C2370,R3,Data Analyst,Manchester,LinkedIn,2024-06-08,66,1,1,0,0,0
+C2371,R2,Marketing Associate,Manchester,Job board,2024-12-25,56,1,0,0,0,0
+C2372,R4,HR Specialist,Manchester,Job board,2024-05-06,45,1,1,0,0,0
+C2373,R1,Software Engineer,London,Careers page,2024-02-24,56,1,1,0,0,0
+C2374,R4,Data Analyst,Edinburgh,LinkedIn,2024-04-12,71,1,1,1,0,0
+C2375,R4,HR Specialist,London,Careers page,2024-10-04,34,1,1,0,0,0
+C2376,R1,HR Specialist,London,LinkedIn,2024-12-12,71,1,1,1,0,0
+C2377,R2,Data Analyst,Manchester,Careers page,2024-06-25,73,1,0,0,0,0
+C2378,R4,Data Analyst,London,Careers page,2024-07-01,48,1,1,1,0,0
+C2379,R1,Data Analyst,London,LinkedIn,2024-07-05,69,1,1,0,0,0
+C2380,R2,HR Specialist,London,Job board,2024-06-10,40,1,1,0,0,0
+C2381,R4,Data Analyst,Manchester,LinkedIn,2024-07-23,71,1,1,1,0,0
+C2382,R1,HR Specialist,Manchester,LinkedIn,2024-09-24,75,1,1,1,0,0
+C2383,R2,Software Engineer,Manchester,Job board,2024-01-05,45,1,1,1,1,0
+C2384,R4,HR Specialist,Edinburgh,Job board,2024-10-11,47,1,1,0,0,0
+C2385,R2,HR Specialist,Edinburgh,LinkedIn,2024-01-14,68,1,1,0,0,0
+C2386,R1,Data Analyst,Manchester,Careers page,2024-02-02,61,1,1,1,1,1
+C2387,R3,Data Analyst,Manchester,Careers page,2024-05-31,53,1,1,0,0,0
+C2388,R5,Data Analyst,Edinburgh,Job board,2024-03-26,56,1,1,0,0,0
+C2389,R1,Software Engineer,Manchester,LinkedIn,2024-04-14,67,1,1,1,0,0
+C2390,R5,Marketing Associate,Edinburgh,Careers page,2024-06-16,67,1,1,0,0,0
+C2391,R3,Marketing Associate,Bristol,Job board,2024-03-21,80,1,1,1,1,1
+C2392,R1,Data Analyst,Manchester,LinkedIn,2024-09-20,71,1,1,0,0,0
+C2393,R1,Data Analyst,Bristol,LinkedIn,2024-08-31,72,1,1,1,0,0
+C2394,R4,Data Analyst,Bristol,Job board,2024-02-09,65,1,1,0,0,0
+C2395,R2,Data Analyst,Manchester,LinkedIn,2024-05-21,70,1,1,1,0,0
+C2396,R2,HR Specialist,Manchester,LinkedIn,2024-02-27,73,1,1,0,0,0
+C2397,R1,HR Specialist,London,Job board,2024-02-10,59,1,0,0,0,0
+C2398,R4,Data Analyst,Manchester,LinkedIn,2024-06-15,68,1,1,0,0,0
+C2399,R3,HR Specialist,Bristol,LinkedIn,2024-05-26,71,1,1,0,0,0
+C2400,R2,Data Analyst,Manchester,Careers page,2024-04-18,76,1,1,1,0,0
+C2401,R5,HR Specialist,London,Careers page,2024-07-05,77,1,1,0,0,0
+C2402,R3,Marketing Associate,London,LinkedIn,2024-03-22,72,1,1,1,0,0
+C2403,R1,Marketing Associate,Manchester,LinkedIn,2024-04-26,71,1,1,1,0,0
+C2404,R2,Marketing Associate,London,LinkedIn,2024-10-02,71,1,1,1,1,0
+C2405,R5,HR Specialist,Edinburgh,LinkedIn,2024-02-06,72,1,1,0,0,0
+C2406,R1,Data Analyst,London,Job board,2024-02-01,64,1,0,0,0,0
+C2407,R1,Data Analyst,London,LinkedIn,2024-11-13,67,1,1,0,0,0
+C2408,R3,Marketing Associate,London,Job board,2024-08-17,71,1,1,1,0,0
+C2409,R5,HR Specialist,London,Careers page,2024-11-19,84,1,1,1,0,0
+C2410,R4,HR Specialist,Edinburgh,Careers page,2024-02-01,52,1,1,0,0,0
+C2411,R2,HR Specialist,Edinburgh,LinkedIn,2024-04-17,69,1,0,0,0,0
+C2412,R3,Software Engineer,London,LinkedIn,2024-08-07,72,1,1,1,0,0
+C2413,R1,Software Engineer,Manchester,Careers page,2024-01-24,45,1,1,0,0,0
+C2414,R1,HR Specialist,Manchester,Careers page,2024-01-01,49,1,0,0,0,0
+C2415,R2,HR Specialist,Manchester,LinkedIn,2024-11-25,74,1,1,1,1,0
+C2416,R1,HR Specialist,Manchester,Job board,2024-03-08,39,1,0,0,0,0
+C2417,R1,HR Specialist,Manchester,Job board,2024-06-08,33,1,0,0,0,0
+C2418,R4,HR Specialist,London,LinkedIn,2024-10-04,70,1,1,0,0,0
+C2419,R3,Data Analyst,Manchester,Careers page,2024-01-16,54,1,1,0,0,0
+C2420,R1,HR Specialist,London,Job board,2024-12-24,77,1,1,0,0,0
+C2421,R3,HR Specialist,Edinburgh,LinkedIn,2024-06-16,69,1,1,0,0,0
+C2422,R5,Data Analyst,London,LinkedIn,2024-11-17,65,1,1,1,0,0
+C2423,R1,Data Analyst,Bristol,Careers page,2024-04-06,72,1,1,1,1,0
+C2424,R4,Data Analyst,Bristol,Job board,2024-03-23,59,1,0,0,0,0
+C2425,R3,Data Analyst,London,Careers page,2024-04-13,48,1,1,1,0,0
+C2426,R4,Software Engineer,Bristol,Careers page,2024-11-01,66,1,0,0,0,0
+C2427,R1,Data Analyst,Bristol,Careers page,2024-03-01,62,1,1,1,0,0
+C2428,R5,Data Analyst,London,Careers page,2024-08-07,60,1,1,0,0,0
+C2429,R4,HR Specialist,London,LinkedIn,2024-01-22,69,1,1,1,0,0
+C2430,R5,Software Engineer,Edinburgh,Careers page,2024-09-04,85,1,0,0,0,0
+C2431,R5,HR Specialist,London,LinkedIn,2024-01-06,71,1,1,1,1,0
+C2432,R4,HR Specialist,London,LinkedIn,2024-04-14,69,1,1,0,0,0
+C2433,R1,Software Engineer,London,LinkedIn,2024-05-16,73,1,1,1,0,0
+C2434,R5,Software Engineer,Edinburgh,LinkedIn,2024-11-05,69,1,1,0,0,0
+C2435,R1,Software Engineer,Manchester,Job board,2024-02-27,74,1,1,0,0,0
+C2436,R4,HR Specialist,London,Job board,2024-03-25,59,1,1,0,0,0
+C2437,R1,Software Engineer,Edinburgh,Careers page,2024-05-12,53,1,0,0,0,0
+C2438,R3,Data Analyst,Edinburgh,LinkedIn,2024-09-07,70,1,1,1,0,0
+C2439,R1,Data Analyst,London,LinkedIn,2024-08-21,71,1,1,1,0,0
+C2440,R5,HR Specialist,London,LinkedIn,2024-07-24,71,1,1,1,0,0
+C2441,R3,Data Analyst,Manchester,LinkedIn,2024-09-23,72,1,1,1,0,0
+C2442,R1,Data Analyst,Bristol,Job board,2024-11-23,31,1,0,0,0,0
+C2443,R1,Data Analyst,London,LinkedIn,2024-08-08,72,1,1,1,0,0
+C2444,R1,Data Analyst,Manchester,Careers page,2024-12-04,66,1,1,1,0,0
+C2445,R1,Software Engineer,Edinburgh,Job board,2024-04-13,47,1,1,1,0,0
+C2446,R5,HR Specialist,London,Job board,2024-06-21,61,1,0,0,0,0
+C2447,R1,HR Specialist,London,Careers page,2024-05-13,58,1,0,0,0,0
+C2448,R1,HR Specialist,Manchester,LinkedIn,2024-10-13,70,1,0,0,0,0
+C2449,R1,Data Analyst,Edinburgh,LinkedIn,2024-01-04,65,1,1,0,0,0
+C2450,R3,Software Engineer,Bristol,Careers page,2024-06-27,67,1,0,0,0,0
+C2451,R5,HR Specialist,Manchester,LinkedIn,2024-02-27,69,1,1,0,0,0
+C2452,R1,Data Analyst,Bristol,LinkedIn,2024-05-04,71,1,1,1,0,0
+C2453,R1,HR Specialist,London,Careers page,2024-02-17,83,1,1,0,0,0
+C2454,R5,HR Specialist,Bristol,LinkedIn,2024-04-29,70,1,1,1,0,0
+C2455,R2,Data Analyst,Manchester,Careers page,2024-08-06,74,1,1,1,0,0
+C2456,R2,HR Specialist,London,LinkedIn,2024-10-13,67,1,1,1,0,0
+C2457,R3,HR Specialist,London,Job board,2024-03-23,72,1,0,0,0,0
+C2458,R1,Data Analyst,Edinburgh,Job board,2024-04-25,79,1,1,1,0,0
+C2459,R3,Marketing Associate,London,Job board,2024-09-07,47,1,1,1,0,0
+C2460,R4,Data Analyst,Bristol,LinkedIn,2024-06-15,73,1,1,1,0,0
+C2461,R1,Marketing Associate,London,LinkedIn,2024-12-23,75,1,1,1,1,0
+C2462,R3,Software Engineer,Edinburgh,LinkedIn,2024-08-02,70,1,1,1,1,0
+C2463,R2,Data Analyst,London,Job board,2024-02-05,61,1,0,0,0,0
+C2464,R1,HR Specialist,London,LinkedIn,2024-04-06,71,1,1,1,0,0
+C2465,R4,HR Specialist,Manchester,LinkedIn,2024-01-12,71,1,1,0,0,0
+C2466,R1,HR Specialist,Edinburgh,LinkedIn,2024-11-11,65,1,0,0,0,0
+C2467,R1,Data Analyst,London,Careers page,2024-05-17,55,1,1,0,0,0
+C2468,R1,Data Analyst,Edinburgh,LinkedIn,2024-06-02,69,1,1,1,0,0
+C2469,R4,Data Analyst,Manchester,LinkedIn,2024-12-28,68,1,1,0,0,0
+C2470,R1,Data Analyst,London,Job board,2024-02-07,30,1,0,0,0,0
+C2471,R1,Marketing Associate,Bristol,LinkedIn,2024-01-04,73,1,1,0,0,0
+C2472,R1,Data Analyst,Edinburgh,LinkedIn,2024-10-21,68,1,1,0,0,0
+C2473,R4,Marketing Associate,Edinburgh,Job board,2024-09-09,37,1,0,0,0,0
+C2474,R3,Software Engineer,London,Job board,2024-02-20,67,1,0,0,0,0
+C2475,R1,HR Specialist,London,LinkedIn,2024-04-24,70,1,0,0,0,0
+C2476,R4,Software Engineer,Bristol,Careers page,2024-04-01,67,1,0,0,0,0
+C2477,R5,Data Analyst,London,Job board,2024-08-20,29,1,0,0,0,0
+C2478,R1,Software Engineer,Edinburgh,LinkedIn,2024-10-13,68,1,1,0,0,0
+C2479,R5,Data Analyst,London,LinkedIn,2024-11-29,66,1,0,0,0,0
+C2480,R1,Data Analyst,Edinburgh,Job board,2024-12-03,41,1,0,0,0,0
+C2481,R1,Marketing Associate,Edinburgh,LinkedIn,2024-01-30,69,1,0,0,0,0
+C2482,R1,Data Analyst,Manchester,Job board,2024-11-20,46,1,0,0,0,0
+C2483,R5,HR Specialist,Manchester,Job board,2024-10-12,59,1,1,0,0,0
+C2484,R1,HR Specialist,London,Job board,2024-02-10,69,1,1,0,0,0
+C2485,R2,Data Analyst,London,LinkedIn,2024-03-06,73,1,1,1,0,0
+C2486,R1,HR Specialist,Edinburgh,Careers page,2024-01-02,56,1,1,0,0,0
+C2487,R1,Software Engineer,London,LinkedIn,2024-02-27,71,1,1,1,1,1
+C2488,R3,HR Specialist,Bristol,Careers page,2024-08-11,71,1,1,1,1,1
+C2489,R1,Data Analyst,Edinburgh,LinkedIn,2024-11-28,73,1,1,1,0,0
+C2490,R5,Data Analyst,Manchester,LinkedIn,2024-08-30,66,1,1,0,0,0
+C2491,R5,Software Engineer,London,LinkedIn,2024-03-16,73,1,1,1,0,0
+C2492,R1,Data Analyst,Manchester,Careers page,2024-10-09,63,1,1,1,0,0
+C2493,R3,Marketing Associate,Edinburgh,Careers page,2024-04-03,59,1,1,0,0,0
+C2494,R2,HR Specialist,Manchester,LinkedIn,2024-05-25,72,1,1,1,0,0
+C2495,R5,HR Specialist,Manchester,LinkedIn,2024-01-25,72,1,1,1,0,0
+C2496,R5,Data Analyst,Manchester,LinkedIn,2024-01-18,66,1,1,0,0,0
+C2497,R2,Marketing Associate,Edinburgh,Careers page,2024-07-22,59,1,1,0,0,0
+C2498,R1,Data Analyst,London,LinkedIn,2024-09-17,72,1,1,1,1,1
+C2499,R3,Software Engineer,Bristol,Job board,2024-03-18,50,1,0,0,0,0
+C2500,R1,Data Analyst,Bristol,Careers page,2024-12-12,57,1,0,0,0,0
