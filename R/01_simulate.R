@@ -4,7 +4,7 @@
 # Purpose: Generate a synthetic dataset of applicants moving through recruitment stages (application -> screening -> interview -> offer -> hire).
 
 # Install and load required packages (install if missing)
-packages <- c("tidyverse","lubridate")
+packages <- c("tidyverse")
 installed <- packages %in% row.names(installed.packages())
 if (any(!installed)) {
   install.packages(packages[!installed])
@@ -23,10 +23,6 @@ rec_id <- c("R1","R2","R3","R4","R5")
 
 # Job roles available
 job_roles <- c("Data Analyst", "HR Specialist", "Software Engineer", "Marketing Associate")
-
-# Hiring window
-start_date <- as.Date("2024-01-01")
-end_date <- as.Date("2024-12-31")
 
 # Funnel stages
 stages <- c("Application","Screening","Interview","Offer","Hired")
@@ -49,9 +45,7 @@ df <- tibble(
   rec_id = sample(rec_id, size = n_cand, replace = TRUE, prob = rec_prob),
   job_role = sample(job_roles, size = n_cand, replace = TRUE, prob = job_prob),
   location = sample(locations, size = n_cand, replace = TRUE, prob = location_prob),
-  source = sample(sources, size = n_cand, replace = TRUE, prob = source_prob),
-  app_date = start_date + sample(0:(as.integer(end_date - start_date)), 
-                                 size = n_cand, replace = TRUE)
+  source = sample(sources, size = n_cand, replace = TRUE, prob = source_prob)
 )
 
 
@@ -127,4 +121,4 @@ df_clean <- df %>%
   select(-starts_with("prob_"))
 
 # Saving clean dataset
-write_csv(df_clean, "data/simulated_funnel_data.csv")
+write_csv(df_clean, "../data/simulated_funnel_data.csv")

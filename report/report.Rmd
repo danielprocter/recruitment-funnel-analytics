@@ -1,0 +1,596 @@
+---
+title: "Recruitment Funnel Analysis"
+author: "Daniel Procter"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output:
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_float: true
+    number_sections: false
+    fig_caption: true
+    self_contained: true
+output_file: "report.html"
+---
+
+```{r set up, include=FALSE}
+
+# Install and load required packages (install if missing)
+packages <- c(
+  "tidyverse",
+  "psych",
+  "performance",
+  "pROC",
+  "knitr",
+  "kableExtra",
+  "scales",
+  "broom",
+  "ggthemes",
+  "RColorBrewer",
+  "gridExtra"
+)
+installed <- packages %in% row.names(installed.packages())
+if (any(!installed)) {
+  install.packages(packages[!installed])
+}
+lapply(packages, library, character.only = TRUE)
+
+# knitr global chunk options
+knitr::opts_chunk$set(
+  echo = FALSE, message = FALSE, warning = FALSE,
+  fig.align = "center", fig.width = 8, fig.height = 5, dpi = 150,
+  out.width = "90%"
+)
+
+# Default categorical colour scales
+scale_color_discrete <- function(...) ggplot2::scale_color_brewer(palette = "Set2", ...)
+scale_fill_discrete <- function(...) ggplot2::scale_fill_brewer(palette = "Set2", ...)
+
+# Stage order used in tables/plots
+stage_order <- c("Application","Screening","Interview","Offer","Hired")
+
+# Label helper
+pct <- function(x, acc = 0.1) scales::percent(x, accuracy = acc)
+
+# Avoid scientific notation
+options(scipen = 999)  
+
+```
+
+## 1. Introduction
+This report explores a simulated recruitment dataset, with the aim of understanding how candidates move through the hiring funnel and what factors influence their chances of success. The analysis will focus on questions such as:
+
+* How many candidates reach each stage, and where do the biggest drop-offs occur?
+* Do recruiter performance or source of application affect outcomes?
+* Do higher test scores improve the likelihood of being hired?
+* Are some job roles or locations harder to fill than others?
+* Which factors overall are most predictive of a candidate being hired?
+
+The dataset tracks applicants through five stages: application, screening, interview, offer, and hire. For each candidate it includes:
+
+* Recruiter `rec_id` – one of five recruiters.
+* Job role `job_role` – four possible roles.
+* Location `location` – four UK office locations.
+* Source `source` – LinkedIn, job boards, or the company careers page.
+* Test score `score` – a 0–100 score mimicking results from application tests (e.g., psychometric assessments).
+* Stage flags `application`, `screening`, `interview`, `offer`, `hired`) – binary indicators of progression.
+
+The simulation includes parameters to reflect real-world variation. Candidate scores differ by source, recruiters vary in closing effectiveness, and progression rates depend on both scores and source.
+
+Although the dataset was created programmatically, the analysis is approached as if it were newly provided, with the aim of uncovering patterns and drivers of hiring success.
+
+
+## 2. Data Checks & Preparation
+Before beginning the analysis, it is important to confirm that the dataset is properly structured and suitable for use. Although the data were simulated, it is treated as if it were newly provided, and a set of basic checks are applied to ensure consistency and integrity.
+
+```{r initial checks, results='hide'}
+
+# Loading dataset
+df <- read.csv("../data/simulated_funnel_data.csv")
+
+# Inspecting structure
+str(df)
+
+# Checking unique values in categorical columns
+unique(df$rec_id)
+unique(df$source)
+unique(df$location)
+unique(df$job_role)
+
+# Storing factor levels
+rec_levels <- c("R1","R2","R3","R4","R5")
+source_levels <- c("LinkedIn","Job board","Careers page")
+location_levels <- c("London","Bristol","Edinburgh","Manchester")
+role_levels <- c("Software Engineer","HR Specialist","Data Analyst","Marketing Associate")
+
+# Coercing column types
+df <- df %>%
+  mutate(rec_id = factor(rec_id, levels = rec_levels),
+         source = factor(source, levels = source_levels),
+         location = factor(location, levels = location_levels),
+         job_role = factor(job_role, levels = role_levels))
+
+```
+
+The checks focused on the following points:
+
+* Candidate IDs are unique
+* Test scores fall within the expected range of 0–100
+* Stage flags contain only values of 0 or 1
+* The number of candidates decreases at each stage of the funnel
+* No missing values are present
+
+```{r logical checks}
+
+# Stage columns
+stage_cols <- c("application","screening","interview","offer","hired")
+
+# Checking unique candidate IDs
+unique_id_check <- anyDuplicated(df$cand_id) == 0
+
+# Checking score range (expected 0–100)
+score_range <- range(df$score, na.rm = TRUE)
+score_check <- score_range[1] >= 0 && score_range[2] <= 100
+
+# Checking stage values in {0,1}
+stage_value_check <- all(sapply(df[stage_cols], function(x) all(x %in% c(0,1))))
+
+# Checking funnel monotonicity (totals non-increasing)
+stage_totals   <- colSums(df[stage_cols])
+stage_counts_check <- all(diff(stage_totals) <= 0)
+
+# Checking for missing values
+na_total <- sum(is.na(df))
+na_check <- na_total <= 0
+
+```
+
+The table below summarises the results of these checks.
+
+```{r summary table}
+
+# Shape
+n_rows <- nrow(df); n_cols <- ncol(df)
+
+# Summary table
+checks_summary <- data.frame(
+  
+  Check = c("Shape",
+            "Unique candidate IDs",
+            "Score range within 0–100",
+            "Stage values in {0,1}",
+            "Funnel monotonicity",
+            "No missing values"),
+  
+  Details = c(paste0(n_rows, " rows, ", n_cols, " columns"),
+              paste("Any duplicates:", !unique_id_check),
+              paste0("Observed: ", paste(score_range, collapse = "–")),
+              paste("All stages valid:", stage_value_check),
+              paste0("Stage totals: ", paste0(names(stage_totals), "=", stage_totals, collapse = " ≥ ")),
+              paste("Total NAs:", na_total)),
+  
+  stringsAsFactors = FALSE)
+
+
+# Print summary table
+kable(checks_summary, caption = "Data Quality Checks Summary", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+The dataset contains 2,500 rows and 12 columns, with no missing values. Candidate identifiers are unique, scores and dates fall within the expected ranges, and progression through the funnel follows the correct pattern.
+
+Finally, the first few rows of the dataset are displayed below.
+
+```{r top rows}
+
+# Print top rows
+kable(head(df, 5), align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = FALSE) %>%
+  column_spec(1:ncol(df), width = "auto", extra_css = "white-space: nowrap;") %>%
+  scroll_box(width = "100%")
+
+```
+
+
+## 3. Analysis
+This section analyses candidate progression through the recruitment process and explores the key factors influencing hiring outcomes.
+
+It begins with an overview of the funnel and key variables, followed by deeper analysis of how scores, recruiters, sources, roles, and locations relate to hiring success. Together, these analyses provide the foundation for the predictive modelling in Section 4.
+
+### 3.1 Overall Funnel Counts & Conversion
+This section examines how candidates progress through each stage of the recruitment process, focusing on overall volumes and conversion rates. These metrics highlight where the largest drop-offs occur and how efficiently applicants advance through the funnel.
+
+```{r funnel counts}
+
+# Number of candidates
+n_cand <- nrow(df)
+
+# Counts per stage
+stage_counts <- colSums(df[stage_cols])
+
+# Table 1: share of total applicants
+tbl_share <- tibble(Stage = stage_order,
+                    Count = stage_counts,
+                    Percentage = pct(stage_counts / n_cand))
+
+# Table 2: conversion from previous stage
+tbl_conv <- tibble(Stage = stage_order,
+                   Conversion = c(NA, stage_counts[-1] / head(stage_counts, -1))) %>%
+  mutate(Conversion = ifelse(is.na(Conversion), "--", pct(Conversion)))
+
+```
+
+```{r share table}
+
+# Printing table
+kable(tbl_share, caption = "Share of Total Applicants", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+```{r funnel plot}
+
+# Setting order
+tbl_share$Stage <- factor(tbl_share$Stage, levels = stage_order)
+
+# Funnel plot
+ggplot(tbl_share, aes(x = Stage, y = Count, fill = Stage)) +
+  geom_col(color = "white", linewidth = 0.5) +
+  geom_text(aes(label = Count), vjust = -0.3, size = 3.5, color = "black") +
+  scale_fill_economist() +
+  scale_y_continuous(limits = c(0, 2500), expand = expansion(mult = c(0, 0.08))) +
+  labs(title = "Applicant Volume by Stage", x = NULL, y = "Number of Candidates") +
+  theme_economist() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+        panel.grid.minor = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "none",
+        axis.title.y = element_text(margin = margin(r = 8)))
+
+
+```
+
+```{r conversion table}
+
+# Printing table
+kable(tbl_conv, caption = "Conversion from Previous Stage", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+```{r conversion plot}
+
+# Converting table
+tbl_conv_plot <- tbl_conv %>%
+  filter(Stage != "Application") %>%
+  mutate(Conversion = as.numeric(gsub("%", "", Conversion)))
+
+# Setting order
+tbl_conv$Stage <- factor(tbl_conv$Stage, levels = stage_order)
+
+# Conversion plot
+ggplot(tbl_conv_plot, aes(x = Stage, y = Conversion, fill = Stage)) +
+  geom_col(color = "white", linewidth = 0.5) +
+  geom_text(aes(label = pct(Conversion / 100, acc = 0.1)), vjust = -0.3, size = 3.5, color = "black") +
+  scale_fill_economist() +
+  scale_y_continuous(limits = c(0, 100), expand = expansion(mult = c(0, 0.08))) +
+  labs(title = "Conversion Rate by Stage", x = NULL, y = "Conversion (%)") +
+  theme_economist() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+        panel.grid.minor = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "none",
+        axis.title.y = element_text(margin = margin(r = 8)))
+
+```
+
+Out of 2,500 applicants, only 234 were ultimately hired (9.4%). The largest attrition occurs between the Interview and Offer stages, with just 32% progressing. Earlier filters at screening and interview also remove substantial proportions of candidates. In contrast, the high Offer-to-Hire conversion (79%) suggests that once candidates reach the final stage, selection and acceptance are strong.
+
+The funnel metrics show how efficiently candidates move through each stage, but not the factors behind those outcomes. The following section explores candidate test scores to understand performance patterns that may influence progression.
+
+
+### 3.2 Assessment Scores
+
+
+#### 3.2.1 Summary and Distributions
+Each candidate received a test score between 0 and 100, reflecting their performance on an assessment used during the application stage. This section examines how these scores are distributed across applicants and whether higher scores are linked to greater success in progressing through the recruitment funnel.
+
+```{r score summary table}
+
+# Summary table
+tbl_scores <- describe(df$score) %>%
+  select(mean, sd, median, min, max, range, se) %>%
+  mutate(across(c(mean, sd, se), ~ round(.x, 2))) %>%
+  rename_with(~ tools::toTitleCase(.x)) %>%
+  as_tibble()
+
+# Printing table
+kable(tbl_scores, caption = "Summary Statistics for Candidate Test Scores", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+The average score of about 64 suggests moderate overall performance, with a standard deviation of 12 indicating clear variation between applicants. The higher median (68) points to a slight left skew, meaning a few low scores pull the average down. The wide range of results (4–100) shows the assessment distinguishes well between weaker and stronger performers, supporting its value as an effective screening tool. The following histogram visualises this distribution.
+
+```{r score histogram}
+
+# Histogram
+ggplot(df, aes(x = score)) +
+  geom_histogram(aes(y = ..count.., fill = ..count..), binwidth = 1, color = "white", boundary = 0, alpha = 0.9) +
+  scale_y_continuous(limits = c(0, 250), expand = expansion(mult = c(0, 0.02))) +
+  labs(title = "Distribution of Candidate Test Scores", x = "Test Score", y = "Count") +
+  theme_economist() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+        panel.grid.minor = element_blank(),
+        axis.ticks = element_blank(),
+        legend.position = "none")
+
+```
+
+While the assessment effectively differentiates candidate ability, it is also important to examine whether higher scores lead to greater progression and eventual hiring.
+
+
+#### 3.2.2 Score and Hiring Success
+This analysis explores whether higher scores correspond to a greater likelihood of being hired, and more broadly, how candidates with different score levels progress through the recruitment funnel. A logistic regression model is used to quantify this relationship, supported by descriptive comparisons across score bands.
+
+```{r score logistic regression}
+
+# Logistic regression
+score_logreg <- glm(hired ~ score, data = df, family = "binomial")
+
+# Model components
+coef_summary <- summary(score_logreg)$coefficients
+coef <- coef_summary["score", "Estimate"]
+pval <- coef_summary["score", "Pr(>|z|)"]
+odds_ratio <- exp(coef)
+pct_increase <- (odds_ratio - 1) * 100
+r2_value <- r2_nagelkerke(score_logreg)
+
+# Table
+tbl_logreg <- tibble(
+  Predictor = "Score",
+  Coefficient = round(coef, 3),
+  `P-value` = round(pval, 4),
+  `Odds Ratio` = round(odds_ratio, 3),
+  `Odds Increase (%)` = round(pct_increase, 1),
+  `Nagelkerke R2` = round(r2_value, 3)
+ )
+
+# Printing table
+kable(tbl_logreg, caption = "Assessment Score Predicting Hiring Success", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+The regression results show a clear positive relationship between assessment score and hiring success. For each one-point increase in score, a candidate has about a 5 percent greater likelihood of being hired, and the effect is statistically significant (p < 0.001). The model’s Nagelkerke R² of 0.048 indicates that assessment scores explain around 5 percent of the variation in hiring outcomes, which is expected given that final decisions also depend on other factors.
+
+```{r logistic regression curve, warnings = FALSE}
+
+# Predicted probabilities
+score_pred_prob <- tibble(score = df$score,
+                          pred_prob = predict(score_logreg, type = "response"))
+
+# Plotting curve
+ggplot(score_pred_prob, aes(x = score, y = pred_prob)) +
+  stat_smooth(method = "glm", method.args = list(family = binomial()), se = TRUE) +
+  labs(title = "Hire Probability vs Score", x = "Assessment Score", y = "Predicted Probability") +
+  scale_y_continuous(limits = c(0, 0.5), expand = expansion(mult = c(0, 0.05)), labels = pct) +
+  theme_economist() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13), 
+        panel.grid.minor = element_blank(), 
+        legend.position = "none",
+        axis.title.y = element_text(margin = margin(r = 8)))
+
+```
+
+The above visual shows how the logistic regression curve rises upwards. The model predicts a higher probability of being hired as assessment scores increase. 
+
+To look deeper into how candidates at different performance levels progress through the recruitment process, scores are grouped into bands to compare progression rates across stages.
+
+```{r score bands}
+
+# Score bands  
+df <- df %>%
+  mutate(score_band = cut(score, breaks = c(0, 50, 65, 80, 101), 
+                          labels = c("Low", "Moderate", "High", "Very High"), right = FALSE)) %>%
+  relocate(score_band, .after = score)
+
+# Score interpretation
+tbl_score_levels <- tibble(
+  `Score Range` = c("0–49", "50–64", "65–79", "80–100"),
+  Interpretation = c("Low", "Moderate", "High", "Very High"))
+
+# Print table
+kable(tbl_score_levels, caption = "Score Band Interpretation", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+```{r grouped bar chart}
+
+# Pivoting data
+tbl_band_stage <- df %>%
+  group_by(score_band) %>%
+  summarise(across(c(screening, interview, offer, hired),
+                   ~ mean(.x, na.rm = TRUE))) %>%
+  pivot_longer(-score_band, names_to = "Stage", values_to = "Proportion") %>%
+  mutate(Percentage = pct(Proportion)) %>%
+  rename(`Score Band` = score_band)
+
+# Enforcing stage order
+stage_order_plot <- c("screening","interview","offer","hired")
+
+# Grouped bar chart
+ggplot(tbl_band_stage, aes(Stage, Proportion, fill = `Score Band`)) +
+  geom_col(position = position_dodge(width = 0.72)) +
+  scale_x_discrete(limits = stage_order_plot) + 
+  scale_y_continuous(labels = pct, limits = c(0, 1), expand = expansion(mult = c(0, 0.02))) +
+  scale_fill_economist(name = NULL) +
+  labs(title = "Stage progression by score band", x = NULL, y = "Proportion") +
+  theme_economist() +
+  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+        panel.grid.minor = element_blank(),
+        axis.ticks = element_blank(),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 10),
+        legend.key.size = grid::unit(10, "pt"),
+        axis.title.y = element_text(margin = margin(r = 8))
+  )
+
+```
+
+The results reveal a clear stepwise pattern: progression increases steadily with higher score bands. Candidates in the Very High band achieve the strongest outcomes at every stage, with 87% passing screening and nearly 20% reaching hire. In contrast, only 42% of Low scorers pass the screening stage, and fewer than 4% are eventually hired.
+
+The largest drop-off occurs between the screening and interview stages, especially among Low and Moderate scorers, where progression rates roughly halve. Beyond this point, High and Very High performers continue to advance at comparable rates, suggesting that test performance exerts its strongest influence during early filtering.
+
+Overall, this pattern indicates that the assessment effectively differentiates candidate quality at the outset — serving as a reliable front-end screening tool. Later stages appear to depend more on additional selection criteria.
+
+
+#### 3.2.3 Score by Recruiter
+Candidate scores are compared across recruiters to see whether differences in recruiter performance may reflect the quality of applicants in their pipelines.
+
+```{r}
+
+ 
+
+```
+
+
+#### 3.2.4 Score by Applicant Source
+This part examines whether candidates from certain application sources tend to achieve higher test scores than others.
+
+```{r}
+
+
+
+```
+
+
+#### 3.2.5 Score by Job Role
+Average scores are compared across job roles to identify any variation in candidate performance by function.
+
+```{r}
+
+
+
+```
+
+
+#### 3.2.6 Score by Location
+Score distributions are explored by location to assess whether candidate quality varies regionally.
+
+```{r}
+
+
+
+```
+
+
+### 3.3 Recruiter Performance
+
+
+#### 3.3.1 Overview of Recruiter Activity
+Compare the number of candidates managed, hires made, and overall hire rates by recruiter.
+
+```{r}
+
+```
+
+
+#### 3.3.2 Stage Conversion by Recruiter
+Analyse how candidate progression differs by recruiter across funnel stages.
+
+
+#### 3.3.3 Recruiter by Source
+
+
+#### 3.3.4 Recruiter by loca
+
+Examine how each recruitment channel performs in attracting and converting applicants.
+
+3.10.1 Source Volume and Hire Rate
+
+Compare the size and success rate of each applicant source.
+
+# Table of applicants, hires, and hire rates by source
+
+3.10.2 Stage Conversion by Source
+
+Explore which sources drive the highest progression and conversion rates.
+
+# Grouped bar chart of conversion by stage
+
+3.10.3 Interpretation
+
+Highlight the most effective sources and discuss trade-offs between quantity and quality.
+
+### 3.11 Job Role Performance
+
+Investigate how hiring outcomes differ across job functions.
+
+3.11.1 Volume and Hire Rate by Role
+
+Show which roles attract the most candidates and have the highest conversion rates.
+
+# Applicants, hires, and conversion per role
+
+3.11.2 Stage Conversion by Role
+
+Assess at which stages attrition is highest by job function.
+
+# Funnel comparison across roles
+
+3.11.3 Interpretation
+
+Comment on which roles appear most selective or challenging to fill.
+
+### 3.12 Location Performance
+
+Explore regional differences in process outcomes (not test scores, which you already covered).
+
+3.12.1 Applicant and Hire Volume by Location
+
+Summarise recruitment activity and success rates across regions.
+
+# Applicants, hires, and hire rate by location
+
+3.12.2 Stage Conversion by Location
+
+Identify differences in stage progression by location.
+
+# Conversion proportions by region and stage
+
+3.12.3 Interpretation
+
+Discuss potential reasons for geographic variation — local labour market, recruiter distribution, or role allocation.
+
+### 4. Predictive Modelling
+
+Combine all factors to quantify which most influence hiring outcomes and validate results through multiple models.
+
+### 4.0 Model Comparison and Rationale
+
+Brief explanation of using both logistic regression and random forest for interpretability and robustness.
+
+#### 4.1 Multiple Logistic Regression
+Estimate independent effects of all variables together.
+
+# glm(hired ~ score + recruiter + source + role + location)
+
+4.2 Decision Tree
+
+Identify decision thresholds and interaction points.
+
+# rpart / rpart.plot
+
+4.3 Random Forest
+
+Assess variable importance and model accuracy.
+
+# randomForest + varImpPlot
+
+4.4 Model Comparison and Synthesis
+```{r}
+
+```
