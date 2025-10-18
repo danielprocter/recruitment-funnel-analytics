@@ -1,0 +1,20 @@
+# --- GitHub Linguist configuration ---
+
+# Treat R Markdown files as R
+*.Rmd linguist-language=R
+
+# Exclude knitted HTML reports from language statistics
+*.html linguist-detectable=false
+
+# Exclude rendered reports, figures, and documentation folders
+docs/* linguist-documentation
+figures/* linguist-documentation
+
+# Treat CSS and JS as vendored assets (ignored in stats)
+*.css linguist-vendored
+*.js linguist-vendored
+
+# Optional: mark data files as documentation so they don’t affect stats
+data/* linguist-documentation
+
+# --- End of configuration ---
