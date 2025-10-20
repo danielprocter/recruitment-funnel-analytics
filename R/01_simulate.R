@@ -121,4 +121,4 @@ df_clean <- df %>%
   select(-starts_with("prob_"))
 
 # Saving clean dataset
-write_csv(df_clean, "../data/simulated_funnel_data.csv")
+write_csv(df_clean, "data/simulated_funnel_data.csv")

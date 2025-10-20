@@ -7,7 +7,8 @@ output:
     theme: cosmo
     toc: true
     toc_float: true
-    number_sections: false
+    number_sections: true
+    number_offset: 0
     fig_caption: true
     self_contained: true
 output_file: "report.html"
@@ -57,7 +58,7 @@ options(scipen = 999)
 
 ```
 
-## 1. Introduction
+## Introduction
 This report explores a simulated recruitment dataset, with the aim of understanding how candidates move through the hiring funnel and what factors influence their chances of success. The analysis will focus on questions such as:
 
 * How many candidates reach each stage, and where do the biggest drop-offs occur?
@@ -80,7 +81,7 @@ The simulation includes parameters to reflect real-world variation. Candidate sc
 Although the dataset was created programmatically, the analysis is approached as if it were newly provided, with the aim of uncovering patterns and drivers of hiring success.
 
 
-## 2. Data Checks & Preparation
+## Data Checks & Preparation
 Before beginning the analysis, it is important to confirm that the dataset is properly structured and suitable for use. Although the data were simulated, it is treated as if it were newly provided, and a set of basic checks are applied to ensure consistency and integrity.
 
 ```{r initial checks, results='hide'}
@@ -193,12 +194,12 @@ kable(head(df, 5), align = "c") %>%
 ```
 
 
-## 3. Analysis
+## Analysis
 This section analyses candidate progression through the recruitment process and explores the key factors influencing hiring outcomes.
 
 It begins with an overview of the funnel and key variables, followed by deeper analysis of how scores, recruiters, sources, roles, and locations relate to hiring success. Together, these analyses provide the foundation for the predictive modelling in Section 4.
 
-### 3.1 Overall Funnel Counts & Conversion
+### Overall Funnel Counts & Conversion
 This section examines how candidates progress through each stage of the recruitment process, focusing on overall volumes and conversion rates. These metrics highlight where the largest drop-offs occur and how efficiently applicants advance through the funnel.
 
 ```{r funnel counts}
@@ -263,11 +264,9 @@ kable(tbl_conv, caption = "Conversion from Previous Stage", align = "c") %>%
 
 # Converting table
 tbl_conv_plot <- tbl_conv %>%
-  filter(Stage != "Application") %>%
-  mutate(Conversion = as.numeric(gsub("%", "", Conversion)))
-
-# Setting order
-tbl_conv$Stage <- factor(tbl_conv$Stage, levels = stage_order)
+  mutate(Stage = factor(Stage, levels = stage_order),
+         Conversion = suppressWarnings(as.numeric(gsub("%", "", Conversion)))) %>%
+  filter(Stage != "Application")
 
 # Conversion plot
 ggplot(tbl_conv_plot, aes(x = Stage, y = Conversion, fill = Stage)) +
@@ -290,10 +289,10 @@ Out of 2,500 applicants, only 234 were ultimately hired (9.4%). The largest attr
 The funnel metrics show how efficiently candidates move through each stage, but not the factors behind those outcomes. The following section explores candidate test scores to understand performance patterns that may influence progression.
 
 
-### 3.2 Assessment Scores
+### Assessment Scores
 
 
-#### 3.2.1 Summary and Distributions
+#### Summary and Distributions
 Each candidate received a test score between 0 and 100, reflecting their performance on an assessment used during the application stage. This section examines how these scores are distributed across applicants and whether higher scores are linked to greater success in progressing through the recruitment funnel.
 
 ```{r score summary table}
@@ -317,21 +316,25 @@ The average score of about 64 suggests moderate overall performance, with a stan
 
 # Histogram
 ggplot(df, aes(x = score)) +
-  geom_histogram(aes(y = ..count.., fill = ..count..), binwidth = 1, color = "white", boundary = 0, alpha = 0.9) +
+  geom_histogram(aes(y = after_stat(count), fill = after_stat(count)), binwidth = 1, color = "white", boundary = 0, alpha = 0.9) +
   scale_y_continuous(limits = c(0, 250), expand = expansion(mult = c(0, 0.02))) +
   labs(title = "Distribution of Candidate Test Scores", x = "Test Score", y = "Count") +
   theme_economist() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-        panel.grid.minor = element_blank(),
-        axis.ticks = element_blank(),
-        legend.position = "none")
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+    panel.grid.minor = element_blank(),
+    axis.ticks = element_blank(),
+    legend.position = "none",
+    axis.text.x = element_text(margin = margin(t = 5)),
+    axis.title.x = element_text(margin = margin(t = 10))
+  )
 
 ```
 
 While the assessment effectively differentiates candidate ability, it is also important to examine whether higher scores lead to greater progression and eventual hiring.
 
 
-#### 3.2.2 Score and Hiring Success
+#### Score and Hiring Success
 This analysis explores whether higher scores correspond to a greater likelihood of being hired, and more broadly, how candidates with different score levels progress through the recruitment funnel. A logistic regression model is used to quantify this relationship, supported by descriptive comparisons across score bands.
 
 ```{r score logistic regression}
@@ -373,7 +376,7 @@ score_pred_prob <- tibble(score = df$score,
 
 # Plotting curve
 ggplot(score_pred_prob, aes(x = score, y = pred_prob)) +
-  stat_smooth(method = "glm", method.args = list(family = binomial()), se = TRUE) +
+  stat_smooth(method = "glm", method.args = list(family = binomial()), se = TRUE, fullrange = TRUE) +
   labs(title = "Hire Probability vs Score", x = "Assessment Score", y = "Predicted Probability") +
   scale_y_continuous(limits = c(0, 0.5), expand = expansion(mult = c(0, 0.05)), labels = pct) +
   theme_economist() +
@@ -447,150 +450,94 @@ The largest drop-off occurs between the screening and interview stages, especial
 Overall, this pattern indicates that the assessment effectively differentiates candidate quality at the outset — serving as a reliable front-end screening tool. Later stages appear to depend more on additional selection criteria.
 
 
-#### 3.2.3 Score by Recruiter
+#### Score by Recruiter
 Candidate scores are compared across recruiters to see whether differences in recruiter performance may reflect the quality of applicants in their pipelines.
 
-```{r}
+```{r score by recruiter summary stats}
 
+# Summary table
+tbl_recruiter_scores <- describeBy(df$score, group = df$rec_id, mat = TRUE) %>%
+  select(group1, n, mean, sd, median, min, max, range, se) %>%
+  mutate(across(c(mean, sd, se), ~ round(.x, 2))) %>%
+  rename(Recruiter = group1) %>%
+  rename_with(~ tools::toTitleCase(.x)) %>%
+  as_tibble()
+
+# Printing table
+kable(tbl_recruiter_scores,
+      caption = "Summary Statistics for Candidate Scores by Recruiter",
+      align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"),
+                position = "center")
  
 
 ```
 
+```{r score by recruiter boxplots}
 
-#### 3.2.4 Score by Applicant Source
-This part examines whether candidates from certain application sources tend to achieve higher test scores than others.
+# Boxplot
+ggplot(df, aes(x = rec_id, y = score, fill = rec_id)) +
+  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
+  labs(title = "Distribution of Candidate Scores by Recruiter", x = "Recruiter", y = "Candidate Score") +
+  scale_fill_economist(name = NULL) +
+  theme_economist() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+    axis.text.x = element_text(angle = 30, hjust = 1, size = 9, vjust = 0.9),
+    axis.title.y = element_text(margin = margin(r = 10)), 
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
 
-```{r}
+```
 
+The summary statistics show that average candidate scores are very similar across recruiters, with only small differences between them. The boxplots also suggest a similar spread of scores, indicating little variation in candidate quality between recruiters.
+
+To confirm this, an ANOVA test will be run to check whether any of these small differences in mean scores are statistically significant.
+
+```{r score by recruiter ANOVA}
 
 
 ```
 
+#### Score by Applicant Source
 
-#### 3.2.5 Score by Job Role
-Average scores are compared across job roles to identify any variation in candidate performance by function.
+#### Score by Job Role
 
-```{r}
+#### Score by Location
 
+### Recruiter Performance
 
+#### Overview of Recruiter Activity
 
-```
+#### Stage Conversion by Recruiter
 
+#### Recruiter by Source
 
-#### 3.2.6 Score by Location
-Score distributions are explored by location to assess whether candidate quality varies regionally.
+#### Recruiter by Location
 
-```{r}
+#### Recruiter by Role
+ 
+### Job Role Performance
 
+#### Volume and Hire Rate by Role
 
+#### Stage Conversion by Role
 
-```
+### Location Performance
 
+#### Applicant and Hire Volume by Location
 
-### 3.3 Recruiter Performance
+#### Stage Conversion by Location
 
+### Predictive Modelling
 
-#### 3.3.1 Overview of Recruiter Activity
-Compare the number of candidates managed, hires made, and overall hire rates by recruiter.
+#### Multiple Logistic Regression
 
-```{r}
+#### Decision Tree
 
-```
+#### Random Forest
 
+#### Model Comparison
 
-#### 3.3.2 Stage Conversion by Recruiter
-Analyse how candidate progression differs by recruiter across funnel stages.
-
-
-#### 3.3.3 Recruiter by Source
-
-
-#### 3.3.4 Recruiter by loca
-
-Examine how each recruitment channel performs in attracting and converting applicants.
-
-3.10.1 Source Volume and Hire Rate
-
-Compare the size and success rate of each applicant source.
-
-# Table of applicants, hires, and hire rates by source
-
-3.10.2 Stage Conversion by Source
-
-Explore which sources drive the highest progression and conversion rates.
-
-# Grouped bar chart of conversion by stage
-
-3.10.3 Interpretation
-
-Highlight the most effective sources and discuss trade-offs between quantity and quality.
-
-### 3.11 Job Role Performance
-
-Investigate how hiring outcomes differ across job functions.
-
-3.11.1 Volume and Hire Rate by Role
-
-Show which roles attract the most candidates and have the highest conversion rates.
-
-# Applicants, hires, and conversion per role
-
-3.11.2 Stage Conversion by Role
-
-Assess at which stages attrition is highest by job function.
-
-# Funnel comparison across roles
-
-3.11.3 Interpretation
-
-Comment on which roles appear most selective or challenging to fill.
-
-### 3.12 Location Performance
-
-Explore regional differences in process outcomes (not test scores, which you already covered).
-
-3.12.1 Applicant and Hire Volume by Location
-
-Summarise recruitment activity and success rates across regions.
-
-# Applicants, hires, and hire rate by location
-
-3.12.2 Stage Conversion by Location
-
-Identify differences in stage progression by location.
-
-# Conversion proportions by region and stage
-
-3.12.3 Interpretation
-
-Discuss potential reasons for geographic variation — local labour market, recruiter distribution, or role allocation.
-
-### 4. Predictive Modelling
-
-Combine all factors to quantify which most influence hiring outcomes and validate results through multiple models.
-
-### 4.0 Model Comparison and Rationale
-
-Brief explanation of using both logistic regression and random forest for interpretability and robustness.
-
-#### 4.1 Multiple Logistic Regression
-Estimate independent effects of all variables together.
-
-# glm(hired ~ score + recruiter + source + role + location)
-
-4.2 Decision Tree
-
-Identify decision thresholds and interaction points.
-
-# rpart / rpart.plot
-
-4.3 Random Forest
-
-Assess variable importance and model accuracy.
-
-# randomForest + varImpPlot
-
-4.4 Model Comparison and Synthesis
-```{r}
-
-```
+## Summary
