@@ -14,4 +14,5 @@ To provide a clean, realistic dataset for practicing recruitment funnel analysis
 
 ### How to use
 1. Run `R/01_simulate_funnel.R` to regenerate the dataset.  
-2. Or use the already generated dataset in `data/simulated_funnel_data.csv`.
+2. Or use the already generated dataset in `data/simulated_funnel_data.csv`.  
+3. View the analysis in the **report** folder — open `report/report.html` in your browser.
