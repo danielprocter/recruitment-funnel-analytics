@@ -53,8 +53,8 @@ df <- tibble(
 df <- df %>%
   rowwise() %>%
   mutate(score = case_when(
-    source == "LinkedIn"     ~ rnorm(1, mean = 70, sd = 2.5),
-    source == "Job board"    ~ rnorm(1, mean = 55, sd = 15),
+    source == "LinkedIn" ~ rnorm(1, mean = 70, sd = 12),
+    source == "Job board" ~ rnorm(1, mean = 55, sd = 12),
     source == "Careers page" ~ rnorm(1, mean = 60, sd = 12)
   )) %>%
   ungroup() %>%

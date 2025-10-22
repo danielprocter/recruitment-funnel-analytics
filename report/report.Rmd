@@ -153,29 +153,31 @@ The table below summarises the results of these checks.
 # Shape
 n_rows <- nrow(df); n_cols <- ncol(df)
 
-# Summary table
-checks_summary <- data.frame(
-  
-  Check = c("Shape",
+# Compact, professional summary
+checks_summary <- tibble(
+  Check = c("Dataset shape",
             "Unique candidate IDs",
             "Score range within 0–100",
-            "Stage values in {0,1}",
-            "Funnel monotonicity",
-            "No missing values"),
+            "Stage values restricted to {0,1}",
+            "Funnel monotonicity (stage counts decrease)",
+            "Missing values"), 
   
-  Details = c(paste0(n_rows, " rows, ", n_cols, " columns"),
-              paste("Any duplicates:", !unique_id_check),
-              paste0("Observed: ", paste(score_range, collapse = "–")),
-              paste("All stages valid:", stage_value_check),
-              paste0("Stage totals: ", paste0(names(stage_totals), "=", stage_totals, collapse = " ≥ ")),
-              paste("Total NAs:", na_total)),
-  
-  stringsAsFactors = FALSE)
+  Summary = c(
+    paste(n_rows, "rows ×", n_cols, "columns"),
+    ifelse(unique_id_check, "No duplicates found", "Duplicates detected"),
+    paste0("Observed range: ", paste(score_range, collapse = "–")),
+    ifelse(stage_value_check, "All valid", "Invalid values present"),
+    ifelse(all(diff(stage_totals) <= 0), "All stages monotonic", "Non-monotonic stage counts"),
+    ifelse(na_total == 0, "None detected", paste(na_total, "missing values"))
+  )
+)
 
-
-# Print summary table
-kable(checks_summary, caption = "Data Quality Checks Summary", align = "c") %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+# Nicely formatted table
+knitr::kable(checks_summary,
+             caption = "Summary of Data Quality Checks",
+             col.names = c("Check", "Summary"),
+             align = "l") %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = TRUE)
 
 ```
 
@@ -284,7 +286,7 @@ ggplot(tbl_conv_plot, aes(x = Stage, y = Conversion, fill = Stage)) +
 
 ```
 
-Out of 2,500 applicants, only 234 were ultimately hired (9.4%). The largest attrition occurs between the Interview and Offer stages, with just 32% progressing. Earlier filters at screening and interview also remove substantial proportions of candidates. In contrast, the high Offer-to-Hire conversion (79%) suggests that once candidates reach the final stage, selection and acceptance are strong.
+Out of 2,500 applicants, only 214 were ultimately hired (8.6%). The largest attrition occurs between the Interview and Offer stages, with just 28.7% progressing. Earlier filters at screening and interview also remove substantial proportions of candidates. In contrast, the high Offer-to-Hire conversion (81.1%) suggests that once candidates reach the final stage, selection and acceptance are strong.
 
 The funnel metrics show how efficiently candidates move through each stage, but not the factors behind those outcomes. The following section explores candidate test scores to understand performance patterns that may influence progression.
 
@@ -310,14 +312,15 @@ kable(tbl_scores, caption = "Summary Statistics for Candidate Test Scores", alig
 
 ```
 
-The average score of about 64 suggests moderate overall performance, with a standard deviation of 12 indicating clear variation between applicants. The higher median (68) points to a slight left skew, meaning a few low scores pull the average down. The wide range of results (4–100) shows the assessment distinguishes well between weaker and stronger performers, supporting its value as an effective screening tool. The following histogram visualises this distribution.
+The average score of 63.42 suggests moderate overall performance, with a standard deviation of 13.94 indicating clear variation between applicants. The wide range of results (20–100) shows the assessment distinguishes well between weaker and stronger performers, supporting its value as an effective screening tool. The following histogram visualises this distribution.
 
 ```{r score histogram}
 
 # Histogram
 ggplot(df, aes(x = score)) +
-  geom_histogram(aes(y = after_stat(count), fill = after_stat(count)), binwidth = 1, color = "white", boundary = 0, alpha = 0.9) +
-  scale_y_continuous(limits = c(0, 250), expand = expansion(mult = c(0, 0.02))) +
+  geom_histogram(aes(y = after_stat(count), fill = after_stat(count)),
+                 binwidth = 1, color = "white", boundary = 0, alpha = 0.9) +
+  scale_y_continuous(limits = c(0, 100), expand = expansion(mult = c(0, 0.02))) +
   labs(title = "Distribution of Candidate Test Scores", x = "Test Score", y = "Count") +
   theme_economist() +
   theme(
@@ -326,10 +329,13 @@ ggplot(df, aes(x = score)) +
     axis.ticks = element_blank(),
     legend.position = "none",
     axis.text.x = element_text(margin = margin(t = 5)),
-    axis.title.x = element_text(margin = margin(t = 10))
+    axis.title.x = element_text(margin = margin(t = 10)),
+    axis.title.y = element_text(margin = margin(r = 10))  # move y-axis label back
   )
 
 ```
+
+The distribution of candidate test scores appears roughly normal, indicating a balanced spread of scores without strong skew.
 
 While the assessment effectively differentiates candidate ability, it is also important to examine whether higher scores lead to greater progression and eventual hiring.
 
@@ -366,7 +372,7 @@ kable(tbl_logreg, caption = "Assessment Score Predicting Hiring Success", align 
 
 ```
 
-The regression results show a clear positive relationship between assessment score and hiring success. For each one-point increase in score, a candidate has about a 5 percent greater likelihood of being hired, and the effect is statistically significant (p < 0.001). The model’s Nagelkerke R² of 0.048 indicates that assessment scores explain around 5 percent of the variation in hiring outcomes, which is expected given that final decisions also depend on other factors.
+The regression results show a clear positive relationship between assessment score and hiring success. For each one-point increase in score, a candidate has about a 5.6 percent greater likelihood of being hired, and the effect is statistically significant (p < 0.001). The model’s Nagelkerke R² of 0.089 indicates that assessment scores explain around 9 percent of the variation in hiring outcomes, which is reasonable given that final decisions also depend on several other factors.
 
 ```{r logistic regression curve, warnings = FALSE}
 
@@ -443,11 +449,11 @@ ggplot(tbl_band_stage, aes(Stage, Proportion, fill = `Score Band`)) +
 
 ```
 
-The results reveal a clear stepwise pattern: progression increases steadily with higher score bands. Candidates in the Very High band achieve the strongest outcomes at every stage, with 87% passing screening and nearly 20% reaching hire. In contrast, only 42% of Low scorers pass the screening stage, and fewer than 4% are eventually hired.
+The results reveal a clear stepwise pattern, with progression rates increasing steadily across higher score bands. Candidates in the Very High band perform best at every stage, with 94% passing screening and around 21% ultimately hired. In contrast, only 48% of Low scorers pass the screening stage, and just 3% are eventually hired.
 
-The largest drop-off occurs between the screening and interview stages, especially among Low and Moderate scorers, where progression rates roughly halve. Beyond this point, High and Very High performers continue to advance at comparable rates, suggesting that test performance exerts its strongest influence during early filtering.
+The largest drop-off occurs between the screening and interview stages, particularly among Low and Moderate scorers, where progression rates roughly halve. Beyond this point, High and Very High scorers continue to advance at higher and more consistent rates, indicating that assessment performance exerts its strongest influence during the early filtering stages.
 
-Overall, this pattern indicates that the assessment effectively differentiates candidate quality at the outset — serving as a reliable front-end screening tool. Later stages appear to depend more on additional selection criteria.
+Overall, this pattern suggests that the assessment effectively distinguishes candidate quality at the outset, providing a strong early indicator of hiring potential. Later stages likely reflect broader evaluation factors beyond test performance.
 
 
 #### Score by Recruiter
@@ -456,7 +462,7 @@ Candidate scores are compared across recruiters to see whether differences in re
 ```{r score by recruiter summary stats}
 
 # Summary table
-tbl_recruiter_scores <- describeBy(df$score, group = df$rec_id, mat = TRUE) %>%
+tbl_rec_scores <- describeBy(df$score, group = df$rec_id, mat = TRUE) %>%
   select(group1, n, mean, sd, median, min, max, range, se) %>%
   mutate(across(c(mean, sd, se), ~ round(.x, 2))) %>%
   rename(Recruiter = group1) %>%
@@ -464,13 +470,12 @@ tbl_recruiter_scores <- describeBy(df$score, group = df$rec_id, mat = TRUE) %>%
   as_tibble()
 
 # Printing table
-kable(tbl_recruiter_scores,
+kable(tbl_rec_scores,
       caption = "Summary Statistics for Candidate Scores by Recruiter",
       align = "c") %>%
   kable_styling(bootstrap_options = c("striped", "bordered"),
                 position = "center")
  
-
 ```
 
 ```{r score by recruiter boxplots}
@@ -483,7 +488,7 @@ ggplot(df, aes(x = rec_id, y = score, fill = rec_id)) +
   theme_economist() +
   theme(
     plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-    axis.text.x = element_text(angle = 30, hjust = 1, size = 9, vjust = 0.9),
+    axis.text.x = element_text(angle = 30, size = 9, vjust = 1.5),
     axis.title.y = element_text(margin = margin(r = 10)), 
     panel.grid.minor = element_blank(),
     legend.position = "none"
@@ -497,18 +502,253 @@ To confirm this, an ANOVA test will be run to check whether any of these small d
 
 ```{r score by recruiter ANOVA}
 
+# ANOVA
+anova_rec <- aov(score ~ rec_id, data = df)
+
+# Table
+anova_rec_tbl <- tibble(
+  `R1 mean` = round(mean(df$score[df$rec_id == "R1"]), 2),
+  `R2 mean` = round(mean(df$score[df$rec_id == "R2"]), 2),
+  `R3 mean` = round(mean(df$score[df$rec_id == "R3"]), 2),
+  `R4 mean` = round(mean(df$score[df$rec_id == "R4"]), 2),
+  `R5 mean` = round(mean(df$score[df$rec_id == "R5"]), 2),
+  `F` = round(summary(anova_rec)[[1]][["F value"]][1], 2),
+  df = summary(anova_rec)[[1]][["Df"]][1],
+  p = round(summary(anova_rec)[[1]][["Pr(>F)"]][1], 3)
+)
+
+# Printing table
+kable(anova_rec_tbl, caption = "Score by Recruiter ANOVA Results", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = TRUE) %>%
+  column_spec(1:5, width = "6em") %>%
+  column_spec(6:8, width = "4em")  
 
 ```
 
+The ANOVA results show no significant difference in average candidate scores between recruiters, F(4, 2495) = 2.06, p = 0.083. This indicates that candidate quality is largely consistent across recruiters.
+
+
 #### Score by Applicant Source
+Candidate scores are compared across different application sources to assess whether certain channels attract higher-scoring applicants. This helps to identify which sourcing methods are bringing in stronger candidates.
+
+```{r score by source summary stats}
+
+# Summary table
+tbl_src_scores <- describeBy(df$score, group = df$source, mat = TRUE) %>%
+  select(group1, n, mean, sd, median, min, max, range, se) %>%
+  mutate(across(c(mean, sd, se), ~ round(.x, 2))) %>%
+  rename(`Source` = group1) %>%
+  rename_with(~ tools::toTitleCase(.x)) %>%
+  as_tibble()
+
+# Printing table
+kable(tbl_src_scores,
+      caption = "Summary Statistics for Candidate Scores by Source",
+      align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+```{r score by source boxplots}
+
+# Boxplots
+ggplot(df, aes(x = source, y = score, fill = source)) +
+  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
+  labs(title = "Distribution of Candidate Scores by Source", x = "Source", y = "Candidate Score") +
+  scale_fill_economist(name = NULL) +
+  theme_economist() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+    axis.text.x = element_text(hjust = 0.5, vjust = 1.5, size = 9),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+```
+
+The average candidate scores differ notably across application sources. Candidates applying through LinkedIn have the highest average score (70.2), followed by those from the Careers page (59.7) and Job boards (54.5). The spread of scores is similar across all sources, though LinkedIn candidates tend to perform stronger overall. This pattern suggests that LinkedIn attracts higher-quality applicants on average, while Job boards yield a wider range of candidates with generally lower assessment performance.
+
+To confirm whether the differences in mean candidate scores between sources are statistically significant, an ANOVA test was run to compare average scores across all application sources.
+
+```{r score by source ANOVA}
+
+# ANOVA
+anova_src <- aov(score ~ source, data = df)
+
+# Table
+anova_src_tbl <- tibble(
+  `LinkedIn mean` = round(mean(df$score[df$source == "LinkedIn"]), 2),
+  `Job board mean` = round(mean(df$score[df$source == "Job board"]), 2),
+  `Careers page mean` = round(mean(df$score[df$source == "Careers page"]), 2),
+  `F` = round(summary(anova_src)[[1]][["F value"]][1], 2),
+  df = summary(anova_src)[[1]][["Df"]][1],
+  p = round(summary(anova_src)[[1]][["Pr(>F)"]][1], 3)
+)
+
+# Printing table
+kable(anova_src_tbl, caption = "Score by Source ANOVA Results", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = TRUE) %>%
+  column_spec(1:3, width = "6em") %>%
+  column_spec(4:6, width = "4em")  
+
+```
+
+The ANOVA results show a statistically significant difference in mean candidate scores between sources, F(2, 2497) = 434.58, p < 0.001. Candidates from LinkedIn scored substantially higher on average than those from the Careers page or Job boards, indicating that candidate quality varies considerably by application source. Given the size of these differences, post-hoc tests are not strictly necessary, as the summary statistics already make the pattern clear.
+
 
 #### Score by Job Role
+Candidate scores are compared across different job roles to identify whether certain positions tend to attract higher-scoring applicants. This helps to understand if candidate quality varies by the type of role being applied for.
+
+```{r score by role summary stats}
+
+# Summary table
+tbl_role_scores <- describeBy(df$score, group = df$job_role, mat = TRUE) %>%
+  select(group1, n, mean, sd, median, min, max, range, se) %>%
+  mutate(across(c(mean, sd, se), ~ round(.x, 2))) %>%
+  rename(`Job Role` = group1) %>%
+  rename_with(~ tools::toTitleCase(.x)) %>%
+  as_tibble()
+
+# Printing table
+kable(tbl_role_scores,
+      caption = "Summary Statistics for Candidate Scores by Job Role",
+      align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+```{r score by role boxplots}
+
+# Boxplots
+ggplot(df, aes(x = job_role, y = score, fill = job_role)) +
+  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
+  labs(title = "Distribution of Candidate Scores by Job Role", x = "Job Role", y = "Candidate Score") +
+  scale_fill_economist(name = NULL) +
+  theme_economist() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+    axis.text.x = element_text(hjust = 0.5, vjust = 1.5, size = 9),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+```
+
+The average candidate scores are very similar across job roles, ranging between 62.9 and 64.5. This suggests that overall candidate quality is consistent regardless of the role applied for. The Marketing Associate role shows slightly less variation in scores, likely due to its smaller sample size. Interestingly, while the average score for Marketing Associate candidates is marginally higher than the others, their maximum score of 87 indicates that the very highest-performing applicants are not applying for this role.
+
+To confirm that overall candidate quality is consistent across roles, an ANOVA test will be run to check whether these small differences in mean scores are statistically significant.
+
+```{r score by job role ANOVA}
+
+# ANOVA
+anova_role <- aov(score ~ job_role, data = df)
+
+# Table
+anova_role_tbl <- tibble(
+  `SE mean` = round(mean(df$score[df$job_role == "Software Engineer"]), 2),
+  `HR mean` = round(mean(df$score[df$job_role == "HR Specialist"]), 2),
+  `DA mean` = round(mean(df$score[df$job_role == "Data Analyst"]), 2),
+  `MA mean` = round(mean(df$score[df$job_role == "Marketing Associate"]), 2),
+  `F` = round(summary(anova_role)[[1]][["F value"]][1], 2),
+  df = summary(anova_role)[[1]][["Df"]][1],
+  p = round(summary(anova_role)[[1]][["Pr(>F)"]][1], 3)
+)
+
+# Printing table
+kable(anova_role_tbl, caption = "Score by Job Role ANOVA Results", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = TRUE) %>%
+  column_spec(1:4, width = "6em") %>%
+  column_spec(5:7, width = "4em")  
+
+```
+
+The ANOVA results show no significant difference in average candidate scores between job roles, F(3, 2496) = 1.1, p = 0.349. This indicates that candidate quality is consistent across roles.
+
 
 #### Score by Location
+Candidate scores are compared across different office locations to assess whether candidate quality varies by region.
+
+```{r score by location summary stats}
+
+# Summary table
+tbl_loc_scores <- describeBy(df$score, group = df$location, mat = TRUE) %>%
+  select(group1, n, mean, sd, median, min, max, range, se) %>%
+  mutate(across(c(mean, sd, se), ~ round(.x, 2))) %>%
+  rename(`Job Role` = group1) %>%
+  rename_with(~ tools::toTitleCase(.x)) %>%
+  as_tibble()
+
+# Printing table
+kable(tbl_loc_scores,
+      caption = "Summary Statistics for Candidate Scores by Location",
+      align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+```{r score by location boxplots}
+
+# Boxplots
+ggplot(df, aes(x = location, y = score, fill = location)) +
+  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
+  labs(title = "Distribution of Candidate Scores by Job Role", x = "Location", y = "Candidate Score") +
+  scale_fill_economist(name = NULL) +
+  theme_economist() +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
+    axis.text.x = element_text(hjust = 0.5, vjust = 1.5, size = 9),
+    axis.title.y = element_text(margin = margin(r = 10)),
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+```
+
+The average candidate scores are very similar across locations, ranging from 62.8 to 64.1. This indicates that overall candidate quality is consistent across regions. The spread of scores is also comparable between locations, suggesting that assessment results are not influenced by geographic factors.
+
+To confirm that these small differences in mean scores between locations are not statistically significant, an ANOVA test will be run to compare average candidate scores across all office locations.
+
+```{r score by location ANOVA}
+
+# ANOVA
+anova_loc <- aov(score ~ location, data = df)
+
+# Table
+anova_loc_tbl <- tibble(
+  `London mean` = round(mean(df$score[df$location == "London"]), 2),
+  `Bristol mean` = round(mean(df$score[df$location == "Bristol"]), 2),
+  `Edinburgh mean` = round(mean(df$score[df$location == "Edinburgh"]), 2),
+  `Manchester mean` = round(mean(df$score[df$location == "Manchester"]), 2),
+  `F` = round(summary(anova_loc)[[1]][["F value"]][1], 2),
+  df = summary(anova_loc)[[1]][["Df"]][1],
+  p = round(summary(anova_loc)[[1]][["Pr(>F)"]][1], 3)
+)
+
+# Printing table
+kable(anova_loc_tbl, caption = "Score by Location ANOVA Results", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = TRUE) %>%
+  column_spec(1:4, width = "6em") %>%
+  column_spec(5:7, width = "4em")  
+
+```
+
+The ANOVA results show no significant difference in average candidate scores between locations, F(3, 2496) = 1.24, p = 0.292. This indicates that candidate quality is consistent across regions.
+
+#### Score Analysis Summary
+Assessment score is a key predictor of hiring success, with higher-scoring candidates significantly more likely to be hired. The influence of score is strongest during the early filtering stages, where higher performers progress through screening and interview stages at notably higher rates.
+
+Average scores do not differ meaningfully between recruiters, job roles, or locations, indicating consistent candidate quality across these groups. However, significant differences are observed between application sources, with candidates applying through LinkedIn achieving the highest average scores.
+
+Overall, assessment score effectively differentiates candidate quality early in the recruitment process and provides a strong indicator of hiring potential.
+
 
 ### Recruiter Performance
 
+
 #### Overview of Recruiter Activity
+
 
 #### Stage Conversion by Recruiter
 
