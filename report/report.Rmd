@@ -14,26 +14,25 @@ output:
 output_file: "report.html"
 ---
 
-```{r set up, include=FALSE}
+```{r set-up, include=FALSE}
 
 # Install and load required packages (install if missing)
 packages <- c(
   "tidyverse",
   "psych",
   "performance",
-  "pROC",
-  "knitr",
+  "knitr", 
   "kableExtra",
-  "scales",
-  "broom",
-  "ggthemes",
-  "RColorBrewer",
-  "gridExtra"
+  "scales",  
+  "ggthemes"
 )
+
 installed <- packages %in% row.names(installed.packages())
+
 if (any(!installed)) {
   install.packages(packages[!installed])
 }
+
 lapply(packages, library, character.only = TRUE)
 
 # knitr global chunk options
@@ -43,18 +42,29 @@ knitr::opts_chunk$set(
   out.width = "90%"
 )
 
-# Default categorical colour scales
-scale_color_discrete <- function(...) ggplot2::scale_color_brewer(palette = "Set2", ...)
-scale_fill_discrete <- function(...) ggplot2::scale_fill_brewer(palette = "Set2", ...)
+# Plot defaults
+theme_set(
+  theme_economist() +
+    theme(
+      plot.title = element_text(size = 13, face = "bold", hjust = 0.5),
+      axis.title = element_text(size = 11),
+      axis.text = element_text(size = 9),
+      axis.title.x = element_text(margin = margin(t = 8)),
+      axis.title.y = element_text(margin = margin(r = 8)),
+      axis.ticks = element_line(),
+      axis.line = element_line(color = "black"),
+      panel.grid.minor = element_blank(),
+      plot.margin = margin(t = 10, r = 10, b = 10, l = 10),
+      legend.position = "none"
+    )
+)
 
 # Stage order used in tables/plots
 stage_order <- c("Application","Screening","Interview","Offer","Hired")
-
-# Label helper
-pct <- function(x, acc = 0.1) scales::percent(x, accuracy = acc)
+stage_cols <- tolower(stage_order)
 
 # Avoid scientific notation
-options(scipen = 999)  
+options(scipen = 999)
 
 ```
 
@@ -71,7 +81,6 @@ The dataset tracks applicants through five stages: application, screening, inter
 
 * Recruiter `rec_id` – one of five recruiters.
 * Job role `job_role` – four possible roles.
-* Location `location` – four UK office locations.
 * Source `source` – LinkedIn, job boards, or the company careers page.
 * Test score `score` – a 0–100 score mimicking results from application tests (e.g., psychometric assessments).
 * Stage flags `application`, `screening`, `interview`, `offer`, `hired`) – binary indicators of progression.
@@ -84,7 +93,7 @@ Although the dataset was created programmatically, the analysis is approached as
 ## Data Checks & Preparation
 Before beginning the analysis, it is important to confirm that the dataset is properly structured and suitable for use. Although the data were simulated, it is treated as if it were newly provided, and a set of basic checks are applied to ensure consistency and integrity.
 
-```{r initial checks, results='hide'}
+```{r data-checks-initial, results='hide'}
 
 # Loading dataset
 df <- read.csv("../data/simulated_funnel_data.csv")
@@ -95,20 +104,17 @@ str(df)
 # Checking unique values in categorical columns
 unique(df$rec_id)
 unique(df$source)
-unique(df$location)
 unique(df$job_role)
 
 # Storing factor levels
 rec_levels <- c("R1","R2","R3","R4","R5")
 source_levels <- c("LinkedIn","Job board","Careers page")
-location_levels <- c("London","Bristol","Edinburgh","Manchester")
 role_levels <- c("Software Engineer","HR Specialist","Data Analyst","Marketing Associate")
 
 # Coercing column types
 df <- df %>%
   mutate(rec_id = factor(rec_id, levels = rec_levels),
          source = factor(source, levels = source_levels),
-         location = factor(location, levels = location_levels),
          job_role = factor(job_role, levels = role_levels))
 
 ```
@@ -121,10 +127,7 @@ The checks focused on the following points:
 * The number of candidates decreases at each stage of the funnel
 * No missing values are present
 
-```{r logical checks}
-
-# Stage columns
-stage_cols <- c("application","screening","interview","offer","hired")
+```{r data-checks-logical}
 
 # Checking unique candidate IDs
 unique_id_check <- anyDuplicated(df$cand_id) == 0
@@ -148,7 +151,7 @@ na_check <- na_total <= 0
 
 The table below summarises the results of these checks.
 
-```{r summary table}
+```{r data-checks-summary-table}
 
 # Shape
 n_rows <- nrow(df); n_cols <- ncol(df)
@@ -185,7 +188,7 @@ The dataset contains 2,500 rows and 12 columns, with no missing values. Candidat
 
 Finally, the first few rows of the dataset are displayed below.
 
-```{r top rows}
+```{r data-top-rows}
 
 # Print top rows
 kable(head(df, 5), align = "c") %>%
@@ -195,16 +198,14 @@ kable(head(df, 5), align = "c") %>%
 
 ```
 
-
 ## Analysis
 This section analyses candidate progression through the recruitment process and explores the key factors influencing hiring outcomes.
 
 It begins with an overview of the funnel and key variables, followed by deeper analysis of how scores, recruiters, sources, roles, and locations relate to hiring success. Together, these analyses provide the foundation for the predictive modelling in Section 4.
 
 ### Overall Funnel Counts & Conversion
-This section examines how candidates progress through each stage of the recruitment process, focusing on overall volumes and conversion rates. These metrics highlight where the largest drop-offs occur and how efficiently applicants advance through the funnel.
 
-```{r funnel counts}
+```{r funnel-counts}
 
 # Number of candidates
 n_cand <- nrow(df)
@@ -215,16 +216,16 @@ stage_counts <- colSums(df[stage_cols])
 # Table 1: share of total applicants
 tbl_share <- tibble(Stage = stage_order,
                     Count = stage_counts,
-                    Percentage = pct(stage_counts / n_cand))
+                    Percentage = percent(stage_counts / n_cand))
 
 # Table 2: conversion from previous stage
 tbl_conv <- tibble(Stage = stage_order,
                    Conversion = c(NA, stage_counts[-1] / head(stage_counts, -1))) %>%
-  mutate(Conversion = ifelse(is.na(Conversion), "--", pct(Conversion)))
-
+  mutate(Conversion = ifelse(is.na(Conversion), "--",
+                        percent(Conversion, accuracy = 0.1)))
 ```
 
-```{r share table}
+```{r funnel-share-table}
 
 # Printing table
 kable(tbl_share, caption = "Share of Total Applicants", align = "c") %>%
@@ -232,29 +233,24 @@ kable(tbl_share, caption = "Share of Total Applicants", align = "c") %>%
 
 ```
 
-```{r funnel plot}
+```{r funnel-plot}
 
-# Setting order
+# Setting stage order
 tbl_share$Stage <- factor(tbl_share$Stage, levels = stage_order)
 
-# Funnel plot
+# Stage plot
 ggplot(tbl_share, aes(x = Stage, y = Count, fill = Stage)) +
-  geom_col(color = "white", linewidth = 0.5) +
-  geom_text(aes(label = Count), vjust = -0.3, size = 3.5, color = "black") +
+  geom_col(color = "black", linewidth = 0.5) +
+  geom_text(aes(label = Count), vjust = -0.3, size = 3.5) +
   scale_fill_economist() +
-  scale_y_continuous(limits = c(0, 2500), expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(limits = c(0, 3000), expand = expansion(mult = c(0, 0.02))) +
   labs(title = "Applicant Volume by Stage", x = NULL, y = "Number of Candidates") +
-  theme_economist() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-        panel.grid.minor = element_blank(),
-        axis.ticks = element_blank(),
-        legend.position = "none",
-        axis.title.y = element_text(margin = margin(r = 8)))
-
+  theme(legend.position = "none",
+        axis.ticks.x = element_blank())
 
 ```
 
-```{r conversion table}
+```{r funnel-conversion-table}
 
 # Printing table
 kable(tbl_conv, caption = "Conversion from Previous Stage", align = "c") %>%
@@ -262,7 +258,7 @@ kable(tbl_conv, caption = "Conversion from Previous Stage", align = "c") %>%
 
 ```
 
-```{r conversion plot}
+```{r funnel-conversion-plot}
 
 # Converting table
 tbl_conv_plot <- tbl_conv %>%
@@ -272,32 +268,21 @@ tbl_conv_plot <- tbl_conv %>%
 
 # Conversion plot
 ggplot(tbl_conv_plot, aes(x = Stage, y = Conversion, fill = Stage)) +
-  geom_col(color = "white", linewidth = 0.5) +
-  geom_text(aes(label = pct(Conversion / 100, acc = 0.1)), vjust = -0.3, size = 3.5, color = "black") +
+  geom_col(color = "black", linewidth = 0.5) +
+  geom_text(aes(label = percent(Conversion / 100, accuracy = 0.1)), vjust = -0.3, size = 3.5) +
   scale_fill_economist() +
-  scale_y_continuous(limits = c(0, 100), expand = expansion(mult = c(0, 0.08))) +
+  scale_y_continuous(limits = c(0, 100), expand = expansion(mult = c(0, 0.02))) +
   labs(title = "Conversion Rate by Stage", x = NULL, y = "Conversion (%)") +
-  theme_economist() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-        panel.grid.minor = element_blank(),
-        axis.ticks = element_blank(),
-        legend.position = "none",
-        axis.title.y = element_text(margin = margin(r = 8)))
+  theme(legend.position = "none",
+        axis.ticks.x = element_blank())
 
 ```
 
-Out of 2,500 applicants, only 214 were ultimately hired (8.6%). The largest attrition occurs between the Interview and Offer stages, with just 28.7% progressing. Earlier filters at screening and interview also remove substantial proportions of candidates. In contrast, the high Offer-to-Hire conversion (81.1%) suggests that once candidates reach the final stage, selection and acceptance are strong.
-
-The funnel metrics show how efficiently candidates move through each stage, but not the factors behind those outcomes. The following section explores candidate test scores to understand performance patterns that may influence progression.
-
-
 ### Assessment Scores
 
-
 #### Summary and Distributions
-Each candidate received a test score between 0 and 100, reflecting their performance on an assessment used during the application stage. This section examines how these scores are distributed across applicants and whether higher scores are linked to greater success in progressing through the recruitment funnel.
 
-```{r score summary table}
+```{r score-summary-table}
 
 # Summary table
 tbl_scores <- describe(df$score) %>%
@@ -312,38 +297,20 @@ kable(tbl_scores, caption = "Summary Statistics for Candidate Test Scores", alig
 
 ```
 
-The average score of 63.42 suggests moderate overall performance, with a standard deviation of 13.94 indicating clear variation between applicants. The wide range of results (20–100) shows the assessment distinguishes well between weaker and stronger performers, supporting its value as an effective screening tool. The following histogram visualises this distribution.
-
-```{r score histogram}
+```{r score-histogram}
 
 # Histogram
 ggplot(df, aes(x = score)) +
-  geom_histogram(aes(y = after_stat(count), fill = after_stat(count)),
-                 binwidth = 1, color = "white", boundary = 0, alpha = 0.9) +
-  scale_y_continuous(limits = c(0, 100), expand = expansion(mult = c(0, 0.02))) +
+  geom_histogram(aes(y = after_stat(count), fill = after_stat(count)),binwidth = 5, color = "black", boundary = 0) +
+  scale_y_continuous(limits = c(0, 400), expand = expansion(mult = c(0, 0.05))) +
   labs(title = "Distribution of Candidate Test Scores", x = "Test Score", y = "Count") +
-  theme_economist() +
-  theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-    panel.grid.minor = element_blank(),
-    axis.ticks = element_blank(),
-    legend.position = "none",
-    axis.text.x = element_text(margin = margin(t = 5)),
-    axis.title.x = element_text(margin = margin(t = 10)),
-    axis.title.y = element_text(margin = margin(r = 10))  # move y-axis label back
-  )
+  theme(legend.position = "none")
 
 ```
 
-The distribution of candidate test scores appears roughly normal, indicating a balanced spread of scores without strong skew.
-
-While the assessment effectively differentiates candidate ability, it is also important to examine whether higher scores lead to greater progression and eventual hiring.
-
-
 #### Score and Hiring Success
-This analysis explores whether higher scores correspond to a greater likelihood of being hired, and more broadly, how candidates with different score levels progress through the recruitment funnel. A logistic regression model is used to quantify this relationship, supported by descriptive comparisons across score bands.
 
-```{r score logistic regression}
+```{r score-logistic-regression}
 
 # Logistic regression
 score_logreg <- glm(hired ~ score, data = df, family = "binomial")
@@ -357,7 +324,7 @@ pct_increase <- (odds_ratio - 1) * 100
 r2_value <- r2_nagelkerke(score_logreg)
 
 # Table
-tbl_logreg <- tibble(
+tbl_score_logreg <- tibble(
   Predictor = "Score",
   Coefficient = round(coef, 3),
   `P-value` = round(pval, 4),
@@ -367,14 +334,12 @@ tbl_logreg <- tibble(
  )
 
 # Printing table
-kable(tbl_logreg, caption = "Assessment Score Predicting Hiring Success", align = "c") %>%
+kable(tbl_score_logreg, caption = "Assessment Score Predicting Hiring Success", align = "c") %>%
   kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
 
 ```
 
-The regression results show a clear positive relationship between assessment score and hiring success. For each one-point increase in score, a candidate has about a 5.6 percent greater likelihood of being hired, and the effect is statistically significant (p < 0.001). The model’s Nagelkerke R² of 0.089 indicates that assessment scores explain around 9 percent of the variation in hiring outcomes, which is reasonable given that final decisions also depend on several other factors.
-
-```{r logistic regression curve, warnings = FALSE}
+```{r score-logit-curve, warnings = FALSE}
 
 # Predicted probabilities
 score_pred_prob <- tibble(score = df$score,
@@ -382,22 +347,14 @@ score_pred_prob <- tibble(score = df$score,
 
 # Plotting curve
 ggplot(score_pred_prob, aes(x = score, y = pred_prob)) +
-  stat_smooth(method = "glm", method.args = list(family = binomial()), se = TRUE, fullrange = TRUE) +
-  labs(title = "Hire Probability vs Score", x = "Assessment Score", y = "Predicted Probability") +
-  scale_y_continuous(limits = c(0, 0.5), expand = expansion(mult = c(0, 0.05)), labels = pct) +
-  theme_economist() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13), 
-        panel.grid.minor = element_blank(), 
-        legend.position = "none",
-        axis.title.y = element_text(margin = margin(r = 8)))
+  stat_smooth(method = "glm", method.args = list(family = binomial()), se = TRUE) +
+  scale_y_continuous(labels = percent_format(accuracy = 1),
+                     expand = expansion(mult = c(0, 0.02))) +
+  labs(title = "Hiring Probability vs. Score", x = "Assessment Score", y = "Predicted Probability")
 
 ```
 
-The above visual shows how the logistic regression curve rises upwards. The model predicts a higher probability of being hired as assessment scores increase. 
-
-To look deeper into how candidates at different performance levels progress through the recruitment process, scores are grouped into bands to compare progression rates across stages.
-
-```{r score bands}
+```{r score-bands}
 
 # Score bands  
 df <- df %>%
@@ -416,50 +373,42 @@ kable(tbl_score_levels, caption = "Score Band Interpretation", align = "c") %>%
 
 ```
 
-```{r grouped bar chart}
+```{r score-bands-progression-plot}
 
 # Pivoting data
 tbl_band_stage <- df %>%
   group_by(score_band) %>%
-  summarise(across(c(screening, interview, offer, hired),
-                   ~ mean(.x, na.rm = TRUE))) %>%
-  pivot_longer(-score_band, names_to = "Stage", values_to = "Proportion") %>%
-  mutate(Percentage = pct(Proportion)) %>%
-  rename(`Score Band` = score_band)
-
-# Enforcing stage order
-stage_order_plot <- c("screening","interview","offer","hired")
+  summarise(across(all_of(stage_cols[-1]), ~ mean(.x, na.rm = TRUE)), .groups = "drop") %>%
+  pivot_longer(-score_band, names_to = "stage", values_to = "Proportion") %>%
+  mutate(Stage = factor(stage, levels = stage_cols[2:5], labels = stage_order[2:5])) %>%
+  rename(`Score Band` = score_band) %>%
+  select(-stage)
 
 # Grouped bar chart
-ggplot(tbl_band_stage, aes(Stage, Proportion, fill = `Score Band`)) +
-  geom_col(position = position_dodge(width = 0.72)) +
-  scale_x_discrete(limits = stage_order_plot) + 
-  scale_y_continuous(labels = pct, limits = c(0, 1), expand = expansion(mult = c(0, 0.02))) +
+ggplot(tbl_band_stage, aes(x = Stage, y = Proportion, fill = `Score Band`)) +
+  geom_col(position = position_dodge(width = 0.72), color = "black") +
+  scale_x_discrete(limits = stage_order[2:5]) +
+  scale_y_continuous(labels = percent_format(accuracy = 1),
+                     limits = c(0, 1),
+                     expand = expansion(mult = c(0, 0.02))) +
   scale_fill_economist(name = NULL) +
-  labs(title = "Stage progression by score band", x = NULL, y = "Proportion") +
-  theme_economist() +
-  theme(plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-        panel.grid.minor = element_blank(),
-        axis.ticks = element_blank(),
-        legend.title = element_blank(),
-        legend.text = element_text(size = 10),
-        legend.key.size = grid::unit(10, "pt"),
-        axis.title.y = element_text(margin = margin(r = 8))
+  labs(title = "Stage Progression by Score Band", x = NULL, y = "Proportion") +
+  theme(
+    legend.position = "top",                 
+    legend.justification = "center",
+    legend.direction = "horizontal",
+    legend.key.size = grid::unit(8, "pt"),          
+    legend.text = element_text(size = 10),    
+    legend.spacing.x = grid::unit(3, "pt"),         
+    plot.title = element_text(margin = margin(b = 6)),
+    axis.ticks.x = element_blank()
   )
 
 ```
 
-The results reveal a clear stepwise pattern, with progression rates increasing steadily across higher score bands. Candidates in the Very High band perform best at every stage, with 94% passing screening and around 21% ultimately hired. In contrast, only 48% of Low scorers pass the screening stage, and just 3% are eventually hired.
-
-The largest drop-off occurs between the screening and interview stages, particularly among Low and Moderate scorers, where progression rates roughly halve. Beyond this point, High and Very High scorers continue to advance at higher and more consistent rates, indicating that assessment performance exerts its strongest influence during the early filtering stages.
-
-Overall, this pattern suggests that the assessment effectively distinguishes candidate quality at the outset, providing a strong early indicator of hiring potential. Later stages likely reflect broader evaluation factors beyond test performance.
-
-
 #### Score by Recruiter
-Candidate scores are compared across recruiters to see whether differences in recruiter performance may reflect the quality of applicants in their pipelines.
 
-```{r score by recruiter summary stats}
+```{r score-by-recruiter-summary}
 
 # Summary table
 tbl_rec_scores <- describeBy(df$score, group = df$rec_id, mat = TRUE) %>%
@@ -478,29 +427,18 @@ kable(tbl_rec_scores,
  
 ```
 
-```{r score by recruiter boxplots}
+```{r score-by-recruiter-boxplot}
 
 # Boxplot
-ggplot(df, aes(x = rec_id, y = score, fill = rec_id)) +
-  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
-  labs(title = "Distribution of Candidate Scores by Recruiter", x = "Recruiter", y = "Candidate Score") +
-  scale_fill_economist(name = NULL) +
-  theme_economist() +
-  theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-    axis.text.x = element_text(angle = 30, size = 9, vjust = 1.5),
-    axis.title.y = element_text(margin = margin(r = 10)), 
-    panel.grid.minor = element_blank(),
-    legend.position = "none"
-  )
+ggplot(df, aes(x = rec_id, y = score, fill = rec_id)) + 
+  geom_boxplot(alpha = 0.85, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) + 
+  scale_fill_economist(name = NULL) + 
+  labs(title = "Distribution of Candidate Scores by Recruiter", x = "Recruiter", y = "Candidate Score") + 
+  theme(legend.position = "none", axis.ticks.x = element_blank())
 
 ```
 
-The summary statistics show that average candidate scores are very similar across recruiters, with only small differences between them. The boxplots also suggest a similar spread of scores, indicating little variation in candidate quality between recruiters.
-
-To confirm this, an ANOVA test will be run to check whether any of these small differences in mean scores are statistically significant.
-
-```{r score by recruiter ANOVA}
+```{r score-by-recruiter-anova}
 
 # ANOVA
 anova_rec <- aov(score ~ rec_id, data = df)
@@ -525,13 +463,9 @@ kable(anova_rec_tbl, caption = "Score by Recruiter ANOVA Results", align = "c") 
 
 ```
 
-The ANOVA results show no significant difference in average candidate scores between recruiters, F(4, 2495) = 2.06, p = 0.083. This indicates that candidate quality is largely consistent across recruiters.
-
-
 #### Score by Applicant Source
-Candidate scores are compared across different application sources to assess whether certain channels attract higher-scoring applicants. This helps to identify which sourcing methods are bringing in stronger candidates.
 
-```{r score by source summary stats}
+```{r score-by-source-summary}
 
 # Summary table
 tbl_src_scores <- describeBy(df$score, group = df$source, mat = TRUE) %>%
@@ -549,29 +483,18 @@ kable(tbl_src_scores,
 
 ```
 
-```{r score by source boxplots}
+```{r score-by-source-boxplot}
 
-# Boxplots
+# Boxplot
 ggplot(df, aes(x = source, y = score, fill = source)) +
-  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
-  labs(title = "Distribution of Candidate Scores by Source", x = "Source", y = "Candidate Score") +
+  geom_boxplot(alpha = 0.85, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
   scale_fill_economist(name = NULL) +
-  theme_economist() +
-  theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-    axis.text.x = element_text(hjust = 0.5, vjust = 1.5, size = 9),
-    axis.title.y = element_text(margin = margin(r = 10)),
-    panel.grid.minor = element_blank(),
-    legend.position = "none"
-  )
+  labs(title = "Distribution of Candidate Scores by Source", x = "Source", y = "Candidate Score") +
+  theme(legend.position = "none", axis.ticks.x = element_blank())
 
 ```
 
-The average candidate scores differ notably across application sources. Candidates applying through LinkedIn have the highest average score (70.2), followed by those from the Careers page (59.7) and Job boards (54.5). The spread of scores is similar across all sources, though LinkedIn candidates tend to perform stronger overall. This pattern suggests that LinkedIn attracts higher-quality applicants on average, while Job boards yield a wider range of candidates with generally lower assessment performance.
-
-To confirm whether the differences in mean candidate scores between sources are statistically significant, an ANOVA test was run to compare average scores across all application sources.
-
-```{r score by source ANOVA}
+```{r score-by-source-anova}
 
 # ANOVA
 anova_src <- aov(score ~ source, data = df)
@@ -594,13 +517,7 @@ kable(anova_src_tbl, caption = "Score by Source ANOVA Results", align = "c") %>%
 
 ```
 
-The ANOVA results show a statistically significant difference in mean candidate scores between sources, F(2, 2497) = 434.58, p < 0.001. Candidates from LinkedIn scored substantially higher on average than those from the Careers page or Job boards, indicating that candidate quality varies considerably by application source. Given the size of these differences, post-hoc tests are not strictly necessary, as the summary statistics already make the pattern clear.
-
-
-#### Score by Job Role
-Candidate scores are compared across different job roles to identify whether certain positions tend to attract higher-scoring applicants. This helps to understand if candidate quality varies by the type of role being applied for.
-
-```{r score by role summary stats}
+```{r score-by-role-summary}
 
 # Summary table
 tbl_role_scores <- describeBy(df$score, group = df$job_role, mat = TRUE) %>%
@@ -618,29 +535,18 @@ kable(tbl_role_scores,
 
 ```
 
-```{r score by role boxplots}
+```{r score-by-role-boxplot}
 
-# Boxplots
+# Boxplot
 ggplot(df, aes(x = job_role, y = score, fill = job_role)) +
-  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
-  labs(title = "Distribution of Candidate Scores by Job Role", x = "Job Role", y = "Candidate Score") +
+  geom_boxplot(alpha = 0.85, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
   scale_fill_economist(name = NULL) +
-  theme_economist() +
-  theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-    axis.text.x = element_text(hjust = 0.5, vjust = 1.5, size = 9),
-    axis.title.y = element_text(margin = margin(r = 10)),
-    panel.grid.minor = element_blank(),
-    legend.position = "none"
-  )
+  labs(title = "Distribution of Candidate Scores by Job Role", x = "Job Role", y = "Candidate Score") +
+  theme(legend.position = "none", axis.ticks.x = element_blank())
 
 ```
 
-The average candidate scores are very similar across job roles, ranging between 62.9 and 64.5. This suggests that overall candidate quality is consistent regardless of the role applied for. The Marketing Associate role shows slightly less variation in scores, likely due to its smaller sample size. Interestingly, while the average score for Marketing Associate candidates is marginally higher than the others, their maximum score of 87 indicates that the very highest-performing applicants are not applying for this role.
-
-To confirm that overall candidate quality is consistent across roles, an ANOVA test will be run to check whether these small differences in mean scores are statistically significant.
-
-```{r score by job role ANOVA}
+```{r score-by-role-anova}
 
 # ANOVA
 anova_role <- aov(score ~ job_role, data = df)
@@ -664,97 +570,128 @@ kable(anova_role_tbl, caption = "Score by Job Role ANOVA Results", align = "c") 
 
 ```
 
-The ANOVA results show no significant difference in average candidate scores between job roles, F(3, 2496) = 1.1, p = 0.349. This indicates that candidate quality is consistent across roles.
+#### Score Analysis Summary
 
+### Recruiter Performance
 
-#### Score by Location
-Candidate scores are compared across different office locations to assess whether candidate quality varies by region.
+#### Overview of Recruiter Activity
 
-```{r score by location summary stats}
+```{r recruiter-candidate-counts}
 
-# Summary table
-tbl_loc_scores <- describeBy(df$score, group = df$location, mat = TRUE) %>%
-  select(group1, n, mean, sd, median, min, max, range, se) %>%
-  mutate(across(c(mean, sd, se), ~ round(.x, 2))) %>%
-  rename(`Job Role` = group1) %>%
-  rename_with(~ tools::toTitleCase(.x)) %>%
-  as_tibble()
-
-# Printing table
-kable(tbl_loc_scores,
-      caption = "Summary Statistics for Candidate Scores by Location",
-      align = "c") %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+# Barchart
+ggplot(df, aes(x = rec_id, fill = rec_id)) +
+  geom_bar(color = "black", linewidth = 0.5) +
+  geom_text(stat = "count", aes(label = after_stat(count)), vjust = -0.3, size = 3.5) +
+  scale_fill_economist(name = NULL) +
+  scale_y_continuous(limits = c(0, 700), breaks = seq(0, 700, 100), expand = expansion(mult = c(0, 0.02))) +
+  labs(title = "Number of Candidates Managed by Recruiter", x = NULL, y = "Candidate Count") +
+  theme(legend.position = "none", axis.ticks.x = element_blank())
 
 ```
 
-```{r score by location boxplots}
+```{r recruiter-hire-rate-table}
 
-# Boxplots
-ggplot(df, aes(x = location, y = score, fill = location)) +
-  geom_boxplot(alpha = 0.8, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
-  labs(title = "Distribution of Candidate Scores by Job Role", x = "Location", y = "Candidate Score") +
+# Summary table
+tbl_rec_hire <- df %>%
+  group_by(rec_id) %>%
+  summarise(Candidates = n(), Hired = sum(hired), `Hire Rate` = mean(hired)) %>%
+  rename(Recruiter = rec_id) %>%  
+  mutate(`Hire Rate` = percent(`Hire Rate`, accuracy = 0.1)) %>%
+  select(Recruiter, Candidates, Hired, `Hire Rate`)
+
+# Printing table
+kable(tbl_rec_hire, caption = "Recruiter Hiring Outcomes", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = TRUE)
+
+```
+
+#### Recruiter by Source
+
+```{r recruiter-source-distribution}
+
+# Summary table
+tbl_rec_source <- df %>%
+  group_by(rec_id, source) %>%
+  summarise(Candidates = n()) %>%
+  group_by(rec_id) %>%
+  mutate(Proportion = Candidates / sum(Candidates))
+
+# Plot
+ggplot(tbl_rec_source, aes(x = rec_id, y = Proportion, fill = source)) +
+  geom_col(color = "black", linewidth = 0.5) +
+  scale_y_continuous(labels = percent_format(accuracy = 1), expand = expansion(mult = c(0, 0.02))) +
   scale_fill_economist(name = NULL) +
-  theme_economist() +
+  labs(title = "Distribution of Candidate Sources by Recruiter", x = "Recruiter", y = "Proportion of Candidates") +
   theme(
-    plot.title = element_text(face = "bold", hjust = 0.5, size = 13),
-    axis.text.x = element_text(hjust = 0.5, vjust = 1.5, size = 9),
-    axis.title.y = element_text(margin = margin(r = 10)),
-    panel.grid.minor = element_blank(),
-    legend.position = "none"
+    legend.position = "top",                 
+    legend.justification = "center",
+    legend.direction = "horizontal",
+    legend.key.size = grid::unit(8, "pt"),          
+    legend.text = element_text(size = 10),    
+    legend.spacing.x = grid::unit(3, "pt"),         
+    plot.title = element_text(margin = margin(b = 6)),
+    axis.ticks.x = element_blank()
   )
 
 ```
 
-The average candidate scores are very similar across locations, ranging from 62.8 to 64.1. This indicates that overall candidate quality is consistent across regions. The spread of scores is also comparable between locations, suggesting that assessment results are not influenced by geographic factors.
+```{r recruiter-logistic-regression}
 
-To confirm that these small differences in mean scores between locations are not statistically significant, an ANOVA test will be run to compare average candidate scores across all office locations.
+# Logistic regression
+recruiter_logreg <- glm(hired ~ rec_id, data = df, family = binomial)
 
-```{r score by location ANOVA}
+# Coefficients matrix
+coef_mat <- summary(recruiter_logreg)$coefficients
 
-# ANOVA
-anova_loc <- aov(score ~ location, data = df)
+# Baseline recruiter
+baseline_rec <- levels(df$rec_id)[1]
 
-# Table
-anova_loc_tbl <- tibble(
-  `London mean` = round(mean(df$score[df$location == "London"]), 2),
-  `Bristol mean` = round(mean(df$score[df$location == "Bristol"]), 2),
-  `Edinburgh mean` = round(mean(df$score[df$location == "Edinburgh"]), 2),
-  `Manchester mean` = round(mean(df$score[df$location == "Manchester"]), 2),
-  `F` = round(summary(anova_loc)[[1]][["F value"]][1], 2),
-  df = summary(anova_loc)[[1]][["Df"]][1],
-  p = round(summary(anova_loc)[[1]][["Pr(>F)"]][1], 3)
-)
+# Initial Table
+comp_recruiter <- tibble(
+  Predictor = rownames(coef_mat),
+  Coefficient = coef_mat[, "Estimate"],
+  `Std. Error` = coef_mat[, "Std. Error"],
+  `Z value` = coef_mat[, "z value"],
+  `P-value` = coef_mat[, "Pr(>|z|)"],
+  `Odds Ratio` = exp(coef_mat[, "Estimate"]),
+  `Odds Increase (%)` = (exp(coef_mat[, "Estimate"]) - 1) * 100) %>%
+  mutate(Recruiter = ifelse(Predictor == "(Intercept)", baseline_rec, sub("^rec_id", "", Predictor)),
+         Recruiter = factor(Recruiter, levels = levels(df$rec_id))) %>%
+  select(Recruiter, Coefficient:`Odds Increase (%)`) %>%
+  arrange(Recruiter)
+
+# Compute Nagelkerke R2
+r2_recruiter <- round(r2_nagelkerke(recruiter_logreg),3)
+
+# Rounding
+tbl_rec_logreg <- comp_recruiter %>%
+  mutate(across(c(Coefficient, 
+                  `Std. Error`, 
+                  `Z value`, 
+                  `P-value`, 
+                  `Odds Ratio`, 
+                  `Odds Increase (%)`),
+                ~ round(.x, 3)),
+  )
 
 # Printing table
-kable(anova_loc_tbl, caption = "Score by Location ANOVA Results", align = "c") %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = TRUE) %>%
-  column_spec(1:4, width = "6em") %>%
-  column_spec(5:7, width = "4em")  
+kable(tbl_rec_logreg, caption = "Recruiter Predicting Hiring Success", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
 
 ```
 
-The ANOVA results show no significant difference in average candidate scores between locations, F(3, 2496) = 1.24, p = 0.292. This indicates that candidate quality is consistent across regions.
+```{r recuiter-source-moderation-logistic-regression}
 
-#### Score Analysis Summary
-Assessment score is a key predictor of hiring success, with higher-scoring candidates significantly more likely to be hired. The influence of score is strongest during the early filtering stages, where higher performers progress through screening and interview stages at notably higher rates.
+recruiter_logreg_mod <- glm(hired ~ rec_id * source, data = df, family = binomial)
+summary(recruiter_logreg_mod)
 
-Average scores do not differ meaningfully between recruiters, job roles, or locations, indicating consistent candidate quality across these groups. However, significant differences are observed between application sources, with candidates applying through LinkedIn achieving the highest average scores.
+```
 
-Overall, assessment score effectively differentiates candidate quality early in the recruitment process and provides a strong indicator of hiring potential.
+```{r model-comparison}
 
+anova(recruiter_logreg, recruiter_logreg_mod, test = "Chisq")
 
-### Recruiter Performance
-
-
-#### Overview of Recruiter Activity
-
-
-#### Stage Conversion by Recruiter
-
-#### Recruiter by Source
-
-#### Recruiter by Location
+```
 
 #### Recruiter by Role
  
@@ -763,12 +700,6 @@ Overall, assessment score effectively differentiates candidate quality early in 
 #### Volume and Hire Rate by Role
 
 #### Stage Conversion by Role
-
-### Location Performance
-
-#### Applicant and Hire Volume by Location
-
-#### Stage Conversion by Location
 
 ### Predictive Modelling
 

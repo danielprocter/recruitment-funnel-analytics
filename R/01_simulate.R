@@ -27,16 +27,12 @@ job_roles <- c("Data Analyst", "HR Specialist", "Software Engineer", "Marketing 
 # Funnel stages
 stages <- c("Application","Screening","Interview","Offer","Hired")
 
-# Office locations
-locations <- c("London", "Manchester", "Bristol", "Edinburgh")
-
 # Candidate sources
 sources <- c("LinkedIn", "Job board", "Careers page")
 
-# Distributions for recruiter, job role, location, and source
-rec_prob <- c(0.35, 0.15, 0.15, 0.20, 0.15)
+# Distributions for recruiter, job role, and source
+rec_prob <- c(0.24, 0.19, 0.18, 0.21, 0.18)
 job_prob <- c(0.40, 0.30, 0.20, 0.10)
-location_prob <- c(0.40, 0.25, 0.15, 0.20)
 source_prob <- c(0.50, 0.30, 0.20)
 
 # Base candidate table
@@ -44,7 +40,6 @@ df <- tibble(
   cand_id = cand_id,
   rec_id = sample(rec_id, size = n_cand, replace = TRUE, prob = rec_prob),
   job_role = sample(job_roles, size = n_cand, replace = TRUE, prob = job_prob),
-  location = sample(locations, size = n_cand, replace = TRUE, prob = location_prob),
   source = sample(sources, size = n_cand, replace = TRUE, prob = source_prob)
 )
 
@@ -107,9 +102,11 @@ df <- df %>%
 # Hire probability (only if offered, depends on recruiter)
 df <- df %>%
   mutate(prob_hired = ifelse(offer == 1,
-                             case_when(rec_id == "R2" ~ 0.60,  # weaker closer
-                                       rec_id == "R4" ~ 0.95,  # strong closer
-                                       TRUE ~ 0.80),
+                             case_when(rec_id == "R1" ~ 0.95,  # very strong closer
+                                       rec_id == "R2" ~ 0.80,  # strong closer
+                                       rec_id == "R3" ~ 0.60,  # average closer
+                                       rec_id == "R4" ~ 0.45,  # weak closer
+                                       rec_id == "R5" ~ 0.35), # very weak closer
                              NA_real_))
 
 # Hire outcome
