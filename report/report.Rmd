@@ -20,6 +20,7 @@ output_file: "report.html"
 packages <- c(
   "tidyverse",
   "psych",
+  "emmeans",
   "performance",
   "knitr", 
   "kableExtra",
@@ -166,7 +167,7 @@ checks_summary <- tibble(
             "Missing values"), 
   
   Summary = c(
-    paste(n_rows, "rows ×", n_cols, "columns"),
+    paste(n_rows, "rows x", n_cols, "columns"),
     ifelse(unique_id_check, "No duplicates found", "Duplicates detected"),
     paste0("Observed range: ", paste(score_range, collapse = "–")),
     ifelse(stage_value_check, "All valid", "Invalid values present"),
@@ -176,7 +177,7 @@ checks_summary <- tibble(
 )
 
 # Nicely formatted table
-knitr::kable(checks_summary,
+kable(checks_summary,
              caption = "Summary of Data Quality Checks",
              col.names = c("Check", "Summary"),
              align = "l") %>%
@@ -193,8 +194,7 @@ Finally, the first few rows of the dataset are displayed below.
 # Print top rows
 kable(head(df, 5), align = "c") %>%
   kable_styling(bootstrap_options = c("striped", "bordered"), position = "center", full_width = FALSE) %>%
-  column_spec(1:ncol(df), width = "auto", extra_css = "white-space: nowrap;") %>%
-  scroll_box(width = "100%")
+  column_spec(1:ncol(df), width = "auto", extra_css = "white-space: nowrap;")
 
 ```
 
@@ -434,7 +434,7 @@ ggplot(df, aes(x = rec_id, y = score, fill = rec_id)) +
   geom_boxplot(alpha = 0.85, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) + 
   scale_fill_economist(name = NULL) + 
   labs(title = "Distribution of Candidate Scores by Recruiter", x = "Recruiter", y = "Candidate Score") + 
-  theme(legend.position = "none", axis.ticks.x = element_blank())
+  theme(legend.position = "none", axis.ticks.x = element_blank(), axis.line.x = element_blank())
 
 ```
 
@@ -490,7 +490,7 @@ ggplot(df, aes(x = source, y = score, fill = source)) +
   geom_boxplot(alpha = 0.85, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
   scale_fill_economist(name = NULL) +
   labs(title = "Distribution of Candidate Scores by Source", x = "Source", y = "Candidate Score") +
-  theme(legend.position = "none", axis.ticks.x = element_blank())
+  theme(legend.position = "none", axis.ticks.x = element_blank(), axis.line.x = element_blank())
 
 ```
 
@@ -542,7 +542,8 @@ ggplot(df, aes(x = job_role, y = score, fill = job_role)) +
   geom_boxplot(alpha = 0.85, outlier.shape = 21, outlier.size = 2, outlier.alpha = 0.5, width = 0.7) +
   scale_fill_economist(name = NULL) +
   labs(title = "Distribution of Candidate Scores by Job Role", x = "Job Role", y = "Candidate Score") +
-  theme(legend.position = "none", axis.ticks.x = element_blank())
+  theme(legend.position = "none", axis.ticks.x = element_blank(),
+        axis.line.x = element_blank())
 
 ```
 
@@ -583,7 +584,7 @@ ggplot(df, aes(x = rec_id, fill = rec_id)) +
   geom_bar(color = "black", linewidth = 0.5) +
   geom_text(stat = "count", aes(label = after_stat(count)), vjust = -0.3, size = 3.5) +
   scale_fill_economist(name = NULL) +
-  scale_y_continuous(limits = c(0, 700), breaks = seq(0, 700, 100), expand = expansion(mult = c(0, 0.02))) +
+  scale_y_continuous(limits = c(0, 650), breaks = seq(0, 650, 150), expand = expansion(mult = c(0, 0.02))) +
   labs(title = "Number of Candidates Managed by Recruiter", x = NULL, y = "Candidate Count") +
   theme(legend.position = "none", axis.ticks.x = element_blank())
 
@@ -619,6 +620,12 @@ tbl_rec_source <- df %>%
 # Plot
 ggplot(tbl_rec_source, aes(x = rec_id, y = Proportion, fill = source)) +
   geom_col(color = "black", linewidth = 0.5) +
+   geom_text(
+    aes(label = percent(Proportion, accuracy = 1)),
+    position = position_stack(vjust = 0.5),
+    color = "white",
+    size = 3
+  ) +
   scale_y_continuous(labels = percent_format(accuracy = 1), expand = expansion(mult = c(0, 0.02))) +
   scale_fill_economist(name = NULL) +
   labs(title = "Distribution of Candidate Sources by Recruiter", x = "Recruiter", y = "Proportion of Candidates") +
@@ -630,8 +637,7 @@ ggplot(tbl_rec_source, aes(x = rec_id, y = Proportion, fill = source)) +
     legend.text = element_text(size = 10),    
     legend.spacing.x = grid::unit(3, "pt"),         
     plot.title = element_text(margin = margin(b = 6)),
-    axis.ticks.x = element_blank()
-  )
+    axis.ticks.x = element_blank())
 
 ```
 
@@ -655,13 +661,14 @@ comp_recruiter <- tibble(
   `P-value` = coef_mat[, "Pr(>|z|)"],
   `Odds Ratio` = exp(coef_mat[, "Estimate"]),
   `Odds Increase (%)` = (exp(coef_mat[, "Estimate"]) - 1) * 100) %>%
-  mutate(Recruiter = ifelse(Predictor == "(Intercept)", baseline_rec, sub("^rec_id", "", Predictor)),
+  filter(Predictor != "(Intercept)") %>%
+  mutate(Recruiter = sub("^rec_id", "", Predictor),
          Recruiter = factor(Recruiter, levels = levels(df$rec_id))) %>%
   select(Recruiter, Coefficient:`Odds Increase (%)`) %>%
   arrange(Recruiter)
 
 # Compute Nagelkerke R2
-r2_recruiter <- round(r2_nagelkerke(recruiter_logreg),3)
+r2_recruiter <- round(r2_nagelkerke(recruiter_logreg), 3)
 
 # Rounding
 tbl_rec_logreg <- comp_recruiter %>%
@@ -671,7 +678,7 @@ tbl_rec_logreg <- comp_recruiter %>%
                   `P-value`, 
                   `Odds Ratio`, 
                   `Odds Increase (%)`),
-                ~ round(.x, 3)),
+                ~ round(.x, 3))
   )
 
 # Printing table
@@ -682,18 +689,123 @@ kable(tbl_rec_logreg, caption = "Recruiter Predicting Hiring Success", align = "
 
 ```{r recuiter-source-moderation-logistic-regression}
 
+# Logistic regression
 recruiter_logreg_mod <- glm(hired ~ rec_id * source, data = df, family = binomial)
-summary(recruiter_logreg_mod)
+
+# Estimated marginal means
+emm_int <- emmeans(recruiter_logreg_mod, ~ rec_id * source, type = "response")
+
+# EMM table
+tbl_emm <- as.data.frame(emm_int) %>%
+  transmute(
+    Recruiter = rec_id,
+    Source = source,
+    `Predicted Hire Prob.` = round(prob, 3),
+    `SE` = round(SE, 3),
+    `95% CI Lower` = round(asymp.LCL, 3),
+    `95% CI Upper` = round(asymp.UCL, 3)
+  )
+
+# Printing table
+kable(tbl_emm, caption = "Model-adjusted hiring probabilities: Recruiter x Source", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
 
 ```
+
+```{r pairwise-tests-emm}
+
+# Pairwise tests
+pairs_by_rec <- contrast(emm_int, method = "pairwise", by = "rec_id", adjust = "tukey")
+pairs_by_rec_out <- summary(pairs_by_rec, type = "response", infer = TRUE)
+
+# Pairwise table
+tbl_pairs <- as.data.frame(pairs_by_rec_out) %>%
+  transmute(
+    Recruiter = rec_id,
+    Comparison = contrast,
+    `Odds Ratio` = round(odds.ratio, 3),
+    SE = round(SE, 3),
+    `95% CI Lower` = round(asymp.LCL, 3),
+    `95% CI Upper` = round(asymp.UCL, 3),
+    `p-value` = round(p.value, 4)
+  )
+
+# Printing table
+kable(tbl_pairs, caption = "Pairwise source comparisons within recruiters", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+
+```
+
+```{r interaction-plot}
+
+# Coercing to dataframe
+plot_emm <- as.data.frame(emm_int)
+
+# Gradient colour
+econ_col <- economist_pal()(9)[3]
+
+# Tile plot
+ggplot(plot_emm, aes(x = source, y = rec_id, fill = prob)) + 
+  geom_tile(color = "black", size = 0.4) + 
+  geom_text(aes(label = percent(prob, accuracy = 0.1)), size = 3) + 
+  scale_fill_gradient(low = "white", high = econ_col, labels = percent_format(accuracy = 1), guide = "none") + 
+  labs(title = "Recruiter x Source: Model-adjusted Hire Probability", x = NULL, y = NULL) + 
+  theme(panel.grid.major.y = element_blank(), 
+        axis.line.x = element_blank(), 
+        axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), 
+        axis.ticks.x = element_blank(),
+        plot.background = element_rect(fill = "white"))
+
+```
+
 
 ```{r model-comparison}
 
-anova(recruiter_logreg, recruiter_logreg_mod, test = "Chisq")
+model_comp <- anova(recruiter_logreg, recruiter_logreg_mod, test = "Chisq")
+chi_sq <- round(model_comp$Deviance[2], 2)
+df_diff <- model_comp$Df[2]
+p_val <- round(model_comp$`Pr(>Chi)`[2], 3)
 
 ```
 
+The model comparison showed that adding the recruiter x source interaction did not significantly improve model fit, χ²(`r df_diff`) = `r chi_sq`, *p* = `r p_val`.
+
 #### Recruiter by Role
+
+```{r recruiter-role-distribution}
+
+# Summary table
+tbl_rec_role <- df %>%
+  group_by(rec_id, job_role) %>%
+  summarise(Candidates = n(), .groups = "drop_last") %>%
+  group_by(rec_id) %>%
+  mutate(Proportion = Candidates / sum(Candidates))
+
+# Plot
+ggplot(tbl_rec_role, aes(x = rec_id, y = Proportion, fill = job_role)) +
+  geom_col(color = "black", linewidth = 0.5) +
+   geom_text(
+    aes(label = percent(Proportion, accuracy = 1)),
+    position = position_stack(vjust = 0.5),
+    color = "white",
+    size = 3
+  ) +
+  scale_y_continuous(labels = percent_format(accuracy = 1), expand = expansion(mult = c(0, 0.02))) +
+  scale_fill_economist(name = NULL) +
+  labs(title = "Distribution of Candidate Sources by Recruiter", x = "Recruiter", y = "Proportion of Candidates") +
+  theme(
+    legend.position = "top",                 
+    legend.justification = "center",
+    legend.direction = "horizontal",
+    legend.key.size = grid::unit(8, "pt"),          
+    legend.text = element_text(size = 10),    
+    legend.spacing.x = grid::unit(3, "pt"),         
+    plot.title = element_text(margin = margin(b = 6)),
+    axis.ticks.x = element_blank())
+
+```
+
  
 ### Job Role Performance
 
@@ -705,10 +817,6 @@ anova(recruiter_logreg, recruiter_logreg_mod, test = "Chisq")
 
 #### Multiple Logistic Regression
 
-#### Decision Tree
-
-#### Random Forest
-
-#### Model Comparison
+#### Model Comparisons
 
 ## Summary

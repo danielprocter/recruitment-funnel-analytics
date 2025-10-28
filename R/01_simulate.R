@@ -18,10 +18,10 @@ set.seed(123)
 n_cand <- 2500
 cand_id <- sprintf("C%04d", seq(1, n_cand))
 
-# Recruiters (5 in total)
+# Recruiters
 rec_id <- c("R1","R2","R3","R4","R5")
 
-# Job roles available
+# Job roles
 job_roles <- c("Data Analyst", "HR Specialist", "Software Engineer", "Marketing Associate")
 
 # Funnel stages
@@ -30,48 +30,71 @@ stages <- c("Application","Screening","Interview","Offer","Hired")
 # Candidate sources
 sources <- c("LinkedIn", "Job board", "Careers page")
 
-# Distributions for recruiter, job role, and source
+# Candidate overall distributions for recruiter
 rec_prob <- c(0.24, 0.19, 0.18, 0.21, 0.18)
-job_prob <- c(0.40, 0.30, 0.20, 0.10)
-source_prob <- c(0.50, 0.30, 0.20)
+names(rec_prob) <- rec_id
+
+# Candidate source distributions for each recruiter
+rec_source_probs <- list(
+  R1 = c("LinkedIn" = 0.70, "Job board" = 0.20, "Careers page" = 0.10),
+  R2 = c("LinkedIn" = 0.55, "Job board" = 0.30, "Careers page" = 0.15),
+  R3 = c("LinkedIn" = 0.45, "Job board" = 0.35, "Careers page" = 0.20),
+  R4 = c("LinkedIn" = 0.30, "Job board" = 0.55, "Careers page" = 0.15),
+  R5 = c("LinkedIn" = 0.50, "Job board" = 0.20, "Careers page" = 0.30)
+)
+
+# Role distributions for each recruiter
+rec_role_probs <- list(
+  R1 = c("Data Analyst" = 0.35, "HR Specialist" = 0.15, "Software Engineer" = 0.35, "Marketing Associate" = 0.15),
+  R2 = c("Data Analyst" = 0.20, "HR Specialist" = 0.40, "Software Engineer" = 0.20, "Marketing Associate" = 0.20),
+  R3 = c("Data Analyst" = 0.30, "HR Specialist" = 0.25, "Software Engineer" = 0.25, "Marketing Associate" = 0.20),
+  R4 = c("Data Analyst" = 0.25, "HR Specialist" = 0.20, "Software Engineer" = 0.30, "Marketing Associate" = 0.25),
+  R5 = c("Data Analyst" = 0.35, "HR Specialist" = 0.10, "Software Engineer" = 0.40, "Marketing Associate" = 0.15)
+)
 
 # Base candidate table
 df <- tibble(
   cand_id = cand_id,
-  rec_id = sample(rec_id, size = n_cand, replace = TRUE, prob = rec_prob),
-  job_role = sample(job_roles, size = n_cand, replace = TRUE, prob = job_prob),
-  source = sample(sources, size = n_cand, replace = TRUE, prob = source_prob)
+  rec_id  = sample(rec_id, size = n_cand, replace = TRUE, prob = rec_prob)
 )
 
+# Sample source and role within recruiter
+df <- df %>%
+  group_by(rec_id) %>%
+  mutate(source = sample(names(rec_source_probs[[first(rec_id)]]),
+                      size = n(), replace = TRUE,
+                      prob = unname(rec_source_probs[[first(rec_id)]])),
+         job_role = sample(names(rec_role_probs[[first(rec_id)]]),
+                      size = n(), replace = TRUE,
+                      prob = unname(rec_role_probs[[first(rec_id)]]))) %>%
+  ungroup()
 
 # Candidate test scores (influenced by source)
 df <- df %>%
   rowwise() %>%
   mutate(score = case_when(
-    source == "LinkedIn" ~ rnorm(1, mean = 70, sd = 12),
-    source == "Job board" ~ rnorm(1, mean = 55, sd = 12),
+    source == "LinkedIn"     ~ rnorm(1, mean = 70, sd = 12),
+    source == "Job board"    ~ rnorm(1, mean = 55, sd = 12),
     source == "Careers page" ~ rnorm(1, mean = 60, sd = 12)
   )) %>%
   ungroup() %>%
   mutate(score = pmin(pmax(round(score), 0), 100))
 
-
 # Funnel progression
 # Everyone has applied
-df <- df %>%
-  mutate(application = 1)
+df <- df %>% mutate(application = 1)
 
-# Screening probability (based on score, with small adjustment for source)
+# Screening probability (based on score, small adjustment for source)
 df <- df %>% 
   mutate(prob_screening = case_when(
-    score < 40 ~ 0.10,
+    score < 40  ~ 0.10,
     score <= 70 ~ 0.70,
-    score > 70 ~ 0.90) +
-      case_when(source == "LinkedIn" ~ 0.05,
+    score > 70  ~ 0.90) + 
+      case_when(source == "LinkedIn"  ~  0.05,
                 source == "Job board" ~ -0.10,
-                TRUE ~ 0))
+                TRUE ~  0.00))
 
-# Screening outcome (1 = passed, 0 = failed)
+# Screening outcome
 df <- df %>%
   mutate(screening = ifelse(runif(n()) < prob_screening, 1, 0))
 
@@ -102,10 +125,10 @@ df <- df %>%
 # Hire probability (only if offered, depends on recruiter)
 df <- df %>%
   mutate(prob_hired = ifelse(offer == 1,
-                             case_when(rec_id == "R1" ~ 0.95,  # very strong closer
-                                       rec_id == "R2" ~ 0.80,  # strong closer
-                                       rec_id == "R3" ~ 0.60,  # average closer
-                                       rec_id == "R4" ~ 0.45,  # weak closer
+                             case_when(rec_id == "R1" ~ 0.95, # very strong closer
+                                       rec_id == "R2" ~ 0.80, # strong closer
+                                       rec_id == "R3" ~ 0.60, # average closer
+                                       rec_id == "R4" ~ 0.45, # weak closer
                                        rec_id == "R5" ~ 0.35), # very weak closer
                              NA_real_))
 
@@ -113,9 +136,9 @@ df <- df %>%
 df <- df %>%
   mutate(hired = ifelse(!is.na(prob_hired) & runif(n()) < prob_hired, 1, 0))
 
-# Removing probability columns
+# Remove probability columns
 df_clean <- df %>%
   select(-starts_with("prob_"))
 
-# Saving clean dataset
+# Save dataset
 write_csv(df_clean, "data/simulated_funnel_data.csv")
