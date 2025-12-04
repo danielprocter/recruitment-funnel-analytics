@@ -14,7 +14,7 @@ output:
 output_file: "report.html"
 ---
 
-```{r set-up, include=FALSE}
+```{r set-up, include=FALSE, warning = FALSE, message = FALSE}
 
 # Install and load required packages (install if missing)
 packages <- c(
@@ -22,8 +22,13 @@ packages <- c(
   "psych",
   "emmeans",
   "performance",
+  "rpart",
+  "rpart.plot",
+  "ranger",
+  "pdp",
   "knitr", 
   "kableExtra",
+  "htmltools",
   "scales",  
   "ggthemes"
 )
@@ -177,10 +182,7 @@ checks_summary <- tibble(
 )
 
 # Nicely formatted table
-kable(checks_summary,
-             caption = "Summary of Data Quality Checks",
-             col.names = c("Check", "Summary"),
-             align = "l") %>%
+kable(checks_summary, caption = "Summary of Data Quality Checks", col.names = c("Check", "Summary"), align = "l") %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
 
 ```
@@ -201,9 +203,10 @@ kable(head(df, 5), align = "c") %>%
 ## Analysis
 This section analyses candidate progression through the recruitment process and explores the key factors influencing hiring outcomes.
 
-It begins with an overview of the funnel and key variables, followed by deeper analysis of how scores, recruiters, sources, roles, and locations relate to hiring success. Together, these analyses provide the foundation for the predictive modelling in Section 4.
+It begins with an overview of the funnel and key variables, followed by deeper analysis of how scores, recruiters, sources, roles, and locations relate to hiring success. Together, these analyses provide the foundation for the predictive modelling conducted later on.
 
 ### Overall Funnel Counts & Conversion
+This subsection provides an overview of how candidates move through the recruitment funnel. It identifies where the main reductions in volume occur and highlights which stages have the lowest conversion.
 
 ```{r funnel-counts}
 
@@ -219,17 +222,8 @@ tbl_share <- tibble(Stage = stage_order,
                     Percentage = percent(stage_counts / n_cand))
 
 # Table 2: conversion from previous stage
-tbl_conv <- tibble(Stage = stage_order,
-                   Conversion = c(NA, stage_counts[-1] / head(stage_counts, -1))) %>%
-  mutate(Conversion = ifelse(is.na(Conversion), "--",
-                        percent(Conversion, accuracy = 0.1)))
-```
-
-```{r funnel-share-table}
-
-# Printing table
-kable(tbl_share, caption = "Share of Total Applicants", align = "c") %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+tbl_conv <- tibble(Stage = stage_order, Conversion = c(NA, stage_counts[-1] / head(stage_counts, -1))) %>%
+  mutate(Conversion = ifelse(is.na(Conversion), "--", percent(Conversion, accuracy = 0.1)))
 
 ```
 
@@ -245,16 +239,7 @@ ggplot(tbl_share, aes(x = Stage, y = Count, fill = Stage)) +
   scale_fill_economist() +
   scale_y_continuous(limits = c(0, 3000), expand = expansion(mult = c(0, 0.02))) +
   labs(title = "Applicant Volume by Stage", x = NULL, y = "Number of Candidates") +
-  theme(legend.position = "none",
-        axis.ticks.x = element_blank())
-
-```
-
-```{r funnel-conversion-table}
-
-# Printing table
-kable(tbl_conv, caption = "Conversion from Previous Stage", align = "c") %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+  theme(legend.position = "none", axis.ticks.x = element_blank())
 
 ```
 
@@ -273,14 +258,17 @@ ggplot(tbl_conv_plot, aes(x = Stage, y = Conversion, fill = Stage)) +
   scale_fill_economist() +
   scale_y_continuous(limits = c(0, 100), expand = expansion(mult = c(0, 0.02))) +
   labs(title = "Conversion Rate by Stage", x = NULL, y = "Conversion (%)") +
-  theme(legend.position = "none",
-        axis.ticks.x = element_blank())
+  theme(legend.position = "none", axis.ticks.x = element_blank())
 
 ```
 
+Candidate volumes decrease steadily at each stage of the funnel, but the most notable reductions occur at two key points. The largest numerical drop-off is between screening and interview, where the pool falls from 1,770 to 876 candidates, meaning just under 50% progress past screening. This indicates that the screening stage functions as the main volume filter in the process. The interview-to-offer stage is even more selective in proportional terms, with only 32.5% of interviewed candidates receiving an offer. Together, these patterns suggest that early screening criteria and later interview evaluations are the primary drivers of progression, shaping how candidates move through the recruitment funnel.
+
 ### Assessment Scores
+This section explores how candidate assessment scores relate to hiring outcomes. Scores are often used to predict job performance or short-list candidates in early stages, so understanding their connection to progression through the funnel is important. I first examine summary statistics and score distributions, followed by their relationship with hiring probability and progression through each stage. Logistic regression is used to quantify how much scores contribute to hiring likelihood.
 
 #### Summary and Distributions
+I begin by summarising the overall distribution of assessment scores to understand how candidates performed on the test.
 
 ```{r score-summary-table}
 
@@ -297,6 +285,10 @@ kable(tbl_scores, caption = "Summary Statistics for Candidate Test Scores", alig
 
 ```
 
+The average score of 63 indicates that the assessment is of moderate difficulty, with candidates performing reasonably well. The standard deviation of 13.7, combined with a wide range from 21 to 100, shows strong spread and clear separation in candidate performance. This level of variability indicates that the assessment discriminates effectively between lower and higher ability candidates. Given the substantial drop-offs observed earlier in the funnel, this spread in test performance is likely to play a meaningful role in determining which candidates progress to later stages.
+
+The histogram below shows the distribution of candidate test scores.
+
 ```{r score-histogram}
 
 # Histogram
@@ -308,7 +300,10 @@ ggplot(df, aes(x = score)) +
 
 ```
 
+The distribution of scores is close to normal, with most candidates clustered around the mid-60s and fewer at the extremes. This pattern indicates a well-behaved assessment without ceiling or floor effects. A distribution like this is ideal for selection purposes, as it provides meaningful variation for differentiating between candidates.
+
 #### Score and Hiring Success
+To understand how strongly assessment scores influence the likelihood of being hired, I use a logistic regression model predicting hiring outcomes from candidate scores. This allows me to quantify how much a higher score increases the probability of being hired while controlling for the binary nature of the outcome. This step builds directly on the earlier distribution analysis by testing whether the observed variation in scores meaningfully translates into differences in hiring success.
 
 ```{r score-logistic-regression}
 
@@ -339,6 +334,10 @@ kable(tbl_score_logreg, caption = "Assessment Score Predicting Hiring Success", 
 
 ```
 
+The logistic regression shows a clear and meaningful relationship between assessment scores and hiring outcomes. Each one-point increase in score is associated with a 5.2% increase in the odds of being hired, indicating that higher-scoring candidates are consistently more likely to progress through the final selection stage. The coefficient of 0.051 reflects a positive slope, and the p-value (< 0.001) confirms that this relationship is statistically significant. The model’s Nagelkerke R² of 0.077 suggests that scores alone explain a modest but non-trivial proportion of the variation in hiring decisions, which is expected for a single predictor within a multi-factor recruitment process. Overall, these results provide strong evidence that the assessment contributes meaningfully to hiring outcomes.
+
+To visualise this relationship, the plot below shows the predicted probability of being hired across the full range of assessment scores based on the logistic regression model.
+
 ```{r score-logit-curve, warnings = FALSE}
 
 # Predicted probabilities
@@ -353,6 +352,10 @@ ggplot(score_pred_prob, aes(x = score, y = pred_prob)) +
   labs(title = "Hiring Probability vs. Score", x = "Assessment Score", y = "Predicted Probability")
 
 ```
+
+The curve shows a steadily increasing hiring probability as scores rise, reflecting the positive relationship identified in the regression model.
+
+To make the relationship between scores and progression easier to interpret, I group candidates into four score bands ranging from low to very high performance. This categorisation allows a clearer comparison of how candidates with different levels of test performance move through the recruitment funnel.
 
 ```{r score-bands}
 
@@ -406,7 +409,12 @@ ggplot(tbl_band_stage, aes(x = Stage, y = Proportion, fill = `Score Band`)) +
 
 ```
 
+Across all stages, higher score bands show consistently stronger progression. Low scorers advance at low rates (46% past screening, only 3.5% hired), while Moderate scorers improve only slightly. The largest jump occurs between Moderate and High, where progression nearly doubles at several stages (e.g., 25% → 43% reaching interview). Candidates in the Very High band perform strongest throughout, with 92% reaching screening and nearly 18% ultimately hired.
+
+These patterns reinforce the earlier regression results: higher assessment scores reliably predict stronger movement through the funnel, indicating that the test is effectively distinguishing more competitive candidates.
+
 #### Score by Recruiter
+Next, I examine whether candidate scores vary across recruiters to assess whether differences in recruiter outcomes may reflect differences in the quality of applicants they manage.
 
 ```{r score-by-recruiter-summary}
 
@@ -426,6 +434,10 @@ kable(tbl_rec_scores,
  
 ```
 
+Average scores vary slightly across recruiters. R1 handles the highest-scoring candidates (mean 65.99), while R4 handles the lowest (mean 59.86), with the others clustered around the low-to-mid 60s. Variability is similar across all recruiters, so the main difference is in average candidate quality rather than spread. This suggests recruiters may be sourcing candidates of slightly different ability levels, which could influence their apparent hiring performance.
+
+The boxplot below visualises the full distribution of scores for each recruiter, highlighting differences in medians, spread and any outliers that are not visible from summary statistics alone.
+
 ```{r score-by-recruiter-boxplot}
 
 # Boxplot
@@ -436,6 +448,8 @@ ggplot(df, aes(x = rec_id, y = score, fill = rec_id)) +
   theme(legend.position = "none", axis.ticks.x = element_blank(), axis.line.x = element_blank())
 
 ```
+
+To test whether the observed differences in average scores across recruiters are statistically meaningful, I conduct a one-way ANOVA comparing mean scores between recruiters.
 
 ```{r score-by-recruiter-anova}
 
@@ -462,7 +476,10 @@ kable(anova_rec_tbl, caption = "Score by Recruiter ANOVA Results", align = "c") 
 
 ```
 
+The ANOVA confirms that score differences across recruiters are statistically significant (F = 14.47, p < .001). Although the absolute differences are modest, recruiters do manage applicants with meaningfully different average scores.
+
 #### Score by Applicant Source
+Next, I examine whether candidate scores differ by application source. This helps determine whether certain channels tend to attract stronger or weaker applicants.
 
 ```{r score-by-source-summary}
 
@@ -475,12 +492,14 @@ tbl_src_scores <- describeBy(df$score, group = df$source, mat = TRUE) %>%
   as_tibble()
 
 # Printing table
-kable(tbl_src_scores,
-      caption = "Summary Statistics for Candidate Scores by Source",
-      align = "c") %>%
+kable(tbl_src_scores, caption = "Summary Statistics for Candidate Scores by Source", align = "c") %>%
   kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
 
 ```
+
+Average scores differ clearly by source. LinkedIn delivers the strongest candidates, with a mean score of 69.83, well above the other channels. Careers page applicants sit in the middle, with an average of 59.92, while job board candidates score lowest on average at 54.73. Standard deviations and ranges are similar across sources, so the main difference is in overall level rather than variability. This suggests that LinkedIn is attracting the highest-performing candidates, while job boards contribute a weaker pool on average, which is likely to feed through into differences in progression and hiring outcomes. 
+
+The boxplot below provides a visual comparison of score distributions across sources, highlighting differences in medians and spread.
 
 ```{r score-by-source-boxplot}
 
@@ -492,6 +511,8 @@ ggplot(df, aes(x = source, y = score, fill = source)) +
   theme(legend.position = "none", axis.ticks.x = element_blank(), axis.line.x = element_blank())
 
 ```
+
+To test whether the observed differences in average scores across applicant sources are statistically meaningful, I conduct a one-way ANOVA comparing mean scores between sources.
 
 ```{r score-by-source-anova}
 
@@ -516,6 +537,11 @@ kable(anova_src_tbl, caption = "Score by Source ANOVA Results", align = "c") %>%
 
 ```
 
+The ANOVA shows a highly significant difference in mean scores across sources (F = 419.3, p < .001). LinkedIn applicants score substantially higher than those from job boards or the careers page, confirming that sourcing channel is an important factor associated with candidate quality in this dataset.
+
+#### Score by Job Role
+Finally, I examine whether candidate scores differ across the four job roles. This helps identify whether certain roles attract stronger applicants or whether score patterns are consistent across the organisation.
+
 ```{r score-by-role-summary}
 
 # Summary table
@@ -534,6 +560,10 @@ kable(tbl_role_scores,
 
 ```
 
+Average scores are very similar across job roles, all falling between 62.62 and 63.56. The differences are small and not practically meaningful. Standard deviations and ranges are also nearly identical, indicating that roles attract applicants with comparable score profiles. This suggests that assessment performance is not systematically higher or lower for any particular role, and any role-specific differences in hiring outcomes are unlikely to be driven by underlying score differences.
+
+The boxplot below visualises these distributions, showing the similarity in medians and spread across job roles.
+
 ```{r score-by-role-boxplot}
 
 # Boxplot
@@ -545,6 +575,8 @@ ggplot(df, aes(x = job_role, y = score, fill = job_role)) +
         axis.line.x = element_blank())
 
 ```
+
+To test whether the observed differences in average scores across job roles are statistically meaningful, I conduct a one-way ANOVA comparing mean scores between job roles.
 
 ```{r score-by-role-anova}
 
@@ -570,11 +602,16 @@ kable(anova_role_tbl, caption = "Score by Job Role ANOVA Results", align = "c") 
 
 ```
 
+The ANOVA confirms that score differences across job roles are not statistically significant (F = 0.66, p = .577). This reinforces that candidates perform similarly on the assessment regardless of the role they apply for.
+
 #### Score Analysis Summary
+Overall, assessment scores show meaningful variation across candidates and relate strongly to hiring outcomes. Higher scores are associated with higher hiring probabilities, and score distribution shapes progression through the funnel. Recruiters manage candidates with slightly different average scores, while sourcing channel has a substantial impact on candidate quality, with LinkedIn delivering the highest-scoring applicants. In contrast, score patterns are consistent across job roles.
 
 ### Recruiter Performance
+This section examines differences in recruiter activity and effectiveness. Recruiters may vary in the number of candidates they manage, the types of applicants they attract and the hiring outcomes they achieve. Understanding these patterns helps identify whether observed performance differences reflect recruiter behaviour, candidate quality or underlying structural factors in the recruitment process.
 
 #### Overview of Recruiter Activity
+I begin by looking at how many candidates each recruiter manages and the proportion they ultimately hire. This provides a baseline view of workload and headline effectiveness before considering differences in candidate mix or sourcing patterns.
 
 ```{r recruiter-candidate-counts}
 
@@ -588,6 +625,8 @@ ggplot(df, aes(x = rec_id, fill = rec_id)) +
   theme(legend.position = "none", axis.ticks.x = element_blank())
 
 ```
+
+The recruiters handle notably different workloads. R1 manages the largest volume of candidates (610), while R3 and R5 manage the fewest (454 and 433 respectively), indicating a uneven distribution of applicant vloume across the team.
 
 ```{r recruiter-hire-rate-table}
 
@@ -605,7 +644,10 @@ kable(tbl_rec_hire, caption = "Recruiter Hiring Outcomes", align = "c") %>%
 
 ```
 
+Hiring outcomes differ substantially across recruiters. R1 stands out as the strongest recruiter, achieving the highest hire rate at 12.1 percent while also managing the largest applicant volume. R3 and R2 perform moderately well, with hire rates around 8 to 9 percent. In contrast, R4 and R5 convert far fewer candidates, with hire rates below 5 percent, indicating comparatively weaker performance or differences in the types of candidates they handle.
+
 #### Recruiter by Source
+Next, I examine how each recruiter’s applicant pool is distributed across sourcing channels. Since earlier results showed strong differences in candidate quality by source, understanding this distribution is essential for interpreting recruiter performance fairly.
 
 ```{r recruiter-source-distribution}
 
@@ -639,6 +681,10 @@ ggplot(tbl_rec_source, aes(x = rec_id, y = Proportion, fill = source)) +
     axis.ticks.x = element_blank())
 
 ```
+
+Recruiters work with noticeably different source mixes, which may help explain some of the hiring gaps observed earlier. R1 works with the strongest candidate pool, with 67 percent of their applicants coming from LinkedIn. R2 and R5 also draw heavily from LinkedIn (54 percent and 49 percent respectively). In contrast, R4 relies primarily on job boards, with 58 percent of their applicants coming from this lower-scoring channel and only 31 percent from LinkedIn. R3 has the most balanced distribution, with 44 percent from LinkedIn and 32 percent from job boards. Because LinkedIn was shown to supply the highest-scoring candidates, recruiters with a higher LinkedIn share (such as R1) start with a quality advantage, while those reliant on job boards (such as R4) face a more challenging applicant pool.
+
+To evaluate whether recruiter identity predicts hiring outcomes, I model hire probability using a logistic regression with `rec_id` as a categorical predictor. Because `rec_id` represents distinct groups rather than an ordered variable, the model compares each recruiter with a baseline recruiter. The resulting coefficients therefore reflect relative differences in hire likelihood across recruiters after accounting only for recruiter identity.
 
 ```{r recruiter-logistic-regression}
 
@@ -686,6 +732,10 @@ kable(tbl_rec_logreg, caption = "Recruiter Predicting Hiring Success", align = "
 
 ```
 
+Using R1 as the baseline, all other recruiters show lower odds of hiring a candidate. R2 and R3 perform moderately worse, with odds of hiring about 30 to 34 percent lower than R1. However, only R2’s difference is statistically significant at the 5 percent level, while R3’s result is not significant, suggesting its effect may be due to sampling variation. The largest differences appear for R4 and R5, whose odds of hiring are around 70 percent lower than R1. Both effects are highly significant, indicating strong evidence that these recruiters perform meaningfully worse in terms of hire conversion within this model.
+
+To examine whether recruiter performance depends on the type of applicants they manage, I extend the logistic regression to include an interaction between recruiter and source. This allows the effect of a recruiter on hiring outcomes to differ across LinkedIn, job boards, and the careers page. Because both predictors are categorical, the model produces a complex set of coefficients that are not straightforward to interpret directly. I therefore use estimated marginal means (EMMs) to convert the model output into adjusted hiring probabilities for every recruiter–source combination. These adjusted probabilities make the interaction clear, showing how each recruiter performs across different sources and how each source performs within recruiters, while holding all other model components constant.
+
 ```{r recuiter-source-moderation-logistic-regression}
 
 # Logistic regression
@@ -707,9 +757,14 @@ tbl_emm <- as.data.frame(emm_int) %>%
 
 # Printing table
 kable(tbl_emm, caption = "Model-adjusted hiring probabilities: Recruiter x Source", align = "c") %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+  kable_styling(bootstrap_options = c("striped", "bordered"),position = "center") %>%
+  scroll_box(height = "310px")
 
 ```
+
+The estimated marginal means reveal clear differences in hiring probability across recruiter–source combinations, indicating that the effect of recruiter performance depends on the type of applicants they handle. LinkedIn consistently produces the strongest outcomes across most recruiters, with predicted hire probabilities ranging from 11% to 16% for R1 to R3. Job board candidates perform substantially worse, with predicted hire rates generally between 2% and 5% for all recruiters. Career Page outcomes vary more widely with R1 and R4 show comparatively stronger results with these candidates (around 10%), whilst R5 has a hire probability of 0%. These patterns suggest that some recruiters are more effective with certain sources than others, rather than demonstrating uniformly high or low performance across the board.
+
+After estimating the interaction between recruiter and source, it is useful to examine whether differences between sources are statistically meaningful within each recruiter. To do this, I conduct pairwise comparisons of adjusted hiring probabilities using the estimated marginal means. These comparisons test, for each recruiter individually, whether LinkedIn, job boards, and the careers page differ significantly in their likelihood of producing a hire. This provides a more granular view of how source quality varies within recruiters and helps identify where the largest performance gaps originate.
 
 ```{r pairwise-tests-emm}
 
@@ -731,9 +786,16 @@ tbl_pairs <- as.data.frame(pairs_by_rec_out) %>%
 
 # Printing table
 kable(tbl_pairs, caption = "Pairwise source comparisons within recruiters", align = "c") %>%
-  kable_styling(bootstrap_options = c("striped", "bordered"), position = "center")
+  kable_styling(bootstrap_options = c("striped", "bordered"),position = "center") %>%
+  scroll_box(height = "310px")
 
 ```
+
+The pairwise comparisons confirm that most recruiters show clear and statistically significant differences in hiring probability across sources. For R1 to R3, LinkedIn consistently outperforms both the job board and careers page, with odds ratios well above 1 and p-values indicating meaningful differences. These results reinforce the earlier finding that LinkedIn is the strongest-performing source across the recruiter group. For R4, the comparison between LinkedIn and the careers page shows less separation, reflecting the more mixed performance observed in the EMMs.
+
+A notable edge case occurs for Recruiter R5. Several contrasts involving R5 produce confidence intervals ranging from 0 to infinity. This happens because no applicants from certain sources (particularly the careers page) were hired by R5 in the dataset. With zero observed hires, the model cannot estimate a stable odds ratio, leading to unbounded intervals. Rather than indicating genuine uncertainty, these intervals simply reflect that R5 made no hires from those sources, and therefore the true odds ratio cannot be estimated. Taken together, the pairwise results reinforce the pattern that LinkedIn is consistently the strongest source, while R5’s outcomes vary due to very low hiring counts rather than meaningful source effects.
+
+To visualise the recruiter–source interaction more intuitively, I present a heatmap of the adjusted hiring probabilities for each combination. This plot provides a quick, at-a-glance summary of where hiring probabilities are highest and lowest across the matrix of recruiters and sources, complementing the numerical EMM table.
 
 ```{r interaction-plot}
 
@@ -758,9 +820,11 @@ ggplot(plot_emm, aes(x = source, y = rec_id, fill = prob)) +
 
 ```
 
+To formally evaluate whether the recruiter × source interaction improves the model, I compare the recruiter-only logistic regression with the interaction model using a likelihood ratio chi-square test. This comparison assesses whether allowing recruiter effects to vary across sources provides a statistically better fit to the data than treating recruiters and sources as independent predictors.
 
 ```{r model-comparison}
 
+# Model comparison
 model_comp <- anova(recruiter_logreg, recruiter_logreg_mod, test = "Chisq")
 chi_sq <- round(model_comp$Deviance[2], 2)
 df_diff <- model_comp$Df[2]
@@ -768,9 +832,10 @@ p_val <- round(model_comp$`Pr(>Chi)`[2], 3)
 
 ```
 
-The model comparison showed that adding the recruiter x source interaction did not significantly improve model fit, χ²(`r df_diff`) = `r chi_sq`, *p* = `r p_val`.
+The model comparison showed that adding the recruiter x source interaction significantly improved model fit, χ²(`r df_diff`) = `r chi_sq`, *p* = `r p_val`. In practical terms, recruiter performance is not uniform across sources, and the interaction captures real differences in how effective each recruiter is with candidates from different channels.
 
 #### Recruiter by Role
+As an additional descriptive check, I also look at how job roles are distributed across recruiters. This helps provide context for their workloads but is not intended as a deeper analysis of role effects.
 
 ```{r recruiter-role-distribution}
 
@@ -804,18 +869,522 @@ ggplot(tbl_rec_role, aes(x = rec_id, y = Proportion, fill = job_role)) +
     axis.ticks.x = element_blank())
 
 ```
+The role mix varies noticeably across recruiters. R1 and R5 focus more on technical and analytical roles, with around 35 to 40 percent of their workload in Software Engineer and a similar share in Data Analyst. R2 handles a larger share of HR Specialist roles (38 percent), while R3 and R4 have a relatively balanced mix across all four roles. These differences show that recruiters are not working with identical role portfolios, although all still manage candidates across the full set of roles.
 
- 
+### Source performance
+This section examines how applicant sources differ in volume and hiring success. Earlier analyses showed that candidate quality varies notably by source, with LinkedIn producing higher-scoring applicants, and that source also moderates recruiter performance. Assessing overall source performance here helps connect those patterns to actual hiring outcomes and clarifies which channels contribute most effectively to the recruitment process.
+
+First, I look at how many candidates come from each application source.
+
+```{r source-counts}
+
+# Source counts
+src_counts <- df %>%
+  count(source)
+
+# Max count
+max_n <- max(src_counts$n)
+  
+ggplot(src_counts, aes(x = source, y = n, fill = source)) +
+  geom_col(color = "black", linewidth = 0.5) +
+  geom_text(aes(label = n), vjust = -0.3, size = 3.5) +
+  scale_fill_economist(name = NULL) +
+  scale_y_continuous(limits = c(0, 1500), breaks = seq(0, 1500, 300), expand = expansion(mult = c(0, 0.02))) +
+  labs(title = "Number of Candidates by Source", x = "Source", y = "Candidate Count") +
+  theme(
+    legend.position = "none",
+    axis.ticks.x = element_blank(),
+    axis.line.x = element_blank()
+  )
+
+```
+50% of the candidates in the dataset are sourced from LinkedIn. Job boards provide the next biggest source of candidates accounting for about 33% of the applicant pool. Then Careers pages source the lowest amount of candidates, accounting for the remaining 17% of the applicant pool.
+
+I next compare hiring rates across sources to see how differences in applicant source translate into final outcomes.
+
+```{r source-hire-rates}
+
+# Summary table
+tbl_src_hire <- df %>%
+  group_by(source) %>%
+  summarise(Candidates = n(), Hired = sum(hired), `Hire Rate` = mean(hired)) %>%
+  rename(Source = source) %>%  
+  mutate(`Hire Rate` = percent(`Hire Rate`, accuracy = 0.1)) %>%
+  select(Source, Candidates, Hired, `Hire Rate`)
+
+# Printing table
+kable(tbl_src_hire, caption = "Source Hiring Outcomes", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+The pattern aligns closely with earlier findings. LinkedIn delivers both the largest volume of applicants and the highest hire rate (11.3%), reflecting its stronger candidate quality. Job boards produce a moderate number of applicants but a much lower hire rate (3.1%), while the Careers Page sits in between at 6%. These results reinforce the conclusion that LinkedIn is the most effective sourcing channel overall.
+
+To test whether the differences in hire rates across sources are statistically meaningful, I conduct a chi-square test of independence on the source-by-hire contingency table.
+
+```{r source-chi-square}
+
+# Table of counts
+tbl_src_hire_ct <- table(df$source, df$hired)
+
+# Chi-square test
+chisq_src <- chisq.test(tbl_src_hire_ct)
+
+# Tidy table
+tbl_src_chisq <- tibble(
+  Statistic = round(chisq_src$statistic, 3),
+  `Degrees of Freedom` = chisq_src$parameter,
+  `P-value` = round(chisq_src$p.value, 4)
+)
+
+# Printing table
+kable(tbl_src_chisq,
+      caption = "Chi-Square Test for Differences in Hire Rates by Source",
+      align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+The test shows a highly significant association between source and hiring outcome, indicating that the likelihood of being hired differs across applicant sources and is not due to random variation. This confirms that source quality meaningfully influences hiring success.
+
+To identify which sources differ from each other specifically, I run pairwise proportion tests comparing hire rates between each pair of sources, with Bonferroni adjustment applied to control for multiple comparisons.
+
+```{r source-pairwise-prop-test}
+
+# Pairwise tests
+pair_src <- pairwise.prop.test(
+  x = tbl_src_hire_ct[, "1"],
+  n = rowSums(tbl_src_hire_ct),
+  p.adjust.method = "bonferroni"
+)
+
+# Turn into tidy table
+tbl_pairwise_src <- as.data.frame(pair_src$p.value) %>%
+  rownames_to_column("Source 1") %>%
+  pivot_longer(
+    cols = -`Source 1`,
+    names_to = "Source 2",
+    values_to = "P-value"
+  ) %>%
+  filter(!is.na(`P-value`)) %>%
+  mutate(`P-value` = round(`P-value`, 4))
+
+# Printing table
+kable(tbl_pairwise_src, caption = "Pairwise Proportion Tests for Source (Bonferroni-adjusted P-values)", align = "c") %>% 
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+The results show clear differences. LinkedIn has a significantly higher hire rate than both the Job Board and Careers Page (p < 0.01 for both comparisons). The comparison between the Careers Page and Job Board is not statistically significant after adjustment (p = 0.0629), suggesting their hire rates are more similar. Overall, the pairwise tests reinforce LinkedIn as the strongest-performing source.
+
 ### Job Role Performance
+This section examines how hiring outcomes differ across job roles. While earlier analyses focused on candidate quality and recruiter performance, looking at outcomes by role helps identify whether certain positions are inherently harder to fill.
 
-#### Volume and Hire Rate by Role
+```{r job-role-counts}
 
-#### Stage Conversion by Role
+# Job role counts
+role_counts <- df %>%
+  count(job_role)
+
+# Max count
+max_n <- max(role_counts$n)
+  
+ggplot(role_counts, aes(x = job_role, y = n, fill = job_role)) +
+  geom_col(color = "black", linewidth = 0.5) +
+  geom_text(aes(label = n), vjust = -0.3, size = 3.5) +
+  scale_fill_economist(name = NULL) +
+  scale_y_continuous(limits = c(0, 800), breaks = seq(0, 800, 200),
+                     expand = expansion(mult = c(0, 0.02))) +
+  labs(title = "Number of Candidates by Job Role",
+       x = "Job Role",
+       y = "Candidate Count") +
+  theme(
+    legend.position = "none",
+    axis.ticks.x = element_blank(),
+    axis.line.x = element_blank()
+  )
+
+```
+
+The number of applicants differs noticeably across roles. Software Engineer and Data Analyst positions receive the largest volumes (781 and 731 candidates), while Marketing Associate attracts the fewest (460), with HR Specialist in the middle at 528. These differences reflect variation in applicant interest and labour-market supply rather than performance outcomes.
+
+```{r job-role-hire-rates}
+
+# Summary table
+tbl_role_hire <- df %>%
+  group_by(job_role) %>%
+  summarise(Candidates = n(), Hired = sum(hired), `Hire Rate` = mean(hired)) %>%
+  rename(Role = job_role) %>%  
+  mutate(`Hire Rate` = percent(`Hire Rate`, accuracy = 0.1)) %>%
+  select(Role, Candidates, Hired, `Hire Rate`)
+
+# Printing table
+kable(tbl_role_hire, caption = "Job Role Hiring Outcomes", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+Hire rates differ only modestly across roles. Data Analyst has the highest rate at 8.9 percent, followed by HR Specialist at 7.8 percent. Software Engineer and Marketing Associate roles show slightly lower rates at around 7 percent. These differences are relatively small, suggesting that no role is substantially harder or easier to convert into hires within this dataset.
+
+To assess whether these differences in hire rates across roles are statistically meaningful, I run a chi-square test of independence.
+
+```{r role-chi-square}
+
+# Table of counts
+tbl_role_hire_ct <- table(df$job_role, df$hired)
+
+# Chi-square test
+chisq_role <- chisq.test(tbl_role_hire_ct)
+
+# Tidy table
+tbl_chisq <- tibble(
+  Statistic = round(chisq_role$statistic, 3),
+  `Degrees of Freedom` = chisq_role$parameter,
+  `P-value` = round(chisq_role$p.value, 4)
+)
+
+# Printing table
+kable(tbl_chisq,
+      caption = "Chi-Square Test for Differences in Hire Rates by Job Role",
+      align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+The test shows no significant association between job role and hiring outcome, indicating that the small differences in hire rates are consistent with random variation. In practical terms, roles differ in applicant volume but not in their likelihood of producing a hire.
 
 ### Predictive Modelling
+The final stage of the analysis uses predictive modelling to assess how well the variables examined so far explain hiring outcomes and to identify which factors contribute most strongly to predicting a hire. I begin with a hierarchical logistic regression model, which quantifies the incremental variance explained by scores, recruiters, sources, and job roles. This provides a clear measure of the relative contribution of each factor to hiring probability.
 
-#### Multiple Logistic Regression
+I then apply two machine-learning approaches, a decision tree and a random forest, to explore potential nonlinear patterns and interactions that logistic regression may not capture. These models offer an alternative view of variable importance and allow visual interpretation of decision pathways and partial dependence effects.
 
-#### Model Comparisons
+The section concludes with a comparison of model accuracy on a held-out test set, providing a practical assessment of how well each method generalises to unseen candidates.
+
+#### Hierarchical Logistic Regression
+To quantify how much each predictor contributes to explaining hiring outcomes, I use hierarchical logistic regression. Predictors are added in steps, beginning with assessment score and then incrementally adding recruiter, source, and job role. This approach shows how much additional variance each factor explains beyond the variables already included, providing a clear view of their relative importance in predicting the likelihood of being hired.
+
+```{r hierarchical-logistic-regression}
+
+# Baseline model
+m0 <- glm(hired ~ 1, family = binomial, data = df)
+
+# Score only
+m1 <- glm(hired ~ score, family = binomial, data = df)
+
+# Score and recruiter
+m2 <- glm(hired ~ score + rec_id, family = binomial, data = df)
+
+# Score, recruiter, and source
+m3 <- glm(hired ~ score + rec_id + source, family = binomial, data = df)
+
+# Full model
+m4 <- glm(hired ~ score + rec_id + source + job_role,
+          family = binomial, data = df)
+
+# Variance explained
+r2_m0 <- r2_nagelkerke(m0)
+r2_m1 <- r2_nagelkerke(m1)
+r2_m2 <- r2_nagelkerke(m2)
+r2_m3 <- r2_nagelkerke(m3)
+r2_m4 <- r2_nagelkerke(m4)
+
+# Difference in variance explained
+delta_score     <- r2_m1 - r2_m0
+delta_recruiter <- r2_m2 - r2_m1
+delta_source    <- r2_m3 - r2_m2
+delta_role      <- r2_m4 - r2_m3
+
+# Likelihood ratio tests
+lrt_01 <- anova(m0, m1, test = "Chisq")  # Score
+lrt_12 <- anova(m1, m2, test = "Chisq")  # Recruiter
+lrt_23 <- anova(m2, m3, test = "Chisq")  # Source
+lrt_34 <- anova(m3, m4, test = "Chisq")  # Job Role
+
+#
+get_lrt <- function(lrt_obj) {
+  tibble(`Chi-square` = round(lrt_obj$Deviance[2], 3),
+         df = lrt_obj$Df[2],
+         `P-value`   = round(lrt_obj$`Pr(>Chi)`[2], 4))
+}
+
+lrt_score <- get_lrt(lrt_01)
+lrt_recruiter <- get_lrt(lrt_12)
+lrt_source <- get_lrt(lrt_23)
+lrt_role <- get_lrt(lrt_34)
+
+
+# Final table
+tbl_hierarchical <- tibble(
+  Step = c("Score", "Recruiter", "Source", "Job Role"),
+  `Model R²` = c(
+    round(r2_m1, 3),
+    round(r2_m2, 3),
+    round(r2_m3, 3),
+    round(r2_m4, 3)
+  ),
+  `ΔR²` = c(
+    round(delta_score, 3),
+    round(delta_recruiter, 3),
+    round(delta_source, 3),
+    round(delta_role, 3)
+  ),
+  `Δχ²` = c(
+    lrt_score$`Chi-square`,
+    lrt_recruiter$`Chi-square`,
+    lrt_source$`Chi-square`,
+    lrt_role$`Chi-square`
+  ),
+  `df` = c(
+    lrt_score$df,
+    lrt_recruiter$df,
+    lrt_source$df,
+    lrt_role$df
+  ),
+  `P-value` = c(
+    lrt_score$`P-value`,
+    lrt_recruiter$`P-value`,
+    lrt_source$`P-value`,
+    lrt_role$`P-value`
+  )
+)
+
+# Printing table
+kable(tbl_hierarchical, caption = "Hierarchical Logistic Regression", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+The hierarchical model shows that assessment score is the strongest single predictor, explaining 7.7% of the variance in hiring outcomes. Adding recruiter identity provides a further 2.5% improvement, indicating meaningful differences in recruiter effectiveness. Source contributes an additional 0.8%, a smaller but still statistically significant improvement. Job role adds very little and is not significant, suggesting that roles differ in volume but not in their ability to predict hiring. Overall, most of the model's explanatory power comes from candidate score and recruiter effects.
+
+#### Decision Tree
+To explore potential nonlinear relationships and interaction effects that logistic regression may not capture, I fit a decision tree model to predict hiring outcomes. Decision trees split the data into progressively more homogeneous groups based on predictor variables, providing an intuitive, visual representation of how different factors combine to influence hiring decisions. This approach helps identify the key variables driving the model's decisions and highlights any threshold effects in candidate score or differences across recruiters, sources, or roles.
+
+```{r predictive-modelling-set-up}
+
+# Adding numerical variable
+df <- df %>%
+  mutate(hired_num = as.numeric(hired), 
+         hired_num = ifelse(hired_num >= 1, 1, 0))
+
+# Adding factor variable
+df <- df %>%
+  mutate(
+    hired_factor = factor(
+      hired_num,
+      levels = c(0, 1),
+      labels = c("Not hired", "Hired")
+    )
+  )
+
+
+```
+
+```{r decision-tree, fig.width=12, fig.height=9}
+
+# Train/Test split
+set.seed(123)
+
+train_index <- sample(seq_len(nrow(df)), size = 0.7 * nrow(df))
+df_train <- df[train_index, ]
+df_test <- df[-train_index, ]
+
+# Tree model
+tree_model <- rpart(
+  hired_factor ~ score + rec_id + source + job_role,
+  data = df_train,
+  method = "class",
+  control = rpart.control(cp = 0.001)
+)
+
+# Plotting tree
+rpart.plot(
+tree_model,
+type = 2,
+extra = 104,
+under = TRUE,
+faclen = 0,
+cex = 0.7,
+main = "Decision Tree for Hiring Prediction"
+)
+
+```
+
+The decision tree shows that candidate score is the primary driver of hiring predictions. The very first split occurs at a score of 71, indicating that candidates scoring below this threshold are overwhelmingly predicted not to be hired. This aligns with earlier findings that score is the strongest predictor of hiring outcomes.
+
+Among higher-scoring candidates, the next important factor is recruiter. Candidates scoring 71 or above but handled by R2, R4, or R5 are generally less likely to be hired than those handled by R1 or R3. This reflects the recruiter differences observed in the logistic regression models.
+
+Within these subsets, the model uses additional score thresholds and job role to refine classifications. For instance, among higher-scoring candidates assigned to stronger-performing recruiters (such as R1 and R3), another key split occurs around a score of 87, where only the highest-scoring candidates are predicted to be hired. Job role plays a smaller but still visible role, appearing only in downstream splits when the model fine-tunes predictions for borderline cases.
+
+Notably, only a few terminal nodes predict “Hired,” which reflects the low base rate of hiring in the dataset. The tree shows that being hired typically requires meeting multiple favourable conditions: a sufficiently high score, being handled by certain recruiters, and in some paths belonging to certain roles.
+
+Overall, the tree confirms three patterns:
+Score is by far the most influential variable, with clear threshold effects.
+* Recruiter differences matter, consistent with earlier regression findings.
+* Job role contributes modestly, mostly as a fine adjustment after score and recruiter effects have been accounted for.
+* This provides a visual summary of how the model combines these factors to classify hiring outcomes.
+
+To better understand how the Decision Tree makes its classifications, we examine the variable importance measures generated by the model. In a decision tree, importance reflects how much each predictor contributes to reducing impurity (e.g., Gini impurity) across the splits where it is used. Variables that produce larger reductions in impurity, especially near the top of the tree, are considered more influential in determining candidate progression or hiring outcomes.
+
+Assessing variable importance helps clarify not only which factors the model prioritises when forming decisions, but also whether these align with operational expectations. This provides an interpretable link between the model structure and the underlying drivers shaping recruitment outcomes.
+
+```{r variable-importance}
+
+# Variable importance
+tree_varimp <- tree_model$variable.importance %>%
+  as.data.frame() %>%
+  rownames_to_column("Predictor") %>%
+  rename(Overall = 2) %>%
+  arrange(desc(Overall)) %>%
+  mutate(Overall = round(Overall, 3))
+
+# Printing table
+kable(
+tree_varimp,
+caption = "Decision Tree Variable Importance",
+align = "c"
+) %>%
+kable_styling(
+bootstrap_options = c("striped", "bordered"),
+position = "left"
+)
+
+
+```
+
+The Decision Tree indicates that score is by far the most influential predictor in determining progression or hiring outcomes. With an importance value of 15.600, it contributes the greatest reduction in impurity across the tree’s splits, meaning candidate scores are the primary factor driving the model’s decisions.
+
+```{r confusion-matrix}
+
+# Predictions on test set
+tree_pred_prob <- predict(tree_model, df_test, type = "prob")[,2]
+tree_pred_class <- ifelse(tree_pred_prob > 0.5, 1, 0)
+
+
+# Confusion matrix
+conf_mat_tree <- table(
+Actual = df_test$hired,
+Predicted = tree_pred_class
+)
+
+```
+
+#### Random Forest
+To complement the decision tree and obtain a more robust estimate of variable importance, I also fit a random forest model. Random forests average predictions over many decision trees built on bootstrapped samples, which reduces overfitting and provides more stable importance rankings. This method captures nonlinear relationships and interactions while offering a clearer view of which predictors consistently contribute to accurate hiring predictions.
+
+```{r random-forest-model}
+
+# Fit Random Forest
+rf_model <- ranger(
+  formula = hired_factor ~ score + rec_id + source + job_role,
+  data = df_train,
+  probability = TRUE,
+  importance = "impurity",
+  num.trees = 500
+)
+
+```
+
+```{r random-forest-variable-importance}
+
+# Variable importance
+rf_varimp <- as.data.frame(rf_model$variable.importance) %>%
+  rownames_to_column("Predictor") %>%
+  rename(Importance = 2) %>%
+  arrange(desc(Importance)) %>%
+  mutate(Importance = round(Importance, 3))
+
+kable(rf_varimp, caption = "Random Forest Variable Importance", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+The random forest results again highlight assessment score as the dominant predictor, with an importance value far exceeding the other variables. Recruiter and job role follow at a much lower level, contributing moderate predictive value, while source ranks lowest with relatively limited influence.
+
+```{r random-forest-confusion-matrix}
+
+# Predict class probabilities
+rf_pred_prob <- predict(rf_model, df_test)$predictions[,2]
+
+# Convert to class labels
+rf_pred_class <- ifelse(rf_pred_prob > 0.5, 1, 0)
+
+conf_mat_rf <- table(
+  Actual = df_test$hired,
+  Predicted = rf_pred_class
+)
+
+```
+
+```{r random-forest-partial-depedency-plot}
+
+# Function for PDP
+partial_df <- function(model, pred.var, data, gridsize = 50) {
+  partial(
+    object = model,
+    pred.var = pred.var,
+    train = data,
+    type = "classification",
+    prob = TRUE,
+    which.class = "Hired",
+    gridsize = gridsize,
+    plot = FALSE
+  )
+}
+
+# Compute PDP
+pdp_score <- partial_df(
+  model = rf_model,
+  pred.var = "score",
+  data = df_train,
+  gridsize = 50
+)
+
+# Plot
+ggplot(pdp_score, aes(x = score, y = yhat)) +
+  geom_line(color = economist_pal()(9)[3], linewidth = 1.2) +
+  geom_point(size = 1.5) +
+  scale_y_continuous(labels = percent_format(accuracy = 1), limits = c(0, 0.30), expand = expansion(mult = c(0, 0.02))) +
+  labs(title = "Partial Dependence Plot: Score", x = "Candidate Score", y = "Predicted Hire Probability")
+
+```
+
+Partial dependence plots show how a single predictor influences model predictions while averaging over all other variables in the dataset. In this analysis, I computed the partial dependence of assessment score using the trained random forest model. This was done by generating a grid of score values, repeatedly predicting hiring probability while holding rec_id, source, and job_role at their observed values, and then averaging the predicted probabilities at each score level. This approach isolates the model’s marginal effect of score on hiring likelihood, independent of other factors.
+
+The resulting plot indicates that score has a generally positive relationship with predicted hire probability, although the increase is not perfectly smooth. Random forests model effects using threshold-based splits, so partial dependence often displays small fluctuations rather than a monotonic curve. Despite these local variations, the overall pattern is clear: predicted probabilities remain low and flat at the lower end of the score range, begin to rise from around the mid-60s, and reach their highest levels for candidates scoring above 85. This reinforces that score is the model’s strongest predictor of hiring outcomes, even though the effect is expressed in a step-wise rather than linear form.
+
+#### Model Comparison
+To evaluate the predictive performance of the two machine learning models used in this analysis, I compare their classification accuracy on the same held-out test set. The goal is not to determine an absolute “best” model, but to assess whether the more complex random forest meaningfully improves predictive accuracy over the simpler decision tree. This comparison provides a practical check on whether increased model complexity results in better generalisation and helps guide which model is more suitable for interpreting hiring outcomes in this dataset.
+
+```{r model-comparisons}
+
+# Tree model accuracy
+tree_accuracy <- sum(diag(conf_mat_tree)) / sum(conf_mat_tree)
+
+# Table
+tbl_tree_accuracy <- tibble(
+Model = "Decision Tree",
+Accuracy = round(tree_accuracy, 3)
+)
+
+# Random forest accuracy
+rf_accuracy <- sum(diag(conf_mat_rf)) / sum(conf_mat_rf)
+
+# Table
+tbl_rf_accuracy <- tibble(
+  Model = "Random Forest",
+  Accuracy = round(rf_accuracy, 3)
+)
+
+# Combining tables
+tbl_model_accuracy <- rbind(tbl_tree_accuracy, tbl_rf_accuracy)
+
+# Printing tables
+kable(tbl_model_accuracy, caption = "Model Comparison, Predictive Accuracy (Test Set)", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered"), position = "left")
+
+```
+
+The results show that both models achieve high accuracy, with the decision tree correctly predicting 91.6 percent of hiring outcomes and the random forest improving slightly to 92.7 percent. The difference is small, but the random forest performs better, reflecting its ability to capture more nuanced patterns by averaging across many trees. In practice, this suggests that while the decision tree provides clearer interpretability, the random forest offers marginally stronger predictive power. Both models perform well overall, indicating that the key predictors identified earlier meaningfully explain hiring outcomes.
 
 ## Summary
+This analysis examined every stage of the recruitment funnel to identify where candidates were most likely to drop out and which factors most strongly influenced hiring outcomes. Assessment scores emerged as a meaningful predictor of progression, while recruiter differences and applicant source played significant roles in shaping hiring probabilities. Job role, in contrast, explained relatively little variation. The hierarchical logistic regression quantified these contributions, showing that score and recruiter effects accounted for most of the explained variance. Predictive modelling using decision trees and random forests confirmed these findings, with both models performing well and the random forest offering slightly higher accuracy. Taken together, the results provide a coherent picture of a selection process driven primarily by candidate quality and recruiter effectiveness, moderated by differences in applicant source.
