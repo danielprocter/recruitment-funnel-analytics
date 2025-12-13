@@ -2,7 +2,7 @@
 
 This project simulates a dataset of **2,500 job applicants** progressing through a recruitment funnel:
 
-**Application ??? Screening ??? Interview ??? Offer ??? Hired**
+**Application to Screening to Interview to Offer to Hired**
 
 The project includes data simulation, exploratory analysis, and predictive modelling of hiring outcomes.
 
