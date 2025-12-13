@@ -1,18 +1,43 @@
 # Recruitment Funnel Analytics (Simulated Data)
 
-This project generates a synthetic dataset of 2,500 job applicants moving through a recruitment funnel (Application → Screening → Interview → Offer → Hired).
+This project simulates a dataset of **2,500 job applicants** progressing through a recruitment funnel:
 
-- **Script**: `R/01_simulate_funnel.R`  
-- **Dataset**: `data/simulated_funnel_data.csv`  
+**Application ??? Screening ??? Interview ??? Offer ??? Hired**
 
-### Purpose
-To provide a clean, realistic dataset for practicing recruitment funnel analysis, including:
-- Funnel drop-off rates
-- Recruiter performance differences
-- Source quality comparisons
-- Impact of candidate test scores on outcomes
+The project includes data simulation, exploratory analysis, and predictive modelling of hiring outcomes.
 
-### How to use
-1. Run `R/01_simulate_funnel.R` to regenerate the dataset.  
-2. Or use the already generated dataset in `data/simulated_funnel_data.csv`.  
-3. View the analysis in the **report** folder — open `report/report.html` in your browser.
+---
+
+## Project Structure
+
+- **Simulation script**  
+  `R/simulate.R`
+
+- **Analytical report (source)**  
+  `R/report.Rmd`
+
+- **Rendered report (local)**  
+  `report/report.html`
+
+- **Rendered report (GitHub Pages)**  
+  `docs/report.html`
+
+---
+
+## Purpose
+
+To provide a realistic, end-to-end example of recruitment funnel analytics, including:
+
+- Funnel drop-off rates across stages  
+- Recruiter-level performance differences  
+- Role, location, and source comparisons  
+- Impact of candidate test scores on progression and hiring  
+- Predictive modelling (logistic regression, decision tree, random forest)
+
+---
+
+## How to Use
+
+1. **Regenerate the simulated data**
+   ```r
+   source("R/simulate.R")
