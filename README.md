@@ -1,3 +1,6 @@
+**Live report:**  
+https://danielprocter.github.io/recruitment-funnel-analytics/
+
 # Recruitment Funnel Analytics (Simulated Data)
 
 This project simulates a dataset of **2,500 job applicants** progressing through a recruitment funnel:
